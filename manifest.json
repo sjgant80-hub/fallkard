@@ -650,6 +650,17 @@
       "atk": 5,
       "hp": 6,
       "cost": 6
+    },
+    "wishwood-upkeep": {
+      "name": "Wishwood Upkeep",
+      "atk": 3,
+      "hp": 12,
+      "cost": 6,
+      "keywords": [
+        "Sovereign",
+        "Shard"
+      ],
+      "flavour": "Refolded from the reserve. glamping."
     }
   }
 }

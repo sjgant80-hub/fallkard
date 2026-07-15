@@ -1,10 +1,10 @@
 {
   "generated": "2026-07-10",
-  "total": 1212,
-  "seal": "sha256:4bc5e65a36d0861ee250f71f974ce15ef80bf3875c5e3d77b4a89a0655c30abc",
+  "total": 1213,
+  "seal": "sha256:66652fb7fb14ca6e2007f6159ee659220c31f53955eb8e0ccb0a25627088c761",
   "rarityDistribution": {
     "rare": 325,
-    "magic": 877,
+    "magic": 878,
     "uber-unique": 10
   },
   "chamberDistribution": {
@@ -16,13 +16,13 @@
     "vault": 29,
     "studio": 27,
     "reach": 21,
-    "market": 203
+    "market": 204
   },
   "kindDistribution": {
     "mcp": 302,
     "api": 304,
     "sdk": 304,
-    "tool": 286,
+    "tool": 287,
     "wellness": 3,
     "surface": 13
   },
