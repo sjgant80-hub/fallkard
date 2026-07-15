@@ -1,0 +1,249 @@
+{
+  "generated": "2026-07-12",
+  "config": {
+    "players": 28,
+    "tiers": 4,
+    "base": 10,
+    "house": 0.1,
+    "reward": 15
+  },
+  "genesisPool": 840,
+  "ladderEmitted": 3780,
+  "totalStaked": 8400,
+  "tiers": [
+    {
+      "tier": 0,
+      "stake": 10,
+      "members": 7,
+      "meanSkill": 0.165,
+      "meanNet": -12
+    },
+    {
+      "tier": 1,
+      "stake": 20,
+      "members": 7,
+      "meanSkill": 0.389,
+      "meanNet": 66
+    },
+    {
+      "tier": 2,
+      "stake": 30,
+      "members": 7,
+      "meanSkill": 0.62,
+      "meanNet": 144
+    },
+    {
+      "tier": 3,
+      "stake": 40,
+      "members": 7,
+      "meanSkill": 0.825,
+      "meanNet": 222
+    }
+  ],
+  "bestResponse": [
+    {
+      "probe": "Ash-7",
+      "skill": 0.13,
+      "skillTier": 0,
+      "bestTier": 0,
+      "perTierEV": [
+        {
+          "tier": 0,
+          "ev": 0.5,
+          "winRate": 0.583
+        },
+        {
+          "tier": 1,
+          "ev": -20,
+          "winRate": 0
+        },
+        {
+          "tier": 2,
+          "ev": -30,
+          "winRate": 0
+        },
+        {
+          "tier": 3,
+          "ev": -40,
+          "winRate": 0
+        }
+      ]
+    },
+    {
+      "probe": "Swarm-i",
+      "skill": 0.389,
+      "skillTier": 1,
+      "bestTier": 1,
+      "perTierEV": [
+        {
+          "tier": 0,
+          "ev": 8,
+          "winRate": 1
+        },
+        {
+          "tier": 1,
+          "ev": 9.75,
+          "winRate": 0.583
+        },
+        {
+          "tier": 2,
+          "ev": 0,
+          "winRate": 0.357
+        },
+        {
+          "tier": 3,
+          "ev": -40,
+          "winRate": 0
+        }
+      ]
+    },
+    {
+      "probe": "Corvid-h",
+      "skill": 0.63,
+      "skillTier": 2,
+      "bestTier": 1,
+      "perTierEV": [
+        {
+          "tier": 0,
+          "ev": 8,
+          "winRate": 1
+        },
+        {
+          "tier": 1,
+          "ev": 23.714,
+          "winRate": 0.857
+        },
+        {
+          "tier": 2,
+          "ev": 12,
+          "winRate": 0.5
+        },
+        {
+          "tier": 3,
+          "ev": -14.929,
+          "winRate": 0.214
+        }
+      ]
+    },
+    {
+      "probe": "Nyx-r",
+      "skill": 0.852,
+      "skillTier": 3,
+      "bestTier": 2,
+      "perTierEV": [
+        {
+          "tier": 0,
+          "ev": 8,
+          "winRate": 1
+        },
+        {
+          "tier": 1,
+          "ev": 31,
+          "winRate": 1
+        },
+        {
+          "tier": 2,
+          "ev": 36,
+          "winRate": 0.786
+        },
+        {
+          "tier": 3,
+          "ev": -1,
+          "winRate": 0.333
+        }
+      ]
+    }
+  ],
+  "leaderboard": [
+    {
+      "handle": "Rook-6",
+      "skill": 0.944,
+      "tier": 3,
+      "stake": 40,
+      "won": 10,
+      "net": 690
+    },
+    {
+      "handle": "Quill-9",
+      "skill": 0.833,
+      "tier": 3,
+      "stake": 40,
+      "won": 9,
+      "net": 573
+    },
+    {
+      "handle": "Corvid-0",
+      "skill": 0.685,
+      "tier": 2,
+      "stake": 30,
+      "won": 10,
+      "net": 480
+    },
+    {
+      "handle": "Rook-3",
+      "skill": 0.685,
+      "tier": 2,
+      "stake": 30,
+      "won": 7,
+      "net": 228
+    },
+    {
+      "handle": "Thane-o",
+      "skill": 0.546,
+      "tier": 2,
+      "stake": 30,
+      "won": 7,
+      "net": 228
+    },
+    {
+      "handle": "Thane-1",
+      "skill": 0.833,
+      "tier": 3,
+      "stake": 40,
+      "won": 6,
+      "net": 222
+    },
+    {
+      "handle": "Cinder-d",
+      "skill": 0.759,
+      "tier": 3,
+      "stake": 40,
+      "won": 6,
+      "net": 222
+    },
+    {
+      "handle": "Ash-c",
+      "skill": 0.481,
+      "tier": 1,
+      "stake": 20,
+      "won": 9,
+      "net": 219
+    },
+    {
+      "handle": "Swarm-i",
+      "skill": 0.389,
+      "tier": 1,
+      "stake": 20,
+      "won": 8,
+      "net": 168
+    },
+    {
+      "handle": "Fen-q",
+      "skill": 0.454,
+      "tier": 1,
+      "stake": 20,
+      "won": 8,
+      "net": 168
+    }
+  ],
+  "verdict": {
+    "optimalTierRisesWithSkill": true,
+    "selfSorts": true,
+    "cantBuyIntoHigherTier": true,
+    "weakestProbeTopTierEV": -40,
+    "skillPaysCorrelation": 0.543,
+    "bestTierOnBand": "2/4",
+    "genesisFunded": true,
+    "incentiveCompatible": true
+  }
+}

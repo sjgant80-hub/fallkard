@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>FallKard · the Bloodline · descendants pay upstream — provenance inverts scarcity</title>
+<meta name="description" content="A Seal is a wallet; you buy a fork-share — royalty-bearing equity on its descendant tree. As the bloodline forks downstream a fork-share APPRECIATES (and converges) where a copy-share would dilute to zero. Value flows up the lineage. Deterministic, demonstrated."/>
+<link rel="canonical" href="https://sjgant80-hub.github.io/fallkard/bloodline.html"/>
+<meta name="theme-color" content="#0b0a0f"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{--void:#0b0a0f;--shard:#141218;--shard2:#191720;--dim:#3d3a45;--muted:#8a857a;--text:#c4bfb2;--gold:#d4a017;--brass:#b8974a;--amber:#e8a83a;--rose:#e6846e;--sage:#7ab88a;--sap:#6aa0e0;--border:rgba(212,160,23,0.14);--hard:rgba(212,160,23,0.32);}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{background:var(--void);color:var(--text);font-family:'DM Sans',system-ui,sans-serif;}
+body{background:radial-gradient(ellipse at 22% 12%,rgba(212,160,23,0.06),transparent 60%),radial-gradient(ellipse at 82% 84%,rgba(122,184,138,0.05),transparent 60%),var(--void);min-height:100vh;padding-bottom:50px;}
+a{color:var(--brass);text-decoration:none;}
+.topbar{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:20px;padding:14px 24px;background:rgba(11,10,15,0.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);}
+.brand{display:flex;align-items:baseline;gap:10px;}
+.brand-mark{font-family:'DM Mono',monospace;font-size:20px;color:var(--gold);}
+.brand-name{font-family:'Libre Baskerville',serif;font-size:20px;font-weight:700;color:var(--text);}
+.tabs{display:flex;gap:4px;margin-left:24px;flex-wrap:wrap;}
+.tab{padding:8px 12px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);border:1px solid transparent;border-radius:4px;text-decoration:none;}
+.tab.active{color:var(--gold);border-color:var(--border);background:var(--shard);}
+.tab:hover{color:var(--text);}
+.wrap{max-width:1180px;margin:0 auto;padding:30px 26px;}
+.eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+h1{font-family:'Libre Baskerville',serif;font-size:40px;color:var(--text);margin-bottom:6px;letter-spacing:-0.015em;}
+h1 em{color:var(--gold);font-style:italic;}
+.lede{color:var(--muted);font-size:16px;line-height:1.6;max-width:820px;margin:12px 0 28px;}
+.panel{background:linear-gradient(180deg,var(--shard2),var(--shard));border:1px solid var(--border);border-radius:8px;padding:22px 24px;margin-bottom:20px;}
+.panel h2{font-family:'Libre Baskerville',serif;font-size:20px;color:var(--gold);margin-bottom:4px;}
+.panel .sub{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;}
+.grid2{display:grid;grid-template-columns:1.15fr 0.85fr;gap:20px;}
+@media(max-width:860px){.grid2{grid-template-columns:1fr;}}
+.verdict{display:flex;gap:14px;flex-wrap:wrap;}
+.vchip{padding:12px 16px;border:1px solid var(--border);border-radius:7px;background:var(--void);min-width:150px;}
+.vchip .vk{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);}
+.vchip .vv{font-family:'Libre Baskerville',serif;font-size:22px;margin-top:4px;}
+.vv.ok{color:var(--sage);}.vv.no{color:var(--rose);}.vv.gold{color:var(--gold);}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-family:'DM Mono',monospace;font-size:10.5px;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);margin-top:8px;}
+.legend b{display:inline-block;width:22px;height:3px;border-radius:2px;vertical-align:middle;margin-right:6px;}
+.founder{display:grid;grid-template-columns:150px 1fr 54px;gap:10px;align-items:center;margin-bottom:8px;}
+.founder .fn{font-family:'DM Mono',monospace;font-size:11px;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.founder .fg{color:var(--muted);}
+.fbar{height:11px;background:var(--void);border:1px solid var(--border);border-radius:5px;overflow:hidden;}
+.fbar>i{display:block;height:100%;background:linear-gradient(90deg,var(--brass),var(--gold));}
+.founder .fv{font-family:'DM Mono',monospace;font-size:11px;color:var(--gold);text-align:right;}
+.spine{display:flex;flex-direction:column;gap:0;margin-top:4px;}
+.snode{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;padding:7px 12px;border:1px solid var(--border);border-radius:6px;background:var(--void);position:relative;}
+.snode+.snode{margin-top:16px;}
+.snode+.snode::before{content:"↑ royalty";position:absolute;top:-15px;left:16px;font-family:'DM Mono',monospace;font-size:8.5px;color:var(--sage);letter-spacing:0.08em;}
+.snode .sh{font-family:'DM Mono',monospace;font-size:11px;color:var(--text);}
+.snode .sh small{color:var(--muted);}
+.snode .sp{font-family:'DM Mono',monospace;font-size:11px;color:var(--gold);}
+.snode.root{border-color:var(--gold);box-shadow:0 0 14px rgba(212,160,23,0.14);}
+.seals{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-top:4px;}
+.seal{border:1.5px solid var(--brass);border-radius:9px;background:linear-gradient(180deg,#1c1822,#12100a);padding:12px;}
+.seal .snm{font-family:'Libre Baskerville',serif;font-size:12.5px;color:var(--text);margin-bottom:6px;line-height:1.2;}
+.seal .row{display:flex;justify-content:space-between;font-family:'DM Mono',monospace;font-size:10.5px;color:var(--muted);margin-top:4px;}
+.seal .price{color:var(--gold);}
+.note{font-family:'DM Mono',monospace;font-size:10.5px;color:var(--dim);margin-top:10px;letter-spacing:0.04em;line-height:1.6;}
+.big{font-family:'Libre Baskerville',serif;font-size:15px;color:var(--text);line-height:1.6;}
+.footer{margin-top:40px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--dim);text-align:center;}
+.footer a{color:var(--brass);}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="brand"><span class="brand-mark">◊</span><span class="brand-name">FallKard</span></div>
+  <div class="tabs">
+    <a class="tab" href="index.html">Vault</a>
+    <a class="tab" href="loom.html">Loom</a>
+    <a class="tab" href="duel.html">Duel</a>
+    <a class="tab" href="campaign.html">Campaign</a>
+    <a class="tab" href="cube.html">Cube</a>
+    <a class="tab" href="coliseum.html">Coliseum</a>
+    <a class="tab" href="kono.html">$KONO</a>
+    <a class="tab" href="guild.html">Guild</a>
+    <a class="tab" href="govern.html">Assembly</a>
+    <a class="tab" href="arena.html">Arena</a>
+    <a class="tab" href="brain.html">Brain</a>
+    <a class="tab" href="clinic.html">Clinic</a>
+    <div class="tab active">Bloodline</div>
+    <a class="tab" href="herd.html">Herd</a>
+    <a class="tab" href="estate.html">Estate</a>
+    <a class="tab" href="charter.html">Charter</a>
+    <a class="tab" href="about.html">About</a>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="eyebrow">◊ the descendants economy · the fork-tree is the economic tree</div>
+  <h1>The <em>Bloodline</em>.<br>Descendants pay upstream — provenance inverts scarcity.</h1>
+  <p class="lede">A Seal is a wallet. You never buy the Seal — you buy a <b>fork-share</b>: royalty-bearing equity on its <b>descendant tree</b>. Every fork routes a discounted royalty back up its lineage, so a fork-share <b>appreciates as the bloodline forks downstream</b> — the exact opposite of a copy, which dilutes with every duplicate. The discount (0.618 per generation) makes deep descendants matter less and less, so an unbounded tree still prices to a <b>finite, convergent</b> number. The founder of a winning line is worth the most, because of its progeny. Value flows <b>up</b>.</p>
+
+  <div class="panel">
+    <h2>1 · The verdict</h2>
+    <div class="sub">deterministic · same seed → same tree · run it: <code>node arena/lifecycle.mjs</code></div>
+    <div class="verdict" id="verdict"></div>
+    <div class="note" id="vnote"></div>
+  </div>
+
+  <div class="grid2">
+    <div class="panel">
+      <h2>2 · The inversion</h2>
+      <div class="sub">as the top founder's bloodline forks · fork-share vs copy-share</div>
+      <svg id="chart" viewBox="0 0 480 260" style="width:100%;height:auto"></svg>
+      <div class="legend">
+        <span><b style="background:var(--sage)"></b>fork-share (appreciates → converges)</span>
+        <span><b style="background:var(--rose)"></b>copy-share (dilutes → 0)</span>
+      </div>
+    </div>
+    <div class="panel">
+      <h2>3 · Founders by bloodline value</h2>
+      <div class="sub">highest fork-share price · the origin captures the line</div>
+      <div id="founders"></div>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="panel">
+      <h2>4 · The deepest bloodline</h2>
+      <div class="sub">root → leaf · royalty flows UP each edge</div>
+      <div class="spine" id="spine"></div>
+    </div>
+    <div class="panel">
+      <h2>5 · Listed Seals</h2>
+      <div class="sub">matured, cast · fork-share price today</div>
+      <div class="seals" id="seals"></div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="big">You buy a bloodline position, not an artifact. The estate mints the breeding stock it is made of — and the earliest breeders of a winning line hold the deepest claim on it.</div>
+    <div class="note">Pricing: <code>Price = Σ over descendants ( share × 0.618^depth )</code> · a single lineage is bounded by <span id="bnd">2.618</span> (the sum converges). Royalty on a descendant's settlement pays <code>0.618^depth</code> up to each ancestor. This reads the same genealogy the <a href="arena.html">Arena</a> breeds and the <a href="clinic.html">Clinic</a> matures — the fork-tree was always in the data; here it earns.</div>
+  </div>
+
+  <div class="footer">◊ FallKard · the Bloodline · <a href="arena.html">Arena</a> · <a href="clinic.html">Clinic</a> · <a href="kono.html">$KONO</a> · <a href="/">home</a></div>
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+async function boot(){
+  const b = await fetch('bloodline.json').then(r=>r.json()).catch(()=>null);
+  if(!b){ $('#verdict').innerHTML='<div class="note">Run <code>node arena/lifecycle.mjs</code> to generate the bloodline.</div>'; return; }
+  const v = b.verdict;
+  $('#bnd').textContent = b.chainBound;
+
+  // 1 · verdict
+  const chips = [
+    ['provenance inverts scarcity', v.provenanceInvertsScarcity?'YES':'no', v.provenanceInvertsScarcity?'ok':'no'],
+    ['fork-share appreciates', v.forkShareAppreciates?'YES':'no', v.forkShareAppreciates?'ok':'no'],
+    ['ancestor mean price', v.ancestorMeanPrice, 'gold'],
+    ['leaf price', v.leafPrice, 'no'],
+    ['converges (≤ '+b.chainBound+')', v.convergesUnderBound?'YES':'no', v.convergesUnderBound?'ok':'no'],
+  ];
+  $('#verdict').innerHTML = chips.map(([k,val,cls])=>`<div class="vchip"><div class="vk">${k}</div><div class="vv ${cls}">${val}</div></div>`).join('');
+  const tf=b.topFounder;
+  $('#vnote').textContent = `The forest: ${b.forest.nodes} organisms, ${b.forest.roots} founding lines, ${b.forest.maxDepth} generations deep. Top founder ${tf.handle} (gen ${tf.gen}) carries ${tf.descendants} descendants and a fork-share price of ${tf.price} — while every leaf, having no progeny, prices 0. That is the inversion: value concentrates at provenance.`;
+
+  // 2 · the inversion chart — dual axis (fork left, copy right)
+  drawChart(tf.growth);
+
+  // 3 · founders
+  const maxF = Math.max(...b.founders.map(f=>f.price), 1);
+  $('#founders').innerHTML = b.founders.map(f=>`<div class="founder"><div class="fn">${f.handle} <span class="fg">g${f.gen}·${f.descendants}d</span></div><div class="fbar"><i style="width:${Math.round(f.price/maxF*100)}%"></i></div><div class="fv">${f.price}</div></div>`).join('');
+
+  // 4 · deepest bloodline (root at top → leaf at bottom)
+  $('#spine').innerHTML = b.spine.map((n,i)=>`<div class="snode ${i===0?'root':''}"><div class="sh">${n.handle} <small>· gen ${n.gen} · ${n.descendants}d</small></div><div class="sp">${n.price}</div></div>`).join('');
+
+  // 5 · listed seals
+  $('#seals').innerHTML = b.listed.length ? b.listed.map(s=>`<div class="seal"><div class="snm">${s.handle}</div><div class="row"><span>gen ${s.gen??'—'}</span><span>${s.descendants} desc</span></div><div class="row"><span>fork-share</span><span class="price">${s.price}</span></div></div>`).join('') : '<div class="note">No matured Seals listed this run.</div>';
+}
+
+function drawChart(growth){
+  const W=480,H=260,padL=40,padR=44,padT=14,padB=30;
+  const xs=growth.map(g=>g.depth);
+  const maxFork=Math.max(...growth.map(g=>g.forkSharePrice),1);
+  const maxCopy=Math.max(...growth.map(g=>g.copyShareValue),0.001);
+  const x=i=> padL + (i/(Math.max(1,growth.length-1)))*(W-padL-padR);
+  const yF=v=> padT + (1-v/(maxFork*1.05))*(H-padT-padB);
+  const yC=v=> padT + (1-v/(maxCopy*1.05))*(H-padT-padB);
+  let g='';
+  for(let k=0;k<=4;k++){const yy=padT+k/4*(H-padT-padB);
+    g+=`<line x1="${padL}" y1="${yy}" x2="${W-padR}" y2="${yy}" stroke="rgba(212,160,23,0.08)"/>`;
+    g+=`<text x="6" y="${yy+3}" fill="var(--sage)" font-size="9" font-family="DM Mono">${(maxFork*1.05*(1-k/4)).toFixed(1)}</text>`;
+    g+=`<text x="${W-padR+4}" y="${yy+3}" fill="var(--rose)" font-size="9" font-family="DM Mono">${(maxCopy*1.05*(1-k/4)).toFixed(2)}</text>`;
+  }
+  growth.forEach((gg,i)=> g+=`<text x="${x(i)}" y="${H-10}" fill="var(--dim)" font-size="9" font-family="DM Mono" text-anchor="middle">d${gg.depth}</text>`);
+  const pathF=growth.map((gg,i)=>`${i?'L':'M'}${x(i).toFixed(1)},${yF(gg.forkSharePrice).toFixed(1)}`).join(' ');
+  const pathC=growth.map((gg,i)=>`${i?'L':'M'}${x(i).toFixed(1)},${yC(gg.copyShareValue).toFixed(1)}`).join(' ');
+  g+=`<path d="${pathC}" fill="none" stroke="var(--rose)" stroke-width="2.2" opacity="0.85"/>`;
+  g+=`<path d="${pathF}" fill="none" stroke="var(--sage)" stroke-width="2.6"/>`;
+  growth.forEach((gg,i)=>{ g+=`<circle cx="${x(i)}" cy="${yF(gg.forkSharePrice)}" r="2.6" fill="var(--sage)"/>`; g+=`<circle cx="${x(i)}" cy="${yC(gg.copyShareValue)}" r="2.2" fill="var(--rose)"/>`; });
+  document.getElementById('chart').innerHTML=g;
+}
+boot();
+</script>
+  <script src="konomi-footer.js" defer></script>
+</body>
+</html>

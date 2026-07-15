@@ -1,0 +1,483 @@
+{
+  "generated": "2026-07-12",
+  "champion": "Bram-1×Bra-4s×Sab-5d~6t",
+  "config": {
+    "field": 12,
+    "steps": 50,
+    "lambda": 0.25
+  },
+  "corpusMatches": 1224,
+  "improvements": 2,
+  "base": {
+    "weights": {
+      "aggro": 1.0665627143347052,
+      "curve": 0.23766289437585736,
+      "hpBias": 0.4363575960219479,
+      "lanePref": 0.7036908436213991,
+      "valSealed": 0.6967185356652948,
+      "valFork": 1.2805212620027435,
+      "valMarket": 0.9617873371056243,
+      "chamberBias": {
+        "market": 0.479076646090535,
+        "vault": 0.21359203532235935,
+        "clinic": -0.29755229766803837,
+        "bridge": 0.25652542009602197
+      },
+      "kindBias": {
+        "surface": 0,
+        "wellness": 0,
+        "tool": -0.17285129458161866,
+        "mcp": 0.17295096021947876
+      }
+    },
+    "winRate": 0.833,
+    "shadow": 0.578,
+    "shadowAxis": "tunnel",
+    "coupling": -0.03,
+    "fitness": 0.6888
+  },
+  "trained": {
+    "weights": {
+      "aggro": 1.0665627143347052,
+      "curve": 0.23766289437585736,
+      "hpBias": 0.3129779663923183,
+      "lanePref": 0.7036908436213991,
+      "valSealed": 0.6967185356652948,
+      "valFork": 1.2805212620027435,
+      "valMarket": 0.8424792095336078,
+      "chamberBias": {
+        "market": 0.479076646090535,
+        "vault": 0.21359203532235935,
+        "clinic": -0.29755229766803837,
+        "bridge": 0.25652542009602197
+      },
+      "kindBias": {
+        "surface": 0,
+        "wellness": 0,
+        "tool": -0.17285129458161866,
+        "mcp": 0.17295096021947876
+      }
+    },
+    "winRate": 0.875,
+    "shadow": 0.585,
+    "shadowAxis": "tunnel",
+    "coupling": 0,
+    "fitness": 0.7288
+  },
+  "gain": {
+    "winRate": 0.042,
+    "shadowReduced": -0.007,
+    "fitness": 0.04
+  },
+  "trajectory": [
+    {
+      "step": 0,
+      "fitness": 0.6888,
+      "winRate": 0.833,
+      "shadow": 0.578,
+      "shadowAxis": "tunnel",
+      "coupling": -0.03
+    },
+    {
+      "step": 1,
+      "fitness": 0.6888,
+      "winRate": 0.833,
+      "shadow": 0.578,
+      "shadowAxis": "tunnel",
+      "coupling": -0.03
+    },
+    {
+      "step": 2,
+      "fitness": 0.7267,
+      "winRate": 0.875,
+      "shadow": 0.593,
+      "shadowAxis": "tunnel",
+      "coupling": 0.027
+    },
+    {
+      "step": 3,
+      "fitness": 0.7267,
+      "winRate": 0.875,
+      "shadow": 0.593,
+      "shadowAxis": "tunnel",
+      "coupling": 0.027
+    },
+    {
+      "step": 4,
+      "fitness": 0.7267,
+      "winRate": 0.875,
+      "shadow": 0.593,
+      "shadowAxis": "tunnel",
+      "coupling": 0.027
+    },
+    {
+      "step": 5,
+      "fitness": 0.7267,
+      "winRate": 0.875,
+      "shadow": 0.593,
+      "shadowAxis": "tunnel",
+      "coupling": 0.027
+    },
+    {
+      "step": 6,
+      "fitness": 0.7267,
+      "winRate": 0.875,
+      "shadow": 0.593,
+      "shadowAxis": "tunnel",
+      "coupling": 0.027
+    },
+    {
+      "step": 7,
+      "fitness": 0.7267,
+      "winRate": 0.875,
+      "shadow": 0.593,
+      "shadowAxis": "tunnel",
+      "coupling": 0.027
+    },
+    {
+      "step": 8,
+      "fitness": 0.7267,
+      "winRate": 0.875,
+      "shadow": 0.593,
+      "shadowAxis": "tunnel",
+      "coupling": 0.027
+    },
+    {
+      "step": 9,
+      "fitness": 0.7267,
+      "winRate": 0.875,
+      "shadow": 0.593,
+      "shadowAxis": "tunnel",
+      "coupling": 0.027
+    },
+    {
+      "step": 10,
+      "fitness": 0.7267,
+      "winRate": 0.875,
+      "shadow": 0.593,
+      "shadowAxis": "tunnel",
+      "coupling": 0.027
+    },
+    {
+      "step": 11,
+      "fitness": 0.7267,
+      "winRate": 0.875,
+      "shadow": 0.593,
+      "shadowAxis": "tunnel",
+      "coupling": 0.027
+    },
+    {
+      "step": 12,
+      "fitness": 0.7267,
+      "winRate": 0.875,
+      "shadow": 0.593,
+      "shadowAxis": "tunnel",
+      "coupling": 0.027
+    },
+    {
+      "step": 13,
+      "fitness": 0.7267,
+      "winRate": 0.875,
+      "shadow": 0.593,
+      "shadowAxis": "tunnel",
+      "coupling": 0.027
+    },
+    {
+      "step": 14,
+      "fitness": 0.7267,
+      "winRate": 0.875,
+      "shadow": 0.593,
+      "shadowAxis": "tunnel",
+      "coupling": 0.027
+    },
+    {
+      "step": 15,
+      "fitness": 0.7267,
+      "winRate": 0.875,
+      "shadow": 0.593,
+      "shadowAxis": "tunnel",
+      "coupling": 0.027
+    },
+    {
+      "step": 16,
+      "fitness": 0.7267,
+      "winRate": 0.875,
+      "shadow": 0.593,
+      "shadowAxis": "tunnel",
+      "coupling": 0.027
+    },
+    {
+      "step": 17,
+      "fitness": 0.7267,
+      "winRate": 0.875,
+      "shadow": 0.593,
+      "shadowAxis": "tunnel",
+      "coupling": 0.027
+    },
+    {
+      "step": 18,
+      "fitness": 0.7267,
+      "winRate": 0.875,
+      "shadow": 0.593,
+      "shadowAxis": "tunnel",
+      "coupling": 0.027
+    },
+    {
+      "step": 19,
+      "fitness": 0.7267,
+      "winRate": 0.875,
+      "shadow": 0.593,
+      "shadowAxis": "tunnel",
+      "coupling": 0.027
+    },
+    {
+      "step": 20,
+      "fitness": 0.7267,
+      "winRate": 0.875,
+      "shadow": 0.593,
+      "shadowAxis": "tunnel",
+      "coupling": 0.027
+    },
+    {
+      "step": 21,
+      "fitness": 0.7267,
+      "winRate": 0.875,
+      "shadow": 0.593,
+      "shadowAxis": "tunnel",
+      "coupling": 0.027
+    },
+    {
+      "step": 22,
+      "fitness": 0.7267,
+      "winRate": 0.875,
+      "shadow": 0.593,
+      "shadowAxis": "tunnel",
+      "coupling": 0.027
+    },
+    {
+      "step": 23,
+      "fitness": 0.7267,
+      "winRate": 0.875,
+      "shadow": 0.593,
+      "shadowAxis": "tunnel",
+      "coupling": 0.027
+    },
+    {
+      "step": 24,
+      "fitness": 0.7267,
+      "winRate": 0.875,
+      "shadow": 0.593,
+      "shadowAxis": "tunnel",
+      "coupling": 0.027
+    },
+    {
+      "step": 25,
+      "fitness": 0.7267,
+      "winRate": 0.875,
+      "shadow": 0.593,
+      "shadowAxis": "tunnel",
+      "coupling": 0.027
+    },
+    {
+      "step": 26,
+      "fitness": 0.7267,
+      "winRate": 0.875,
+      "shadow": 0.593,
+      "shadowAxis": "tunnel",
+      "coupling": 0.027
+    },
+    {
+      "step": 27,
+      "fitness": 0.7267,
+      "winRate": 0.875,
+      "shadow": 0.593,
+      "shadowAxis": "tunnel",
+      "coupling": 0.027
+    },
+    {
+      "step": 28,
+      "fitness": 0.7267,
+      "winRate": 0.875,
+      "shadow": 0.593,
+      "shadowAxis": "tunnel",
+      "coupling": 0.027
+    },
+    {
+      "step": 29,
+      "fitness": 0.7267,
+      "winRate": 0.875,
+      "shadow": 0.593,
+      "shadowAxis": "tunnel",
+      "coupling": 0.027
+    },
+    {
+      "step": 30,
+      "fitness": 0.7267,
+      "winRate": 0.875,
+      "shadow": 0.593,
+      "shadowAxis": "tunnel",
+      "coupling": 0.027
+    },
+    {
+      "step": 31,
+      "fitness": 0.7288,
+      "winRate": 0.875,
+      "shadow": 0.585,
+      "shadowAxis": "tunnel",
+      "coupling": 0
+    },
+    {
+      "step": 32,
+      "fitness": 0.7288,
+      "winRate": 0.875,
+      "shadow": 0.585,
+      "shadowAxis": "tunnel",
+      "coupling": 0
+    },
+    {
+      "step": 33,
+      "fitness": 0.7288,
+      "winRate": 0.875,
+      "shadow": 0.585,
+      "shadowAxis": "tunnel",
+      "coupling": 0
+    },
+    {
+      "step": 34,
+      "fitness": 0.7288,
+      "winRate": 0.875,
+      "shadow": 0.585,
+      "shadowAxis": "tunnel",
+      "coupling": 0
+    },
+    {
+      "step": 35,
+      "fitness": 0.7288,
+      "winRate": 0.875,
+      "shadow": 0.585,
+      "shadowAxis": "tunnel",
+      "coupling": 0
+    },
+    {
+      "step": 36,
+      "fitness": 0.7288,
+      "winRate": 0.875,
+      "shadow": 0.585,
+      "shadowAxis": "tunnel",
+      "coupling": 0
+    },
+    {
+      "step": 37,
+      "fitness": 0.7288,
+      "winRate": 0.875,
+      "shadow": 0.585,
+      "shadowAxis": "tunnel",
+      "coupling": 0
+    },
+    {
+      "step": 38,
+      "fitness": 0.7288,
+      "winRate": 0.875,
+      "shadow": 0.585,
+      "shadowAxis": "tunnel",
+      "coupling": 0
+    },
+    {
+      "step": 39,
+      "fitness": 0.7288,
+      "winRate": 0.875,
+      "shadow": 0.585,
+      "shadowAxis": "tunnel",
+      "coupling": 0
+    },
+    {
+      "step": 40,
+      "fitness": 0.7288,
+      "winRate": 0.875,
+      "shadow": 0.585,
+      "shadowAxis": "tunnel",
+      "coupling": 0
+    },
+    {
+      "step": 41,
+      "fitness": 0.7288,
+      "winRate": 0.875,
+      "shadow": 0.585,
+      "shadowAxis": "tunnel",
+      "coupling": 0
+    },
+    {
+      "step": 42,
+      "fitness": 0.7288,
+      "winRate": 0.875,
+      "shadow": 0.585,
+      "shadowAxis": "tunnel",
+      "coupling": 0
+    },
+    {
+      "step": 43,
+      "fitness": 0.7288,
+      "winRate": 0.875,
+      "shadow": 0.585,
+      "shadowAxis": "tunnel",
+      "coupling": 0
+    },
+    {
+      "step": 44,
+      "fitness": 0.7288,
+      "winRate": 0.875,
+      "shadow": 0.585,
+      "shadowAxis": "tunnel",
+      "coupling": 0
+    },
+    {
+      "step": 45,
+      "fitness": 0.7288,
+      "winRate": 0.875,
+      "shadow": 0.585,
+      "shadowAxis": "tunnel",
+      "coupling": 0
+    },
+    {
+      "step": 46,
+      "fitness": 0.7288,
+      "winRate": 0.875,
+      "shadow": 0.585,
+      "shadowAxis": "tunnel",
+      "coupling": 0
+    },
+    {
+      "step": 47,
+      "fitness": 0.7288,
+      "winRate": 0.875,
+      "shadow": 0.585,
+      "shadowAxis": "tunnel",
+      "coupling": 0
+    },
+    {
+      "step": 48,
+      "fitness": 0.7288,
+      "winRate": 0.875,
+      "shadow": 0.585,
+      "shadowAxis": "tunnel",
+      "coupling": 0
+    },
+    {
+      "step": 49,
+      "fitness": 0.7288,
+      "winRate": 0.875,
+      "shadow": 0.585,
+      "shadowAxis": "tunnel",
+      "coupling": 0
+    },
+    {
+      "step": 50,
+      "fitness": 0.7288,
+      "winRate": 0.875,
+      "shadow": 0.585,
+      "shadowAxis": "tunnel",
+      "coupling": 0
+    }
+  ],
+  "learned": true
+}

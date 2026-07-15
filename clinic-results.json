@@ -1,0 +1,337 @@
+{
+  "generated": "2026-07-12",
+  "config": {
+    "pop": 18,
+    "gens": 10,
+    "lambda": 0.25,
+    "seeds": 1
+  },
+  "tells": [
+    {
+      "tell": "hoard",
+      "means": "left mana unspent — sat on resources it could have deployed"
+    },
+    {
+      "tell": "blindspot",
+      "means": "held chambers it never played — dead weight in the body"
+    },
+    {
+      "tell": "loop",
+      "means": "replayed the same card back-to-back — stuck in a groove"
+    },
+    {
+      "tell": "freeze",
+      "means": "could act but passed the turn — hesitation"
+    },
+    {
+      "tell": "tunnel",
+      "means": "collapsed into a single chamber — no breadth"
+    },
+    {
+      "tell": "echo",
+      "means": "mirrored the opponent instead of running its own plan"
+    },
+    {
+      "tell": "miss",
+      "means": "had lethal on board and did not take it — failed to close"
+    }
+  ],
+  "arms": {
+    "therapy": [
+      {
+        "gen": 0,
+        "meanShadow": 0.5532,
+        "championHandle": "Rook-7",
+        "championShadow": "hoard",
+        "championShadowAmp": 0.425,
+        "championHeldShapes": 3,
+        "championCoupling": 0.062,
+        "championWinRate": 0.912,
+        "dominantTell": "tunnel",
+        "diversity": 18
+      },
+      {
+        "gen": 1,
+        "meanShadow": 0.4937,
+        "championHandle": "Rook-7",
+        "championShadow": "hoard",
+        "championShadowAmp": 0.46,
+        "championHeldShapes": 3,
+        "championCoupling": 0.044,
+        "championWinRate": 0.824,
+        "dominantTell": "tunnel",
+        "diversity": 11
+      },
+      {
+        "gen": 2,
+        "meanShadow": 0.4351,
+        "championHandle": "Rook-7",
+        "championShadow": "hoard",
+        "championShadowAmp": 0.47,
+        "championHeldShapes": 3,
+        "championCoupling": 0.032,
+        "championWinRate": 0.824,
+        "dominantTell": "blindspot",
+        "diversity": 9
+      },
+      {
+        "gen": 3,
+        "meanShadow": 0.3846,
+        "championHandle": "Fen-a×Fen-r×Roo-13~1a",
+        "championShadow": "hoard",
+        "championShadowAmp": 0.362,
+        "championHeldShapes": 4,
+        "championCoupling": 0.075,
+        "championWinRate": 0.647,
+        "dominantTell": "hoard",
+        "diversity": 8
+      },
+      {
+        "gen": 4,
+        "meanShadow": 0.4298,
+        "championHandle": "Loom-3×Roo-1h",
+        "championShadow": "hoard",
+        "championShadowAmp": 0.375,
+        "championHeldShapes": 4,
+        "championCoupling": 0.044,
+        "championWinRate": 0.735,
+        "dominantTell": "hoard",
+        "diversity": 10
+      },
+      {
+        "gen": 5,
+        "meanShadow": 0.4671,
+        "championHandle": "Fen-a×Fen-r×Roo-13×Fen-1g",
+        "championShadow": "hoard",
+        "championShadowAmp": 0.366,
+        "championHeldShapes": 4,
+        "championCoupling": 0.003,
+        "championWinRate": 0.647,
+        "dominantTell": "hoard",
+        "diversity": 13
+      },
+      {
+        "gen": 6,
+        "meanShadow": 0.4042,
+        "championHandle": "Fen-a×Fen-r×Roo-13×Fen-1g~21",
+        "championShadow": "hoard",
+        "championShadowAmp": 0.364,
+        "championHeldShapes": 5,
+        "championCoupling": 0.058,
+        "championWinRate": 0.706,
+        "dominantTell": "hoard",
+        "diversity": 11
+      },
+      {
+        "gen": 7,
+        "meanShadow": 0.3752,
+        "championHandle": "Fen-a×Fen-r×Roo-13×Fen-1g~2m",
+        "championShadow": "hoard",
+        "championShadowAmp": 0.323,
+        "championHeldShapes": 5,
+        "championCoupling": 0.024,
+        "championWinRate": 0.676,
+        "dominantTell": "hoard",
+        "diversity": 11
+      },
+      {
+        "gen": 8,
+        "meanShadow": 0.354,
+        "championHandle": "Fen-a×Fen-r×Roo-13×Fen-1g~2x",
+        "championShadow": "hoard",
+        "championShadowAmp": 0.365,
+        "championHeldShapes": 5,
+        "championCoupling": 0.069,
+        "championWinRate": 0.647,
+        "dominantTell": "hoard",
+        "diversity": 8
+      },
+      {
+        "gen": 9,
+        "meanShadow": 0.3698,
+        "championHandle": "Fen-a×Fen-r×Roo-13~2p",
+        "championShadow": "hoard",
+        "championShadowAmp": 0.34,
+        "championHeldShapes": 5,
+        "championCoupling": -0.038,
+        "championWinRate": 0.647,
+        "dominantTell": "hoard",
+        "diversity": 7
+      }
+    ],
+    "control": [
+      {
+        "gen": 0,
+        "meanShadow": 0.5532,
+        "championHandle": "Rook-7",
+        "championShadow": "hoard",
+        "championShadowAmp": 0.425,
+        "championHeldShapes": 3,
+        "championCoupling": 0.062,
+        "championWinRate": 0.912,
+        "dominantTell": "tunnel",
+        "diversity": 18
+      },
+      {
+        "gen": 1,
+        "meanShadow": 0.5039,
+        "championHandle": "Rook-7",
+        "championShadow": "hoard",
+        "championShadowAmp": 0.457,
+        "championHeldShapes": 3,
+        "championCoupling": -0.069,
+        "championWinRate": 0.853,
+        "dominantTell": "hoard",
+        "diversity": 10
+      },
+      {
+        "gen": 2,
+        "meanShadow": 0.41,
+        "championHandle": "Rook-7",
+        "championShadow": "hoard",
+        "championShadowAmp": 0.461,
+        "championHeldShapes": 3,
+        "championCoupling": -0.022,
+        "championWinRate": 0.706,
+        "dominantTell": "hoard",
+        "diversity": 8
+      },
+      {
+        "gen": 3,
+        "meanShadow": 0.4284,
+        "championHandle": "Rook-7",
+        "championShadow": "hoard",
+        "championShadowAmp": 0.465,
+        "championHeldShapes": 3,
+        "championCoupling": -0.056,
+        "championWinRate": 0.706,
+        "dominantTell": "hoard",
+        "diversity": 10
+      },
+      {
+        "gen": 4,
+        "meanShadow": 0.4904,
+        "championHandle": "Rook-f×Roo-3t~4e",
+        "championShadow": "hoard",
+        "championShadowAmp": 0.511,
+        "championHeldShapes": 4,
+        "championCoupling": -0.023,
+        "championWinRate": 0.647,
+        "dominantTell": "hoard",
+        "diversity": 12
+      },
+      {
+        "gen": 5,
+        "meanShadow": 0.5539,
+        "championHandle": "Rook-7",
+        "championShadow": "hoard",
+        "championShadowAmp": 0.485,
+        "championHeldShapes": 3,
+        "championCoupling": 0.048,
+        "championWinRate": 0.618,
+        "dominantTell": "hoard",
+        "diversity": 10
+      },
+      {
+        "gen": 6,
+        "meanShadow": 0.5419,
+        "championHandle": "Rook-7×Roo-4c~4k",
+        "championShadow": "hoard",
+        "championShadowAmp": 0.501,
+        "championHeldShapes": 5,
+        "championCoupling": 0,
+        "championWinRate": 0.662,
+        "dominantTell": "hoard",
+        "diversity": 9
+      },
+      {
+        "gen": 7,
+        "meanShadow": 0.5238,
+        "championHandle": "Rook-f×Roo-3t~4p",
+        "championShadow": "hoard",
+        "championShadowAmp": 0.527,
+        "championHeldShapes": 5,
+        "championCoupling": -0.014,
+        "championWinRate": 0.647,
+        "dominantTell": "hoard",
+        "diversity": 11
+      },
+      {
+        "gen": 8,
+        "meanShadow": 0.5453,
+        "championHandle": "Rook-f×Roo-3t~4p",
+        "championShadow": "hoard",
+        "championShadowAmp": 0.524,
+        "championHeldShapes": 5,
+        "championCoupling": 0.025,
+        "championWinRate": 0.676,
+        "dominantTell": "echo",
+        "diversity": 9
+      },
+      {
+        "gen": 9,
+        "meanShadow": 0.5118,
+        "championHandle": "Rook-f×Roo-3t~5e",
+        "championShadow": "hoard",
+        "championShadowAmp": 0.514,
+        "championHeldShapes": 5,
+        "championCoupling": -0.053,
+        "championWinRate": 0.647,
+        "dominantTell": "hoard",
+        "diversity": 7
+      }
+    ]
+  },
+  "seals": {
+    "count": 2,
+    "cast": [
+      {
+        "id": "seal-ee80cd2b34d5e",
+        "handle": "Fen-a×Fen-r×Roo-13×Fen-1g~21",
+        "minted": true,
+        "atk": 6,
+        "hp": 5,
+        "cost": 5,
+        "shadow": "hoard"
+      },
+      {
+        "id": "seal-ee80cd2b34d5e",
+        "handle": "Fen-a×Fen-r×Roo-13×Fen-1g~2m",
+        "minted": false,
+        "atk": 7,
+        "hp": 6,
+        "cost": 5,
+        "shadow": "hoard"
+      },
+      {
+        "id": "seal-ee80cd2b34d5e",
+        "handle": "Fen-a×Fen-r×Roo-13×Fen-1g~2x",
+        "minted": false,
+        "atk": 6,
+        "hp": 6,
+        "cost": 5,
+        "shadow": "hoard"
+      },
+      {
+        "id": "seal-c980ade740913",
+        "handle": "Fen-a×Fen-r×Roo-13~2p",
+        "minted": true,
+        "atk": 7,
+        "hp": 5,
+        "cost": 5,
+        "shadow": "hoard"
+      }
+    ],
+    "loop": {
+      "closed": true,
+      "id": "seal-ee80cd2b34d5e"
+    }
+  },
+  "verdict": {
+    "therapyShadowDecline": 0.1834,
+    "controlShadowDecline": 0.0414,
+    "therapyHeals": true,
+    "loopCloses": true,
+    "maturedSeals": 2
+  }
+}

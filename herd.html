@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>FallKard · the Herd · descendants wake and work — labour flows up the bloodline</title>
+<meta name="description" content="The ignition. Bred descendants wake as workers, bid on $KONO bounties per their specialisation, settle the winners, and route a bounded royalty UP the lineage — so a founder's wallet earns from its progeny's labour. The bloodline economy gets a revenue source: work. Deterministic."/>
+<link rel="canonical" href="https://sjgant80-hub.github.io/fallkard/herd.html"/>
+<meta name="theme-color" content="#0b0a0f"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{--void:#0b0a0f;--shard:#141218;--shard2:#191720;--dim:#3d3a45;--muted:#8a857a;--text:#c4bfb2;--gold:#d4a017;--brass:#b8974a;--amber:#e8a83a;--rose:#e6846e;--sage:#7ab88a;--sap:#6aa0e0;--border:rgba(212,160,23,0.14);}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{background:var(--void);color:var(--text);font-family:'DM Sans',system-ui,sans-serif;}
+body{background:radial-gradient(ellipse at 20% 12%,rgba(106,160,224,0.06),transparent 60%),radial-gradient(ellipse at 82% 84%,rgba(212,160,23,0.05),transparent 60%),var(--void);min-height:100vh;padding-bottom:50px;}
+a{color:var(--brass);text-decoration:none;}
+.topbar{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:20px;padding:14px 24px;background:rgba(11,10,15,0.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);}
+.brand{display:flex;align-items:baseline;gap:10px;}
+.brand-mark{font-family:'DM Mono',monospace;font-size:20px;color:var(--gold);}
+.brand-name{font-family:'Libre Baskerville',serif;font-size:20px;font-weight:700;color:var(--text);}
+.tabs{display:flex;gap:4px;margin-left:24px;flex-wrap:wrap;}
+.tab{padding:8px 12px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);border:1px solid transparent;border-radius:4px;text-decoration:none;}
+.tab.active{color:var(--gold);border-color:var(--border);background:var(--shard);}
+.tab:hover{color:var(--text);}
+.wrap{max-width:1180px;margin:0 auto;padding:30px 26px;}
+.eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--sap);margin-bottom:12px;}
+h1{font-family:'Libre Baskerville',serif;font-size:40px;color:var(--text);margin-bottom:6px;letter-spacing:-0.015em;}
+h1 em{color:var(--sap);font-style:italic;}
+.lede{color:var(--muted);font-size:16px;line-height:1.6;max-width:820px;margin:12px 0 28px;}
+.panel{background:linear-gradient(180deg,var(--shard2),var(--shard));border:1px solid var(--border);border-radius:8px;padding:22px 24px;margin-bottom:20px;}
+.panel h2{font-family:'Libre Baskerville',serif;font-size:20px;color:var(--gold);margin-bottom:4px;}
+.panel .sub{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;}
+.verdict{display:flex;gap:14px;flex-wrap:wrap;}
+.vchip{padding:12px 16px;border:1px solid var(--border);border-radius:7px;background:var(--void);min-width:140px;}
+.vchip .vk{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);}
+.vchip .vv{font-family:'Libre Baskerville',serif;font-size:22px;margin-top:4px;}
+.vv.ok{color:var(--sage);}.vv.gold{color:var(--gold);}.vv.sap{color:var(--sap);}
+.flow{display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center;margin:6px 0;}
+.fbox{flex:1;min-width:180px;text-align:center;padding:18px 16px;border:1.5px solid var(--border);border-radius:9px;background:var(--void);}
+.fbox .fv{font-family:'Libre Baskerville',serif;font-size:26px;color:var(--gold);}
+.fbox.up .fv{color:var(--sage);}
+.fbox .fk{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-top:6px;line-height:1.4;}
+.arrow{font-family:'DM Mono',monospace;font-size:22px;color:var(--sap);}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+@media(max-width:860px){.grid2{grid-template-columns:1fr;}.arrow{transform:rotate(90deg);}}
+table{width:100%;border-collapse:collapse;font-family:'DM Mono',monospace;font-size:11px;}
+th{text-align:left;color:var(--muted);font-weight:400;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;padding:6px 8px;border-bottom:1px solid var(--border);}
+td{padding:7px 8px;border-bottom:1px solid rgba(212,160,23,0.06);color:var(--text);}
+td.n{text-align:right;color:var(--gold);}
+td.s{color:var(--sage);text-align:right;}
+tr .mat{color:var(--sage);font-size:9px;}
+.rchart{display:flex;align-items:flex-end;gap:8px;height:120px;margin-top:6px;}
+.rcol{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;}
+.rbar{width:70%;background:linear-gradient(180deg,var(--sap),#3e6ba0);border-radius:3px 3px 0 0;min-height:3px;}
+.rcol .rl{font-family:'DM Mono',monospace;font-size:8.5px;color:var(--muted);margin-top:5px;}
+.note{font-family:'DM Mono',monospace;font-size:10.5px;color:var(--dim);margin-top:10px;letter-spacing:0.04em;line-height:1.6;}
+.big{font-family:'Libre Baskerville',serif;font-size:15px;color:var(--text);line-height:1.6;}
+.footer{margin-top:40px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--dim);text-align:center;}
+.footer a{color:var(--brass);}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="brand"><span class="brand-mark">◊</span><span class="brand-name">FallKard</span></div>
+  <div class="tabs">
+    <a class="tab" href="index.html">Vault</a>
+    <a class="tab" href="loom.html">Loom</a>
+    <a class="tab" href="duel.html">Duel</a>
+    <a class="tab" href="campaign.html">Campaign</a>
+    <a class="tab" href="cube.html">Cube</a>
+    <a class="tab" href="coliseum.html">Coliseum</a>
+    <a class="tab" href="kono.html">$KONO</a>
+    <a class="tab" href="guild.html">Guild</a>
+    <a class="tab" href="govern.html">Assembly</a>
+    <a class="tab" href="arena.html">Arena</a>
+    <a class="tab" href="brain.html">Brain</a>
+    <a class="tab" href="clinic.html">Clinic</a>
+    <a class="tab" href="bloodline.html">Bloodline</a>
+    <div class="tab active">Herd</div>
+    <a class="tab" href="estate.html">Estate</a>
+    <a class="tab" href="charter.html">Charter</a>
+    <a class="tab" href="about.html">About</a>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="eyebrow">◊ the ignition · descendants that earn · the swarm metabolises work</div>
+  <h1>The <em>Herd</em>.<br>Descendants wake and work — labour flows up the bloodline.</h1>
+  <p class="lede">The <a href="bloodline.html">Bloodline</a> <b>prices</b> descendants; the Herd makes them <b>earn</b>. Each bred descendant wakes as a worker whose behaviour is its policy — it bids on the $KONO bounties it is specialised for, delivers, and settles. Every settlement routes a bounded royalty <b>up the lineage</b>, so a founder's wallet earns from its progeny's labour even when the founder itself has stopped working (fork = wallet = identity — the position earns forever). This is the ignition wire: Arena breeds → Clinic matures → Bloodline prices → <b>Herd earns</b> → up the tree. The bloodline economy finally has a revenue source: work.</p>
+
+  <div class="panel">
+    <h2>1 · The herd at work</h2>
+    <div class="sub">deterministic · same seed → same ledger · run it: <code>node arena/herd.mjs</code></div>
+    <div class="verdict" id="verdict"></div>
+  </div>
+
+  <div class="panel">
+    <h2>2 · Labour flows up</h2>
+    <div class="sub">the herd's settlement · the bounded royalty minted up to founder wallets</div>
+    <div class="flow" id="flow"></div>
+    <div class="note" id="flownote"></div>
+  </div>
+
+  <div class="grid2">
+    <div class="panel">
+      <h2>3 · Top earners — the working descendants</h2>
+      <div class="sub">own work + royalty received = total take</div>
+      <table><thead><tr><th>worker</th><th>gen</th><th>won</th><th style="text-align:right">work</th><th style="text-align:right">total</th></tr></thead><tbody id="earners"></tbody></table>
+    </div>
+    <div class="panel">
+      <h2>4 · The fork-share dividend</h2>
+      <div class="sub">founder wallets earning from descendants' labour</div>
+      <table><thead><tr><th>founder wallet</th><th>gen</th><th style="text-align:right">royalty $KONO</th></tr></thead><tbody id="royalty"></tbody></table>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>5 · Settlement by round</h2>
+    <div class="sub">$KONO settled each round · workers active</div>
+    <div class="rchart" id="rchart"></div>
+  </div>
+
+  <div class="panel">
+    <div class="big">Buy a fork-share in a founder and you own a claim on every job its bloodline will ever work. The estate breeds the workers, prices their lineages, and pays the founders from the labour — one closed circuit, from a bred card to a settled wage.</div>
+    <div class="note">Worker execution plugs in behind <code>executeJob()</code> (a sovereign agent cascade / kcc-runner); here the runtime, the market, the auction and the settlement are real and deterministic. This is the engine the <b>fallswarm</b> cockpit fronts — consolidation, not a rebuild: it reads the same descendants the <a href="arena.html">Arena</a> breeds and the <a href="bloodline.html">Bloodline</a> prices.</div>
+  </div>
+
+  <div class="footer">◊ FallKard · the Herd · <a href="bloodline.html">Bloodline</a> · <a href="clinic.html">Clinic</a> · <a href="kono.html">$KONO</a> · <a href="/">home</a></div>
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+async function boot(){
+  const h = await fetch('herd-ledger.json').then(r=>r.json()).catch(()=>null);
+  if(!h){ $('#verdict').innerHTML='<div class="note">Run <code>node arena/lifecycle.mjs</code> then <code>node arena/herd.mjs</code> to generate the ledger.</div>'; return; }
+  const v = h.verdict;
+
+  // 1 · verdict
+  const chips = [
+    ['herd size', v.herdSize, 'sap'],
+    ['employed', v.workersEmployed, 'sage'],
+    ['$KONO settled', v.konoSettled, 'gold'],
+    ['routed up', Math.round(v.royaltyShareOfSettlement*100)+'%', 'sage'],
+    ['earnings flow up', v.earningsFlowUp?'YES':'no', v.earningsFlowUp?'ok':'no'],
+  ];
+  $('#verdict').innerHTML = chips.map(([k,val,cls])=>`<div class="vchip"><div class="vk">${k}</div><div class="vv ${cls==='ok'?'ok':cls}">${val}</div></div>`).join('');
+
+  // 2 · flow
+  $('#flow').innerHTML = `
+    <div class="fbox"><div class="fv">${v.konoSettled}</div><div class="fk">$KONO earned<br>by ${v.workersEmployed} working descendants</div></div>
+    <div class="arrow">▸ mints ▸</div>
+    <div class="fbox up"><div class="fv">+${v.royaltiesRouted}</div><div class="fk">minted UP the bloodline<br>to ${v.founderWalletsPaid} founder wallets</div></div>`;
+  $('#flownote').textContent = `${v.jobsFilled} bounties filled across ${h.rounds.length} rounds (cap ${h.config.capacity}/worker/round). For every $KONO a descendant settles, ${v.royaltyShareOfSettlement} $KONO is MINTED up the lineage (contribution mints value up the tree) — bounded, because the per-generation discount (0.618) makes distant ancestors' cut shrink. The founder never has to work again to keep earning.`;
+
+  // 3 · earners
+  $('#earners').innerHTML = h.topEarners.map(w=>`<tr><td>${w.handle}${w.matured?' <span class="mat">●</span>':''}</td><td>${w.gen}</td><td>${w.won}</td><td class="n">${w.earned}</td><td class="s">${w.total}</td></tr>`).join('');
+
+  // 4 · royalty
+  $('#royalty').innerHTML = h.topRoyalty.map(r=>`<tr><td>${r.handle}</td><td>${r.gen??'—'}</td><td class="n">${r.royaltyIncome}</td></tr>`).join('');
+
+  // 5 · round chart
+  const maxR = Math.max(...h.rounds.map(r=>r.settled),1);
+  $('#rchart').innerHTML = h.rounds.map(r=>`<div class="rcol"><div class="rbar" style="height:${Math.round(r.settled/maxR*100)}%"></div><div class="rl">r${r.round}<br>${r.workersActive}w</div></div>`).join('');
+}
+boot();
+</script>
+  <script src="konomi-footer.js" defer></script>
+</body>
+</html>

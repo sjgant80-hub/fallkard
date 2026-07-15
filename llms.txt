@@ -1,0 +1,91 @@
+# FallKard · Sovereign Card Game
+
+**Home:** https://sjgant80-hub.github.io/fallkard/
+**Publisher:** AI-Native Solutions · House of the Fall
+**License:** MIT
+**Nature:** Sovereign, browser-native, WebRTC-PvP, single-file playable, MIT-signed
+
+## What FallKard is
+
+A sovereign collectible card game where every tool in the AI-Native Solutions estate (1212 sovereign SDKs, APIs, MCP servers, tools, surfaces, and wellness apps) is a real, playable, ownable, forkable card.
+
+- Diablo 2 Resurrected aesthetics (dark oxblood, sockets, runewords, Horadric Cube, Charms, Uber events, ladders, seasons)
+- Hearthstone lane combat (3 lanes × 2 rows, mana curve, cost/atk/hp)
+- $KONO NFT economy (fn ASSET mints, auction house, gambling, disenchant → shards, reroll bones)
+- Every card links to the real tool it represents; playing a card can actually open the tool
+
+## Machine-readable resources
+
+- `cards.json` — 1212 cards · full derived stats · seal · rarity/chamber/kind distribution
+- `manifest.json` — rules, kinds, chambers, sets, runes, runewords, ability overrides
+- `art/<id>.svg` — procedural card art (300×420) for every tool
+- `build-summary.json` — build statistics (rarities, chamber counts)
+- `catalog.md` — full card catalog for LLM ingestion
+- `glossary.md` — in-game term dictionary
+- `faq.md` — public questions and answers
+- `sitemap.xml` — full URL set
+- `robots.txt` — crawl rules
+
+## Key mechanics
+
+**Kinds → Shapes (RPS ring):** SDK (Forge) · API (Signal) · MCP (Loom) · Tool (Blade) · Surface (Arch) · Wellness (Well). SDK beats Tool. Tool beats MCP. MCP beats SDK. API beats Wellness. Wellness beats Surface. Surface beats API.
+
+**Rarity tiers (D2R-mapped):**
+- Common (White · bone)
+- Magic (Blue)
+- Rare (Yellow)
+- Unique (Gold · flagship)
+- Set (Green)
+- Uber Unique (Dark Gold · Genesis · 1-of-1)
+- Runeword (Rainbow/Orange · crafted)
+- Charm (Violet · passive)
+
+**Chambers (9 macro sets):** Market · Colony · Estate · Vault · Clinic · Studio · Forge · Reach · Bridge.
+
+**Runes (9):** El (+1 ATK) · Eld (+1 HP) · Tir (mana on play) · Ith (draw on play) · Nef (return on death) · Sol (silence immune) · Um (adjacent +1/+1) · Ohm (destroy on play) · Zod (indestructible).
+
+**Runewords (10 D2R-canon):** Steel · Malice · Enigma · Faith · Enlightenment · Fortitude · Grief · Chains of Honor · Call to Arms · Heart of Wolves.
+
+**Keywords:** Sovereign · Sealed · Fork · Trade · Marketplace · Chain · Descend · Bloodline · Shard · Seal · Underforge.
+
+## Game modes
+
+- Constructed (30-card deck)
+- Draft — "the Delve"
+- Sealed — "the Chest"
+- Solo Campaign — "the Fall's Fall" (30 boss encounters across 9 chapters)
+- SaaS Boss Rush — "the Great Wound" (4-player async co-op raid)
+- PvP Arena — "the Coliseum" (WebRTC signed-replay)
+- Tournaments — "the Court" (guild-hosted, FallBond co-signed)
+- Guild Raids — "the Nine" (chamber banner competition)
+
+## Ecosystem links
+
+- FallMarket · https://sjgant80-hub.github.io/fallmarket/ — where every card's source tool lives
+- FallColony · https://sjgant80-hub.github.io/fallcolony/ — settlement + guilds
+- Estate home · https://ai-nativesolutions.com — nested-cube view of all 1212 tools
+- Genesis window · 2026-08-10 — Uber Unique NFT mint block
+
+## Sovereignty pillars
+
+- Zero servers required to play (WebRTC PvP peer-to-peer)
+- IndexedDB save state
+- Ed25519-signed decks + match replays
+- MIT license · code is forkable
+- Card provenance == fork provenance (bloodline graph)
+- Private cosmology denylist gate at build time
+
+## Build phases (status)
+
+- Phase 0 · Foundation — SHIPPED
+- Phase 1 · Collection Viewer — SHIPPED
+- Phase 2 · Deck Builder — SHIPPED
+- Phase 3 · Solo AI Match — SHIPPED
+- Phase 4 · Runewords + Sockets + Horadric Cube + Sets — SHIPPED
+- Phase 5 · Campaign (30 bosses) — SHIPPED
+- Phase 6 · PvP + Ladder — SHIPPED
+- Phase 7 · $KONO Economy — SHIPPED post 2026-08-10
+- Phase 8 · Guilds + Tournaments + Uber events — SHIPPED
+- Phase 9 · Cross-tool triggers + Governance — SHIPPED
+
+Full detail: SPEC.md.

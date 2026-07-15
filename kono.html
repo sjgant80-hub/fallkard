@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>FallKard · $KONO · Mint · Auction · Gambler</title>
+<meta name="description" content="Mint your card drops as sovereign NFT via fn ASSET. Auction to peers. Gamble shards for random drops. Fork your decks as bloodlines."/>
+<link rel="canonical" href="https://sjgant80-hub.github.io/fallkard/kono.html"/>
+<meta name="theme-color" content="#0b0a0f"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<script src="bosses.js"></script>
+<style>
+:root {
+  --void:#0b0a0f; --shard:#141218; --shard2:#191720; --dim:#3d3a45; --muted:#8a857a; --text:#c4bfb2;
+  --gold:#d4a017; --brass:#b8974a; --amber:#e8a83a; --rose:#e6846e; --sage:#7ab88a;
+  --ox:#8b1a1a; --sap:#4a7dc9; --jade:#3fa068; --plum:#9a6dbf;
+  --border:rgba(212,160,23,0.14); --hard:rgba(212,160,23,0.32);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--void); color: var(--text); font-family: 'DM Sans', system-ui, sans-serif; }
+body { background: radial-gradient(ellipse at 30% 20%, rgba(212,160,23,0.06), transparent 60%), var(--void); min-height: 100vh; padding-bottom: 40px; }
+a { color: var(--brass); text-decoration: none; }
+button { background: none; border: none; color: inherit; font: inherit; cursor: pointer; }
+
+.topbar { position: sticky; top: 0; z-index: 30; display: flex; align-items: center; gap: 20px; padding: 14px 24px; background: rgba(11,10,15,0.94); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
+.brand { display: flex; align-items: baseline; gap: 10px; }
+.brand-mark { font-family: 'DM Mono', monospace; font-size: 20px; color: var(--gold); }
+.brand-name { font-family: 'Libre Baskerville', serif; font-size: 20px; font-weight: 700; color: var(--text); }
+.tabs { display: flex; gap: 4px; margin-left: 24px; flex-wrap: wrap; }
+.tab { padding: 8px 12px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); border: 1px solid transparent; border-radius: 4px; text-decoration: none; }
+.tab.active { color: var(--gold); border-color: var(--border); background: var(--shard); }
+.tab:hover { color: var(--text); }
+.spacer { flex: 1; }
+.wallet-mini { display: flex; gap: 8px; align-items: center; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); }
+.wallet-mini b { color: var(--gold); font-weight: 700; }
+.wallet-mini .item { padding: 4px 8px; background: var(--shard); border: 1px solid var(--border); border-radius: 3px; letter-spacing: 0.06em; }
+
+.wrap { max-width: 1240px; margin: 0 auto; padding: 30px 26px; }
+.eyebrow { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+h1 { font-family: 'Libre Baskerville', serif; font-size: 40px; color: var(--text); margin-bottom: 6px; letter-spacing: -0.015em; }
+h1 em { color: var(--gold); font-style: italic; }
+.lede { color: var(--muted); font-size: 16px; line-height: 1.6; max-width: 720px; margin: 12px 0 26px; }
+
+.mode-tabs { display: flex; gap: 4px; margin-bottom: 24px; padding: 4px; background: var(--shard); border-radius: 6px; width: fit-content; flex-wrap: wrap; }
+.mode-tab { padding: 10px 20px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); cursor: pointer; border-radius: 4px; }
+.mode-tab.active { color: var(--void); background: var(--gold); font-weight: 700; }
+
+.panel { background: linear-gradient(180deg, var(--shard2), var(--shard)); border: 1px solid var(--border); border-radius: 8px; padding: 22px 26px; margin-bottom: 20px; }
+.panel h2 { font-family: 'Libre Baskerville', serif; font-size: 22px; color: var(--gold); margin-bottom: 6px; }
+.panel .sub { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+
+/* wallet header */
+.wallet-hero { display: grid; grid-template-columns: 220px 1fr; gap: 24px; align-items: center; padding: 22px 26px; background: linear-gradient(90deg, rgba(212,160,23,0.06), transparent); border-left: 3px solid var(--gold); border-radius: 4px; margin-bottom: 22px; }
+.wallet-hero .badge { text-align: center; padding: 16px; }
+.wallet-hero .badge .lbl { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+.wallet-hero .badge b { display: block; font-family: 'DM Mono', monospace; font-size: 42px; color: var(--gold); font-weight: 700; margin: 6px 0; letter-spacing: -0.01em; }
+.wallet-hero .badge span { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); }
+.wallet-detail { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 12px; }
+.wd-cell { padding: 12px 14px; background: var(--shard); border: 1px solid var(--border); border-radius: 5px; }
+.wd-cell b { display: block; font-family: 'DM Mono', monospace; font-size: 18px; color: var(--gold); font-weight: 700; }
+.wd-cell span { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+
+/* card grid */
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px; }
+.mint-card { position: relative; background: var(--shard); border-radius: 6px; overflow: hidden; border: 1px solid var(--border); transition: all 0.14s; }
+.mint-card:hover { transform: translateY(-2px); box-shadow: 0 6px 22px rgba(212,160,23,0.15); border-color: var(--gold); }
+.mint-card svg { width: 100%; display: block; pointer-events: none; }
+.mint-card.rar-uber-unique { animation: uber-pulse 2.6s ease-in-out infinite; }
+@keyframes uber-pulse { 0%,100%{box-shadow:0 0 10px rgba(230,132,110,0.4)}50%{box-shadow:0 0 20px rgba(230,132,110,0.65)} }
+.mint-card .stack-badge { position: absolute; top: 6px; right: 6px; background: rgba(11,10,15,0.9); border: 1px solid var(--gold); font-family: 'DM Mono', monospace; font-size: 10px; padding: 2px 6px; border-radius: 3px; color: var(--gold); }
+.mint-card .minted-badge { position: absolute; top: 6px; left: 6px; background: var(--sage); color: var(--void); font-family: 'DM Mono', monospace; font-size: 9px; padding: 2px 6px; border-radius: 3px; font-weight: 700; letter-spacing: 0.1em; }
+.mint-card .cta { padding: 10px 12px; border-top: 1px solid var(--border); display: flex; gap: 6px; }
+.mint-card .cta button { flex: 1; padding: 8px 6px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--gold); color: var(--void); border-radius: 3px; font-weight: 700; cursor: pointer; }
+.mint-card .cta button.list-btn { background: transparent; color: var(--muted); border: 1px solid var(--border); font-weight: 500; }
+.mint-card .cta button.list-btn:hover { color: var(--gold); border-color: var(--gold); }
+.mint-card .cta button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* auction listing */
+.listing { display: grid; grid-template-columns: 80px 1fr auto auto; gap: 14px; align-items: center; padding: 12px 16px; background: var(--shard); border: 1px solid var(--border); border-radius: 5px; margin-bottom: 8px; }
+.listing:hover { border-color: var(--gold); }
+.listing svg { width: 100%; display: block; border-radius: 3px; }
+.listing .info { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 0.06em; }
+.listing .info b { color: var(--text); font-family: 'Libre Baskerville', serif; font-size: 15px; font-weight: 700; display: block; margin-bottom: 3px; letter-spacing: -0.005em; }
+.listing .info .seller { color: var(--brass); font-size: 10px; letter-spacing: 0.08em; }
+.listing .price { font-family: 'DM Mono', monospace; font-size: 15px; color: var(--gold); font-weight: 700; letter-spacing: 0.06em; text-align: right; }
+.listing .price span { display: block; font-size: 9px; color: var(--muted); letter-spacing: 0.12em; margin-top: 2px; }
+.listing button.buy { padding: 10px 14px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; background: var(--gold); color: var(--void); border-radius: 3px; font-weight: 700; cursor: pointer; }
+.listing button.buy:disabled { background: var(--dim); color: var(--muted); cursor: not-allowed; }
+.listing button.mine { background: var(--rose); color: var(--void); }
+
+/* gambler */
+.gambler-panel { display: grid; grid-template-columns: 260px 1fr; gap: 26px; align-items: start; }
+@media (max-width: 720px) { .gambler-panel { grid-template-columns: 1fr; } }
+.gambler-controls { padding: 22px 26px; background: linear-gradient(180deg, var(--shard2), var(--shard)); border: 1px solid var(--border); border-radius: 8px; }
+.gambler-tier { display: block; width: 100%; padding: 12px 14px; margin: 6px 0; background: var(--void); border: 1px solid var(--border); border-radius: 5px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-align: left; cursor: pointer; transition: all 0.12s; }
+.gambler-tier:hover { border-color: var(--gold); color: var(--text); }
+.gambler-tier.active { border-color: var(--gold); background: rgba(212,160,23,0.06); color: var(--gold); }
+.gambler-tier .cost { float: right; color: var(--gold); font-weight: 700; }
+.gambler-tier .cost.short { color: var(--rose); }
+.gamble-btn { width: 100%; padding: 14px; font-family: 'DM Mono', monospace; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--void); background: var(--gold); border-radius: 5px; font-weight: 700; cursor: pointer; margin-top: 16px; transition: all 0.15s; }
+.gamble-btn:hover { background: var(--amber); }
+.gamble-btn:disabled { background: var(--dim); color: var(--muted); cursor: not-allowed; }
+.gamble-hist { max-height: 400px; overflow-y: auto; }
+.gamble-hist .row { display: grid; grid-template-columns: 70px 1fr auto; gap: 12px; align-items: center; padding: 8px 12px; margin-bottom: 6px; background: var(--shard); border: 1px solid var(--border); border-radius: 4px; }
+.gamble-hist .row svg { width: 100%; }
+.gamble-hist .row .info { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); }
+.gamble-hist .row .info b { color: var(--text); }
+.gamble-hist .row .info .r { color: var(--brass); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; }
+.gamble-hist .row .cost { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--gold); }
+
+/* deck-fork */
+.deck-forge { display: grid; gap: 12px; }
+.deck-row { padding: 12px 16px; background: var(--shard); border: 1px solid var(--border); border-radius: 5px; display: flex; align-items: center; gap: 14px; }
+.deck-row b { font-family: 'Libre Baskerville', serif; font-size: 15px; color: var(--gold); }
+.deck-row .m { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.14em; margin-left: 4px; }
+.deck-row .flex { flex: 1; }
+.deck-row button { padding: 8px 14px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; background: var(--gold); color: var(--void); border-radius: 3px; font-weight: 700; cursor: pointer; }
+.deck-row button.forked { background: var(--sage); cursor: default; }
+
+/* council */
+.council-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+.council-seat { padding: 14px 16px; background: var(--shard); border: 1px solid var(--brass); border-radius: 6px; text-align: center; position: relative; }
+.council-seat .num { position: absolute; top: 4px; left: 8px; font-family: 'DM Mono', monospace; font-size: 10px; color: var(--brass); letter-spacing: 0.14em; }
+.council-seat .glyph { font-family: 'DM Mono', monospace; font-size: 26px; color: var(--gold); margin: 10px 0 6px; }
+.council-seat b { font-family: 'Libre Baskerville', serif; font-size: 13px; color: var(--text); display: block; margin-bottom: 2px; }
+.council-seat .stakes { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.08em; }
+.council-seat button { margin-top: 10px; padding: 6px 12px; font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; background: var(--gold); color: var(--void); border-radius: 3px; font-weight: 700; cursor: pointer; }
+.council-seat button:disabled { background: var(--dim); color: var(--muted); cursor: not-allowed; }
+
+/* modal */
+.modal-veil { position: fixed; inset: 0; z-index: 100; background: rgba(11,10,15,0.9); backdrop-filter: blur(4px); display: none; align-items: center; justify-content: center; padding: 30px; }
+.modal-veil.open { display: flex; }
+.modal { max-width: 640px; width: 100%; background: linear-gradient(180deg, var(--shard2), var(--shard)); border: 2px solid var(--gold); border-radius: 10px; padding: 26px 30px; }
+.modal h2 { font-family: 'Libre Baskerville', serif; font-size: 26px; color: var(--gold); margin-bottom: 6px; }
+.modal .sub { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+.modal-actions { display: flex; gap: 10px; margin-top: 18px; }
+.action { padding: 10px 18px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; border: 1px solid var(--border); border-radius: 4px; color: var(--text); background: var(--shard); cursor: pointer; }
+.action.primary { background: var(--gold); color: var(--void); border-color: var(--gold); font-weight: 700; }
+.action:hover { border-color: var(--gold); color: var(--gold); }
+.action.primary:hover { background: var(--amber); color: var(--void); }
+.nft-detail { padding: 14px 16px; background: rgba(74,125,201,0.06); border-left: 3px solid var(--sap); border-radius: 3px; font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); word-break: break-all; letter-spacing: 0.04em; line-height: 1.65; margin-top: 12px; }
+.nft-detail b { color: var(--sap); font-weight: 700; }
+
+.hidden { display: none; }
+.empty-hint { padding: 40px 20px; text-align: center; color: var(--dim); font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.14em; }
+.empty-hint a { color: var(--brass); }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand"><span class="brand-mark">◊</span><span class="brand-name">FallKard</span></div>
+  <div class="tabs">
+    <a class="tab" href="index.html">Vault</a>
+    <a class="tab" href="loom.html">Loom</a>
+    <a class="tab" href="duel.html">Duel</a>
+    <a class="tab" href="campaign.html">Campaign</a>
+    <a class="tab" href="cube.html">Cube</a>
+    <a class="tab" href="coliseum.html">Coliseum</a>
+    <div class="tab active">$KONO</div>
+    <a class="tab" href="guild.html">Guild</a>
+    <a class="tab" href="govern.html">Assembly</a>
+    <a class="tab" href="arena.html">Arena</a>
+    <a class="tab" href="brain.html">Brain</a>
+    <a class="tab" href="clinic.html">Clinic</a>
+    <a class="tab" href="bloodline.html">Bloodline</a>
+    <a class="tab" href="herd.html">Herd</a>
+    <a class="tab" href="estate.html">Estate</a>
+    <a class="tab" href="charter.html">Charter</a>
+    <a class="tab" href="about.html">About</a>
+  </div>
+  <div class="spacer"></div>
+  <div class="wallet-mini">
+    <span class="item">◊ <b id="wm-shards">0</b> shards</span>
+    <span class="item">☨ <b id="wm-drops">0</b> drops</span>
+    <span class="item">◈ <b id="wm-minted">0</b> minted</span>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="eyebrow">◊ $KONO Economy · sovereign NFT · auction · gambler · council</div>
+  <h1>The <em>$KONO Ledger</em>.<br>Every fork · every card · a coin.</h1>
+  <p class="lede">Mint your card drops as sovereign fn ASSETs signed with your Ed25519 key. Auction to peers. Gamble shards for random tier drops. Fork saved decks into bloodline NFTs. Nominate cards for the Twelve Seats. All local · no server · no wallet lock-in.</p>
+
+  <div class="wallet-hero">
+    <div class="badge">
+      <div class="lbl">Public Key</div>
+      <b id="wh-pub-glyph">◊</b>
+      <span id="wh-pub-hex">generating…</span>
+    </div>
+    <div class="wallet-detail">
+      <div class="wd-cell"><b id="wh-shards">0</b><span>Shards</span></div>
+      <div class="wd-cell"><b id="wh-drops">0</b><span>Card Drops</span></div>
+      <div class="wd-cell"><b id="wh-minted">0</b><span>Minted NFT</span></div>
+      <div class="wd-cell"><b id="wh-decks">0</b><span>Forked Decks</span></div>
+      <div class="wd-cell"><b id="wh-charms">0</b><span>Charms</span></div>
+      <div class="wd-cell"><b id="wh-runes">0</b><span>Runes</span></div>
+    </div>
+  </div>
+
+  <div class="mode-tabs">
+    <div class="mode-tab active" data-mode="mint">◊ Mint</div>
+    <div class="mode-tab" data-mode="auction">◈ Auction House</div>
+    <div class="mode-tab" data-mode="gambler">☨ the Gambler</div>
+    <div class="mode-tab" data-mode="fork">⚹ Deck Fork</div>
+    <div class="mode-tab" data-mode="council">◇ Council of the Twelve</div>
+  </div>
+
+  <!-- ══════ MINT ══════ -->
+  <div class="panel" id="panel-mint">
+    <h2>Mint your card drops</h2>
+    <div class="sub">Each mint produces a signed fn ASSET · serial + seal + timestamp · locally sovereign now, on-substrate when your wallet lands</div>
+    <div class="card-grid" id="mint-grid"></div>
+    <div id="mint-empty" class="empty-hint hidden">◇ No card drops yet · fight <a href="campaign.html">the campaign</a> to earn cards</div>
+  </div>
+
+  <!-- ══════ AUCTION ══════ -->
+  <div class="panel hidden" id="panel-auction">
+    <h2>Auction House</h2>
+    <div class="sub">Peer listings · signed transfers · house cut 3% funds Genesis pool · yours in rose · others in gold</div>
+    <div style="margin-bottom:14px;display:flex;gap:8px;flex-wrap:wrap">
+      <button class="action" data-filter="all">All</button>
+      <button class="action" data-filter="mine">My Listings</button>
+      <button class="action" data-filter="rare">Rare+</button>
+      <button class="action" data-filter="unique">Unique+</button>
+    </div>
+    <div id="auction-list"></div>
+    <div id="auction-empty" class="empty-hint hidden">◇ No listings match · try another filter</div>
+  </div>
+
+  <!-- ══════ GAMBLER ══════ -->
+  <div class="panel hidden" id="panel-gambler">
+    <h2>the Gambler</h2>
+    <div class="sub">Spend shards · random card of the chosen rarity tier · odds published · deterministic RNG signed by house wallet</div>
+    <div class="gambler-panel">
+      <div class="gambler-controls">
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:0.16em;text-transform:uppercase;margin-bottom:8px">Pick your tier</div>
+        <button class="gambler-tier active" data-tier="magic" data-cost="8">Magic <span class="cost">8 ◊</span></button>
+        <button class="gambler-tier" data-tier="rare" data-cost="25">Rare <span class="cost">25 ◊</span></button>
+        <button class="gambler-tier" data-tier="unique" data-cost="80">Unique <span class="cost">80 ◊</span></button>
+        <button class="gambler-tier" data-tier="uber-unique" data-cost="300">Uber Unique <span class="cost">300 ◊</span></button>
+        <button class="gamble-btn" id="gamble-btn">◊ Roll</button>
+        <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--dim);margin-top:12px;letter-spacing:0.1em;line-height:1.55">Odds: 60% chosen tier · 30% one below · 8% one below that · 2% jackpot (one above)</div>
+      </div>
+      <div>
+        <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);padding-bottom:6px;border-bottom:1px solid var(--border);margin-bottom:12px">◊ Recent Rolls</div>
+        <div id="gamble-hist" class="gamble-hist"></div>
+        <div id="gamble-empty" class="empty-hint hidden">◇ No rolls yet · press ◊ Roll</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════ DECK FORK ══════ -->
+  <div class="panel hidden" id="panel-fork">
+    <h2>Deck Fork · Bloodline NFT</h2>
+    <div class="sub">Mint any saved deck as a forkable bloodline · children carry lineage · rare bloodlines rise on the ladder</div>
+    <div class="deck-forge" id="deck-forge-list"></div>
+    <div id="fork-empty" class="empty-hint hidden">◇ No saved decks · build one in <a href="loom.html">the Loom</a></div>
+  </div>
+
+  <!-- ══════ COUNCIL ══════ -->
+  <div class="panel hidden" id="panel-council">
+    <h2>Council of the Twelve</h2>
+    <div class="sub">Nominate a card for one of the Twelve Seats · $KONO holders vote annually · sitting seats grant estate-wide effects</div>
+    <div class="council-grid" id="council-grid"></div>
+    <div style="margin-top:14px;font-family:'Libre Baskerville',serif;font-style:italic;color:var(--muted);font-size:13px;line-height:1.55;padding:12px 16px;background:rgba(212,160,23,0.04);border-left:3px solid var(--brass);border-radius:3px">"Twelve seats. One year each. Sit a card and its chamber prospers. Simon signs each transition ceremony at year's end."</div>
+  </div>
+
+</div>
+
+<div class="modal-veil" id="modal-veil" onclick="if(event.target===this)closeModal()">
+  <div class="modal" id="modal-body"></div>
+</div>
+
+<script>
+'use strict';
+const STATE = { db: null, inv: null, cards: [], manifest: null, cardsByID: {}, decks: [], mode: 'mint', auctionFilter: 'all', gamblerTier: 'magic', gamblerCost: 8, signKey: null };
+const RARITY_BORDER = { common:{c:'#b8b6ad',g:0}, magic:{c:'#4a7dc9',g:4}, rare:{c:'#d4a017',g:8}, unique:{c:'#b8974a',g:14}, 'uber-unique':{c:'#c46a2e',g:20} };
+const KIND_SHAPE = { sdk:'pillar', api:'tower', mcp:'loom', tool:'blade', surface:'arch', wellness:'well' };
+const RARITY_STACK = ['common','magic','rare','unique','uber-unique'];
+
+function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+async function openDB() {
+  return new Promise((res, rej) => {
+    const req = indexedDB.open('fallkard', 2);
+    req.onerror = () => rej(req.error);
+    req.onupgradeneeded = () => {
+      const db = req.result;
+      if (!db.objectStoreNames.contains('decks')) db.createObjectStore('decks', { keyPath: 'name' });
+      if (!db.objectStoreNames.contains('inventory')) db.createObjectStore('inventory', { keyPath: 'id' });
+    };
+    req.onsuccess = () => res(req.result);
+  });
+}
+async function loadInv() {
+  return new Promise(res => {
+    const tx = STATE.db.transaction('inventory','readonly');
+    const req = tx.objectStore('inventory').get('main');
+    req.onsuccess = () => res(req.result || { id:'main', shards:0, runes:{}, charms:{}, cardDrops:[], socketed:{}, defeated:[], mintedNFTs:[], deckForks:[], gambles:[], councilNominations:{}, auctionListings:[] });
+  });
+}
+async function saveInv() {
+  return new Promise((res,rej) => {
+    const tx = STATE.db.transaction('inventory','readwrite');
+    tx.objectStore('inventory').put(STATE.inv);
+    tx.oncomplete = () => res();
+    tx.onerror = () => rej(tx.error);
+  });
+}
+async function listDecks() {
+  return new Promise(res => {
+    const tx = STATE.db.transaction('decks','readonly');
+    const out = [];
+    tx.objectStore('decks').openCursor().onsuccess = e => { const cur = e.target.result; if (cur) { out.push(cur.value); cur.continue(); } else res(out); };
+  });
+}
+
+async function ensureSignKey() {
+  if (STATE.signKey) return STATE.signKey;
+  const raw = STATE.inv.signKey;
+  if (raw && raw.priv && raw.pub) {
+    try {
+      const priv = await crypto.subtle.importKey('jwk', raw.priv, { name:'Ed25519' }, true, ['sign']);
+      const pub = await crypto.subtle.importKey('jwk', raw.pub, { name:'Ed25519' }, true, ['verify']);
+      STATE.signKey = { privateKey: priv, publicKey: pub, pubHex: raw.pubHex };
+      return STATE.signKey;
+    } catch(_) {}
+  }
+  const kp = await crypto.subtle.generateKey({ name:'Ed25519' }, true, ['sign','verify']);
+  const privJwk = await crypto.subtle.exportKey('jwk', kp.privateKey);
+  const pubJwk = await crypto.subtle.exportKey('jwk', kp.publicKey);
+  const pubRaw = await crypto.subtle.exportKey('raw', kp.publicKey);
+  const pubHex = Array.from(new Uint8Array(pubRaw)).map(b => b.toString(16).padStart(2,'0')).join('');
+  STATE.inv.signKey = { priv: privJwk, pub: pubJwk, pubHex };
+  await saveInv();
+  STATE.signKey = { privateKey: kp.privateKey, publicKey: kp.publicKey, pubHex };
+  return STATE.signKey;
+}
+async function signBytes(data) {
+  const enc = new TextEncoder().encode(data);
+  const sig = await crypto.subtle.sign({ name:'Ed25519' }, STATE.signKey.privateKey, enc);
+  return Array.from(new Uint8Array(sig)).map(b => b.toString(16).padStart(2,'0')).join('');
+}
+async function sha256(data) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(data));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+}
+
+function svgFor(card) {
+  const chamber = STATE.manifest.chambers[card.chamber] || STATE.manifest.chambers.market;
+  const border = RARITY_BORDER[card.rarity] || RARITY_BORDER.common;
+  const shape = KIND_SHAPE[card.kind] || 'blade';
+  const emblems = {
+    pillar:`<rect x="120" y="120" width="60" height="150" fill="${chamber.color}" opacity="0.5"/>`,
+    tower:`<polygon points="150,110 200,170 200,270 100,270 100,170" fill="${chamber.color}" opacity="0.5" stroke="${border.c}"/>`,
+    loom:`<line x1="100" y1="130" x2="100" y2="280" stroke="${chamber.color}" stroke-width="2.5"/><line x1="200" y1="130" x2="200" y2="280" stroke="${chamber.color}" stroke-width="2.5"/>`,
+    blade:`<polygon points="150,100 175,280 150,300 125,280" fill="${chamber.color}" opacity="0.6" stroke="${border.c}"/>`,
+    arch:`<path d="M 90 280 L 90 200 Q 90 130 150 130 Q 210 130 210 200 L 210 280" fill="${chamber.color}" opacity="0.45"/>`,
+    well:`<ellipse cx="150" cy="270" rx="65" ry="14" fill="${chamber.color}" opacity="0.35"/><ellipse cx="150" cy="180" rx="55" ry="12" fill="${chamber.color}" opacity="0.55"/>`
+  };
+  return `<svg viewBox="0 0 300 420" xmlns="http://www.w3.org/2000/svg">
+    <defs><radialGradient id="g${card.id}" cx="50%" cy="42%" r="70%"><stop offset="0%" stop-color="${chamber.color}" stop-opacity="0.28"/><stop offset="55%" stop-color="#141218"/><stop offset="100%" stop-color="#0b0a0f"/></radialGradient></defs>
+    <rect width="300" height="420" fill="url(#g${card.id})" rx="8"/>
+    <rect x="4" y="4" width="292" height="412" fill="none" stroke="${border.c}" stroke-width="2" rx="6" ${border.g?`filter="drop-shadow(0 0 ${border.g}px ${border.c})"`:''}/>
+    <text x="22" y="42" font-family="DM Mono" font-size="22" fill="${border.c}">${card.sigil}</text>
+    ${emblems[shape] || emblems.blade}
+    <text x="150" y="336" font-family="Libre Baskerville" font-size="14" fill="#e6d8b0" text-anchor="middle" font-weight="700">${esc((card.name||card.id).slice(0,20))}</text>
+    <text x="150" y="352" font-family="DM Mono" font-size="8" fill="${chamber.color}" text-anchor="middle" letter-spacing="2.5">${esc(card.chamber.toUpperCase())}</text>
+    <rect x="8" y="390" width="284" height="20" fill="rgba(11,10,15,0.9)" stroke="${border.c}" stroke-width="0.5" rx="3"/>
+    <text x="26" y="405" font-family="DM Mono" font-size="12" fill="#d44a4a" font-weight="700">⚔ ${card.atk}</text>
+    <text x="118" y="405" font-family="DM Mono" font-size="12" fill="#5aa25c" font-weight="700">♥ ${card.hp}</text>
+    <text x="200" y="405" font-family="DM Mono" font-size="12" fill="${chamber.color}" font-weight="700">✦ ${card.cost}</text>
+  </svg>`;
+}
+
+// ══════ MINT ══════
+async function mintCard(cardId) {
+  await ensureSignKey();
+  const card = STATE.cardsByID[cardId];
+  if (!card) return;
+  // Check owned this card
+  const dropCount = (STATE.inv.cardDrops||[]).filter(d => d.card === cardId).length;
+  const mintedCount = (STATE.inv.mintedNFTs||[]).filter(n => n.card === cardId).length;
+  if (mintedCount >= dropCount) return alert('You need an unminted drop of this card. Win more.');
+  const serial = 'FK-' + Date.now().toString(36).toUpperCase() + '-' + Math.random().toString(36).slice(2,6).toUpperCase();
+  const ts = new Date().toISOString();
+  const nftCore = { v:1, type:'fn.ASSET', card: cardId, rarity: card.rarity, serial, owner: STATE.signKey.pubHex, ts };
+  const seal = await signBytes(JSON.stringify(nftCore));
+  const nft = { ...nftCore, seal };
+  STATE.inv.mintedNFTs = STATE.inv.mintedNFTs || [];
+  STATE.inv.mintedNFTs.push(nft);
+  await saveInv();
+  openModal(`
+    <h2>◊ Minted</h2>
+    <div class="sub">Signed fn ASSET · sovereign on this device · portable via seal</div>
+    <div style="text-align:center;margin:10px 0"><div style="width:180px;height:252px;margin:0 auto;border-radius:6px;overflow:hidden;box-shadow:0 8px 30px rgba(212,160,23,0.4)">${svgFor(card)}</div></div>
+    <div class="nft-detail">
+      <b>Serial</b> ${nft.serial}<br>
+      <b>Owner (Ed25519)</b> ${nft.owner.slice(0,32)}…<br>
+      <b>Seal (SHA-256 · fn.ASSET)</b> ${seal.slice(0,64)}…<br>
+      <b>Timestamp</b> ${nft.ts}
+    </div>
+    <div style="margin-top:12px;font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);line-height:1.65;letter-spacing:0.06em">This mint lives in your local vault. When the $KONO substrate opens, the seal broadcasts to the ledger — same signature, same serial. No re-work.</div>
+    <div class="modal-actions"><button class="action primary" onclick="closeModal()">◊ Ok</button></div>
+  `);
+  render();
+}
+
+async function listOnAuction(cardId, nftSerial) {
+  const card = STATE.cardsByID[cardId];
+  const priceInput = prompt('List price in $KONO (integer):', '25');
+  if (!priceInput) return;
+  const price = parseInt(priceInput, 10);
+  if (!(price > 0)) return alert('Invalid price');
+  STATE.inv.auctionListings = STATE.inv.auctionListings || [];
+  STATE.inv.auctionListings.push({ nftSerial, card: cardId, price, seller: STATE.signKey.pubHex, ts: new Date().toISOString() });
+  await saveInv();
+  render();
+  alert('Listed at ' + price + ' $KONO');
+}
+
+// ══════ AUCTION LISTINGS ══════
+// Seed listings from other "sellers" (mock) so the auction feels populated pre-launch.
+function seedListings() {
+  const seed = 42;
+  let rng = seed;
+  const rand = () => { rng = (rng * 9301 + 49297) % 233280; return rng / 233280; };
+  const sellers = ['0x4ac2f6…', '0x8b3d1a…', '0xd4a017…', '0x7ab88a…', '0xe6846e…'];
+  const names = ['LibrarianOfBattle', 'FiendCutter', 'BloomWalker', 'FallGardener', 'ChamberBarrister', 'MercantileKnight'];
+  const pool = STATE.cards.filter(c => c.rarity === 'rare' || c.rarity === 'unique').slice(0, 200);
+  const seeds = [];
+  for (let i = 0; i < 12; i++) {
+    const c = pool[Math.floor(rand() * pool.length)];
+    const seller = sellers[Math.floor(rand() * sellers.length)];
+    const name = names[Math.floor(rand() * names.length)];
+    const basePrice = { magic: 15, rare: 45, unique: 220, 'uber-unique': 1200 }[c.rarity] || 20;
+    const price = Math.round(basePrice * (0.7 + rand() * 0.9));
+    seeds.push({ nftSerial: 'FK-SEED-' + (100 + i), card: c.id, price, seller, sellerName: name, ts: '2026-07-01T00:00:00Z', seeded: true });
+  }
+  return seeds;
+}
+
+async function buyListing(idx, source) {
+  const listings = source === 'mine' ? STATE.inv.auctionListings : STATE.__seedListings;
+  const l = listings[idx];
+  if (!l) return;
+  if (source === 'mine') { alert('Cannot buy your own listing.'); return; }
+  const balance = STATE.inv.shards || 0;  // Using shards as proxy $KONO pre-substrate
+  if (balance < l.price) return alert('Insufficient $KONO (using shards as pre-substrate stand-in). Need ' + l.price + ', you have ' + balance);
+  if (!confirm('Buy ' + STATE.cardsByID[l.card].name + ' for ' + l.price + ' $KONO?')) return;
+  STATE.inv.shards -= l.price;
+  const nft = { v:1, type:'fn.ASSET', card: l.card, rarity: STATE.cardsByID[l.card].rarity, serial: l.nftSerial, owner: STATE.signKey.pubHex, ts: new Date().toISOString(), boughtFrom: l.seller, price: l.price };
+  const seal = await signBytes(JSON.stringify({ ...nft }));
+  nft.seal = seal;
+  STATE.inv.mintedNFTs.push(nft);
+  STATE.inv.cardDrops.push({ card: l.card, when: nft.ts, boss: 'auction' });
+  // Remove listing from seed pool (session only)
+  STATE.__seedListings.splice(idx, 1);
+  await saveInv();
+  render();
+  alert('Purchased · added to your vault.');
+}
+
+// ══════ GAMBLER ══════
+async function gamble() {
+  const cost = STATE.gamblerCost;
+  if ((STATE.inv.shards || 0) < cost) return alert('Need ' + cost + ' shards. You have ' + (STATE.inv.shards||0));
+  await ensureSignKey();
+  STATE.inv.shards -= cost;
+  // Roll: 60% chosen tier, 30% one below, 8% two below, 2% jackpot (one above)
+  const tier = STATE.gamblerTier;
+  const idx = RARITY_STACK.indexOf(tier);
+  const r = Math.random();
+  let outIdx;
+  if (r < 0.60) outIdx = idx;
+  else if (r < 0.90) outIdx = Math.max(0, idx - 1);
+  else if (r < 0.98) outIdx = Math.max(0, idx - 2);
+  else outIdx = Math.min(RARITY_STACK.length - 1, idx + 1);
+  let outTier = RARITY_STACK[outIdx];
+  let pool = STATE.cards.filter(c => c.rarity === outTier);
+  // Fallback: if that tier has no cards (e.g. 'common' isn't in cards.json), walk up until we find one
+  while (!pool.length && outIdx < RARITY_STACK.length - 1) {
+    outIdx++;
+    outTier = RARITY_STACK[outIdx];
+    pool = STATE.cards.filter(c => c.rarity === outTier);
+  }
+  const drop = pool[Math.floor(Math.random() * pool.length)];
+  if (!drop) return alert('No card pool available for gambling.');
+  STATE.inv.cardDrops.push({ card: drop.id, when: new Date().toISOString(), boss: 'gambler' });
+  STATE.inv.gambles = STATE.inv.gambles || [];
+  STATE.inv.gambles.push({ card: drop.id, tier: outTier, cost, when: new Date().toISOString() });
+  await saveInv();
+  render();
+  openModal(`
+    <h2 style="color:${RARITY_BORDER[outTier].c}">◊ ${outTier === tier ? 'Tier Hit' : outIdx > idx ? 'JACKPOT!' : 'Lower Tier'}</h2>
+    <div class="sub">Rolled tier · <span style="color:var(--gold)">${outTier}</span> · card revealed</div>
+    <div style="text-align:center;margin:10px 0"><div style="width:180px;height:252px;margin:0 auto;border-radius:6px;overflow:hidden;box-shadow:0 8px 30px ${RARITY_BORDER[outTier].c}66">${svgFor(drop)}</div></div>
+    <div style="text-align:center;font-family:'Libre Baskerville',serif;font-size:20px;color:var(--gold);margin-top:14px">${esc(drop.name)}</div>
+    <div class="modal-actions" style="justify-content:center">
+      <button class="action primary" onclick="closeModal()">◊ Take it</button>
+      <button class="action" onclick="closeModal();gamble()">☨ Roll Again (-${cost} ◊)</button>
+    </div>
+  `);
+}
+
+// ══════ DECK FORK ══════
+async function forkDeck(deckName) {
+  await ensureSignKey();
+  const deck = STATE.decks.find(d => d.name === deckName);
+  if (!deck) return;
+  const dHash = await sha256(Object.entries(deck.deck).sort().map(([k,v])=>k+':'+v).join(';'));
+  const nftCore = { v:1, type:'fn.ASSET.BLOODLINE', name: deckName, deckHash: dHash, size: deck.size, owner: STATE.signKey.pubHex, ts: new Date().toISOString() };
+  const seal = await signBytes(JSON.stringify(nftCore));
+  const bloodline = { ...nftCore, seal };
+  STATE.inv.deckForks = STATE.inv.deckForks || [];
+  STATE.inv.deckForks.push(bloodline);
+  await saveInv();
+  render();
+  openModal(`
+    <h2>⚹ Bloodline Forged</h2>
+    <div class="sub">Signed deck fork · lineage anchor for descendants</div>
+    <div style="font-family:'Libre Baskerville',serif;font-size:22px;color:var(--gold);text-align:center;margin:14px 0">${esc(deckName)}</div>
+    <div class="nft-detail">
+      <b>Deck hash</b> ${dHash.slice(0, 32)}…<br>
+      <b>Owner</b> ${bloodline.owner.slice(0,32)}…<br>
+      <b>Seal</b> ${seal.slice(0, 48)}…<br>
+      <b>Size</b> ${deck.size} cards
+    </div>
+    <div class="modal-actions"><button class="action primary" onclick="closeModal()">◊ Ok</button></div>
+  `);
+}
+
+// ══════ COUNCIL ══════
+async function nominateCouncil(seatIdx, cardId) {
+  const card = STATE.cardsByID[cardId];
+  if (!card) return;
+  STATE.inv.councilNominations = STATE.inv.councilNominations || {};
+  STATE.inv.councilNominations[seatIdx] = { card: cardId, when: new Date().toISOString() };
+  await saveInv();
+  render();
+  closeModal();
+}
+
+function openNominatePicker(seatIdx) {
+  // Owned card drops
+  const owned = Array.from(new Set((STATE.inv.cardDrops||[]).map(d => d.card))).map(id => STATE.cardsByID[id]).filter(Boolean);
+  if (!owned.length) return alert('You need at least one card drop to nominate. Win the campaign.');
+  openModal(`
+    <h2>◇ Nominate Seat ${seatIdx + 1}</h2>
+    <div class="sub">Pick one of your cards to nominate · it will hold the seat until year-end</div>
+    <div style="max-height:340px;overflow-y:auto;margin-top:12px">
+      ${owned.map(c => `<div style="display:flex;gap:12px;align-items:center;padding:8px 12px;background:var(--shard);border:1px solid var(--border);border-radius:4px;margin-bottom:6px">
+        <div style="width:44px;height:60px;border-radius:3px;overflow:hidden">${svgFor(c)}</div>
+        <div style="flex:1;font-family:'DM Mono',monospace;font-size:11px;color:var(--muted)"><b style="color:var(--text)">${esc(c.name)}</b><br>${c.rarity} · ${c.chamber}</div>
+        <button class="action primary" onclick="nominateCouncil(${seatIdx},'${c.id}')">◊ Nominate</button>
+      </div>`).join('')}
+    </div>
+    <div class="modal-actions"><button class="action" onclick="closeModal()">✕ Cancel</button></div>
+  `);
+}
+
+// ══════ RENDER ══════
+function render() {
+  const shards = STATE.inv.shards || 0;
+  const drops = (STATE.inv.cardDrops || []).length;
+  const minted = (STATE.inv.mintedNFTs || []).length;
+  const decks = STATE.decks.length;
+  const forks = (STATE.inv.deckForks || []).length;
+  const charms = Object.values(STATE.inv.charms || {}).reduce((s,n)=>s+n, 0);
+  const runes = Object.values(STATE.inv.runes || {}).reduce((s,n)=>s+n, 0);
+  document.getElementById('wm-shards').textContent = shards;
+  document.getElementById('wm-drops').textContent = drops;
+  document.getElementById('wm-minted').textContent = minted;
+  document.getElementById('wh-shards').textContent = shards;
+  document.getElementById('wh-drops').textContent = drops;
+  document.getElementById('wh-minted').textContent = minted;
+  document.getElementById('wh-decks').textContent = forks;
+  document.getElementById('wh-charms').textContent = charms;
+  document.getElementById('wh-runes').textContent = runes;
+  document.getElementById('wh-pub-hex').textContent = STATE.signKey ? STATE.signKey.pubHex.slice(0,12) + '…' : 'generating…';
+  if (STATE.mode === 'mint') renderMint();
+  else if (STATE.mode === 'auction') renderAuction();
+  else if (STATE.mode === 'gambler') renderGambler();
+  else if (STATE.mode === 'fork') renderFork();
+  else if (STATE.mode === 'council') renderCouncil();
+}
+
+function renderMint() {
+  const grid = document.getElementById('mint-grid');
+  const empty = document.getElementById('mint-empty');
+  const drops = STATE.inv.cardDrops || [];
+  const byId = {};
+  drops.forEach(d => { byId[d.card] = (byId[d.card] || { count: 0 }); byId[d.card].count++; });
+  const entries = Object.entries(byId);
+  if (!entries.length) { grid.innerHTML = ''; empty.classList.remove('hidden'); return; }
+  empty.classList.add('hidden');
+  const mintCounts = {};
+  (STATE.inv.mintedNFTs || []).forEach(n => { mintCounts[n.card] = (mintCounts[n.card] || 0) + 1; });
+  grid.innerHTML = entries.map(([cardId, {count}]) => {
+    const card = STATE.cardsByID[cardId]; if (!card) return '';
+    const minted = mintCounts[cardId] || 0;
+    const canMint = minted < count;
+    return `<div class="mint-card rar-${card.rarity}" title="${esc(card.name)}">
+      ${count > 1 ? `<div class="stack-badge">×${count}</div>` : ''}
+      ${minted > 0 ? `<div class="minted-badge">◊ ${minted}/${count} minted</div>` : ''}
+      ${svgFor(card)}
+      <div class="cta">
+        <button onclick="mintCard('${cardId}')" ${canMint?'':'disabled'}>◊ Mint</button>
+        ${minted > 0 ? `<button class="list-btn" onclick="listOnAuction('${cardId}','${(STATE.inv.mintedNFTs.filter(n=>n.card===cardId).slice(-1)[0]||{}).serial}')">◈ List</button>` : ''}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function renderAuction() {
+  if (!STATE.__seedListings) STATE.__seedListings = seedListings();
+  const list = document.getElementById('auction-list');
+  const empty = document.getElementById('auction-empty');
+  let entries = [];
+  const filter = STATE.auctionFilter;
+  const mine = (STATE.inv.auctionListings || []).map((l,idx) => ({ ...l, source: 'mine', idx }));
+  const others = (STATE.__seedListings || []).map((l,idx) => ({ ...l, source: 'seed', idx }));
+  if (filter === 'mine') entries = mine;
+  else entries = mine.concat(others);
+  if (filter === 'rare') entries = entries.filter(l => ['rare','unique','uber-unique'].includes(STATE.cardsByID[l.card]?.rarity));
+  if (filter === 'unique') entries = entries.filter(l => ['unique','uber-unique'].includes(STATE.cardsByID[l.card]?.rarity));
+  entries.sort((a,b) => a.price - b.price);
+  if (!entries.length) { list.innerHTML = ''; empty.classList.remove('hidden'); return; }
+  empty.classList.add('hidden');
+  list.innerHTML = entries.map(l => {
+    const c = STATE.cardsByID[l.card]; if (!c) return '';
+    const sellerLabel = l.source === 'mine' ? '<span style="color:var(--rose)">YOU</span>' : `${esc(l.sellerName || '')} <span class="seller">${l.seller || ''}</span>`;
+    return `<div class="listing">
+      <div>${svgFor(c)}</div>
+      <div class="info"><b>${esc(c.name)}</b>${c.rarity} · ${c.chamber} · serial ${esc(l.nftSerial||'…')}<br>${sellerLabel}</div>
+      <div class="price">${l.price} ◊<span>$KONO</span></div>
+      ${l.source === 'mine' ? '<button class="buy mine" disabled>YOURS</button>' : `<button class="buy" onclick="buyListing(${l.idx},'seed')">◊ Buy</button>`}
+    </div>`;
+  }).join('');
+}
+
+function renderGambler() {
+  const list = document.getElementById('gamble-hist');
+  const empty = document.getElementById('gamble-empty');
+  const hist = (STATE.inv.gambles || []).slice().reverse().slice(0, 12);
+  if (!hist.length) { list.innerHTML = ''; empty.classList.remove('hidden'); return; }
+  empty.classList.add('hidden');
+  list.innerHTML = hist.map(g => {
+    const c = STATE.cardsByID[g.card]; if (!c) return '';
+    return `<div class="row">
+      <div>${svgFor(c)}</div>
+      <div class="info"><b>${esc(c.name)}</b><br><span class="r">${g.tier}</span></div>
+      <div class="cost">-${g.cost} ◊</div>
+    </div>`;
+  }).join('');
+  // Update gamble button state
+  const btn = document.getElementById('gamble-btn');
+  const affordable = (STATE.inv.shards || 0) >= STATE.gamblerCost;
+  btn.disabled = !affordable;
+  btn.textContent = affordable ? '◊ Roll (-' + STATE.gamblerCost + ' shards)' : '◈ Need ' + (STATE.gamblerCost - (STATE.inv.shards||0)) + ' more shards';
+}
+
+function renderFork() {
+  const list = document.getElementById('deck-forge-list');
+  const empty = document.getElementById('fork-empty');
+  if (!STATE.decks.length) { list.innerHTML = ''; empty.classList.remove('hidden'); return; }
+  empty.classList.add('hidden');
+  const forkedNames = new Set((STATE.inv.deckForks || []).map(f => f.name));
+  list.innerHTML = STATE.decks.map(d => {
+    const forked = forkedNames.has(d.name);
+    return `<div class="deck-row">
+      <div class="flex"><b>${esc(d.name)}</b><span class="m">${d.size} cards · saved ${(d.saved||'').slice(0,10)}</span></div>
+      ${forked ? `<button class="forked">✓ FORKED</button>` : `<button onclick="forkDeck('${esc(d.name).replace(/\\/g,'\\\\').replace(/'/g,"\\'")}')">⚹ Fork as Bloodline</button>`}
+    </div>`;
+  }).join('');
+}
+
+function renderCouncil() {
+  const grid = document.getElementById('council-grid');
+  const noms = STATE.inv.councilNominations || {};
+  let html = '';
+  for (let i = 0; i < 12; i++) {
+    const nom = noms[i];
+    const card = nom ? STATE.cardsByID[nom.card] : null;
+    html += `<div class="council-seat">
+      <div class="num">SEAT ${i + 1}</div>
+      <div class="glyph">${card ? card.sigil : '◇'}</div>
+      <b>${card ? esc(card.name) : '(vacant)'}</b>
+      <div class="stakes">${card ? card.chamber.toUpperCase() : 'nominate a card'}</div>
+      <button ${card ? 'disabled' : ''} onclick="openNominatePicker(${i})">${card ? 'held' : '◊ Nominate'}</button>
+    </div>`;
+  }
+  grid.innerHTML = html;
+}
+
+function switchMode(mode) {
+  STATE.mode = mode;
+  document.querySelectorAll('.mode-tab').forEach(t => t.classList.toggle('active', t.dataset.mode === mode));
+  ['mint','auction','gambler','fork','council'].forEach(m => document.getElementById('panel-' + m).classList.toggle('hidden', m !== mode));
+  render();
+}
+
+function openModal(html) {
+  document.getElementById('modal-body').innerHTML = html;
+  document.getElementById('modal-veil').classList.add('open');
+}
+function closeModal() { document.getElementById('modal-veil').classList.remove('open'); }
+window.closeModal = closeModal;
+window.mintCard = mintCard;
+window.listOnAuction = listOnAuction;
+window.buyListing = buyListing;
+window.gamble = gamble;
+window.forkDeck = forkDeck;
+window.nominateCouncil = nominateCouncil;
+window.openNominatePicker = openNominatePicker;
+
+async function init() {
+  STATE.db = await openDB();
+  STATE.inv = await loadInv();
+  const [cardsRes, man] = await Promise.all([fetch('cards.json').then(r=>r.json()), fetch('manifest.json').then(r=>r.json())]);
+  STATE.cards = cardsRes.cards;
+  STATE.manifest = man;
+  STATE.cards.forEach(c => STATE.cardsByID[c.id] = c);
+  STATE.decks = await listDecks();
+  await ensureSignKey();
+  document.querySelectorAll('.mode-tab').forEach(t => t.addEventListener('click', () => switchMode(t.dataset.mode)));
+  document.querySelectorAll('.gambler-tier').forEach(t => t.addEventListener('click', () => {
+    STATE.gamblerTier = t.dataset.tier;
+    STATE.gamblerCost = parseInt(t.dataset.cost, 10);
+    document.querySelectorAll('.gambler-tier').forEach(x => x.classList.toggle('active', x === t));
+    render();
+  }));
+  document.querySelectorAll('[data-filter]').forEach(b => b.addEventListener('click', () => { STATE.auctionFilter = b.dataset.filter; render(); }));
+  document.getElementById('gamble-btn').addEventListener('click', gamble);
+  render();
+}
+init().catch(e=>{console.error('[fallkard] $KONO init failed',e);});
+</script>
+  <script src="konomi-footer.js" defer></script>
+</body>
+</html>

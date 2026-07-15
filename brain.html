@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>FallKard · the Brain · give a Seal a real mind (WebLLM / BYOK)</title>
+<meta name="description" content="A4 policy-brain. Swap a Seal's mind between a deterministic heuristic, a real in-browser WebLLM model (WebGPU), or your own BYOK endpoint — and watch it think through a live duel."/>
+<link rel="canonical" href="https://sjgant80-hub.github.io/fallkard/brain.html"/>
+<meta name="theme-color" content="#0b0a0f"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{--void:#0b0a0f;--shard:#141218;--shard2:#191720;--dim:#3d3a45;--muted:#8a857a;--text:#c4bfb2;--gold:#d4a017;--brass:#b8974a;--amber:#e8a83a;--rose:#e6846e;--sage:#7ab88a;--sap:#6aa0e0;--border:rgba(212,160,23,0.14);--hard:rgba(212,160,23,0.32);}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{background:var(--void);color:var(--text);font-family:'DM Sans',system-ui,sans-serif;}
+body{background:radial-gradient(ellipse at 25% 15%,rgba(106,160,224,0.06),transparent 60%),radial-gradient(ellipse at 80% 80%,rgba(212,160,23,0.05),transparent 60%),var(--void);min-height:100vh;padding-bottom:50px;}
+a{color:var(--brass);text-decoration:none;}
+button{background:none;border:none;color:inherit;font:inherit;cursor:pointer;}
+.topbar{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:20px;padding:14px 24px;background:rgba(11,10,15,0.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);}
+.brand{display:flex;align-items:baseline;gap:10px;}
+.brand-mark{font-family:'DM Mono',monospace;font-size:20px;color:var(--gold);}
+.brand-name{font-family:'Libre Baskerville',serif;font-size:20px;font-weight:700;color:var(--text);}
+.tabs{display:flex;gap:4px;margin-left:24px;flex-wrap:wrap;}
+.tab{padding:8px 12px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);border:1px solid transparent;border-radius:4px;text-decoration:none;}
+.tab.active{color:var(--gold);border-color:var(--border);background:var(--shard);}
+.tab:hover{color:var(--text);}
+.wrap{max-width:1180px;margin:0 auto;padding:30px 26px;}
+.eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--sap);margin-bottom:12px;}
+h1{font-family:'Libre Baskerville',serif;font-size:40px;color:var(--text);margin-bottom:6px;letter-spacing:-0.015em;}
+h1 em{color:var(--sap);font-style:italic;}
+.lede{color:var(--muted);font-size:16px;line-height:1.6;max-width:760px;margin:12px 0 28px;}
+.panel{background:linear-gradient(180deg,var(--shard2),var(--shard));border:1px solid var(--border);border-radius:8px;padding:22px 24px;margin-bottom:20px;}
+.panel h2{font-family:'Libre Baskerville',serif;font-size:20px;color:var(--gold);margin-bottom:4px;}
+.panel .sub{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;}
+.engines{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+@media(max-width:820px){.engines{grid-template-columns:1fr;}}
+.eng{padding:16px;border:1.5px solid var(--border);border-radius:7px;background:var(--void);cursor:pointer;transition:all .15s;}
+.eng:hover{border-color:var(--brass);}
+.eng.sel{border-color:var(--gold);box-shadow:0 0 18px rgba(212,160,23,0.16);}
+.eng .nm{font-family:'DM Mono',monospace;font-size:13px;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:5px;}
+.eng .ds{font-size:12px;color:var(--muted);line-height:1.45;margin-bottom:8px;}
+.eng .st{font-family:'DM Mono',monospace;font-size:10.5px;letter-spacing:0.06em;}
+.st.ok{color:var(--sage);}.st.no{color:var(--rose);}.st.wait{color:var(--amber);}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:12px;}
+input,select{font-family:'DM Mono',monospace;font-size:16px;background:var(--void);border:1px solid var(--border);border-radius:4px;color:var(--text);padding:8px 10px;}
+input:focus,select:focus{outline:none;border-color:var(--gold);}
+.btn{padding:9px 18px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;border:1px solid var(--border);border-radius:4px;color:var(--text);background:var(--shard);}
+.btn:hover{border-color:var(--gold);color:var(--gold);}
+.btn.primary{background:var(--gold);color:var(--void);border-color:var(--gold);font-weight:700;}
+.btn.sap{background:var(--sap);color:var(--void);border-color:var(--sap);font-weight:700;}
+.btn:disabled{opacity:0.4;cursor:not-allowed;}
+.bar{height:6px;background:var(--void);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-top:8px;}
+.bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--sap),var(--gold));width:0;transition:width .3s;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+@media(max-width:820px){.grid2{grid-template-columns:1fr;}}
+.hand{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0;}
+.hcard{padding:8px 10px;background:var(--void);border:1px solid var(--border);border-radius:5px;min-width:96px;}
+.hcard .cn{font-size:11px;color:var(--text);font-weight:600;line-height:1.2;margin-bottom:4px;}
+.hcard .cs{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);}
+.hcard .ch{font-family:'DM Mono',monospace;font-size:9px;color:var(--sage);letter-spacing:0.08em;}
+.decision{padding:14px 16px;background:rgba(106,160,224,0.06);border-left:3px solid var(--sap);border-radius:4px;margin-top:12px;}
+.decision .pick{font-family:'Libre Baskerville',serif;font-size:17px;color:var(--gold);margin-bottom:3px;}
+.decision .why{font-size:12px;color:var(--muted);font-style:italic;}
+.axes{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-top:12px;}
+.axis .al{display:flex;justify-content:space-between;font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:3px;}
+.axis .av{color:var(--sap);}
+.abar{height:5px;background:var(--void);border-radius:3px;overflow:hidden;}
+.abar>i{display:block;height:100%;background:var(--sap);}
+.log{font-family:'DM Mono',monospace;font-size:11px;line-height:1.7;color:var(--muted);max-height:340px;overflow-y:auto;background:var(--void);border:1px solid var(--border);border-radius:6px;padding:12px 14px;margin-top:12px;}
+.log .play{color:var(--text);}.log .face{color:var(--rose);}.log .end{color:var(--gold);}.log .fb{color:var(--amber);}
+.verdict{font-family:'Libre Baskerville',serif;font-size:18px;color:var(--gold);margin-top:12px;}
+.note{font-family:'DM Mono',monospace;font-size:10.5px;color:var(--dim);margin-top:10px;letter-spacing:0.04em;}
+.footer{margin-top:40px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--dim);text-align:center;}
+.footer a{color:var(--brass);}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="brand"><span class="brand-mark">◊</span><span class="brand-name">FallKard</span></div>
+  <div class="tabs">
+    <a class="tab" href="index.html">Vault</a>
+    <a class="tab" href="loom.html">Loom</a>
+    <a class="tab" href="duel.html">Duel</a>
+    <a class="tab" href="campaign.html">Campaign</a>
+    <a class="tab" href="cube.html">Cube</a>
+    <a class="tab" href="coliseum.html">Coliseum</a>
+    <a class="tab" href="kono.html">$KONO</a>
+    <a class="tab" href="guild.html">Guild</a>
+    <a class="tab" href="govern.html">Assembly</a>
+    <a class="tab" href="arena.html">Arena</a>
+    <div class="tab active">Brain</div>
+    <a class="tab" href="clinic.html">Clinic</a>
+    <a class="tab" href="bloodline.html">Bloodline</a>
+    <a class="tab" href="herd.html">Herd</a>
+    <a class="tab" href="estate.html">Estate</a>
+    <a class="tab" href="charter.html">Charter</a>
+    <a class="tab" href="about.html">About</a>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="eyebrow">◊ A4 · the policy-brain · a Seal's mind, made real</div>
+  <h1>The <em>Brain</em>.<br>A bred tool stops being a lookup table.</h1>
+  <p class="lede">Every Seal has a mind. Until now that mind was seven static numbers — reflexes, not thought. Here you swap it: a deterministic <b>heuristic</b>, a real <b>WebLLM</b> model running in your browser on WebGPU, or your own <b>BYOK</b> endpoint. Same <code>decide(state) → {move, scores}</code> contract; different brains behind it. Then watch the mind actually play.</p>
+
+  <div class="panel">
+    <h2>1 · Choose the mind</h2>
+    <div class="sub">one swappable contract · three engines</div>
+    <div class="engines">
+      <div class="eng sel" data-eng="heuristic">
+        <div class="nm">Heuristic</div>
+        <div class="ds">The deterministic dot-product the population breeds on. Fast, reproducible, no download.</div>
+        <div class="st ok" id="st-heuristic">● ready</div>
+      </div>
+      <div class="eng" data-eng="webllm">
+        <div class="nm">WebLLM ◆</div>
+        <div class="ds">A real small instruct model in your browser (WebGPU). The mind, made real — no server.</div>
+        <div class="st wait" id="st-webllm">● checking WebGPU…</div>
+        <div class="bar" id="dlbar" style="display:none"><i></i></div>
+        <div class="row" id="webllm-ctl" style="display:none">
+          <button class="btn primary" id="loadBrain">Load brain</button>
+        </div>
+      </div>
+      <div class="eng" data-eng="byok">
+        <div class="nm">BYOK</div>
+        <div class="ds">Same contract, inference on your own OpenAI-compatible endpoint. Key stays in your browser.</div>
+        <div class="st no" id="st-byok">● not configured</div>
+        <div class="row" id="byok-ctl" style="display:none">
+          <input id="byokEndpoint" placeholder="https://api…/v1/chat/completions" style="flex:1;min-width:180px"/>
+          <input id="byokModel" placeholder="model (e.g. gpt-4o-mini)" style="width:150px"/>
+          <input id="byokKey" placeholder="api key" type="password" style="width:120px"/>
+          <button class="btn" id="saveByok">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>2 · Pick the Seal, read its mind</h2>
+    <div class="sub">a champion from the arena · a live decision on the board below</div>
+    <div class="row">
+      <select id="champSel" style="min-width:260px"></select>
+      <button class="btn sap" id="thinkBtn">Think ▸</button>
+      <span class="note" id="thinkNote"></span>
+    </div>
+    <div class="grid2" style="margin-top:16px">
+      <div>
+        <div class="sub" style="margin-bottom:6px">the position it faces</div>
+        <div id="boardInfo" class="note"></div>
+        <div class="hand" id="handView"></div>
+      </div>
+      <div>
+        <div class="sub" style="margin-bottom:6px">the decision</div>
+        <div id="decisionView"><div class="note">Press <b>Think</b> to run the chosen mind on this board.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>3 · Watch it play — a live duel</h2>
+    <div class="sub">the chosen mind drives every play, turn by turn · opponent runs the heuristic</div>
+    <div class="row">
+      <select id="oppSel" style="min-width:220px"></select>
+      <button class="btn primary" id="duelBtn">Run live duel ▸</button>
+      <span class="note" id="duelNote"></span>
+    </div>
+    <div class="log" id="duelLog" style="display:none"></div>
+    <div class="verdict" id="duelVerdict"></div>
+  </div>
+
+  <div class="note">WebLLM downloads a model once (a few hundred MB) then runs fully offline on your GPU. No WebGPU? Use BYOK or the heuristic mind — the contract is identical. The headless GA always breeds on the deterministic heuristic, so evolution stays reproducible.</div>
+
+  <div class="footer">◊ FallKard · the Brain · <a href="arena.html">Arena</a> · <a href="/">home</a> · <a href="SPEC-AGENT.md">A0–A9 spec</a></div>
+</div>
+
+<script type="module">
+import { getEngine, deciderFor, AXES } from './arena/policy/index.mjs';
+import { resolveMatchLive } from './arena/engine.mjs';
+import { webgpuOK, setModel, currentModel } from './arena/policy/webllm.mjs';
+import { configure as byokConfigure } from './arena/policy/byok.mjs';
+
+let cardsByID = {}, champs = [], engine = 'heuristic';
+
+const $ = s => document.querySelector(s);
+async function boot(){
+  const [cardsB, res] = await Promise.all([
+    fetch('cards.json').then(r=>r.json()),
+    fetch('arena-results.json').then(r=>r.json()).catch(()=>null),
+  ]);
+  cardsByID = Object.fromEntries(cardsB.cards.map(c=>[c.id,c]));
+  // collect distinct champions from the arena results (finalChampion + gauntlet handles → hallOfFame not stored, so rebuild from history+finalChampion)
+  champs = [];
+  if (res){
+    if (res.finalChampion) champs.push(agentFromFinal(res.finalChampion));
+    // history rows carry championDeck (partial) — for the picker we just need the finalChampion + a couple of synthetic ones; use finalChampion as the primary Seal.
+  }
+  if (!champs.length) champs.push(demoAgent());
+  const opts = champs.map((c,i)=>`<option value="${i}">${c.handle} · gen ${c.lineage.generation}</option>`).join('');
+  $('#champSel').innerHTML = opts;
+  $('#oppSel').innerHTML = `<option value="__mirror">itself (mirror)</option>` + opts;
+  probeWebGPU();
+  restoreByok();
+}
+function agentFromFinal(f){
+  return { agentId:'sim:'+f.handle, handle:f.handle, genome:{cards:f.deck, sockets:f.sockets||{}, house:'market'},
+           policy:{ engine:'heuristic', weights:f.style }, lineage:f.lineage||{parent:null,generation:0} };
+}
+function demoAgent(){
+  const ids = Object.keys(cardsByID).slice(0,26);
+  const cards={}; ids.forEach(id=>cards[id]=cardsByID[id].cost<=3?2:1);
+  return { agentId:'sim:Demo', handle:'Demo-Seal', genome:{cards,sockets:{},house:'market'},
+           policy:{engine:'heuristic', weights:{aggro:0.7,curve:0.5,hpBias:0.4,lanePref:0.7,valSealed:1,valFork:1,valMarket:0.8,chamberBias:{},kindBias:{}}}, lineage:{parent:null,generation:0} };
+}
+
+// ── engine selection
+document.querySelectorAll('.eng').forEach(el=>el.addEventListener('click',()=>{
+  document.querySelectorAll('.eng').forEach(e=>e.classList.remove('sel'));
+  el.classList.add('sel'); engine = el.dataset.eng;
+}));
+
+function probeWebGPU(){
+  const ok = webgpuOK();
+  const st = $('#st-webllm');
+  if (ok){ st.className='st ok'; st.textContent='● WebGPU present · '+currentModel(); $('#webllm-ctl').style.display='flex'; }
+  else { st.className='st no'; st.textContent='● WebGPU unavailable in this browser'; }
+}
+$('#loadBrain').addEventListener('click', async ()=>{
+  const st=$('#st-webllm'), bar=$('#dlbar'); bar.style.display='block';
+  st.className='st wait'; st.textContent='● loading model…';
+  try{
+    const { webllm } = await import('./arena/policy/webllm.mjs');
+    await webllm.ready(p=>{ const pct=Math.round((p.progress||0)*100); bar.querySelector('i').style.width=pct+'%'; st.textContent='● '+(p.text||('loading '+pct+'%')); });
+    st.className='st ok'; st.textContent='● brain loaded · '+currentModel(); bar.querySelector('i').style.width='100%';
+    engine='webllm'; document.querySelectorAll('.eng').forEach(e=>e.classList.toggle('sel',e.dataset.eng==='webllm'));
+  }catch(e){ st.className='st no'; st.textContent='● '+e.message; }
+});
+
+$('#byok-ctl') && document.querySelector('[data-eng="byok"]').addEventListener('click',()=>{ $('#byok-ctl').style.display='flex'; });
+function restoreByok(){
+  try{ const c=JSON.parse(localStorage.getItem('fk_byok')||'{}'); if(c.endpoint){ byokConfigure(c); $('#byokEndpoint').value=c.endpoint; $('#byokModel').value=c.model||''; const st=$('#st-byok'); st.className='st ok'; st.textContent='● '+c.model+' @ '+new URL(c.endpoint).host; } }catch{}
+}
+$('#saveByok').addEventListener('click',()=>{
+  const c={ endpoint:$('#byokEndpoint').value.trim(), model:$('#byokModel').value.trim()||'gpt-4o-mini', apiKey:$('#byokKey').value.trim() };
+  byokConfigure(c); localStorage.setItem('fk_byok', JSON.stringify(c));
+  const st=$('#st-byok'); if(c.endpoint){ st.className='st ok'; st.textContent='● '+c.model+' @ '+(()=>{try{return new URL(c.endpoint).host}catch{return 'endpoint'}})(); engine='byok'; document.querySelectorAll('.eng').forEach(e=>e.classList.toggle('sel',e.dataset.eng==='byok')); }
+});
+
+// ── build a representative mid-game board for the chosen Seal
+function sampleState(champ){
+  const deck=[]; Object.entries(champ.genome.cards).forEach(([id,n])=>{const c=cardsByID[id]; if(c) for(let i=0;i<n;i++) deck.push({...c,currentAtk:c.atk,currentHp:c.hp,currentCost:c.cost});});
+  deck.sort((a,b)=>a.currentCost-b.currentCost);
+  const hand = deck.filter((c,i)=>i%3===0).slice(0,5).map(c=>({...c}));
+  const oppBoard=[null,null,null,{name:'Rival Minion',currentAtk:3,currentHp:2,keywords:[]},null,null];
+  return { hand, mana:5, manaMax:5, board:[null,null,null,null,null,null], oppBoard, myHp:20, oppHp:16, turn:5, lanes:[3,4,5,0,1,2] };
+}
+function renderHand(state){
+  $('#boardInfo').innerHTML = `turn 5 · mana 5/5 · my hero 20 · enemy hero 16 · enemy has a 3/2 in a front lane`;
+  $('#handView').innerHTML = state.hand.map(c=>`<div class="hcard"><div class="cn">${c.name||c.id}</div><div class="cs">${c.currentAtk}/${c.currentHp} · ${c.currentCost}◊</div><div class="ch">${c.chamber}${(c.keywords||[]).length?' · '+c.keywords.join(','):''}</div></div>`).join('');
+}
+$('#thinkBtn').addEventListener('click', async ()=>{
+  const champ = champs[+$('#champSel').value];
+  const state = sampleState(champ);
+  renderHand(state);
+  const note=$('#thinkNote'); note.textContent='thinking with '+engine+'…';
+  $('#decisionView').innerHTML='<div class="note">running the mind…</div>';
+  let out;
+  try{ out = await getEngine(engine).decide(state, champ); }
+  catch(e){ $('#decisionView').innerHTML='<div class="note">error: '+e.message+'</div>'; note.textContent=''; return; }
+  note.textContent='';
+  const mv = out.move;
+  const pickCard = mv ? (state.hand.find(c=>c.id===mv.cardId) || {name:mv.cardId}) : null;
+  const pickTxt = mv ? `Play <b>${pickCard.name||mv.cardId}</b> → slot ${mv.slot}` : 'Pass this turn';
+  const fb = out.fallback ? `<span class="fb"> (fell back to ${out.fallback})</span>` : '';
+  const axes = AXES.map(a=>{ const v=Math.round((out.scores?.[a]??0)*100); return `<div class="axis"><div class="al"><span>${a}</span><span class="av">${v}</span></div><div class="abar"><i style="width:${v}%"></i></div></div>`; }).join('');
+  $('#decisionView').innerHTML = `<div class="decision"><div class="pick">${pickTxt}${fb}</div><div class="why">${out.why?('“'+out.why+'”'):'the mind\'s read of the board:'}</div></div><div class="axes">${axes}</div>`;
+});
+
+// ── live duel: chosen mind vs heuristic opponent
+$('#duelBtn').addEventListener('click', async ()=>{
+  const champ = champs[+$('#champSel').value];
+  const oppVal = $('#oppSel').value;
+  const opp = oppVal==='__mirror' ? champ : champs[+oppVal];
+  const log=$('#duelLog'); log.style.display='block'; log.innerHTML=''; $('#duelVerdict').textContent='';
+  const note=$('#duelNote'); note.textContent='running ('+engine+' vs heuristic)…';
+  const line=(cls,txt)=>{ const d=document.createElement('div'); d.className=cls; d.textContent=txt; log.appendChild(d); log.scrollTop=log.scrollHeight; };
+  const decideA = (state)=>getEngine(engine).decide(state, champ);   // the chosen brain
+  const decideB = deciderFor(opp, 'heuristic');                       // opponent = deterministic mind
+  try{
+    const r = await resolveMatchLive({ agentA:champ, agentB:opp, seed:'brain-lab', cardsByID,
+      decideA, decideB,
+      onEvent:(e)=>{
+        if(e.type==='play') line('play', `  ${e.who==='A'?champ.handle:opp.handle} plays ${e.card} @${e.slot}${e.why?' — '+e.why:''}${e.fallback?' ['+e.fallback+']':''}`);
+        else if(e.type==='face') line('face', `  ${e.who==='A'?champ.handle:opp.handle} hits face for ${e.dmg} → enemy ${e.oppHp}`);
+        else if(e.type==='endturn') line('', `— ${e.who==='A'?champ.handle:opp.handle} ends turn (me ${e.myHp} / opp ${e.oppHp}) —`);
+      }});
+    const winner = r.verdict==='A'?champ.handle:r.verdict==='B'?opp.handle:'draw';
+    line('end', `◊ ${r.verdict==='draw'?'DRAW':winner+' wins'} · ${champ.handle} ${r.aHp}hp — ${opp.handle} ${r.bHp}hp · ${r.turns} turns`);
+    $('#duelVerdict').innerHTML = `◊ ${r.verdict==='draw'?'Draw':'<b>'+winner+'</b> wins'} in ${r.turns} turns — the ${engine} mind drove every play.`;
+  }catch(e){ line('end','error: '+e.message); }
+  note.textContent='';
+});
+
+boot().catch(e=>{console.error('[fallkard] Brain boot failed',e);});
+</script>
+  <script src="konomi-footer.js" defer></script>
+</body>
+</html>

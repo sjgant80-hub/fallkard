@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>FallKard · the Coliseum · Sovereign PvP</title>
+<meta name="description" content="Async peer-to-peer signed matches. Deterministic replay. No server. Ed25519 signatures. Season rank + match history."/>
+<link rel="canonical" href="https://sjgant80-hub.github.io/fallkard/coliseum.html"/>
+<meta name="theme-color" content="#0b0a0f"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<script src="bosses.js"></script>
+<style>
+:root {
+  --void:#0b0a0f; --shard:#141218; --shard2:#191720; --dim:#3d3a45; --muted:#8a857a; --text:#c4bfb2;
+  --gold:#d4a017; --brass:#b8974a; --amber:#e8a83a; --rose:#e6846e; --sage:#7ab88a;
+  --ox:#8b1a1a; --sap:#4a7dc9; --jade:#3fa068; --plum:#9a6dbf;
+  --border:rgba(212,160,23,0.14); --hard:rgba(212,160,23,0.32);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--void); color: var(--text); font-family: 'DM Sans', system-ui, sans-serif; }
+body { background: radial-gradient(ellipse at center, rgba(74,125,201,0.05), transparent 60%), var(--void); min-height: 100vh; padding-bottom: 40px; }
+a { color: var(--brass); text-decoration: none; }
+button { background: none; border: none; color: inherit; font: inherit; cursor: pointer; }
+
+.topbar { position: sticky; top: 0; z-index: 30; display: flex; align-items: center; gap: 20px; padding: 14px 24px; background: rgba(11,10,15,0.94); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
+.brand { display: flex; align-items: baseline; gap: 10px; }
+.brand-mark { font-family: 'DM Mono', monospace; font-size: 20px; color: var(--gold); }
+.brand-name { font-family: 'Libre Baskerville', serif; font-size: 20px; font-weight: 700; color: var(--text); }
+.tabs { display: flex; gap: 4px; margin-left: 24px; flex-wrap: wrap; }
+.tab { padding: 8px 12px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); border: 1px solid transparent; border-radius: 4px; text-decoration: none; }
+.tab.active { color: var(--gold); border-color: var(--border); background: var(--shard); }
+.tab:hover { color: var(--text); }
+.spacer { flex: 1; }
+.rank-mini { display: flex; gap: 8px; align-items: center; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); }
+.rank-mini b { color: var(--gold); font-weight: 700; }
+.rank-mini .item { padding: 4px 8px; background: var(--shard); border: 1px solid var(--border); border-radius: 3px; letter-spacing: 0.06em; }
+
+.wrap { max-width: 1200px; margin: 0 auto; padding: 30px 26px; }
+.eyebrow { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+h1 { font-family: 'Libre Baskerville', serif; font-size: 40px; color: var(--text); margin-bottom: 6px; letter-spacing: -0.015em; }
+h1 em { color: var(--sap); font-style: italic; }
+.lede { color: var(--muted); font-size: 16px; line-height: 1.6; max-width: 720px; margin: 12px 0 30px; }
+
+.mode-tabs { display: flex; gap: 4px; margin-bottom: 20px; padding: 4px; background: var(--shard); border-radius: 6px; width: fit-content; }
+.mode-tab { padding: 10px 22px; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); cursor: pointer; border-radius: 4px; }
+.mode-tab.active { color: var(--void); background: var(--gold); font-weight: 700; }
+
+.grid { display: grid; grid-template-columns: 1fr 340px; gap: 26px; }
+@media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+
+.panel { background: linear-gradient(180deg, var(--shard2), var(--shard)); border: 1px solid var(--border); border-radius: 8px; padding: 22px 26px; margin-bottom: 20px; }
+.panel h2 { font-family: 'Libre Baskerville', serif; font-size: 22px; color: var(--gold); margin-bottom: 4px; }
+.panel .sub { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 18px; }
+
+.form-row { margin-bottom: 14px; }
+.form-row label { display: block; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+select, textarea, input[type="text"] { width: 100%; background: var(--void); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; color: var(--text); font-family: 'DM Mono', monospace; font-size: 16px; outline: none; }
+textarea { min-height: 110px; resize: vertical; letter-spacing: 0.03em; line-height: 1.4; word-break: break-all; }
+select:focus, textarea:focus, input:focus { border-color: var(--gold); }
+
+.big-btn { padding: 14px 28px; font-family: 'DM Mono', monospace; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--void); background: var(--gold); border-radius: 5px; font-weight: 700; cursor: pointer; transition: all 0.15s; margin-top: 8px; }
+.big-btn:hover { background: var(--amber); }
+.big-btn:disabled { background: var(--dim); color: var(--muted); cursor: not-allowed; }
+.secondary-btn { padding: 12px 22px; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text); border: 1px solid var(--border); background: var(--shard); border-radius: 5px; cursor: pointer; margin-left: 8px; }
+.secondary-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+.result-panel { display: none; }
+.result-panel.on { display: block; }
+.result-hero { text-align: center; padding: 30px 20px; background: linear-gradient(180deg, rgba(212,160,23,0.06), transparent); border: 1px solid var(--border); border-radius: 8px; margin-bottom: 20px; }
+.result-verdict { font-family: 'Libre Baskerville', serif; font-size: 42px; letter-spacing: -0.02em; margin-bottom: 8px; }
+.result-verdict.win { color: var(--gold); }
+.result-verdict.loss { color: var(--rose); }
+.result-verdict.draw { color: var(--muted); }
+.result-score { font-family: 'DM Mono', monospace; font-size: 20px; color: var(--text); letter-spacing: 0.14em; margin: 8px 0 16px; }
+.result-lore { font-family: 'Libre Baskerville', serif; font-style: italic; color: var(--muted); font-size: 14px; line-height: 1.55; margin: 10px 0 0; }
+
+.turn-log { max-height: 320px; overflow-y: auto; padding: 12px 14px; background: var(--void); border: 1px solid var(--border); border-radius: 6px; font-family: 'DM Mono', monospace; font-size: 11px; line-height: 1.55; color: var(--muted); }
+.turn-log .turn-head { color: var(--gold); font-weight: 700; padding: 6px 0 2px; border-top: 1px dashed var(--border); margin-top: 4px; }
+.turn-log .p-a { color: var(--text); }
+.turn-log .p-b { color: var(--sap); }
+.turn-log .sys { color: var(--brass); font-style: italic; }
+
+.match-history { padding: 4px 0; max-height: 400px; overflow-y: auto; }
+.hist-row { display: flex; align-items: center; gap: 10px; padding: 10px 12px; margin-bottom: 6px; background: var(--void); border: 1px solid var(--border); border-radius: 5px; font-family: 'DM Mono', monospace; font-size: 11px; }
+.hist-row .verdict { padding: 3px 8px; border-radius: 3px; font-weight: 700; letter-spacing: 0.14em; font-size: 10px; }
+.hist-row .verdict.win { background: var(--sage); color: var(--void); }
+.hist-row .verdict.loss { background: var(--rose); color: var(--void); }
+.hist-row .verdict.draw { background: var(--dim); color: var(--text); }
+.hist-row .who { flex: 1; color: var(--muted); letter-spacing: 0.06em; }
+.hist-row .who b { color: var(--text); }
+.hist-row .score { color: var(--gold); }
+.hist-row .date { color: var(--dim); font-size: 10px; }
+.hist-empty { padding: 30px; text-align: center; color: var(--dim); font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.14em; }
+
+.rank-panel .rank-body { text-align: center; padding: 16px 20px; }
+.rank-tier { font-family: 'Libre Baskerville', serif; font-size: 34px; color: var(--gold); margin-bottom: 4px; letter-spacing: -0.01em; }
+.rank-lp { font-family: 'DM Mono', monospace; font-size: 14px; color: var(--muted); letter-spacing: 0.14em; margin-bottom: 12px; }
+.rank-lp b { color: var(--gold); font-size: 22px; }
+.rank-progress { height: 6px; background: var(--void); border-radius: 3px; overflow: hidden; margin: 12px 0; border: 1px solid var(--border); }
+.rank-progress .fill { height: 100%; background: linear-gradient(90deg, var(--gold), var(--amber)); }
+.rank-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 14px; }
+.rank-stat { padding: 10px 8px; background: var(--void); border: 1px solid var(--border); border-radius: 4px; }
+.rank-stat b { display: block; font-family: 'DM Mono', monospace; font-size: 18px; color: var(--gold); font-weight: 700; }
+.rank-stat span { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+
+.seal-line { padding: 10px 14px; background: rgba(74,125,201,0.06); border-left: 3px solid var(--sap); border-radius: 3px; margin-top: 14px; font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); word-break: break-all; letter-spacing: 0.04em; }
+.seal-line b { color: var(--sap); }
+
+.hidden { display: none; }
+
+.copy-msg { display: inline-block; margin-left: 12px; color: var(--sage); font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; }
+.error-msg { padding: 12px 16px; background: rgba(230,132,110,0.08); border-left: 3px solid var(--rose); border-radius: 3px; color: var(--rose); font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.06em; margin-top: 12px; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand"><span class="brand-mark">◊</span><span class="brand-name">FallKard</span></div>
+  <div class="tabs">
+    <a class="tab" href="index.html">Vault</a>
+    <a class="tab" href="loom.html">Loom</a>
+    <a class="tab" href="duel.html">Duel</a>
+    <a class="tab" href="campaign.html">Campaign</a>
+    <a class="tab" href="cube.html">Cube</a>
+    <div class="tab active">Coliseum</div>
+    <a class="tab" href="kono.html">$KONO</a>
+    <a class="tab" href="guild.html">Guild</a>
+    <a class="tab" href="govern.html">Assembly</a>
+    <a class="tab" href="arena.html">Arena</a>
+    <a class="tab" href="brain.html">Brain</a>
+    <a class="tab" href="clinic.html">Clinic</a>
+    <a class="tab" href="bloodline.html">Bloodline</a>
+    <a class="tab" href="herd.html">Herd</a>
+    <a class="tab" href="estate.html">Estate</a>
+    <a class="tab" href="charter.html">Charter</a>
+    <a class="tab" href="about.html">About</a>
+  </div>
+  <div class="spacer"></div>
+  <div class="rank-mini">
+    <span class="item">◊ <b id="rank-mini-tier">Bone</b></span>
+    <span class="item">LP <b id="rank-mini-lp">1000</b></span>
+    <span class="item">W<b id="rank-mini-w">0</b>/L<b id="rank-mini-l">0</b></span>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="eyebrow">◊ The Coliseum · Sovereign async PvP</div>
+  <h1>The <em>Coliseum</em>.<br>Two decks · one seed · signed.</h1>
+  <p class="lede">Deterministic peer-to-peer matches. No server. Every match is a shared random seed + two signed decks. Anyone with the challenge URL replays the same outcome, verifying the seal. Bone rank rises to Legend across the season.</p>
+
+  <div class="mode-tabs">
+    <div class="mode-tab active" data-mode="issue">☨ Issue Challenge</div>
+    <div class="mode-tab" data-mode="accept">◈ Accept Challenge</div>
+    <div class="mode-tab" data-mode="verify">◊ Verify Replay</div>
+  </div>
+
+  <div class="grid">
+    <div>
+
+      <!-- ═════ ISSUE ═════ -->
+      <div class="panel" id="panel-issue">
+        <h2>Issue Challenge</h2>
+        <div class="sub">Pick your deck · sign · share the URL</div>
+        <div class="form-row">
+          <label>Your Deck</label>
+          <select id="issue-deck"></select>
+        </div>
+        <div class="form-row">
+          <label>Handle (optional)</label>
+          <input type="text" id="issue-name" placeholder="Anonymous" maxlength="24"/>
+        </div>
+        <button class="big-btn" id="issue-btn">◊ Sign + Copy Challenge URL</button>
+        <div id="issue-out" class="hidden" style="margin-top:16px">
+          <label style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:0.16em;text-transform:uppercase;margin-bottom:6px;display:block">◊ Challenge URL · signed</label>
+          <textarea id="issue-url" readonly></textarea>
+          <button class="secondary-btn" onclick="copyText('issue-url')">◈ Copy again</button>
+          <span id="copy-issue" class="copy-msg hidden">✓ copied</span>
+          <div class="seal-line" id="issue-seal"></div>
+        </div>
+      </div>
+
+      <!-- ═════ ACCEPT ═════ -->
+      <div class="panel hidden" id="panel-accept">
+        <h2>Accept Challenge</h2>
+        <div class="sub">Paste the URL · pick your deck · resolve deterministically</div>
+        <div class="form-row">
+          <label>Challenge URL / signed string</label>
+          <textarea id="accept-input" placeholder="Paste the URL you received here…"></textarea>
+        </div>
+        <button class="secondary-btn" id="accept-parse-btn">◊ Parse Challenge</button>
+        <div id="accept-preview" class="hidden" style="margin-top:14px">
+          <div style="padding:12px 14px;background:var(--void);border:1px solid var(--border);border-radius:4px;font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:0.08em">
+            <div>Challenger: <span id="acc-name" style="color:var(--sap)">…</span></div>
+            <div>Deck hash: <span id="acc-deck-hash" style="color:var(--gold)">…</span> · <span id="acc-deck-size" style="color:var(--muted)">…</span> cards</div>
+            <div>Seed: <span id="acc-seed" style="color:var(--brass)">…</span></div>
+            <div>Signature: <span id="acc-sig" style="color:var(--sap);font-size:10px">…</span></div>
+          </div>
+          <div class="form-row" style="margin-top:14px">
+            <label>Your Deck</label>
+            <select id="accept-deck"></select>
+          </div>
+          <div class="form-row">
+            <label>Handle (optional)</label>
+            <input type="text" id="accept-name" placeholder="Anonymous" maxlength="24"/>
+          </div>
+          <button class="big-btn" id="accept-btn">☨ Resolve · Sign · Save</button>
+        </div>
+        <div id="accept-error" class="hidden"></div>
+      </div>
+
+      <!-- ═════ VERIFY ═════ -->
+      <div class="panel hidden" id="panel-verify">
+        <h2>Verify Replay</h2>
+        <div class="sub">Paste a signed replay URL · re-runs deterministically to check the seal</div>
+        <div class="form-row">
+          <label>Replay URL / signed string</label>
+          <textarea id="verify-input" placeholder="Paste a completed replay URL to verify its outcome…"></textarea>
+        </div>
+        <button class="secondary-btn" id="verify-btn">◊ Verify</button>
+        <div id="verify-out" class="hidden" style="margin-top:14px"></div>
+      </div>
+
+      <!-- ═════ RESULT ═════ -->
+      <div class="panel result-panel" id="panel-result">
+        <div class="result-hero">
+          <div class="result-verdict" id="result-verdict">◊ Draw</div>
+          <div class="result-score" id="result-score">0 · 0</div>
+          <div class="result-lore" id="result-lore"></div>
+        </div>
+        <h2>◈ Match Log</h2>
+        <div class="sub">Turn-by-turn deterministic replay · resolves the same for both players</div>
+        <div class="turn-log" id="turn-log"></div>
+        <div style="margin-top:16px">
+          <button class="big-btn" id="share-replay-btn">◊ Copy Signed Replay URL</button>
+          <span id="copy-replay" class="copy-msg hidden">✓ copied</span>
+        </div>
+        <div class="seal-line" id="result-seal"></div>
+      </div>
+
+    </div>
+
+    <div>
+
+      <!-- ═════ RANK ═════ -->
+      <div class="panel rank-panel">
+        <h2>Your Rank</h2>
+        <div class="sub">Season 1 · 2026-Q3</div>
+        <div class="rank-body">
+          <div class="rank-tier" id="rank-tier">Bone</div>
+          <div class="rank-lp"><b id="rank-lp">1000</b> LP</div>
+          <div class="rank-progress"><div class="fill" id="rank-fill" style="width:0%"></div></div>
+          <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:0.12em;margin-top:6px">next: <span id="rank-next">Copper @ 1100 LP</span></div>
+          <div class="rank-stats">
+            <div class="rank-stat"><b id="rank-w">0</b><span>Wins</span></div>
+            <div class="rank-stat"><b id="rank-l">0</b><span>Losses</span></div>
+            <div class="rank-stat"><b id="rank-d">0</b><span>Draws</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═════ HISTORY ═════ -->
+      <div class="panel">
+        <h2>Match History</h2>
+        <div class="sub">Signed replays · IndexedDB · yours only</div>
+        <div class="match-history" id="hist"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+'use strict';
+
+const STATE = { db: null, inv: null, cards: [], manifest: null, cardsByID: {}, mode: 'issue', decks: [], lastResult: null };
+const RARITY_ORDER = ['uber-unique', 'unique', 'rare', 'magic', 'common'];
+const rarityIdx = { 'uber-unique':0, unique:1, rare:2, magic:3, common:4 };
+const rIdx = r => rarityIdx[r] ?? 9;
+
+// ═════════ RANK LADDER ═════════
+const RANKS = [
+  { name:'Bone',   min:0    },
+  { name:'Copper', min:1100 },
+  { name:'Iron',   min:1250 },
+  { name:'Silver', min:1400 },
+  { name:'Gold',   min:1600 },
+  { name:'Amber',  min:1800 },
+  { name:'Rose',   min:2000 },
+  { name:'Void',   min:2300 },
+  { name:'Legend', min:2600 }
+];
+function rankFor(lp) {
+  let cur = RANKS[0], next = null;
+  for (let i = 0; i < RANKS.length; i++) {
+    if (lp >= RANKS[i].min) cur = RANKS[i];
+    else { next = RANKS[i]; break; }
+  }
+  return { cur, next };
+}
+
+// ═════════ Seeded RNG (mulberry32) ═════════
+function seededRng(seedStr) {
+  // Turn seed (hex or base64) into a 32-bit integer
+  let a = 0;
+  for (let i = 0; i < seedStr.length; i++) a = ((a * 31) + seedStr.charCodeAt(i)) >>> 0;
+  return function () {
+    a |= 0; a = a + 0x6D2B79F5 | 0;
+    let t = Math.imul(a ^ a >>> 15, 1 | a);
+    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  };
+}
+
+// ═════════ Ed25519 signing (WebCrypto subtle) ═════════
+let SIGN_KEY = null;  // { publicKey, privateKey, pubHex }
+async function ensureSignKey() {
+  if (SIGN_KEY) return SIGN_KEY;
+  const raw = STATE.inv.signKey;
+  if (raw && raw.priv && raw.pub) {
+    try {
+      const priv = await crypto.subtle.importKey('jwk', raw.priv, { name:'Ed25519' }, true, ['sign']);
+      const pub = await crypto.subtle.importKey('jwk', raw.pub, { name:'Ed25519' }, true, ['verify']);
+      SIGN_KEY = { privateKey: priv, publicKey: pub, pubHex: raw.pubHex };
+      return SIGN_KEY;
+    } catch (_) {}
+  }
+  const kp = await crypto.subtle.generateKey({ name:'Ed25519' }, true, ['sign','verify']);
+  const privJwk = await crypto.subtle.exportKey('jwk', kp.privateKey);
+  const pubJwk = await crypto.subtle.exportKey('jwk', kp.publicKey);
+  const pubRaw = await crypto.subtle.exportKey('raw', kp.publicKey);
+  const pubHex = Array.from(new Uint8Array(pubRaw)).map(b => b.toString(16).padStart(2,'0')).join('');
+  STATE.inv.signKey = { priv: privJwk, pub: pubJwk, pubHex };
+  await saveInv();
+  SIGN_KEY = { privateKey: kp.privateKey, publicKey: kp.publicKey, pubHex };
+  return SIGN_KEY;
+}
+
+async function signBytes(data) {
+  const enc = new TextEncoder().encode(data);
+  const sig = await crypto.subtle.sign({ name:'Ed25519' }, SIGN_KEY.privateKey, enc);
+  return Array.from(new Uint8Array(sig)).map(b => b.toString(16).padStart(2,'0')).join('');
+}
+
+async function verifyBytes(data, sigHex, pubHex) {
+  try {
+    const enc = new TextEncoder().encode(data);
+    const sigBytes = new Uint8Array(sigHex.match(/.{2}/g).map(h => parseInt(h,16)));
+    const pubBytes = new Uint8Array(pubHex.match(/.{2}/g).map(h => parseInt(h,16)));
+    const pub = await crypto.subtle.importKey('raw', pubBytes, { name:'Ed25519' }, true, ['verify']);
+    return await crypto.subtle.verify({ name:'Ed25519' }, pub, sigBytes, enc);
+  } catch (e) { return false; }
+}
+
+// Simple deck hash (SHA-256 of canonical form)
+async function deckHash(deckMap) {
+  const canonical = Object.entries(deckMap).sort().map(([k,v]) => k + ':' + v).join(';');
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(canonical));
+  return Array.from(new Uint8Array(buf)).slice(0, 8).map(b => b.toString(16).padStart(2,'0')).join('');
+}
+
+function b64enc(o) { return btoa(unescape(encodeURIComponent(JSON.stringify(o)))); }
+function b64dec(s) { return JSON.parse(decodeURIComponent(escape(atob(s)))); }
+
+// ═════════ Deterministic MATCH resolver ═════════
+// Both players use seeded RNG. Simple greedy AI plays each turn.
+function resolveMatch({ deckA, deckB, seed, nameA, nameB }) {
+  const rng = seededRng(seed);
+  const rndShuffle = arr => { for (let i = arr.length-1; i > 0; i--) { const j = Math.floor(rng()*(i+1)); [arr[i],arr[j]] = [arr[j],arr[i]]; } return arr; };
+  const mkPlayer = (name, deckMap) => {
+    const deck = [];
+    Object.entries(deckMap).forEach(([id, n]) => {
+      const card = STATE.cardsByID[id];
+      if (!card) return;
+      for (let i = 0; i < n; i++) deck.push({...card, currentAtk: card.atk, currentHp: card.hp, currentCost: card.cost, uid: name + '#' + deck.length});
+    });
+    rndShuffle(deck);
+    return { name, hp: 20, hpMax: 20, mana: 0, manaMax: 0, hand: [], deck, board: [null,null,null,null,null,null], graveyard: [] };
+  };
+  const A = mkPlayer(nameA || 'A', deckA);
+  const B = mkPlayer(nameB || 'B', deckB);
+  const draw = p => { if (!p.deck.length) { p.hp = Math.max(0, p.hp - 1); return; } if (p.hand.length < 10) p.hand.push(p.deck.shift()); };
+  for (let i = 0; i < 3; i++) { draw(A); draw(B); }
+  const log = [];
+  const say = (turn, side, text) => log.push({ turn, side, text });
+  say(0, 'sys', 'Coliseum. ' + A.name + ' vs ' + B.name + '. Seed: ' + seed.slice(0, 12));
+
+  let turn = 1;
+  let active = 'A';
+  const MAX_TURNS = 30;
+
+  const doTurn = (p, opp, sideChar, turnN) => {
+    p.manaMax = Math.min(10, p.manaMax + 1);
+    p.mana = p.manaMax;
+    draw(p);
+    say(turnN, sideChar, p.name + ' starts turn ' + turnN + ' · mana ' + p.manaMax);
+    // Play phase — greedy: play highest-atk affordable
+    let guard = 20;
+    while (guard-- > 0) {
+      const affordable = p.hand.filter(c => c.currentCost <= p.mana);
+      if (!affordable.length) break;
+      const emptyFront = [3,4,5].filter(i => !p.board[i]);
+      const emptyBack = [0,1,2].filter(i => !p.board[i]);
+      const slot = emptyFront[0] ?? emptyBack[0];
+      if (slot === undefined) break;
+      affordable.sort((a,b) => (b.currentAtk + b.currentHp) - (a.currentAtk + a.currentHp));
+      const card = affordable[0];
+      const idx = p.hand.indexOf(card);
+      p.hand.splice(idx, 1);
+      p.mana -= card.currentCost;
+      p.board[slot] = { ...card, canAttack: false, sealedUsed: false };
+      say(turnN, sideChar, p.name + ' plays ' + card.name + ' · ' + (slot >= 3 ? 'front' : 'back') + ' lane · ⚔' + card.currentAtk + ' ♥' + card.currentHp);
+    }
+    // Attack phase — front row strikes mirror lane if enemy front else hero
+    for (const i of [3,4,5]) {
+      const attacker = p.board[i];
+      if (!attacker) continue;
+      const mirror = 5 - i + 3;   // 3↔5, 4↔4
+      const oppSlot = 8 - i;      // 3→5, 4→4, 5→3 (this maps to opp.board indices in own perspective)
+      const target = opp.board[oppSlot];
+      if (target) {
+        say(turnN, sideChar, attacker.name + ' strikes ' + target.name);
+        // Sealed absorbs
+        const absorbAtk = (target.keywords||[]).includes('Sealed') && !target.sealedUsed;
+        if (absorbAtk) { target.sealedUsed = true; say(turnN, 'sys', target.name + ' Sealed absorbs'); }
+        else { target.currentHp -= attacker.currentAtk; }
+        // Attacker counter
+        const absorbDef = (attacker.keywords||[]).includes('Sealed') && !attacker.sealedUsed;
+        if (absorbDef) { attacker.sealedUsed = true; say(turnN, 'sys', attacker.name + ' Sealed absorbs'); }
+        else { attacker.currentHp -= target.currentAtk; }
+        if (target.currentHp <= 0) { say(turnN, 'sys', target.name + ' falls'); opp.board[oppSlot] = null; }
+        if (attacker.currentHp <= 0) { say(turnN, 'sys', attacker.name + ' falls'); p.board[i] = null; }
+      } else {
+        opp.hp = Math.max(0, opp.hp - attacker.currentAtk);
+        say(turnN, sideChar, attacker.name + ' strikes ' + opp.name + ' for ' + attacker.currentAtk + ' · HP ' + opp.hp);
+        if (opp.hp <= 0) return;
+      }
+    }
+  };
+
+  while (turn <= MAX_TURNS && A.hp > 0 && B.hp > 0) {
+    if (active === 'A') { doTurn(A, B, 'A', turn); if (B.hp <= 0) break; active = 'B'; }
+    else                { doTurn(B, A, 'B', turn); if (A.hp <= 0) break; active = 'A'; turn++; }
+  }
+  let verdict;
+  if (A.hp <= 0 && B.hp <= 0) verdict = 'draw';
+  else if (A.hp <= 0) verdict = 'B';
+  else if (B.hp <= 0) verdict = 'A';
+  else verdict = A.hp > B.hp ? 'A' : (B.hp > A.hp ? 'B' : 'draw');
+  say(turn, 'sys', 'Match ends · ' + (verdict === 'draw' ? 'draw' : verdict + ' wins') + ' · HP A ' + A.hp + ' · B ' + B.hp);
+  return { verdict, aHp: A.hp, bHp: B.hp, turns: turn, log };
+}
+
+// ═════════ IndexedDB ═════════
+async function openDB() {
+  return new Promise((res, rej) => {
+    const req = indexedDB.open('fallkard', 2);
+    req.onerror = () => rej(req.error);
+    req.onupgradeneeded = () => {
+      const db = req.result;
+      if (!db.objectStoreNames.contains('decks')) db.createObjectStore('decks', { keyPath: 'name' });
+      if (!db.objectStoreNames.contains('inventory')) db.createObjectStore('inventory', { keyPath: 'id' });
+    };
+    req.onsuccess = () => res(req.result);
+  });
+}
+async function loadInv() {
+  return new Promise(res => {
+    const tx = STATE.db.transaction('inventory','readonly');
+    const req = tx.objectStore('inventory').get('main');
+    req.onsuccess = () => res(req.result || { id:'main', shards:0, runes:{}, charms:{}, cardDrops:[], socketed:{}, defeated:[], rank:{ lp:1000, w:0, l:0, d:0 }, matches:[] });
+  });
+}
+async function saveInv() {
+  return new Promise((res,rej) => {
+    const tx = STATE.db.transaction('inventory','readwrite');
+    tx.objectStore('inventory').put(STATE.inv);
+    tx.oncomplete = () => res();
+    tx.onerror = () => rej(tx.error);
+  });
+}
+async function listDecks() {
+  return new Promise(res => {
+    const tx = STATE.db.transaction('decks','readonly');
+    const out = [];
+    tx.objectStore('decks').openCursor().onsuccess = e => { const cur = e.target.result; if (cur) { out.push(cur.value); cur.continue(); } else res(out); };
+  });
+}
+function buildGenesisPreset() {
+  const used = {};
+  const ubers = STATE.cards.filter(c => c.rarity === 'uber-unique');
+  ubers.forEach(c => used[c.id] = 1);
+  const uberChambers = new Set(ubers.map(c => c.chamber));
+  const support = STATE.cards.filter(c => c.rarity !== 'uber-unique' && uberChambers.has(c.chamber)).sort((a,b) => rIdx(a.rarity) - rIdx(b.rarity) || a.cost - b.cost);
+  let taken = ubers.length;
+  for (const c of support) {
+    const max = (c.rarity === 'unique' || c.rarity === 'uber-unique') ? 1 : 2;
+    while ((used[c.id] || 0) < max && taken < 30) { used[c.id] = (used[c.id] || 0) + 1; taken++; }
+    if (taken >= 30) break;
+  }
+  return used;
+}
+function buildAggroPreset() {
+  const used = {};
+  const tools = STATE.cards.filter(c => c.kind === 'tool').sort((a,b) => a.cost - b.cost || rIdx(a.rarity) - rIdx(b.rarity));
+  const fillers = STATE.cards.filter(c => c.kind !== 'tool' && c.cost <= 3).sort((a,b) => a.cost - b.cost);
+  const pool = tools.concat(fillers);
+  let taken = 0;
+  for (const c of pool) {
+    const max = (c.rarity === 'unique' || c.rarity === 'uber-unique') ? 1 : 2;
+    while ((used[c.id] || 0) < max && taken < 30) { used[c.id] = (used[c.id] || 0) + 1; taken++; }
+    if (taken >= 30) break;
+  }
+  return used;
+}
+
+// ═════════ UI ═════════
+async function populateDeckSelects() {
+  STATE.decks = await listDecks();
+  const opts = ['<option value="__genesis__">◊ Genesis Bloodline (preset)</option><option value="__blade__">☨ Aggro Blade (preset)</option>'];
+  STATE.decks.forEach(d => {
+    if ((d.size || 0) >= 20) opts.push(`<option value="saved:${d.name}">◈ ${d.name} · ${d.size} cards</option>`);
+  });
+  const html = opts.join('');
+  document.getElementById('issue-deck').innerHTML = html;
+  document.getElementById('accept-deck').innerHTML = html;
+}
+
+function getDeckByChoice(choice) {
+  if (choice === '__genesis__') return buildGenesisPreset();
+  if (choice === '__blade__') return buildAggroPreset();
+  if (choice.startsWith('saved:')) {
+    const d = STATE.decks.find(x => x.name === choice.slice(6));
+    if (!d) return null;
+    const filtered = {};
+    Object.entries(d.deck).forEach(([id,n]) => { if (STATE.cardsByID[id]) filtered[id] = n; });
+    return filtered;
+  }
+  return null;
+}
+
+function switchMode(mode) {
+  STATE.mode = mode;
+  document.querySelectorAll('.mode-tab').forEach(t => t.classList.toggle('active', t.dataset.mode === mode));
+  document.getElementById('panel-issue').classList.toggle('hidden', mode !== 'issue');
+  document.getElementById('panel-accept').classList.toggle('hidden', mode !== 'accept');
+  document.getElementById('panel-verify').classList.toggle('hidden', mode !== 'verify');
+  document.getElementById('panel-result').classList.remove('on');
+}
+
+function renderRank() {
+  const rank = STATE.inv.rank || { lp: 1000, w: 0, l: 0, d: 0 };
+  const { cur, next } = rankFor(rank.lp);
+  document.getElementById('rank-tier').textContent = cur.name;
+  document.getElementById('rank-lp').textContent = rank.lp;
+  document.getElementById('rank-w').textContent = rank.w;
+  document.getElementById('rank-l').textContent = rank.l;
+  document.getElementById('rank-d').textContent = rank.d;
+  document.getElementById('rank-mini-tier').textContent = cur.name;
+  document.getElementById('rank-mini-lp').textContent = rank.lp;
+  document.getElementById('rank-mini-w').textContent = rank.w;
+  document.getElementById('rank-mini-l').textContent = rank.l;
+  if (next) {
+    document.getElementById('rank-next').textContent = next.name + ' @ ' + next.min + ' LP';
+    const span = next.min - cur.min;
+    const prog = span > 0 ? (rank.lp - cur.min) / span * 100 : 0;
+    document.getElementById('rank-fill').style.width = Math.max(0, Math.min(100, prog)) + '%';
+  } else {
+    document.getElementById('rank-next').textContent = '◊ Legend achieved';
+    document.getElementById('rank-fill').style.width = '100%';
+  }
+}
+function renderHist() {
+  const hist = (STATE.inv.matches || []).slice().reverse().slice(0, 50);
+  const el = document.getElementById('hist');
+  if (!hist.length) { el.innerHTML = '<div class="hist-empty">◇ No matches yet · issue or accept a challenge</div>'; return; }
+  el.innerHTML = hist.map(m => `
+    <div class="hist-row">
+      <span class="verdict ${m.result}">${m.result === 'win' ? 'WIN' : m.result === 'loss' ? 'LOSS' : 'DRAW'}</span>
+      <span class="who">vs <b>${(m.opp || 'Anonymous').slice(0,16)}</b> · ${m.aHp}–${m.bHp}</span>
+      <span class="score">${m.lpDelta > 0 ? '+' : ''}${m.lpDelta} LP</span>
+      <span class="date">${(m.when || '').slice(0, 10)}</span>
+    </div>
+  `).join('');
+}
+function renderResult(res, myVerdict, opponentName, sigHex) {
+  const p = document.getElementById('panel-result');
+  p.classList.add('on');
+  const vEl = document.getElementById('result-verdict');
+  const sEl = document.getElementById('result-score');
+  const lEl = document.getElementById('result-lore');
+  vEl.className = 'result-verdict ' + myVerdict;
+  vEl.textContent = myVerdict === 'win' ? '◊ Victory' : myVerdict === 'loss' ? '◈ Defeat' : '◇ Draw';
+  sEl.textContent = res.aHp + ' HP  ·  ' + res.bHp + ' HP  ·  ' + res.turns + ' turns';
+  lEl.textContent = myVerdict === 'win' ? '"Your seal held. The board fell silent."' : myVerdict === 'loss' ? '"The seed was against you. Sharpen the deck."' : '"Both stand. Neither yields."';
+  const log = document.getElementById('turn-log');
+  let curTurn = -1;
+  let html = '';
+  res.log.forEach(l => {
+    if (l.turn !== curTurn) { html += '<div class="turn-head">◊ Turn ' + l.turn + '</div>'; curTurn = l.turn; }
+    const cls = l.side === 'A' ? 'p-a' : l.side === 'B' ? 'p-b' : 'sys';
+    html += '<div class="' + cls + '">' + l.text + '</div>';
+  });
+  log.innerHTML = html;
+  log.scrollTop = 0;
+  document.getElementById('result-seal').innerHTML = '<b>◊ Ed25519 Signature</b> ' + (sigHex ? sigHex.slice(0, 96) + '…' : 'unsigned');
+}
+
+async function computeLP(myVerdict) {
+  // Simple flat ELO-ish: win +25, draw +5, loss -20
+  if (myVerdict === 'win') return 25;
+  if (myVerdict === 'loss') return -20;
+  return 5;
+}
+
+// ═════════ Actions ═════════
+async function issueChallenge() {
+  await ensureSignKey();
+  const deck = getDeckByChoice(document.getElementById('issue-deck').value);
+  if (!deck) return alert('Pick a valid deck');
+  const size = Object.values(deck).reduce((s,n)=>s+n, 0);
+  if (size < 20) return alert('Deck too small (min 20)');
+  const name = (document.getElementById('issue-name').value || 'Anonymous').slice(0, 24);
+  // Random 32-byte seed
+  const seedBytes = new Uint8Array(32); crypto.getRandomValues(seedBytes);
+  const seed = Array.from(seedBytes).map(b => b.toString(16).padStart(2,'0')).join('');
+  const dHash = await deckHash(deck);
+  const bundle = { v:1, type:'challenge', name, deck, deckHash: dHash, seed, pub: SIGN_KEY.pubHex, ts: new Date().toISOString() };
+  const sig = await signBytes(JSON.stringify({ v:1, type:'challenge', name, deckHash: dHash, seed, pub: SIGN_KEY.pubHex }));
+  bundle.sig = sig;
+  const enc = b64enc(bundle);
+  const url = location.origin + location.pathname + '?c=' + enc;
+  document.getElementById('issue-url').value = url;
+  document.getElementById('issue-out').classList.remove('hidden');
+  document.getElementById('issue-seal').innerHTML = '<b>◊ Seed</b> ' + seed.slice(0, 24) + '… · <b>Deck</b> ' + dHash + ' · <b>Sig</b> ' + sig.slice(0, 32) + '…';
+  await navigator.clipboard.writeText(url).catch(()=>{});
+  showCopyMsg('copy-issue');
+}
+async function parseChallenge() {
+  const raw = document.getElementById('accept-input').value.trim();
+  if (!raw) return;
+  const errEl = document.getElementById('accept-error');
+  errEl.classList.add('hidden');
+  let bundle = null;
+  try {
+    const m = raw.match(/[?&]c=([^&]+)/);
+    const enc = m ? decodeURIComponent(m[1]) : raw;
+    bundle = b64dec(enc);
+  } catch (e) { errEl.textContent = '◈ Could not parse: ' + e.message; errEl.classList.remove('hidden'); errEl.className = 'error-msg'; return; }
+  if (!bundle || bundle.type !== 'challenge') { errEl.textContent = '◈ Not a valid challenge'; errEl.classList.remove('hidden'); errEl.className = 'error-msg'; return; }
+  const canonical = JSON.stringify({ v: bundle.v, type: bundle.type, name: bundle.name, deckHash: bundle.deckHash, seed: bundle.seed, pub: bundle.pub });
+  const ok = await verifyBytes(canonical, bundle.sig, bundle.pub);
+  document.getElementById('acc-name').textContent = bundle.name + (ok ? ' ✓' : ' (unverified)');
+  document.getElementById('acc-deck-hash').textContent = bundle.deckHash;
+  document.getElementById('acc-deck-size').textContent = Object.values(bundle.deck).reduce((s,n)=>s+n, 0);
+  document.getElementById('acc-seed').textContent = bundle.seed.slice(0, 24) + '…';
+  document.getElementById('acc-sig').textContent = ok ? '✓ verified · ' + bundle.pub.slice(0, 20) + '…' : '✗ signature invalid';
+  document.getElementById('accept-preview').classList.remove('hidden');
+  STATE.pendingChallenge = bundle;
+}
+async function acceptChallenge() {
+  await ensureSignKey();
+  const ch = STATE.pendingChallenge;
+  if (!ch) return;
+  const myDeck = getDeckByChoice(document.getElementById('accept-deck').value);
+  if (!myDeck) return alert('Pick a valid deck');
+  const size = Object.values(myDeck).reduce((s,n)=>s+n, 0);
+  if (size < 20) return alert('Your deck must be 20+ cards');
+  const myName = (document.getElementById('accept-name').value || 'Anonymous').slice(0, 24);
+  // Resolve
+  const res = resolveMatch({ deckA: ch.deck, deckB: myDeck, seed: ch.seed, nameA: ch.name, nameB: myName });
+  const myVerdict = res.verdict === 'B' ? 'win' : res.verdict === 'A' ? 'loss' : 'draw';
+  const lpDelta = await computeLP(myVerdict);
+  STATE.inv.rank = STATE.inv.rank || { lp: 1000, w: 0, l: 0, d: 0 };
+  STATE.inv.rank.lp = Math.max(0, STATE.inv.rank.lp + lpDelta);
+  if (myVerdict === 'win') STATE.inv.rank.w++;
+  else if (myVerdict === 'loss') STATE.inv.rank.l++;
+  else STATE.inv.rank.d++;
+  const myDeckHash = await deckHash(myDeck);
+  const replayCanonical = JSON.stringify({ v:1, type:'replay', challengeHash: ch.deckHash + ':' + ch.seed.slice(0,16), myName, myDeckHash, verdict: res.verdict, aHp: res.aHp, bHp: res.bHp, turns: res.turns });
+  const replaySig = await signBytes(replayCanonical);
+  const replayBundle = { v:1, type:'replay', challenge: ch, myName, myDeck, myDeckHash, result: res, mySig: replaySig, myPub: SIGN_KEY.pubHex, ts: new Date().toISOString() };
+  const enc = b64enc(replayBundle);
+  const replayURL = location.origin + location.pathname + '?r=' + enc;
+  STATE.inv.matches = STATE.inv.matches || [];
+  STATE.inv.matches.push({ when: replayBundle.ts, opp: ch.name, result: myVerdict, aHp: res.aHp, bHp: res.bHp, lpDelta, replay: enc });
+  await saveInv();
+  STATE.lastResult = { bundle: replayBundle, url: replayURL, sig: replaySig };
+  renderRank(); renderHist();
+  renderResult(res, myVerdict, ch.name, replaySig);
+  // Prepare copy button
+  const sh = document.getElementById('share-replay-btn');
+  sh.onclick = async () => { await navigator.clipboard.writeText(replayURL); showCopyMsg('copy-replay'); };
+}
+
+async function verifyReplay() {
+  const raw = document.getElementById('verify-input').value.trim();
+  const out = document.getElementById('verify-out');
+  out.classList.remove('hidden');
+  let bundle = null;
+  try {
+    const m = raw.match(/[?&]r=([^&]+)/);
+    const enc = m ? decodeURIComponent(m[1]) : raw;
+    bundle = b64dec(enc);
+  } catch (e) { out.className = 'error-msg'; out.textContent = '◈ Not a valid replay'; return; }
+  if (!bundle || bundle.type !== 'replay') { out.className = 'error-msg'; out.textContent = '◈ Not a replay bundle'; return; }
+  // Verify challenge sig
+  const chCanonical = JSON.stringify({ v: bundle.challenge.v, type: 'challenge', name: bundle.challenge.name, deckHash: bundle.challenge.deckHash, seed: bundle.challenge.seed, pub: bundle.challenge.pub });
+  const chOk = await verifyBytes(chCanonical, bundle.challenge.sig, bundle.challenge.pub);
+  // Re-run deterministically
+  const res = resolveMatch({ deckA: bundle.challenge.deck, deckB: bundle.myDeck, seed: bundle.challenge.seed, nameA: bundle.challenge.name, nameB: bundle.myName });
+  const matches = res.verdict === bundle.result.verdict && res.aHp === bundle.result.aHp && res.bHp === bundle.result.bHp && res.turns === bundle.result.turns;
+  const replayCanonical = JSON.stringify({ v:1, type:'replay', challengeHash: bundle.challenge.deckHash + ':' + bundle.challenge.seed.slice(0,16), myName: bundle.myName, myDeckHash: bundle.myDeckHash, verdict: bundle.result.verdict, aHp: bundle.result.aHp, bHp: bundle.result.bHp, turns: bundle.result.turns });
+  const replayOk = await verifyBytes(replayCanonical, bundle.mySig, bundle.myPub);
+  out.className = '';
+  out.innerHTML = `
+    <div style="padding:16px 20px;background:${matches && chOk && replayOk ? 'rgba(122,184,138,0.06)' : 'rgba(230,132,110,0.06)'};border-left:3px solid ${matches && chOk && replayOk ? 'var(--sage)' : 'var(--rose)'};border-radius:4px">
+      <div style="font-family:'Libre Baskerville',serif;font-size:20px;color:${matches && chOk && replayOk ? 'var(--sage)' : 'var(--rose)'};font-weight:700">${matches && chOk && replayOk ? '◊ VERIFIED' : '◈ MISMATCH'}</div>
+      <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);margin-top:8px;letter-spacing:0.08em;line-height:1.7">
+        Challenge signature: <b style="color:${chOk?'var(--sage)':'var(--rose)'}">${chOk ? 'valid' : 'invalid'}</b> · pub ${bundle.challenge.pub.slice(0,12)}…<br>
+        Replay signature: <b style="color:${replayOk?'var(--sage)':'var(--rose)'}">${replayOk ? 'valid' : 'invalid'}</b> · pub ${bundle.myPub.slice(0,12)}…<br>
+        Deterministic re-run: <b style="color:${matches?'var(--sage)':'var(--rose)'}">${matches ? 'matches' : 'mismatch'}</b><br>
+        ${bundle.challenge.name} <b>${bundle.result.aHp}</b> — <b>${bundle.result.bHp}</b> ${bundle.myName} · ${bundle.result.turns} turns · verdict <b style="color:var(--gold)">${bundle.result.verdict}</b>
+      </div>
+    </div>
+    <button class="secondary-btn" style="margin-top:14px" onclick="showReplayLog(${JSON.stringify(bundle).replace(/"/g,'&quot;')})">◊ View turn log</button>
+  `;
+  window.__verifyBundle = bundle;
+  window.__verifyRes = res;
+}
+
+window.showReplayLog = function() {
+  const res = window.__verifyRes;
+  const bundle = window.__verifyBundle;
+  if (!res) return;
+  renderResult(res, res.verdict === 'A' ? 'draw' : res.verdict === 'B' ? 'draw' : 'draw', bundle.challenge.name + ' vs ' + bundle.myName, bundle.mySig);
+  document.getElementById('result-verdict').className = 'result-verdict';
+  document.getElementById('result-verdict').textContent = '◊ ' + bundle.challenge.name + ' vs ' + bundle.myName;
+  document.getElementById('share-replay-btn').style.display = 'none';
+};
+
+function showCopyMsg(id) {
+  const el = document.getElementById(id);
+  el.classList.remove('hidden');
+  setTimeout(() => el.classList.add('hidden'), 1400);
+}
+window.copyText = async function(id) {
+  const el = document.getElementById(id);
+  el.select();
+  await navigator.clipboard.writeText(el.value);
+  showCopyMsg('copy-' + id.split('-')[0]);
+};
+
+// ═════════ Boot ═════════
+async function init() {
+  STATE.db = await openDB();
+  STATE.inv = await loadInv();
+  const [cardsRes, man] = await Promise.all([fetch('cards.json').then(r=>r.json()), fetch('manifest.json').then(r=>r.json())]);
+  STATE.cards = cardsRes.cards;
+  STATE.manifest = man;
+  STATE.cards.forEach(c => STATE.cardsByID[c.id] = c);
+  await populateDeckSelects();
+  renderRank();
+  renderHist();
+  // Auto-load URL params
+  const p = new URLSearchParams(location.search);
+  if (p.get('c')) { switchMode('accept'); document.getElementById('accept-input').value = location.href; parseChallenge(); }
+  else if (p.get('r')) { switchMode('verify'); document.getElementById('verify-input').value = location.href; verifyReplay(); }
+  document.querySelectorAll('.mode-tab').forEach(t => t.addEventListener('click', () => switchMode(t.dataset.mode)));
+  document.getElementById('issue-btn').addEventListener('click', issueChallenge);
+  document.getElementById('accept-parse-btn').addEventListener('click', parseChallenge);
+  document.getElementById('accept-btn').addEventListener('click', acceptChallenge);
+  document.getElementById('verify-btn').addEventListener('click', verifyReplay);
+}
+
+init().catch(e=>{console.error('[fallkard] Coliseum init failed',e);});
+</script>
+  <script src="konomi-footer.js" defer></script>
+</body>
+</html>

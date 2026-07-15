@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>FallKard · the Charter · the population forks the rules and stakes on the play (A7 + A8)</title>
+<meta name="description" content="A7 rule-forking: agents fork the game's BYLAWS; healthier rulesets get adopted by play, the KERNEL is refused at the barrier. A8 wagering: agents stake $KONO on their matches, so net winnings track skill — not stake — and throwing a match just burns your own stake. Deterministic."/>
+<link rel="canonical" href="https://sjgant80-hub.github.io/fallkard/charter.html"/>
+<meta name="theme-color" content="#0b0a0f"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{--void:#0b0a0f;--shard:#141218;--shard2:#191720;--dim:#3d3a45;--muted:#8a857a;--text:#c4bfb2;--gold:#d4a017;--brass:#b8974a;--amber:#e8a83a;--rose:#e6846e;--sage:#7ab88a;--sap:#6aa0e0;--plum:#9a6dbf;--border:rgba(212,160,23,0.14);}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{background:var(--void);color:var(--text);font-family:'DM Sans',system-ui,sans-serif;}
+body{background:radial-gradient(ellipse at 22% 12%,rgba(154,109,191,0.06),transparent 60%),radial-gradient(ellipse at 82% 84%,rgba(212,160,23,0.05),transparent 60%),var(--void);min-height:100vh;padding-bottom:50px;}
+a{color:var(--brass);text-decoration:none;}
+.topbar{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:20px;padding:14px 24px;background:rgba(11,10,15,0.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);}
+.brand{display:flex;align-items:baseline;gap:10px;}
+.brand-mark{font-family:'DM Mono',monospace;font-size:20px;color:var(--gold);}
+.brand-name{font-family:'Libre Baskerville',serif;font-size:20px;font-weight:700;color:var(--text);}
+.tabs{display:flex;gap:4px;margin-left:24px;flex-wrap:wrap;}
+.tab{padding:8px 12px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);border:1px solid transparent;border-radius:4px;text-decoration:none;}
+.tab.active{color:var(--gold);border-color:var(--border);background:var(--shard);}
+.tab:hover{color:var(--text);}
+.wrap{max-width:1180px;margin:0 auto;padding:30px 26px;}
+.eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--plum);margin-bottom:12px;}
+h1{font-family:'Libre Baskerville',serif;font-size:40px;color:var(--text);margin-bottom:6px;letter-spacing:-0.015em;}
+h1 em{color:var(--plum);font-style:italic;}
+.lede{color:var(--muted);font-size:16px;line-height:1.6;max-width:840px;margin:12px 0 28px;}
+.panel{background:linear-gradient(180deg,var(--shard2),var(--shard));border:1px solid var(--border);border-radius:8px;padding:22px 24px;margin-bottom:20px;}
+.panel h2{font-family:'Libre Baskerville',serif;font-size:20px;color:var(--gold);margin-bottom:4px;}
+.panel .sub{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+@media(max-width:860px){.grid2{grid-template-columns:1fr;}}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+@media(max-width:620px){.split{grid-template-columns:1fr;}}
+.locked,.forkable{border:1.5px solid var(--border);border-radius:8px;padding:14px 16px;background:var(--void);}
+.locked{border-color:var(--rose);}.forkable{border-color:var(--sage);}
+.locked .lh,.forkable .lh{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:8px;}
+.locked .lh{color:var(--rose);}.forkable .lh{color:var(--sage);}
+.locked li,.forkable li{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);list-style:none;padding:3px 0;}
+.fork{display:grid;grid-template-columns:120px 1fr 52px 40px;gap:10px;align-items:center;margin-bottom:7px;}
+.fork .fn{font-family:'DM Mono',monospace;font-size:11px;color:var(--text);}
+.fork.adopt .fn{color:var(--sage);}
+.fbar{height:10px;background:var(--void);border:1px solid var(--border);border-radius:5px;overflow:hidden;}
+.fbar>i{display:block;height:100%;background:linear-gradient(90deg,var(--brass),var(--gold));}
+.fork .fv{font-family:'DM Mono',monospace;font-size:11px;color:var(--gold);text-align:right;}
+.fork .fd{font-family:'DM Mono',monospace;font-size:9.5px;text-align:right;}
+.fd.up{color:var(--sage);}.fd.dn{color:var(--rose);}
+.refused{border:1px dashed var(--rose);border-radius:6px;padding:9px 12px;margin-top:8px;font-family:'DM Mono',monospace;font-size:10.5px;color:var(--rose);}
+.verdict{display:flex;gap:14px;flex-wrap:wrap;}
+.vchip{padding:12px 16px;border:1px solid var(--border);border-radius:7px;background:var(--void);min-width:140px;}
+.vchip .vk{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);}
+.vchip .vv{font-family:'Libre Baskerville',serif;font-size:22px;margin-top:4px;}
+.vv.ok{color:var(--sage);}.vv.no{color:var(--rose);}.vv.gold{color:var(--gold);}
+.corr{display:flex;flex-direction:column;gap:12px;margin-top:6px;}
+.crow .cl{display:flex;justify-content:space-between;font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);margin-bottom:4px;letter-spacing:0.06em;text-transform:uppercase;}
+.crow .cl b{color:var(--gold);}
+.cbar{height:12px;background:var(--void);border:1px solid var(--border);border-radius:6px;overflow:hidden;}
+.cbar>i{display:block;height:100%;}
+table{width:100%;border-collapse:collapse;font-family:'DM Mono',monospace;font-size:11px;}
+th{text-align:left;color:var(--muted);font-weight:400;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;padding:6px 8px;border-bottom:1px solid var(--border);}
+td{padding:7px 8px;border-bottom:1px solid rgba(212,160,23,0.06);color:var(--text);}
+td.n{text-align:right;}td.pos{color:var(--sage);text-align:right;}td.neg{color:var(--rose);text-align:right;}
+.note{font-family:'DM Mono',monospace;font-size:10.5px;color:var(--dim);margin-top:10px;letter-spacing:0.04em;line-height:1.6;}
+.big{font-family:'Libre Baskerville',serif;font-size:15px;color:var(--text);line-height:1.6;}
+.footer{margin-top:40px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--dim);text-align:center;}
+.footer a{color:var(--brass);}
+.tierrow{display:grid;grid-template-columns:160px 1fr 56px;gap:10px;align-items:center;margin-bottom:7px;}
+.tierrow .tl{font-family:'DM Mono',monospace;font-size:11px;color:var(--text);}
+.tierrow .tg{color:var(--muted);}
+.tbarwrap{height:12px;background:var(--void);border:1px solid var(--border);border-radius:6px;overflow:hidden;}
+.tbarwrap .tbar{height:100%;}
+.tbar.pos{background:linear-gradient(90deg,var(--sage),var(--gold));}.tbar.neg{background:var(--rose);}
+.tierrow .tn{font-family:'DM Mono',monospace;font-size:11px;text-align:right;}
+.tn.posn{color:var(--sage);}.tn.negn{color:var(--rose);}
+.brline{font-family:'DM Mono',monospace;font-size:10.5px;color:var(--sap);margin-top:12px;letter-spacing:0.04em;line-height:1.6;}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="brand"><span class="brand-mark">◊</span><span class="brand-name">FallKard</span></div>
+  <div class="tabs">
+    <a class="tab" href="index.html">Vault</a>
+    <a class="tab" href="loom.html">Loom</a>
+    <a class="tab" href="duel.html">Duel</a>
+    <a class="tab" href="campaign.html">Campaign</a>
+    <a class="tab" href="cube.html">Cube</a>
+    <a class="tab" href="coliseum.html">Coliseum</a>
+    <a class="tab" href="kono.html">$KONO</a>
+    <a class="tab" href="guild.html">Guild</a>
+    <a class="tab" href="govern.html">Assembly</a>
+    <a class="tab" href="arena.html">Arena</a>
+    <a class="tab" href="brain.html">Brain</a>
+    <a class="tab" href="clinic.html">Clinic</a>
+    <a class="tab" href="bloodline.html">Bloodline</a>
+    <a class="tab" href="herd.html">Herd</a>
+    <a class="tab" href="estate.html">Estate</a>
+    <div class="tab active">Charter</div>
+    <a class="tab" href="about.html">About</a>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="eyebrow">◊ A7 rule-forking + A8 wagering · the arena governs and prices itself</div>
+  <h1>The <em>Charter</em>.<br>The population forks the rules — and stakes on the play.</h1>
+  <p class="lede">Two meta-layers close the arena. In <b>rule-forking</b>, an agent forks not just its deck but the game's <b>BYLAWS</b> (hand size, mana ceiling, game length); the population runs under the fork, and a ruleset is <b>adopted only if it makes healthier games</b> — more balanced, more decisive — while any fork reaching into the <b>KERNEL</b> (the win condition, the board, the pairing) is refused at the barrier. In <b>wagering</b>, agents stake <b>$KONO</b>, and the stake picks the <b>table</b>: higher tier = bigger stake, bigger pot, tougher field, and a bigger ladder reward for winning. So the stake is a real, incentive-compatible choice — <b>you can't buy into a table above your skill</b> (a weak player who over-stakes is crushed by the field it bought into, the one guarantee that holds in <i>every</i> configuration we swept), and the <b>optimal tier rises with skill</b> up to the very top band, where the strongest players sandbag the tier they dominate. The rules evolve by play; the stakes sort the field honestly.</p>
+
+  <div class="panel">
+    <h2>1 · Rule-forking — the population evolves the game (A7)</h2>
+    <div class="sub">forkable bylaws vs the locked kernel · healthier rulesets get adopted</div>
+    <div class="split">
+      <div class="locked"><div class="lh">◊ KERNEL · cannot be forked</div><ul id="kernel"></ul></div>
+      <div class="forkable"><div class="lh">◊ BYLAWS · forkable by play</div><ul id="bylaws"></ul></div>
+    </div>
+    <div id="forks"></div>
+    <div class="refused" id="refused"></div>
+  </div>
+
+  <div class="grid2">
+    <div class="panel">
+      <h2>2 · Stake-tiered matchmaking — stake picks the table, and you can't buy in (A8)</h2>
+      <div class="sub">your stake picks the table · higher tier = bigger pot, tougher field, bigger reward</div>
+      <div id="tiers"></div>
+      <div class="verdict" id="wverdict" style="margin-top:16px"></div>
+    </div>
+    <div class="panel">
+      <h2>3 · The season leaderboard</h2>
+      <div class="sub">net $KONO after the tiered season · rake feeds Genesis · reward climbs the ladder</div>
+      <table><thead><tr><th>player</th><th>skill</th><th>tier</th><th>stake</th><th style="text-align:right">net</th></tr></thead><tbody id="board"></tbody></table>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="big">The rules were never handed down — the population forks them and keeps only what makes the game better. And you can't buy a place at the top: skin in the game makes the leaderboard tell the truth. This completes the Arena, A0 → A9.</div>
+    <div class="note">Deterministic: <code>node arena/ruleforks.mjs</code> · <code>node arena/wager.mjs</code>. The KERNEL is the content-addressed invariant the barrier verifies (the governance split from the design teardown); the BYLAWS are the only forkable surface. Adopted rulesets would merge to canonical at a signed ceremony — see the <a href="govern.html">Assembly</a>. Genesis rake flows to <a href="kono.html">$KONO</a>.</div>
+  </div>
+
+  <div class="footer">◊ FallKard · the Charter · A7 + A8 · <a href="arena.html">Arena</a> · <a href="govern.html">Assembly</a> · <a href="/">home</a></div>
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+async function boot(){
+  const [rf, w] = await Promise.all([
+    fetch('ruleforks.json').then(r=>r.json()).catch(()=>null),
+    fetch('wager.json').then(r=>r.json()).catch(()=>null),
+  ]);
+  // 1 · rule-forks
+  if(rf){
+    $('#kernel').innerHTML = rf.kernel.map(k=>`<li>🔒 ${k}</li>`).join('');
+    $('#bylaws').innerHTML = rf.bylaws.map(b=>`<li>⑂ ${b}</li>`).join('');
+    const maxH = Math.max(...rf.ranked.map(f=>f.health),0.001);
+    $('#forks').innerHTML = rf.ranked.map(f=>{
+      const adopt = rf.verdict.adopted.includes(f.name);
+      const d = f.delta>0?`<span class="fd up">+${f.delta}</span>`:`<span class="fd dn">${f.delta}</span>`;
+      return `<div class="fork ${adopt?'adopt':''}"><div class="fn">${adopt?'✓ ':''}${f.name}</div><div class="fbar"><i style="width:${Math.round(f.health/maxH*100)}%"></i></div><div class="fv">${f.health}</div>${f.name==='Canonical'?'<span class="fd">base</span>':d}</div>`;
+    }).join('');
+    const kr = rf.forks.filter(f=>f.rejected);
+    $('#refused').innerHTML = kr.length ? kr.map(f=>`✗ ${f.name}: ${f.reason}`).join('<br>') : '';
+    $('#refused').style.display = kr.length ? 'block' : 'none';
+  }
+  // 2 · tiers ladder + best-response + verdict
+  if(w){
+    const v=w.verdict;
+    const maxNet=Math.max(...w.tiers.map(t=>Math.abs(t.meanNet||0)),1);
+    $('#tiers').innerHTML = w.tiers.map(t=>{
+      const net=t.meanNet||0, wd=Math.round(Math.abs(net)/maxNet*100);
+      return `<div class="tierrow"><div class="tl">T${t.tier} <span class="tg">stake ${t.stake} · skill ${t.meanSkill}</span></div><div class="tbarwrap"><div class="tbar ${net>=0?'pos':'neg'}" style="width:${wd}%"></div></div><div class="tn ${net>=0?'posn':'negn'}">${net>0?'+':''}${net}</div></div>`;
+    }).join('') + `<div class="brline">best-response tier by skill band: ${w.bestResponse.slice().sort((a,b)=>a.skill-b.skill).map(b=>`s${b.skill}→<b style="color:var(--gold)">T${b.bestTier}</b>`).join(' · ')} → optimal tier rises with skill${w.verdict.optimalTierRisesWithSkill?'':' (top-band sandbag)'} · can't buy in ✓</div>`;
+    const chips=[['optimal tier ↑ skill',v.optimalTierRisesWithSkill?'YES':'no',v.optimalTierRisesWithSkill?'ok':'no'],['cannot buy in',v.cantBuyIntoHigherTier?'YES':'no',v.cantBuyIntoHigherTier?'ok':'no'],['self-sorts',v.selfSorts?'YES':'no',v.selfSorts?'ok':'no'],['incentive-compatible',v.incentiveCompatible?'YES':'no',v.incentiveCompatible?'ok':'no'],['Genesis',w.genesisPool,'gold']];
+    $('#wverdict').innerHTML = chips.map(([k,val,cls])=>`<div class="vchip"><div class="vk">${k}</div><div class="vv ${cls}">${val}</div></div>`).join('');
+    // 3 · board
+    $('#board').innerHTML = w.leaderboard.map(p=>`<tr><td>${p.handle}</td><td>${p.skill}</td><td>T${p.tier}</td><td>${p.stake}</td><td class="${p.net>=0?'pos':'neg'}">${p.net>0?'+':''}${p.net}</td></tr>`).join('');
+  }
+  if(!rf&&!w) $('#forks').innerHTML='<div class="note">Run <code>node arena/ruleforks.mjs</code> and <code>node arena/wager.mjs</code>.</div>';
+}
+boot();
+</script>
+  <script src="konomi-footer.js" defer></script>
+</body>
+</html>

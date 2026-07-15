@@ -1,0 +1,569 @@
+{
+  "generated": "2026-07-12",
+  "config": {
+    "pop": 28,
+    "gens": 14,
+    "seeds": 3
+  },
+  "history": [
+    {
+      "gen": 0,
+      "championHandle": "Bram-5",
+      "championWinRate": 0.864,
+      "championVsFrozenField": 0.851,
+      "avgWinRate": 0.5,
+      "diversity": 28,
+      "deepestLineage": 0,
+      "championDeck": [
+        "fallenterprise",
+        "shadowcompass",
+        "fallcolony",
+        "fallphone",
+        "kard",
+        "fallsalescrm",
+        "fallcrm",
+        "fallescape"
+      ],
+      "championStyle": {
+        "aggro": 0.6,
+        "curve": 0.81,
+        "lanePref": 0.58
+      },
+      "topChambers": [
+        "market:28",
+        "clinic:1",
+        "colony:1"
+      ]
+    },
+    {
+      "gen": 1,
+      "championHandle": "Bram-5",
+      "championWinRate": 0.642,
+      "championVsFrozenField": 0.851,
+      "avgWinRate": 0.5,
+      "diversity": 17,
+      "deepestLineage": 1,
+      "championDeck": [
+        "fallenterprise",
+        "shadowcompass",
+        "fallcolony",
+        "fallphone",
+        "kard",
+        "fallsalescrm",
+        "fallcrm",
+        "fallescape"
+      ],
+      "championStyle": {
+        "aggro": 0.6,
+        "curve": 0.81,
+        "lanePref": 0.58
+      },
+      "topChambers": [
+        "market:28",
+        "clinic:1",
+        "colony:1"
+      ]
+    },
+    {
+      "gen": 2,
+      "championHandle": "Bram-1",
+      "championWinRate": 0.67,
+      "championVsFrozenField": 0.827,
+      "avgWinRate": 0.5,
+      "diversity": 15,
+      "deepestLineage": 2,
+      "championDeck": [
+        "fallenterprise",
+        "fallmarket",
+        "fallseed",
+        "fallcolony",
+        "fallhub",
+        "fall-cube",
+        "fall-autopilot-kit",
+        "fallos"
+      ],
+      "championStyle": {
+        "aggro": 0.83,
+        "curve": 0.29,
+        "lanePref": 0.88
+      },
+      "topChambers": [
+        "market:17",
+        "bridge:10",
+        "vault:1"
+      ]
+    },
+    {
+      "gen": 3,
+      "championHandle": "Sable-17~21",
+      "championWinRate": 0.586,
+      "championVsFrozenField": 0.836,
+      "avgWinRate": 0.5,
+      "diversity": 15,
+      "deepestLineage": 3,
+      "championDeck": [
+        "fallmirror",
+        "fallmarket",
+        "fallseed",
+        "fallvetpractice",
+        "shadowcompass",
+        "fallvetonboard",
+        "fallvet-us",
+        "tonesmith"
+      ],
+      "championStyle": {
+        "aggro": 0.68,
+        "curve": 0.27,
+        "lanePref": 0.66
+      },
+      "topChambers": [
+        "market:17",
+        "clinic:10",
+        "colony:2"
+      ]
+    },
+    {
+      "gen": 4,
+      "championHandle": "Bram-1×Mir-2n",
+      "championWinRate": 0.599,
+      "championVsFrozenField": 0.798,
+      "avgWinRate": 0.5,
+      "diversity": 13,
+      "deepestLineage": 4,
+      "championDeck": [
+        "fallenterprise",
+        "fallmarket",
+        "fallseed",
+        "fallcolony",
+        "fallhub",
+        "fall-cube",
+        "shadowcompass",
+        "shields"
+      ],
+      "championStyle": {
+        "aggro": 0.7,
+        "curve": 0.39,
+        "lanePref": 0.85
+      },
+      "topChambers": [
+        "market:11",
+        "bridge:9",
+        "colony:5"
+      ]
+    },
+    {
+      "gen": 5,
+      "championHandle": "Sable-17~2t",
+      "championWinRate": 0.59,
+      "championVsFrozenField": 0.804,
+      "avgWinRate": 0.5,
+      "diversity": 13,
+      "deepestLineage": 5,
+      "championDeck": [
+        "fallmirror",
+        "fallmarket",
+        "fallseed",
+        "fallvetpractice",
+        "shadowcompass",
+        "fallvetonboard",
+        "fallvet-us",
+        "tonesmith"
+      ],
+      "championStyle": {
+        "aggro": 0.77,
+        "curve": 0.09,
+        "lanePref": 0.53
+      },
+      "topChambers": [
+        "market:17",
+        "clinic:10",
+        "colony:2"
+      ]
+    },
+    {
+      "gen": 6,
+      "championHandle": "Bram-5~37",
+      "championWinRate": 0.593,
+      "championVsFrozenField": 0.833,
+      "avgWinRate": 0.5,
+      "diversity": 11,
+      "deepestLineage": 6,
+      "championDeck": [
+        "fallenterprise",
+        "fallcolony",
+        "fallphone",
+        "kard",
+        "fallsalescrm",
+        "fallcrm",
+        "fallescape",
+        "IgnAIte"
+      ],
+      "championStyle": {
+        "aggro": 0.6,
+        "curve": 0.88,
+        "lanePref": 0.58
+      },
+      "topChambers": [
+        "market:28",
+        "colony:1",
+        "bridge:1"
+      ]
+    },
+    {
+      "gen": 7,
+      "championHandle": "Sable-17~3a",
+      "championWinRate": 0.645,
+      "championVsFrozenField": 0.81,
+      "avgWinRate": 0.5,
+      "diversity": 13,
+      "deepestLineage": 7,
+      "championDeck": [
+        "fallmirror",
+        "fallmarket",
+        "fallseed",
+        "fallvetpractice",
+        "shadowcompass",
+        "fallvetonboard",
+        "fallvet-us",
+        "tonesmith"
+      ],
+      "championStyle": {
+        "aggro": 0.92,
+        "curve": 0.27,
+        "lanePref": 0.53
+      },
+      "topChambers": [
+        "market:17",
+        "clinic:10",
+        "colony:2"
+      ]
+    },
+    {
+      "gen": 8,
+      "championHandle": "Bram-1~43",
+      "championWinRate": 0.574,
+      "championVsFrozenField": 0.747,
+      "avgWinRate": 0.5,
+      "diversity": 13,
+      "deepestLineage": 8,
+      "championDeck": [
+        "fallenterprise",
+        "fallmarket",
+        "fallseed",
+        "fallcolony",
+        "fallhub",
+        "fall-cube",
+        "fall-autopilot-kit",
+        "fallos"
+      ],
+      "championStyle": {
+        "aggro": 1.22,
+        "curve": 0.29,
+        "lanePref": 0.8
+      },
+      "topChambers": [
+        "market:17",
+        "bridge:10",
+        "vault:1"
+      ]
+    },
+    {
+      "gen": 9,
+      "championHandle": "Sable-17~3a",
+      "championWinRate": 0.586,
+      "championVsFrozenField": 0.81,
+      "avgWinRate": 0.5,
+      "diversity": 9,
+      "deepestLineage": 9,
+      "championDeck": [
+        "fallmirror",
+        "fallmarket",
+        "fallseed",
+        "fallvetpractice",
+        "shadowcompass",
+        "fallvetonboard",
+        "fallvet-us",
+        "tonesmith"
+      ],
+      "championStyle": {
+        "aggro": 0.92,
+        "curve": 0.27,
+        "lanePref": 0.53
+      },
+      "topChambers": [
+        "market:17",
+        "clinic:10",
+        "colony:2"
+      ]
+    },
+    {
+      "gen": 10,
+      "championHandle": "Bram-1×Bra-4s×Sab-5d",
+      "championWinRate": 0.673,
+      "championVsFrozenField": 0.893,
+      "avgWinRate": 0.5,
+      "diversity": 11,
+      "deepestLineage": 10,
+      "championDeck": [
+        "fallmarket",
+        "fallseed",
+        "shadowcompass",
+        "fallcarousel",
+        "fallbridge-mcp",
+        "Flintium",
+        "fallenterprise",
+        "fallcall"
+      ],
+      "championStyle": {
+        "aggro": 1.07,
+        "curve": 0.24,
+        "lanePref": 0.7
+      },
+      "topChambers": [
+        "market:22",
+        "clinic:5",
+        "bridge:3"
+      ]
+    },
+    {
+      "gen": 11,
+      "championHandle": "Bram-1×Bra-4s×Sab-5d",
+      "championWinRate": 0.679,
+      "championVsFrozenField": 0.893,
+      "avgWinRate": 0.5,
+      "diversity": 16,
+      "deepestLineage": 11,
+      "championDeck": [
+        "fallmarket",
+        "fallseed",
+        "shadowcompass",
+        "fallcarousel",
+        "fallbridge-mcp",
+        "Flintium",
+        "fallenterprise",
+        "fallcall"
+      ],
+      "championStyle": {
+        "aggro": 1.07,
+        "curve": 0.24,
+        "lanePref": 0.7
+      },
+      "topChambers": [
+        "market:22",
+        "clinic:5",
+        "bridge:3"
+      ]
+    },
+    {
+      "gen": 12,
+      "championHandle": "Bram-1×Bra-4s×Sab-5d",
+      "championWinRate": 0.636,
+      "championVsFrozenField": 0.893,
+      "avgWinRate": 0.5,
+      "diversity": 17,
+      "deepestLineage": 12,
+      "championDeck": [
+        "fallmarket",
+        "fallseed",
+        "shadowcompass",
+        "fallcarousel",
+        "fallbridge-mcp",
+        "Flintium",
+        "fallenterprise",
+        "fallcall"
+      ],
+      "championStyle": {
+        "aggro": 1.07,
+        "curve": 0.24,
+        "lanePref": 0.7
+      },
+      "topChambers": [
+        "market:22",
+        "clinic:5",
+        "bridge:3"
+      ]
+    },
+    {
+      "gen": 13,
+      "championHandle": "Bram-1×Bra-4s×Sab-5d~6t",
+      "championWinRate": 0.605,
+      "championVsFrozenField": 0.833,
+      "avgWinRate": 0.5,
+      "diversity": 16,
+      "deepestLineage": 13,
+      "championDeck": [
+        "fallmarket",
+        "fallseed",
+        "shadowcompass",
+        "fallcarousel",
+        "fallbridge-mcp",
+        "Flintium",
+        "fallenterprise",
+        "fallcall"
+      ],
+      "championStyle": {
+        "aggro": 1.07,
+        "curve": 0.24,
+        "lanePref": 0.7
+      },
+      "topChambers": [
+        "market:22",
+        "clinic:5",
+        "bridge:3"
+      ]
+    }
+  ],
+  "finalChampion": {
+    "handle": "Bram-1×Bra-4s×Sab-5d~6t",
+    "lineage": {
+      "parent": "sim:Bram-1×Bra-4s×Sab-5d",
+      "generation": 8,
+      "winsAtBirth": 17
+    },
+    "deck": {
+      "fallmarket": 1,
+      "fallseed": 1,
+      "shadowcompass": 1,
+      "fallcarousel": 2,
+      "fallbridge-mcp": 2,
+      "Flintium": 2,
+      "fallenterprise": 1,
+      "fallcall": 2,
+      "shields": 2,
+      "fallvetpractice": 2,
+      "fallhub": 1,
+      "kard": 2,
+      "fallnote": 2,
+      "fallengineer": 2,
+      "fallcliniconboard": 2,
+      "fallfuneral-us": 2,
+      "tonesmith": 2,
+      "roost": 2
+    },
+    "sockets": {
+      "fallos": [
+        "Ith"
+      ]
+    },
+    "style": {
+      "aggro": 1.0665627143347052,
+      "curve": 0.23766289437585736,
+      "hpBias": 0.4363575960219479,
+      "lanePref": 0.7036908436213991,
+      "valSealed": 0.6967185356652948,
+      "valFork": 1.2805212620027435,
+      "valMarket": 0.9617873371056243,
+      "chamberBias": {
+        "market": 0.479076646090535,
+        "vault": 0.21359203532235935,
+        "clinic": -0.29755229766803837,
+        "bridge": 0.25652542009602197
+      },
+      "kindBias": {
+        "surface": 0,
+        "wellness": 0,
+        "tool": -0.17285129458161866,
+        "mcp": 0.17295096021947876
+      }
+    },
+    "winRate": 0.605,
+    "vsFrozenField": 0.833,
+    "topChambers": [
+      "market:22",
+      "clinic:5",
+      "bridge:3"
+    ]
+  },
+  "gauntlet": [
+    {
+      "gen": 10,
+      "handle": "Bram-1×Bra-4s×Sab-5d",
+      "gauntletWinRate": 0.647,
+      "lineageDepth": 7
+    },
+    {
+      "gen": 11,
+      "handle": "Bram-1×Bra-4s×Sab-5d",
+      "gauntletWinRate": 0.647,
+      "lineageDepth": 7
+    },
+    {
+      "gen": 12,
+      "handle": "Bram-1×Bra-4s×Sab-5d",
+      "gauntletWinRate": 0.647,
+      "lineageDepth": 7
+    },
+    {
+      "gen": 13,
+      "handle": "Bram-1×Bra-4s×Sab-5d~6t",
+      "gauntletWinRate": 0.628,
+      "lineageDepth": 8
+    },
+    {
+      "gen": 5,
+      "handle": "Sable-17~2t",
+      "gauntletWinRate": 0.506,
+      "lineageDepth": 4
+    },
+    {
+      "gen": 3,
+      "handle": "Sable-17~21",
+      "gauntletWinRate": 0.487,
+      "lineageDepth": 3
+    },
+    {
+      "gen": 4,
+      "handle": "Bram-1×Mir-2n",
+      "gauntletWinRate": 0.455,
+      "lineageDepth": 4
+    },
+    {
+      "gen": 8,
+      "handle": "Bram-1~43",
+      "gauntletWinRate": 0.449,
+      "lineageDepth": 5
+    },
+    {
+      "gen": 0,
+      "handle": "Bram-5",
+      "gauntletWinRate": 0.436,
+      "lineageDepth": 0
+    },
+    {
+      "gen": 1,
+      "handle": "Bram-5",
+      "gauntletWinRate": 0.436,
+      "lineageDepth": 0
+    },
+    {
+      "gen": 2,
+      "handle": "Bram-1",
+      "gauntletWinRate": 0.423,
+      "lineageDepth": 0
+    },
+    {
+      "gen": 6,
+      "handle": "Bram-5~37",
+      "gauntletWinRate": 0.417,
+      "lineageDepth": 3
+    },
+    {
+      "gen": 7,
+      "handle": "Sable-17~3a",
+      "gauntletWinRate": 0.41,
+      "lineageDepth": 5
+    },
+    {
+      "gen": 9,
+      "handle": "Sable-17~3a",
+      "gauntletWinRate": 0.41,
+      "lineageDepth": 5
+    }
+  ],
+  "verdict": {
+    "earlyGenChampsAvgGauntlet": 0.451,
+    "lateGenChampsAvgGauntlet": 0.548,
+    "lateBeatEarly": 0.097,
+    "populationEvolved": true
+  }
+}

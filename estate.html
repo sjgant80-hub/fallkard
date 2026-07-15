@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>FallKard · the Estate · one organism at every scale — card ⊂ organism ⊂ house ⊂ generation ⊂ estate</title>
+<meta name="description" content="The descendants at every zoom level, one self-similar shape: each founding line is a house (a guild), each fork a generation; matured organisms mint new cards into the pool the next generation breeds on, so the substrate parents its successor; and the whole estate is one organism — a Seal of Seals. Deterministic."/>
+<link rel="canonical" href="https://sjgant80-hub.github.io/fallkard/estate.html"/>
+<meta name="theme-color" content="#0b0a0f"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{--void:#0b0a0f;--shard:#141218;--shard2:#191720;--dim:#3d3a45;--muted:#8a857a;--text:#c4bfb2;--gold:#d4a017;--brass:#b8974a;--amber:#e8a83a;--rose:#e6846e;--sage:#7ab88a;--sap:#6aa0e0;--plum:#9a6dbf;--border:rgba(212,160,23,0.14);}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{background:var(--void);color:var(--text);font-family:'DM Sans',system-ui,sans-serif;}
+body{background:radial-gradient(ellipse at 50% 20%,rgba(212,160,23,0.06),transparent 55%),radial-gradient(ellipse at 80% 88%,rgba(154,109,191,0.05),transparent 55%),var(--void);min-height:100vh;padding-bottom:50px;}
+a{color:var(--brass);text-decoration:none;}
+.topbar{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:20px;padding:14px 24px;background:rgba(11,10,15,0.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);}
+.brand{display:flex;align-items:baseline;gap:10px;}
+.brand-mark{font-family:'DM Mono',monospace;font-size:20px;color:var(--gold);}
+.brand-name{font-family:'Libre Baskerville',serif;font-size:20px;font-weight:700;color:var(--text);}
+.tabs{display:flex;gap:4px;margin-left:24px;flex-wrap:wrap;}
+.tab{padding:8px 12px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);border:1px solid transparent;border-radius:4px;text-decoration:none;}
+.tab.active{color:var(--gold);border-color:var(--border);background:var(--shard);}
+.tab:hover{color:var(--text);}
+.wrap{max-width:1180px;margin:0 auto;padding:30px 26px;}
+.eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+h1{font-family:'Libre Baskerville',serif;font-size:40px;color:var(--text);margin-bottom:6px;letter-spacing:-0.015em;}
+h1 em{color:var(--gold);font-style:italic;}
+.lede{color:var(--muted);font-size:16px;line-height:1.6;max-width:840px;margin:12px 0 28px;}
+.panel{background:linear-gradient(180deg,var(--shard2),var(--shard));border:1px solid var(--border);border-radius:8px;padding:22px 24px;margin-bottom:20px;}
+.panel h2{font-family:'Libre Baskerville',serif;font-size:20px;color:var(--gold);margin-bottom:4px;}
+.panel .sub{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+@media(max-width:860px){.grid2{grid-template-columns:1fr;}}
+.nest{display:grid;grid-template-columns:340px 1fr;gap:22px;align-items:center;}
+@media(max-width:760px){.nest{grid-template-columns:1fr;}}
+.scalerow{display:flex;align-items:baseline;gap:10px;padding:8px 0;border-bottom:1px solid rgba(212,160,23,0.06);}
+.scalerow .dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+.scalerow .snm{font-family:'DM Mono',monospace;font-size:12px;color:var(--text);letter-spacing:0.06em;text-transform:uppercase;width:96px;}
+.scalerow .sc{font-family:'Libre Baskerville',serif;font-size:16px;color:var(--gold);width:56px;text-align:right;}
+.scalerow .su{font-size:12px;color:var(--muted);}
+.scalerow.frame .sc{color:var(--plum);font-size:12px;font-family:'DM Mono',monospace;}
+.pyr{display:flex;flex-direction:column;gap:5px;align-items:center;margin-top:6px;}
+.prow{display:flex;align-items:center;gap:10px;width:100%;}
+.prow .pg{font-family:'DM Mono',monospace;font-size:9.5px;color:var(--muted);width:110px;text-align:right;}
+.pbar{height:16px;background:linear-gradient(90deg,var(--brass),var(--gold));border-radius:3px;}
+.prow .pn{font-family:'DM Mono',monospace;font-size:10px;color:var(--gold);}
+.house{display:grid;grid-template-columns:120px 1fr 60px;gap:10px;align-items:center;margin-bottom:8px;}
+.house .hn{font-family:'DM Mono',monospace;font-size:11px;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.house .hg{color:var(--muted);}
+.hbar{height:11px;background:var(--void);border:1px solid var(--border);border-radius:5px;overflow:hidden;}
+.hbar>i{display:block;height:100%;background:linear-gradient(90deg,var(--plum),var(--gold));}
+.house .hv{font-family:'DM Mono',monospace;font-size:11px;color:var(--gold);text-align:right;}
+.note{font-family:'DM Mono',monospace;font-size:10.5px;color:var(--dim);margin-top:10px;letter-spacing:0.04em;line-height:1.6;}
+.big{font-family:'Libre Baskerville',serif;font-size:15px;color:var(--text);line-height:1.6;}
+.footer{margin-top:40px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--dim);text-align:center;}
+.footer a{color:var(--brass);}
+.stew{border:1.5px solid var(--plum);border-radius:9px;background:linear-gradient(180deg,rgba(154,109,191,0.06),transparent);padding:16px 18px;}
+.stew .sh{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--plum);margin-bottom:6px;}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="brand"><span class="brand-mark">◊</span><span class="brand-name">FallKard</span></div>
+  <div class="tabs">
+    <a class="tab" href="index.html">Vault</a>
+    <a class="tab" href="loom.html">Loom</a>
+    <a class="tab" href="duel.html">Duel</a>
+    <a class="tab" href="campaign.html">Campaign</a>
+    <a class="tab" href="cube.html">Cube</a>
+    <a class="tab" href="coliseum.html">Coliseum</a>
+    <a class="tab" href="kono.html">$KONO</a>
+    <a class="tab" href="guild.html">Guild</a>
+    <a class="tab" href="govern.html">Assembly</a>
+    <a class="tab" href="arena.html">Arena</a>
+    <a class="tab" href="brain.html">Brain</a>
+    <a class="tab" href="clinic.html">Clinic</a>
+    <a class="tab" href="bloodline.html">Bloodline</a>
+    <a class="tab" href="herd.html">Herd</a>
+    <div class="tab active">Estate</div>
+    <a class="tab" href="charter.html">Charter</a>
+    <a class="tab" href="about.html">About</a>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="eyebrow">◊ the descendants, at every scale · one shape from card to estate</div>
+  <h1>The <em>Estate</em>.<br>One organism at every scale.</h1>
+  <p class="lede">Zoom out and the same shape repeats. A <b>card</b> is a tool; a bonded pair of card-deck and mind is an <b>organism</b>; a founding line of organisms is a <b>house</b> — a guild; the forks of a house are its <b>generations</b>; and the whole thing is one <b>estate</b> — a Seal of Seals, the top organism. Matured organisms mint new cards back into the pool the next generation breeds on, so the <b>substrate parents its own successor</b>. Nothing here is a new mechanism — it is the one bloodline seen at five zoom levels, self-similar all the way up. The sixth scale is not code: the <b>carbon line</b> — the human stewards, Gen-1 and the passengers who inherit it.</p>
+
+  <div class="panel">
+    <h2>1 · One shape at every scale</h2>
+    <div class="sub">card ⊂ organism ⊂ house ⊂ generation ⊂ estate ⊂ the carbon line</div>
+    <div class="nest">
+      <svg id="rings" viewBox="0 0 320 320" style="width:100%;max-width:320px;height:auto"></svg>
+      <div id="scales"></div>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="panel">
+      <h2>2 · Generations — the tiers</h2>
+      <div class="sub">organisms bred at each generation of the bloodline</div>
+      <div class="pyr" id="pyr"></div>
+    </div>
+    <div class="panel">
+      <h2>3 · Houses — the guilds</h2>
+      <div class="sub">a founding line's worth = bloodline price + income earned</div>
+      <div id="houses"></div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>4 · The substrate parents its successor</h2>
+    <div class="sub">matured organisms mint cards back into the pool · each cohort breeds on a richer one</div>
+    <svg id="subchart" viewBox="0 0 640 200" style="width:100%;height:auto"></svg>
+    <div class="note" id="subnote"></div>
+  </div>
+
+  <div class="panel">
+    <div class="stew">
+      <div class="sh">◊ the sixth scale · not simulated</div>
+      <div class="big" id="carbon">The carbon line — the human stewards. Gen-1 is the founder; the passengers are those who fork and inherit the estate. That scale is real people, so it is named here, not modelled — the honest edge of the map.</div>
+    </div>
+    <div class="note">Measured where measured (generations, houses — from the real genealogy); projected where projected (the substrate growth — compounded from the measured mint rate). Deterministic: <code>node arena/estate.mjs</code>. This is the whole loop folded into one view — <a href="arena.html">Arena</a> breeds, <a href="clinic.html">Clinic</a> matures, <a href="bloodline.html">Bloodline</a> prices, <a href="herd.html">Herd</a> earns, and the Estate holds them all as one organism.</div>
+  </div>
+
+  <div class="footer">◊ FallKard · the Estate · one shape at every scale · <a href="herd.html">Herd</a> · <a href="bloodline.html">Bloodline</a> · <a href="/">home</a></div>
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+const COLORS = ['var(--sage)','var(--sap)','var(--plum)','var(--amber)','var(--gold)','var(--rose)'];
+async function boot(){
+  const e = await fetch('estate-ledger.json').then(r=>r.json()).catch(()=>null);
+  if(!e){ $('#scales').innerHTML='<div class="note">Run <code>node arena/estate.mjs</code> to generate the ledger.</div>'; return; }
+
+  // 1 · nesting — rings + list
+  const sc = e.scales;
+  drawRings(sc);
+  $('#scales').innerHTML = sc.map((s,i)=>`<div class="scalerow ${s.measured?'':'frame'}"><span class="dot" style="background:${COLORS[i]}"></span><span class="snm">${s.scale}</span><span class="sc">${s.count===null?'∞?':s.count}</span><span class="su">${s.unit}</span></div>`).join('');
+
+  // 2 · generations pyramid
+  const gens = e.generational.tiers;
+  const maxG = Math.max(...gens.map(g=>g.organisms),1);
+  $('#pyr').innerHTML = gens.map(g=>`<div class="prow"><span class="pg">${g.tier}</span><div class="pbar" style="width:${Math.max(4,Math.round(g.organisms/maxG*100))}%"></div><span class="pn">${g.organisms}</span></div>`).join('');
+
+  // 3 · houses
+  const maxH = Math.max(...e.houses.map(h=>h.worth),1);
+  $('#houses').innerHTML = e.houses.map(h=>`<div class="house"><div class="hn">${h.house} <span class="hg">g${h.gen}·${h.members}m</span></div><div class="hbar"><i style="width:${Math.round(h.worth/maxH*100)}%"></i></div><div class="hv">${h.worth}</div></div>`).join('');
+
+  // 4 · substrate growth
+  drawSub(e.substrate);
+  const sp=e.substrate.projection;
+  $('#subnote').textContent = `Base pool ${e.substrate.basePool} cards · ${e.substrate.mintedNow} minted back this run. Projected over ${sp.length} epochs the pool grows to ${sp[sp.length-1].pool} (+${e.substrate.growthPct}%), and it accelerates — a richer pool matures the next cohort more readily, so each substrate parents a faster one. "carbon builds silicon builds ???"`;
+}
+
+function drawRings(scales){
+  const cx=160,cy=160, meas=scales.filter(s=>s.count!==null);
+  const n=meas.length, rMax=150, rMin=24;
+  let g='';
+  for(let i=0;i<n;i++){
+    const r = rMin + (rMax-rMin)*(i/(n-1));
+    g+=`<circle cx="${cx}" cy="${cy}" r="${r.toFixed(1)}" fill="none" stroke="${COLORS[i]}" stroke-width="1.6" opacity="${0.5+0.5*(1-i/n)}"/>`;
+    g+=`<text x="${cx}" y="${(cy-r+13).toFixed(1)}" fill="${COLORS[i]}" font-size="9.5" font-family="DM Mono" text-anchor="middle" letter-spacing="0.08em">${meas[i].scale}</text>`;
+  }
+  g+=`<circle cx="${cx}" cy="${cy}" r="4" fill="var(--gold)"/>`;
+  g+=`<text x="${cx}" y="${cy+2}" fill="var(--void)" font-size="7" font-family="DM Mono" text-anchor="middle" font-weight="700"></text>`;
+  document.getElementById('rings').innerHTML=g;
+}
+function drawSub(sub){
+  const W=640,H=200,padL=44,padR=16,padT=14,padB=28;
+  const p=sub.projection, pool=p.map(x=>x.pool);
+  const ymin=Math.min(...pool), ymax=Math.max(...pool);
+  const x=i=> padL + (i/(Math.max(1,p.length-1)))*(W-padL-padR);
+  const y=v=> padT + (1-(v-ymin)/(Math.max(1,ymax-ymin)))*(H-padT-padB);
+  let g='';
+  for(let k=0;k<=4;k++){const yy=padT+k/4*(H-padT-padB); g+=`<line x1="${padL}" y1="${yy}" x2="${W-padR}" y2="${yy}" stroke="rgba(212,160,23,0.08)"/><text x="6" y="${yy+3}" fill="var(--dim)" font-size="9" font-family="DM Mono">${Math.round(ymax-(k/4)*(ymax-ymin))}</text>`;}
+  p.forEach((pt,i)=> g+=`<text x="${x(i)}" y="${H-9}" fill="var(--dim)" font-size="9" font-family="DM Mono" text-anchor="middle">e${pt.epoch}</text>`);
+  const path=p.map((pt,i)=>`${i?'L':'M'}${x(i).toFixed(1)},${y(pt.pool).toFixed(1)}`).join(' ');
+  const area=`M${x(0)},${H-padB} `+p.map((pt,i)=>`L${x(i).toFixed(1)},${y(pt.pool).toFixed(1)}`).join(' ')+` L${x(p.length-1)},${H-padB} Z`;
+  g+=`<path d="${area}" fill="var(--gold)" opacity="0.08"/>`;
+  g+=`<path d="${path}" fill="none" stroke="var(--gold)" stroke-width="2.6"/>`;
+  p.forEach((pt,i)=> g+=`<circle cx="${x(i)}" cy="${y(pt.pool)}" r="3" fill="var(--gold)"/>`);
+  document.getElementById('subchart').innerHTML=g;
+}
+boot();
+</script>
+  <script src="konomi-footer.js" defer></script>
+</body>
+</html>

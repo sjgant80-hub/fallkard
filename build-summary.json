@@ -1,0 +1,30 @@
+{
+  "generated": "2026-07-10",
+  "total": 1212,
+  "seal": "sha256:4bc5e65a36d0861ee250f71f974ce15ef80bf3875c5e3d77b4a89a0655c30abc",
+  "rarityDistribution": {
+    "rare": 325,
+    "magic": 877,
+    "uber-unique": 10
+  },
+  "chamberDistribution": {
+    "bridge": 436,
+    "forge": 298,
+    "colony": 37,
+    "estate": 86,
+    "clinic": 75,
+    "vault": 29,
+    "studio": 27,
+    "reach": 21,
+    "market": 203
+  },
+  "kindDistribution": {
+    "mcp": 302,
+    "api": 304,
+    "sdk": 304,
+    "tool": 286,
+    "wellness": 3,
+    "surface": 13
+  },
+  "skipped": []
+}

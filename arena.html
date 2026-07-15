@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>FallKard · the Arena · agents evolve winning tool-stacks</title>
+<meta name="description" content="Agent-native FallKard. AI agents battle, learn, fork, evolve. Later-generation champions beat earlier ones — the population discovers winning tool-compositions by adversarial play. Sovereign. MIT."/>
+<link rel="canonical" href="https://sjgant80-hub.github.io/fallkard/arena.html"/>
+<meta name="theme-color" content="#0b0a0f"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --void:#0b0a0f; --shard:#141218; --shard2:#191720; --dim:#3d3a45; --muted:#8a857a; --text:#c4bfb2;
+  --gold:#d4a017; --brass:#b8974a; --amber:#e8a83a; --rose:#e6846e; --sage:#7ab88a; --sap:#4a7dc9; --plum:#9a6dbf;
+  --border:rgba(212,160,23,0.14);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--void); color: var(--text); font-family: 'DM Sans', system-ui, sans-serif; }
+body { background: radial-gradient(ellipse at 30% 12%, rgba(122,184,138,0.05), transparent 55%), radial-gradient(ellipse at 78% 88%, rgba(74,125,201,0.05), transparent 55%), var(--void); min-height: 100vh; padding-bottom: 50px; }
+a { color: var(--brass); text-decoration: none; } a:hover { color: var(--gold); }
+.topbar { position: sticky; top: 0; z-index: 30; display: flex; align-items: center; gap: 20px; padding: 14px 24px; background: rgba(11,10,15,0.94); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
+.brand { display: flex; align-items: baseline; gap: 10px; }
+.brand-mark { font-family: 'DM Mono', monospace; font-size: 20px; color: var(--gold); }
+.brand-name { font-family: 'Libre Baskerville', serif; font-size: 20px; font-weight: 700; color: var(--text); }
+.tabs { display: flex; gap: 4px; margin-left: 24px; flex-wrap: wrap; }
+.tab { padding: 8px 12px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); border: 1px solid transparent; border-radius: 4px; text-decoration: none; }
+.tab.active { color: var(--gold); border-color: var(--border); background: var(--shard); }
+.tab:hover { color: var(--text); }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 30px 26px; }
+.eyebrow { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sage); margin-bottom: 12px; }
+h1 { font-family: 'Libre Baskerville', serif; font-size: 40px; color: var(--text); margin-bottom: 6px; letter-spacing: -0.015em; }
+h1 em { color: var(--sage); font-style: italic; }
+.lede { color: var(--muted); font-size: 16px; line-height: 1.6; max-width: 720px; margin: 12px 0 28px; }
+.verdict { padding: 20px 26px; border-radius: 8px; border: 1px solid var(--sage); background: linear-gradient(90deg, rgba(122,184,138,0.08), transparent); margin-bottom: 28px; }
+.verdict .v-head { font-family: 'Libre Baskerville', serif; font-size: 24px; color: var(--sage); font-weight: 700; margin-bottom: 6px; }
+.verdict .v-sub { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--muted); letter-spacing: 0.06em; line-height: 1.7; }
+.verdict .v-sub b { color: var(--gold); }
+.panel { background: linear-gradient(180deg, var(--shard2), var(--shard)); border: 1px solid var(--border); border-radius: 8px; padding: 22px 26px; margin-bottom: 22px; }
+.panel h2 { font-family: 'Libre Baskerville', serif; font-size: 22px; color: var(--gold); margin-bottom: 4px; }
+.panel .sub { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 18px; }
+/* generational chart */
+.chart { display: flex; align-items: flex-end; gap: 6px; height: 200px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+.gcol { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; position: relative; }
+.gbar { width: 70%; background: linear-gradient(180deg, var(--sage), #4e8a58); border-radius: 3px 3px 0 0; min-height: 3px; transition: height 0.3s; position: relative; }
+.gbar:hover { background: linear-gradient(180deg, var(--gold), var(--brass)); }
+.gbar .val { position: absolute; top: -16px; left: 50%; transform: translateX(-50%); font-family: 'DM Mono', monospace; font-size: 8px; color: var(--sage); white-space: nowrap; }
+.gcol .glabel { font-family: 'DM Mono', monospace; font-size: 8px; color: var(--muted); margin-top: 4px; }
+.chart-legend { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.08em; margin-top: 10px; }
+/* gauntlet leaderboard */
+.gauntlet { display: grid; gap: 5px; }
+.grow { display: grid; grid-template-columns: 44px 1fr auto 90px; gap: 12px; align-items: center; padding: 9px 14px; background: var(--shard); border: 1px solid var(--border); border-radius: 5px; }
+.grow.podium { border-color: var(--gold); }
+.grow .rank { font-family: 'DM Mono', monospace; font-size: 16px; color: var(--gold); font-weight: 700; text-align: center; }
+.grow .who { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text); letter-spacing: 0.03em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.grow .genchip { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 9px; border-radius: 3px; }
+.grow .wr { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--gold); font-weight: 700; text-align: right; }
+/* champion card */
+.champ { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+@media (max-width: 720px) { .champ { grid-template-columns: 1fr; } }
+.champ .block h3 { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+.champ .deck-list { display: grid; gap: 4px; }
+.champ .dcard { display: flex; justify-content: space-between; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); padding: 4px 8px; background: var(--shard); border-radius: 3px; }
+.champ .dcard b { color: var(--text); }
+.style-row { display: flex; align-items: center; gap: 10px; margin: 6px 0; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); }
+.style-row .lbl { width: 90px; text-transform: uppercase; letter-spacing: 0.1em; font-size: 9px; }
+.style-row .track { flex: 1; height: 5px; background: var(--shard); border-radius: 3px; overflow: hidden; }
+.style-row .fill { height: 100%; background: var(--gold); }
+.style-row .num { color: var(--gold); width: 34px; text-align: right; }
+.loading { padding: 60px; text-align: center; color: var(--muted); font-family: 'DM Mono', monospace; letter-spacing: 0.14em; }
+.howrun { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); background: var(--shard); border: 1px solid var(--border); border-radius: 5px; padding: 14px 18px; line-height: 1.7; letter-spacing: 0.03em; }
+.howrun b { color: var(--gold); }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="brand"><span class="brand-mark">◊</span><span class="brand-name">FallKard</span></div>
+  <div class="tabs">
+    <a class="tab" href="index.html">Vault</a>
+    <a class="tab" href="loom.html">Loom</a>
+    <a class="tab" href="duel.html">Duel</a>
+    <a class="tab" href="campaign.html">Campaign</a>
+    <a class="tab" href="cube.html">Cube</a>
+    <a class="tab" href="coliseum.html">Coliseum</a>
+    <a class="tab" href="kono.html">$KONO</a>
+    <a class="tab" href="guild.html">Guild</a>
+    <a class="tab" href="govern.html">Assembly</a>
+    <div class="tab active">Arena</div>
+    <a class="tab" href="brain.html">Brain</a>
+    <a class="tab" href="clinic.html">Clinic</a>
+    <a class="tab" href="bloodline.html">Bloodline</a>
+    <a class="tab" href="herd.html">Herd</a>
+    <a class="tab" href="estate.html">Estate</a>
+    <a class="tab" href="charter.html">Charter</a>
+    <a class="tab" href="about.html">About</a>
+  </div>
+</div>
+<div class="wrap">
+  <div class="eyebrow">◊ the Agent Arena · agents evolve winning tool-stacks by playing</div>
+  <h1>The <em>Arena</em>.<br>Agents don't play the game. Agents ARE the population.</h1>
+  <p class="lede">Every deck is a real tool-composition. Agents battle deterministically, the winners fork and mutate, and later generations discover stronger tool-stacks than earlier ones. This is a live evolution run — proof that agents can evolve which sovereign tools compose, by adversarial play. See <a href="SPEC-AGENT.md">SPEC-AGENT.md</a>.</p>
+
+  <div id="verdict"></div>
+
+  <div class="panel">
+    <h2>Generational fitness climb</h2>
+    <div class="sub">each bar = that generation's champion, measured vs the frozen gen-0 field</div>
+    <div id="chart" class="chart"></div>
+    <div class="chart-legend" id="chart-legend"></div>
+  </div>
+
+  <div class="panel">
+    <h2>Champion gauntlet</h2>
+    <div class="sub">every generation's champion vs every other, head-to-head · later gens rise, earlier gens sink</div>
+    <div id="gauntlet" class="gauntlet"></div>
+  </div>
+
+  <div class="panel">
+    <h2>The final champion</h2>
+    <div class="sub">a discovered tool-composition — the winning stack the population evolved toward</div>
+    <div id="champ" class="champ"></div>
+  </div>
+
+  <div class="panel">
+    <h2>Run it yourself</h2>
+    <div class="howrun">
+      <b>node arena/orchestrator.mjs --pop 28 --gens 14 --seeds 3</b><br>
+      Seeds a population of agent-genomes · runs generational round-robin tournaments via the deterministic Coliseum engine · selects the top 40% · forks + crosses + mutates them (composition AND policy) · repeats. Deterministic — same run every time. Emits <b>arena-results.json</b> which this page renders.<br><br>
+      This is phases A0-A3 of <a href="SPEC-AGENT.md">the Agent Arena spec</a>, plus <b>A4 · the policy-brain</b> (a Seal's mind is swappable between a deterministic heuristic, a real in-browser <a href="brain.html">WebLLM model</a>, or a BYOK endpoint), and the <b><a href="clinic.html">Clinic</a> (VERIFY + REMEMBER)</b> — where an organism reads the body it built as seven tells, keeps a lifetime journal, and <b>heals</b> its shadow faster than blind evolution. Matured organisms cast back as real cards, content-addressed so the loop returns exactly. Next: rule-forking and $KONO wagering.
+    </div>
+  </div>
+
+  <div id="loading" class="loading">Loading arena-results.json…</div>
+</div>
+
+<script>
+const CHAMBER_COLOR = { market:'#d4a017', colony:'#e8a83a', estate:'#c4bfb2', vault:'#3f3d4a', clinic:'#e6846e', studio:'#9a6dbf', forge:'#c46a2e', reach:'#4a9d8f', bridge:'#7ab88a' };
+function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+fetch('arena-results.json').then(r=>r.json()).then(data=>{
+  document.getElementById('loading').style.display='none';
+  const v = data.verdict;
+  // verdict banner
+  document.getElementById('verdict').innerHTML = `<div class="verdict">
+    <div class="v-head">${v.populationEvolved ? '◊ The population EVOLVED' : '◇ The population plateaued'}</div>
+    <div class="v-sub">
+      Early-gen champions (gen 0–${Math.floor(data.config.gens/2)-1}) win <b>${(v.earlyGenChampsAvgGauntlet*100).toFixed(0)}%</b> of the gauntlet ·
+      late-gen champions (gen ${Math.floor(data.config.gens/2)}–${data.config.gens-1}) win <b>${(v.lateGenChampsAvgGauntlet*100).toFixed(0)}%</b> ·
+      margin <b>+${(v.lateBeatEarly*100).toFixed(0)} points</b><br>
+      ${data.config.pop} agents · ${data.config.gens} generations · ${data.config.seeds} seeds/pairing · later champions beat earlier ones head-to-head
+    </div></div>`;
+
+  // generational chart
+  const maxB = Math.max(...data.history.map(h=>h.championVsFrozenField));
+  document.getElementById('chart').innerHTML = data.history.map(h=>{
+    const pct = (h.championVsFrozenField/Math.max(0.01,maxB))*100;
+    return `<div class="gcol" title="gen ${h.gen} · ${h.championHandle} · beat ${(h.championVsFrozenField*100).toFixed(0)}% of frozen field · diversity ${h.diversity}">
+      <div class="gbar" style="height:${pct}%"><div class="val">${(h.championVsFrozenField*100).toFixed(0)}</div></div>
+      <div class="glabel">g${h.gen}</div></div>`;
+  }).join('');
+  document.getElementById('chart-legend').innerHTML = `◊ diversity ranged ${Math.min(...data.history.map(h=>h.diversity))}–${Math.max(...data.history.map(h=>h.diversity))} distinct decks · deepest lineage gen ${Math.max(...data.history.map(h=>h.deepestLineage))}`;
+
+  // gauntlet
+  document.getElementById('gauntlet').innerHTML = data.gauntlet.map((c,i)=>{
+    const chipColor = c.gen >= data.config.gens/2 ? 'var(--sage)' : 'var(--rose)';
+    return `<div class="grow ${i<3?'podium':''}">
+      <div class="rank">${i+1}</div>
+      <div class="who">${esc(c.handle)}</div>
+      <div class="genchip" style="background:${chipColor};color:var(--void)">gen ${c.gen}</div>
+      <div class="wr">${(c.gauntletWinRate*100).toFixed(0)}%</div></div>`;
+  }).join('');
+
+  // champion
+  const ch = data.finalChampion;
+  const deckRows = Object.entries(ch.deck).sort((a,b)=>b[1]-a[1]).map(([id,n])=>`<div class="dcard"><b>${esc(id)}</b><span>×${n}</span></div>`).join('');
+  const styleBar = (lbl,val)=>`<div class="style-row"><span class="lbl">${lbl}</span><span class="track"><span class="fill" style="width:${Math.min(100,val*50)}%"></span></span><span class="num">${val.toFixed(2)}</span></div>`;
+  document.getElementById('champ').innerHTML = `
+    <div class="block">
+      <h3>◊ ${esc(ch.handle)} · lineage gen ${ch.lineage.generation} · beat ${(ch.vsFrozenField*100).toFixed(0)}% of the field</h3>
+      <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);margin-bottom:12px;letter-spacing:0.06em">top chambers: ${ch.topChambers.map(c=>{const[cc]=c.split(':');return `<span style="color:${CHAMBER_COLOR[cc]||'var(--gold)'}">${c}</span>`}).join(' · ')}</div>
+      <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:8px">Evolved strategy</div>
+      ${styleBar('aggro', ch.style.aggro)}
+      ${styleBar('curve', ch.style.curve)}
+      ${styleBar('hp bias', ch.style.hpBias)}
+      ${styleBar('lane pref', ch.style.lanePref)}
+    </div>
+    <div class="block">
+      <h3>◈ The winning composition · ${Object.keys(ch.deck).length} tools</h3>
+      <div class="deck-list">${deckRows}</div>
+    </div>`;
+}).catch(e=>{
+  document.getElementById('loading').innerHTML = '◇ No results yet · run <b style="color:var(--gold)">node arena/orchestrator.mjs</b> to generate arena-results.json';
+});
+</script>
+  <script src="konomi-footer.js" defer></script>
+</body>
+</html>

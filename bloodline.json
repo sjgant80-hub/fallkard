@@ -1,0 +1,204 @@
+{
+  "decay": 0.618,
+  "chainBound": 2.618,
+  "sharesPerSeal": 100,
+  "forest": {
+    "nodes": 117,
+    "roots": 31,
+    "maxDepth": 8
+  },
+  "founders": [
+    {
+      "handle": "Fen-a×Fen-r×Roo-13",
+      "gen": 2,
+      "price": 8.437,
+      "descendants": 35,
+      "deepest": 6
+    },
+    {
+      "handle": "Loom-3~n",
+      "gen": 1,
+      "price": 7.652,
+      "descendants": 28,
+      "deepest": 6
+    },
+    {
+      "handle": "Loom-3",
+      "gen": 0,
+      "price": 6.965,
+      "descendants": 34,
+      "deepest": 7
+    },
+    {
+      "handle": "Loom-3~10",
+      "gen": 2,
+      "price": 6.763,
+      "descendants": 22,
+      "deepest": 5
+    },
+    {
+      "handle": "Fen-a×Fen-r",
+      "gen": 1,
+      "price": 6.45,
+      "descendants": 37,
+      "deepest": 7
+    },
+    {
+      "handle": "Fen-a",
+      "gen": 0,
+      "price": 6.222,
+      "descendants": 41,
+      "deepest": 8
+    },
+    {
+      "handle": "Fen-a×Fen-r×Roo-13~1e",
+      "gen": 3,
+      "price": 6.034,
+      "descendants": 22,
+      "deepest": 5
+    },
+    {
+      "handle": "Loom-3×Roo-1h",
+      "gen": 4,
+      "price": 5.944,
+      "descendants": 17,
+      "deepest": 4
+    }
+  ],
+  "spine": [
+    {
+      "handle": "Fen-a",
+      "gen": 0,
+      "price": 6.222,
+      "descendants": 41
+    },
+    {
+      "handle": "Fen-a×Fen-r",
+      "gen": 1,
+      "price": 6.45,
+      "descendants": 37
+    },
+    {
+      "handle": "Fen-a×Fen-r×Roo-13",
+      "gen": 2,
+      "price": 8.437,
+      "descendants": 35
+    },
+    {
+      "handle": "Fen-a×Fen-r×Roo-13~1e",
+      "gen": 3,
+      "price": 6.034,
+      "descendants": 22
+    },
+    {
+      "handle": "Fen-a×Fen-r×Roo-13×Fen-1g",
+      "gen": 4,
+      "price": 5.381,
+      "descendants": 16
+    },
+    {
+      "handle": "Fen-a×Fen-r×Roo-13×Fen-1g~23",
+      "gen": 6,
+      "price": 5.09,
+      "descendants": 12
+    },
+    {
+      "handle": "Fen-a×Fen-r×Roo-13×Fen-1g~2m",
+      "gen": 7,
+      "price": 1.764,
+      "descendants": 4
+    },
+    {
+      "handle": "Fen-a×Fen-r×Roo-13×Fen-1g×Loo-2n",
+      "gen": 8,
+      "price": 1.854,
+      "descendants": 3
+    },
+    {
+      "handle": "Fen-a×Fen-r×Roo-13×Fen-1g×Loo-2n~2y",
+      "gen": 9,
+      "price": 0,
+      "descendants": 0
+    }
+  ],
+  "topFounder": {
+    "handle": "Fen-a×Fen-r×Roo-13",
+    "gen": 2,
+    "price": 8.437,
+    "descendants": 35,
+    "growth": [
+      {
+        "depth": 1,
+        "forkSharePrice": 2.472,
+        "copyShareValue": 0.25
+      },
+      {
+        "depth": 2,
+        "forkSharePrice": 4.382,
+        "copyShareValue": 0.111
+      },
+      {
+        "depth": 3,
+        "forkSharePrice": 6.506,
+        "copyShareValue": 0.056
+      },
+      {
+        "depth": 4,
+        "forkSharePrice": 7.819,
+        "copyShareValue": 0.037
+      },
+      {
+        "depth": 5,
+        "forkSharePrice": 8.269,
+        "copyShareValue": 0.031
+      },
+      {
+        "depth": 6,
+        "forkSharePrice": 8.437,
+        "copyShareValue": 0.029
+      }
+    ]
+  },
+  "listed": [
+    {
+      "id": "sim:Fen-a×Fen-r×Roo-13×Fen-1g~21",
+      "handle": "Fen-a×Fen-r×Roo-13×Fen-1g~21",
+      "gen": 6,
+      "price": 0.618,
+      "descendants": 1,
+      "deepest": 1
+    },
+    {
+      "id": "sim:Fen-a×Fen-r×Roo-13×Fen-1g~2m",
+      "handle": "Fen-a×Fen-r×Roo-13×Fen-1g~2m",
+      "gen": 7,
+      "price": 1.764,
+      "descendants": 4,
+      "deepest": 2
+    },
+    {
+      "id": "sim:Fen-a×Fen-r×Roo-13×Fen-1g~2x",
+      "handle": "Fen-a×Fen-r×Roo-13×Fen-1g~2x",
+      "gen": 8,
+      "price": 0,
+      "descendants": 0,
+      "deepest": 0
+    },
+    {
+      "id": "sim:Fen-a×Fen-r×Roo-13~2p",
+      "handle": "Fen-a×Fen-r×Roo-13~2p",
+      "gen": 8,
+      "price": 0,
+      "descendants": 0,
+      "deepest": 0
+    }
+  ],
+  "verdict": {
+    "provenanceInvertsScarcity": true,
+    "forkShareAppreciates": true,
+    "ancestorMeanPrice": 2.917,
+    "leafPrice": 0,
+    "maxChainPrice": 1.583,
+    "convergesUnderBound": true
+  }
+}

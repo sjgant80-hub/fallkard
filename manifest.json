@@ -1,0 +1,655 @@
+{
+  "v": 1,
+  "generated": "2026-07-10",
+  "note": "Manifest overrides + chamber map + set definitions + genesis for build.mjs. Never leak private cosmology terms here — this file becomes public.",
+  "kinds": {
+    "sdk": {
+      "shape": "Forge Shape",
+      "base_atk": 2,
+      "sockets": 1,
+      "curve_lo": 2,
+      "curve_hi": 4,
+      "strong_vs": "tool",
+      "weak_to": "mcp"
+    },
+    "api": {
+      "shape": "Signal Shape",
+      "base_atk": 3,
+      "sockets": 1,
+      "curve_lo": 3,
+      "curve_hi": 5,
+      "strong_vs": "wellness",
+      "weak_to": "surface"
+    },
+    "mcp": {
+      "shape": "Loom Shape",
+      "base_atk": 4,
+      "sockets": 2,
+      "curve_lo": 4,
+      "curve_hi": 6,
+      "strong_vs": "sdk",
+      "weak_to": "tool"
+    },
+    "tool": {
+      "shape": "Blade Shape",
+      "base_atk": 3,
+      "sockets": 2,
+      "curve_lo": 2,
+      "curve_hi": 3,
+      "strong_vs": "mcp",
+      "weak_to": "sdk"
+    },
+    "surface": {
+      "shape": "Arch Shape",
+      "base_atk": 5,
+      "sockets": 3,
+      "curve_lo": 5,
+      "curve_hi": 7,
+      "strong_vs": "api",
+      "weak_to": "wellness"
+    },
+    "wellness": {
+      "shape": "Well Shape",
+      "base_atk": 3,
+      "sockets": 2,
+      "curve_lo": 3,
+      "curve_hi": 4,
+      "strong_vs": "surface",
+      "weak_to": "api"
+    }
+  },
+  "chambers": {
+    "market": {
+      "color": "#d4a017",
+      "aura": "trade + discovery",
+      "hero": "House of the Market · Merchant"
+    },
+    "colony": {
+      "color": "#e8a83a",
+      "aura": "governance + guilds",
+      "hero": "House of the Colony · Founder"
+    },
+    "estate": {
+      "color": "#c4bfb2",
+      "aura": "provenance + legal",
+      "hero": "House of the Estate · Barrister"
+    },
+    "vault": {
+      "color": "#3f3d4a",
+      "aura": "custody + seal",
+      "hero": null
+    },
+    "clinic": {
+      "color": "#e6846e",
+      "aura": "wellness + shield",
+      "hero": null
+    },
+    "studio": {
+      "color": "#9a6dbf",
+      "aura": "creation + reach",
+      "hero": null
+    },
+    "forge": {
+      "color": "#c46a2e",
+      "aura": "build + infrastructure",
+      "hero": null
+    },
+    "reach": {
+      "color": "#4a9d8f",
+      "aura": "outreach + broadcast",
+      "hero": null
+    },
+    "bridge": {
+      "color": "#7ab88a",
+      "aura": "cross-tool + orchestration",
+      "hero": null
+    }
+  },
+  "chamberFromPrefix": {
+    "fallmarket": "market",
+    "fallauction": "market",
+    "fallshop": "market",
+    "fallpay": "market",
+    "fallsalescrm": "market",
+    "fallreach": "reach",
+    "fallcolony": "colony",
+    "fallswarm": "colony",
+    "fallpair": "colony",
+    "fallcast": "colony",
+    "fallbond": "colony",
+    "fallhr": "colony",
+    "fallestate": "estate",
+    "falllegal": "estate",
+    "fallnotary": "estate",
+    "falltax": "estate",
+    "fallpaper": "estate",
+    "fallonboard": "estate",
+    "fallprofile": "estate",
+    "fallrecruit": "estate",
+    "fallvault": "vault",
+    "fallsecurity": "vault",
+    "fallfence": "vault",
+    "fallshield": "vault",
+    "fallseal": "vault",
+    "fallid": "vault",
+    "fallledger": "vault",
+    "fallasset": "vault",
+    "fallseed": "vault",
+    "fallmirror": "clinic",
+    "shadowcompass": "clinic",
+    "fallclinic": "clinic",
+    "fallphysio": "clinic",
+    "fallpharm": "clinic",
+    "fallvet": "clinic",
+    "fallskin": "clinic",
+    "fallmind": "clinic",
+    "fallwellness": "clinic",
+    "fallstudio": "studio",
+    "fallpage": "studio",
+    "fallmedia": "studio",
+    "fallmage": "studio",
+    "fallscene": "studio",
+    "fallmotion": "studio",
+    "fallpod": "studio",
+    "fallaudio": "studio",
+    "fallvideo": "studio",
+    "fallforge": "forge",
+    "fallseed-": "forge",
+    "fallsdk": "forge",
+    "fallbase": "forge",
+    "fallboot": "forge",
+    "fallbuild": "forge",
+    "fallharbor": "forge",
+    "fallnet": "forge",
+    "falldns": "forge",
+    "fallscout": "reach",
+    "fallmail": "reach",
+    "fallcompass": "reach",
+    "fallecho": "reach",
+    "fallharmony": "reach",
+    "fallos": "bridge",
+    "fall-cube": "bridge",
+    "fall-autopilot-kit": "bridge",
+    "fallrouter": "bridge",
+    "fallhub": "bridge",
+    "fallforge-installer": "bridge",
+    "fallrelay": "bridge",
+    "fallsync": "bridge",
+    "fallbridge": "bridge",
+    "falllink": "bridge",
+    "fallhop": "bridge",
+    "fallcarrier": "bridge"
+  },
+  "surfaceIds": [
+    "fallmarket",
+    "fallcolony",
+    "fall-cube",
+    "fall-autopilot-kit",
+    "fallmirror",
+    "shadowcompass",
+    "fallos",
+    "fallhub",
+    "fallforge",
+    "fallrouter",
+    "fallgarden",
+    "fallseed",
+    "fallenterprise",
+    "fallreach",
+    "fallrelay",
+    "fallbrief"
+  ],
+  "wellnessIds": [
+    "fallmirror",
+    "shadowcompass",
+    "fallmind"
+  ],
+  "flagshipIds": [
+    "fallmarket",
+    "fallcolony",
+    "fall-cube",
+    "fall-autopilot-kit",
+    "fallmirror",
+    "shadowcompass",
+    "fallos",
+    "fallhub",
+    "fallseed",
+    "fallenterprise"
+  ],
+  "genesisSet": [
+    {
+      "id": "fallmarket",
+      "name": "The Market's Coin",
+      "flavour": "Every fork is a coin.",
+      "sigil": "◊"
+    },
+    {
+      "id": "fallcolony",
+      "name": "The Colony's Banner",
+      "flavour": "Nine chambers, one house.",
+      "sigil": "◈"
+    },
+    {
+      "id": "fall-cube",
+      "name": "The Nested Cube",
+      "flavour": "Every leaf holds the tree.",
+      "sigil": "⬡"
+    },
+    {
+      "id": "fallos",
+      "name": "The Bridge",
+      "flavour": "One tool moves another.",
+      "sigil": "⟐"
+    },
+    {
+      "id": "fallseed",
+      "name": "The Origin",
+      "flavour": "From one seed, one thousand.",
+      "sigil": "◒"
+    },
+    {
+      "id": "fallmirror",
+      "name": "The Mirror",
+      "flavour": "Seven shapes of the shape.",
+      "sigil": "◑"
+    },
+    {
+      "id": "shadowcompass",
+      "name": "The Compass",
+      "flavour": "The shadow shows the way.",
+      "sigil": "◐"
+    },
+    {
+      "id": "fall-autopilot-kit",
+      "name": "The Autopilot",
+      "flavour": "Trust, then verify.",
+      "sigil": "△"
+    },
+    {
+      "id": "fallhub",
+      "name": "The House Sovereign",
+      "flavour": "House of the Fall.",
+      "sigil": "◇"
+    },
+    {
+      "id": "fallenterprise",
+      "name": "The Charter",
+      "flavour": "Twenty thousand to two hundred.",
+      "sigil": "⟡"
+    }
+  ],
+  "sets": {
+    "TheThreeGates": {
+      "members": [
+        "fallmarket",
+        "fallcolony",
+        "fallos"
+      ],
+      "bonus2": "+1 mana turn 1",
+      "bonus3": "Chamber Circle"
+    },
+    "TheMirrorPair": {
+      "members": [
+        "fallmirror",
+        "shadowcompass"
+      ],
+      "bonus2": "shield on all wellness cards"
+    },
+    "TheAutopilotTrio": {
+      "members": [
+        "fall-autopilot-kit",
+        "fallos",
+        "fallrelay"
+      ],
+      "bonus2": "on-play draw 1",
+      "bonus3": "on-play draw 2"
+    },
+    "TheOriginTrio": {
+      "members": [
+        "fallseed",
+        "fallgarden",
+        "fallgarden-repo"
+      ],
+      "bonus2": "on death spawn 1/1 Seedling",
+      "bonus3": "Bloodline aura +1/+1"
+    },
+    "TheSovereignTrinity": {
+      "members": [
+        "fallmarket",
+        "fallcolony",
+        "fallmirror"
+      ],
+      "bonus3": "The Great Turning primed"
+    },
+    "TheEstateTrio": {
+      "members": [
+        "fallestate",
+        "falllegal",
+        "fallnotary"
+      ],
+      "bonus2": "adjacent Sealed",
+      "bonus3": "on-play Seal all"
+    },
+    "TheVaultTrio": {
+      "members": [
+        "fallvault",
+        "fallshield",
+        "fallid"
+      ],
+      "bonus3": "immune to silence"
+    },
+    "TheClinicTrio": {
+      "members": [
+        "fallmirror",
+        "shadowcompass",
+        "fallclinic"
+      ],
+      "bonus3": "heal 3 to hero on play"
+    },
+    "TheStudioTrio": {
+      "members": [
+        "fallmage",
+        "fallpage",
+        "fallstudio"
+      ],
+      "bonus3": "+1/+1 to Studio-chamber cards"
+    },
+    "TheOrchestratorSet": {
+      "members": [
+        "fallos",
+        "fall-autopilot-kit",
+        "fallrouter",
+        "fallforge"
+      ],
+      "bonus4": "start with 2 extra mana crystals"
+    }
+  },
+  "runes": [
+    {
+      "name": "El",
+      "sigil": "⟁",
+      "effect": "+1 ATK"
+    },
+    {
+      "name": "Eld",
+      "sigil": "⟐",
+      "effect": "+1 HP"
+    },
+    {
+      "name": "Tir",
+      "sigil": "⟢",
+      "effect": "on-play gain 1 mana crystal"
+    },
+    {
+      "name": "Ith",
+      "sigil": "△",
+      "effect": "on-play draw 1"
+    },
+    {
+      "name": "Nef",
+      "sigil": "▽",
+      "effect": "on death return to hand"
+    },
+    {
+      "name": "Sol",
+      "sigil": "◇",
+      "effect": "immune to silence"
+    },
+    {
+      "name": "Um",
+      "sigil": "⬡",
+      "effect": "adjacent friendly +1/+1"
+    },
+    {
+      "name": "Ohm",
+      "sigil": "⬢",
+      "effect": "on play destroy an enemy minion"
+    },
+    {
+      "name": "Zod",
+      "sigil": "⟡",
+      "effect": "indestructible"
+    }
+  ],
+  "runewords": [
+    {
+      "name": "Steel",
+      "recipe": [
+        "Tir",
+        "El"
+      ],
+      "effect": "+1 ATK · on-play gain 1 mana crystal"
+    },
+    {
+      "name": "Malice",
+      "recipe": [
+        "Ith",
+        "El",
+        "Eld"
+      ],
+      "effect": "+1/+1 · on-play draw 1"
+    },
+    {
+      "name": "Enigma",
+      "recipe": [
+        "Sol",
+        "Um",
+        "Ohm"
+      ],
+      "effect": "immune to silence · adjacent friendlies +1/+1 · on play destroy an enemy"
+    },
+    {
+      "name": "Faith",
+      "recipe": [
+        "Ohm",
+        "Um",
+        "Nef"
+      ],
+      "effect": "on death return to hand · on play destroy enemy · adjacent +1/+1"
+    },
+    {
+      "name": "Enlightenment",
+      "recipe": [
+        "Ith",
+        "Ith",
+        "Nef"
+      ],
+      "effect": "draw 2 on play · return to hand on death"
+    },
+    {
+      "name": "Fortitude",
+      "recipe": [
+        "El",
+        "Sol",
+        "Zod"
+      ],
+      "effect": "+1 ATK · immune to silence · indestructible"
+    },
+    {
+      "name": "Grief",
+      "recipe": [
+        "Tir",
+        "Ohm"
+      ],
+      "effect": "gain mana · destroy enemy (burst combo)"
+    },
+    {
+      "name": "Chains of Honor",
+      "recipe": [
+        "Um",
+        "Um",
+        "Um"
+      ],
+      "effect": "+3/+3 to all adjacent friendlies"
+    },
+    {
+      "name": "Call to Arms",
+      "recipe": [
+        "Ith",
+        "Nef",
+        "Ohm"
+      ],
+      "effect": "draw 1 · return on death · destroy on play"
+    },
+    {
+      "name": "Heart of Wolves",
+      "recipe": [
+        "El",
+        "Eld",
+        "El",
+        "Eld"
+      ],
+      "effect": "+2 ATK / +2 HP"
+    }
+  ],
+  "keywords": [
+    {
+      "name": "Sovereign",
+      "text": "cannot be targeted by enemy spells"
+    },
+    {
+      "name": "Sealed",
+      "text": "first damage dealt is prevented"
+    },
+    {
+      "name": "Fork",
+      "text": "on death spawn a 1/1 copy in same lane"
+    },
+    {
+      "name": "Trade",
+      "text": "costs 1 less if you played a card last turn"
+    },
+    {
+      "name": "Marketplace",
+      "text": "every 3 cards you play draws 1"
+    },
+    {
+      "name": "Chain",
+      "text": "after combat triggers next card of same kind on board"
+    },
+    {
+      "name": "Descend",
+      "text": "opens the linked tool's URL on hover"
+    },
+    {
+      "name": "Bloodline",
+      "text": "copies of this card in match get +1/+1"
+    },
+    {
+      "name": "Shard",
+      "text": "on death gives 1 shard for crafting"
+    },
+    {
+      "name": "Seal",
+      "text": "costs 2 less if all runes filled"
+    },
+    {
+      "name": "Underforge",
+      "text": "if paired with same-chamber card, both get +2/+2 (Uber only)"
+    }
+  ],
+  "abilityOverrides": {
+    "fallmarket": {
+      "keywords": [
+        "Marketplace",
+        "Trade",
+        "Descend"
+      ],
+      "flavour": "Every fork is a coin.",
+      "atk": 4,
+      "hp": 6,
+      "cost": 5
+    },
+    "fallcolony": {
+      "keywords": [
+        "Sovereign",
+        "Chain",
+        "Descend"
+      ],
+      "flavour": "Nine chambers, one house.",
+      "atk": 3,
+      "hp": 8,
+      "cost": 6
+    },
+    "fall-cube": {
+      "keywords": [
+        "Fork",
+        "Descend"
+      ],
+      "flavour": "Every leaf holds the tree.",
+      "atk": 5,
+      "hp": 5,
+      "cost": 5
+    },
+    "fallos": {
+      "keywords": [
+        "Chain",
+        "Descend"
+      ],
+      "flavour": "One tool moves another.",
+      "atk": 4,
+      "hp": 7,
+      "cost": 6
+    },
+    "fallseed": {
+      "keywords": [
+        "Fork",
+        "Bloodline",
+        "Shard"
+      ],
+      "flavour": "From one seed, one thousand.",
+      "atk": 2,
+      "hp": 3,
+      "cost": 2
+    },
+    "fallmirror": {
+      "keywords": [
+        "Sealed",
+        "Sovereign"
+      ],
+      "flavour": "Seven shapes of the shape.",
+      "atk": 2,
+      "hp": 8,
+      "cost": 4
+    },
+    "shadowcompass": {
+      "keywords": [
+        "Sealed",
+        "Descend"
+      ],
+      "flavour": "The shadow shows the way.",
+      "atk": 3,
+      "hp": 6,
+      "cost": 4
+    },
+    "fall-autopilot-kit": {
+      "keywords": [
+        "Chain",
+        "Marketplace"
+      ],
+      "flavour": "Trust, then verify.",
+      "atk": 3,
+      "hp": 6,
+      "cost": 5
+    },
+    "fallhub": {
+      "keywords": [
+        "Sovereign",
+        "Marketplace"
+      ],
+      "flavour": "House of the Fall.",
+      "atk": 4,
+      "hp": 9,
+      "cost": 7
+    },
+    "fallenterprise": {
+      "keywords": [
+        "Trade",
+        "Marketplace"
+      ],
+      "flavour": "Twenty thousand to two hundred.",
+      "atk": 5,
+      "hp": 6,
+      "cost": 6
+    }
+  }
+}

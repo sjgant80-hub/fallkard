@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>FallKard · the Duel · vs Slack Fiend</title>
+<meta name="description" content="First playable match. 3-lane × 2-row board. Turn engine. Mana curve. 4 keywords wired. Slack Fiend boss. Reward drops."/>
+<link rel="canonical" href="https://sjgant80-hub.github.io/fallkard/duel.html"/>
+<meta name="theme-color" content="#0b0a0f"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<script src="bosses.js"></script>
+<style>
+:root {
+  --void:#0b0a0f; --shard:#141218; --shard2:#191720; --dim:#3d3a45; --muted:#8a857a; --text:#c4bfb2;
+  --gold:#d4a017; --brass:#b8974a; --amber:#e8a83a; --rose:#e6846e; --sage:#7ab88a;
+  --ox:#8b1a1a; --sap:#4a7dc9; --jade:#3fa068; --plum:#9a6dbf;
+  --border:rgba(212,160,23,0.14); --hard:rgba(212,160,23,0.32);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--void); color: var(--text); font-family: 'DM Sans', system-ui, sans-serif; overflow: hidden; height: 100vh; }
+body { background: radial-gradient(ellipse at center, rgba(139,26,26,0.06), transparent 60%), var(--void); }
+button { background: none; border: none; color: inherit; font: inherit; cursor: pointer; }
+a { color: var(--brass); text-decoration: none; }
+
+/* topbar */
+.topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 30; display: flex; align-items: center; gap: 20px; padding: 12px 24px; background: rgba(11,10,15,0.94); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); height: 52px; }
+.brand { display: flex; align-items: baseline; gap: 10px; }
+.brand-mark { font-family: 'DM Mono', monospace; font-size: 20px; color: var(--gold); }
+.brand-name { font-family: 'Libre Baskerville', serif; font-size: 20px; font-weight: 700; color: var(--text); }
+.tabs { display: flex; gap: 4px; margin-left: 24px; }
+.tab { padding: 8px 14px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); cursor: pointer; border: 1px solid transparent; border-radius: 4px; text-decoration: none; }
+.tab.active { color: var(--gold); border-color: var(--border); background: var(--shard); }
+.spacer { flex: 1; }
+
+/* ── PRE-MATCH SCREEN ── */
+.premarch { position: fixed; inset: 52px 0 0 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px; text-align: center; }
+.premarch h1 { font-family: 'Libre Baskerville', serif; font-size: 46px; color: var(--rose); margin-bottom: 6px; letter-spacing: -0.015em; }
+.premarch .lore { font-family: 'Libre Baskerville', serif; font-style: italic; color: var(--muted); max-width: 620px; margin: 12px auto 24px; font-size: 15px; line-height: 1.55; }
+.premarch .boss-portrait { width: 220px; height: 220px; margin: 12px auto 22px; background: radial-gradient(ellipse at center, rgba(139,26,26,0.55), rgba(0,0,0,0.9)); border: 2px solid var(--ox); border-radius: 50%; box-shadow: 0 0 60px rgba(139,26,26,0.5), inset 0 0 30px rgba(0,0,0,0.7); display: flex; align-items: center; justify-content: center; position: relative; animation: boss-breath 4s ease-in-out infinite; }
+.boss-portrait .glyph { font-family: 'DM Mono', monospace; font-size: 90px; color: var(--ox); text-shadow: 0 0 20px rgba(139,26,26,0.8); }
+.boss-portrait .halo { position: absolute; inset: -12px; border: 1px dashed rgba(139,26,26,0.3); border-radius: 50%; animation: rotate 40s linear infinite; }
+@keyframes boss-breath { 0%,100%{transform:scale(1)}50%{transform:scale(1.04)} }
+@keyframes rotate { to { transform: rotate(360deg); } }
+.premarch .stats { display: flex; gap: 22px; margin: 12px 0; color: var(--muted); font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; }
+.premarch .stats b { color: var(--rose); font-weight: 700; }
+.deck-picker { background: var(--shard); border: 1px solid var(--border); border-radius: 6px; padding: 12px 18px; min-width: 280px; margin-top: 16px; text-align: left; }
+.deck-picker .lbl { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+.deck-picker select { width: 100%; background: var(--void); border: 1px solid var(--border); border-radius: 4px; padding: 8px 12px; color: var(--text); font-family: 'DM Mono', monospace; font-size: 16px; outline: none; }
+.fight-btn { margin-top: 24px; padding: 14px 42px; font-family: 'DM Mono', monospace; font-size: 15px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--void); background: var(--rose); border: 2px solid var(--rose); border-radius: 5px; font-weight: 700; cursor: pointer; transition: all 0.15s; box-shadow: 0 0 30px rgba(230,132,110,0.4); }
+.fight-btn:hover { background: var(--gold); border-color: var(--gold); box-shadow: 0 0 40px rgba(212,160,23,0.5); }
+
+/* ── BOARD ── */
+.board-wrap { position: fixed; inset: 52px 340px 0 0; display: none; grid-template-rows: 90px 1fr 1fr 1fr 1fr 90px; padding: 8px 14px; gap: 6px; overflow: hidden; }
+.board-wrap.active { display: grid; }
+
+.hero-band { display: grid; grid-template-columns: 90px 1fr auto auto; gap: 14px; align-items: center; padding: 8px 14px; background: linear-gradient(90deg, rgba(20,18,24,0.6), rgba(20,18,24,0.3)); border-radius: 6px; border: 1px solid var(--border); }
+.hero-band.enemy { border-color: rgba(139,26,26,0.4); }
+.hero-portrait { width: 64px; height: 64px; border-radius: 50%; background: radial-gradient(ellipse at center, rgba(212,160,23,0.4), rgba(0,0,0,0.9)); border: 2px solid var(--gold); display: flex; align-items: center; justify-content: center; font-family: 'DM Mono', monospace; font-size: 30px; color: var(--gold); }
+.hero-band.enemy .hero-portrait { border-color: var(--ox); color: var(--rose); background: radial-gradient(ellipse at center, rgba(139,26,26,0.4), rgba(0,0,0,0.9)); }
+.hero-info { flex: 1; }
+.hero-name { font-family: 'Libre Baskerville', serif; font-size: 18px; color: var(--text); }
+.hero-name.enemy { color: var(--rose); }
+.hero-tag { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+.hp-bar { min-width: 120px; }
+.hp-bar .lbl { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 3px; }
+.hp-bar .track { height: 8px; background: var(--shard); border-radius: 4px; overflow: hidden; border: 1px solid var(--border); }
+.hp-bar .fill { height: 100%; background: linear-gradient(90deg, var(--sage), #4ea058); transition: width 0.3s; }
+.hp-bar .fill.enemy { background: linear-gradient(90deg, var(--ox), #6b1c1c); }
+.hp-bar .val { font-family: 'DM Mono', monospace; font-size: 14px; color: var(--sage); font-weight: 700; margin-top: 3px; text-align: right; }
+.hp-bar .val.enemy { color: var(--rose); }
+.mana-crystal { display: flex; gap: 3px; }
+.crystal { width: 14px; height: 20px; background: var(--shard); border: 1px solid var(--border); border-radius: 2px 2px 6px 6px; }
+.crystal.filled { background: linear-gradient(180deg, var(--gold), var(--brass)); border-color: var(--gold); box-shadow: 0 0 6px rgba(212,160,23,0.5); }
+.crystal.spent { background: var(--shard); opacity: 0.3; }
+.deck-meta { display: flex; flex-direction: column; align-items: center; gap: 2px; font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
+.deck-meta b { color: var(--gold); font-size: 14px; font-weight: 700; }
+
+.lane-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 0 6px; }
+.lane { position: relative; background: linear-gradient(180deg, rgba(20,18,24,0.4), rgba(11,10,15,0.6)); border: 1px dashed rgba(212,160,23,0.14); border-radius: 6px; min-height: 100%; display: flex; align-items: center; justify-content: center; transition: border-color 0.15s, background 0.15s; }
+.lane.enemy { background: linear-gradient(180deg, rgba(139,26,26,0.05), rgba(11,10,15,0.6)); border-color: rgba(139,26,26,0.14); }
+.lane.playable { border-color: var(--gold); background: linear-gradient(180deg, rgba(212,160,23,0.1), rgba(11,10,15,0.6)); cursor: pointer; }
+.lane.target { border-color: var(--rose); background: linear-gradient(180deg, rgba(230,132,110,0.15), rgba(11,10,15,0.6)); cursor: crosshair; }
+.lane.playable:hover, .lane.target:hover { background: linear-gradient(180deg, rgba(212,160,23,0.2), rgba(11,10,15,0.6)); }
+.lane-label { position: absolute; top: 4px; left: 6px; font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); }
+
+/* card on board */
+.minion { position: relative; width: 100%; max-width: 130px; aspect-ratio: 300/420; height: 92%; background: var(--shard); border-radius: 5px; overflow: hidden; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s; border: 2px solid rgba(212,160,23,0.3); }
+.minion svg { width: 100%; height: 100%; display: block; pointer-events: none; }
+.minion:hover { transform: scale(1.05); box-shadow: 0 4px 20px rgba(212,160,23,0.5); }
+.minion.can-attack { box-shadow: 0 0 14px rgba(212,160,23,0.7); border-color: var(--gold); animation: ready-pulse 1.6s ease-in-out infinite; cursor: crosshair; }
+.minion.can-attack:hover { transform: scale(1.07); }
+.minion.attacking { transform: scale(1.05); border-color: var(--rose); box-shadow: 0 0 18px rgba(230,132,110,0.8); }
+.minion.dying { animation: die 0.4s ease-out forwards; }
+.minion.sealed:after { content: '◇'; position: absolute; top: 3px; right: 3px; color: var(--sap); text-shadow: 0 0 6px var(--sap); font-size: 14px; }
+.minion.rar-uber-unique { animation: uber-pulse 2.6s ease-in-out infinite; }
+@keyframes ready-pulse { 0%,100%{filter:brightness(1)}50%{filter:brightness(1.25)} }
+@keyframes uber-pulse { 0%,100%{box-shadow:0 0 10px rgba(230,132,110,0.4)}50%{box-shadow:0 0 20px rgba(230,132,110,0.65)} }
+@keyframes die { to { transform: scale(0.1) rotate(20deg); opacity: 0; } }
+.minion-buff { position: absolute; bottom: 2px; left: 2px; font-family: 'DM Mono', monospace; font-size: 9px; color: var(--sage); background: rgba(11,10,15,0.85); padding: 1px 4px; border-radius: 2px; z-index: 2; }
+
+/* ── HAND ── */
+.hand-row { position: fixed; bottom: 0; left: 0; right: 340px; height: 148px; display: flex; align-items: flex-end; justify-content: center; gap: 8px; padding: 8px 24px 0; background: linear-gradient(180deg, transparent, rgba(11,10,15,0.95)); z-index: 5; }
+.hcard { position: relative; width: 96px; height: 134px; background: var(--shard); border-radius: 5px; overflow: hidden; cursor: pointer; transition: transform 0.18s, box-shadow 0.18s; border: 2px solid rgba(212,160,23,0.25); flex-shrink: 0; }
+.hcard svg { width: 100%; height: 100%; display: block; pointer-events: none; }
+.hcard:hover { transform: translateY(-14px) scale(1.06); z-index: 10; box-shadow: 0 8px 24px rgba(212,160,23,0.4); }
+.hcard.playable { border-color: var(--gold); box-shadow: 0 0 12px rgba(212,160,23,0.4); }
+.hcard.unaffordable { opacity: 0.55; cursor: not-allowed; }
+.hcard.unaffordable:hover { transform: translateY(-4px); box-shadow: none; }
+.hcard.selected { transform: translateY(-16px) scale(1.08); z-index: 12; box-shadow: 0 8px 30px rgba(212,160,23,0.6); border-color: var(--amber); }
+.hcard.rar-uber-unique { animation: uber-pulse 2.6s ease-in-out infinite; }
+
+/* ── SIDE RAIL ── */
+.rail { position: fixed; top: 52px; right: 0; bottom: 0; width: 340px; background: rgba(20,18,24,0.6); border-left: 1px solid var(--border); padding: 14px 16px 20px; display: flex; flex-direction: column; z-index: 6; }
+.rail-title { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+.turn-info { padding: 12px 14px; margin-bottom: 14px; background: var(--shard); border-radius: 5px; border: 1px solid var(--border); }
+.turn-info .row { display: flex; justify-content: space-between; align-items: center; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin: 3px 0; }
+.turn-info .row b { color: var(--gold); font-family: 'DM Mono', monospace; font-size: 13px; }
+.turn-info .row .active { color: var(--sage); }
+.turn-info .row .active.enemy { color: var(--rose); }
+.log-box { flex: 1; overflow-y: auto; background: var(--void); border: 1px solid var(--border); border-radius: 5px; padding: 10px 12px; font-family: 'DM Mono', monospace; font-size: 11px; line-height: 1.55; letter-spacing: 0.02em; color: var(--muted); margin-bottom: 12px; }
+.log-line { padding: 3px 0; border-bottom: 1px dashed rgba(212,160,23,0.05); }
+.log-line b { color: var(--gold); }
+.log-line.enemy b { color: var(--rose); }
+.log-line.system { color: var(--brass); font-style: italic; }
+.log-line.reward { color: var(--sage); font-weight: 700; }
+.end-turn-btn { padding: 14px; font-family: 'DM Mono', monospace; font-size: 14px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--void); background: var(--gold); border-radius: 5px; font-weight: 700; cursor: pointer; transition: all 0.15s; }
+.end-turn-btn:hover { background: var(--amber); }
+.end-turn-btn:disabled { background: var(--dim); color: var(--muted); cursor: not-allowed; }
+.end-turn-btn.enemy-phase { background: var(--ox); color: var(--text); cursor: wait; }
+
+/* END-MATCH MODAL */
+.modal-veil { position: fixed; inset: 0; z-index: 200; background: rgba(11,10,15,0.94); backdrop-filter: blur(6px); display: none; align-items: center; justify-content: center; padding: 30px; }
+.modal-veil.open { display: flex; }
+.modal { max-width: 520px; width: 100%; background: linear-gradient(180deg, var(--shard2), var(--shard)); border: 2px solid var(--gold); border-radius: 10px; padding: 30px 32px; text-align: center; box-shadow: 0 30px 80px rgba(0,0,0,0.7), 0 0 60px rgba(212,160,23,0.3); }
+.modal.loss { border-color: var(--ox); box-shadow: 0 30px 80px rgba(0,0,0,0.7), 0 0 60px rgba(139,26,26,0.3); }
+.modal h2 { font-family: 'Libre Baskerville', serif; font-size: 42px; color: var(--gold); margin-bottom: 8px; letter-spacing: -0.015em; }
+.modal.loss h2 { color: var(--rose); }
+.modal .lore { font-family: 'Libre Baskerville', serif; font-style: italic; color: var(--muted); margin-bottom: 22px; font-size: 14px; line-height: 1.55; }
+.reward-row { display: flex; gap: 14px; align-items: center; justify-content: center; margin: 20px 0; }
+.reward-card { width: 130px; aspect-ratio: 300/420; border-radius: 5px; overflow: hidden; box-shadow: 0 8px 30px rgba(212,160,23,0.5); animation: uber-pulse 2.6s ease-in-out infinite; }
+.reward-card svg { width: 100%; height: 100%; display: block; }
+.shard-reward { padding: 20px 26px; background: rgba(212,160,23,0.06); border: 1px solid var(--gold); border-radius: 5px; font-family: 'DM Mono', monospace; font-size: 14px; color: var(--gold); letter-spacing: 0.2em; text-transform: uppercase; font-weight: 700; }
+.modal-actions { display: flex; gap: 10px; justify-content: center; margin-top: 24px; }
+.action { padding: 12px 24px; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; border: 1px solid var(--border); border-radius: 4px; color: var(--text); background: var(--shard); cursor: pointer; }
+.action.primary { background: var(--gold); color: var(--void); border-color: var(--gold); font-weight: 700; }
+.action:hover { border-color: var(--gold); color: var(--gold); }
+.action.primary:hover { background: var(--amber); color: var(--void); }
+
+.help-btn { position: fixed; bottom: 158px; right: 358px; z-index: 20; padding: 6px 12px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--border); border-radius: 3px; background: rgba(20,18,24,0.85); cursor: pointer; }
+.help-btn:hover { color: var(--gold); border-color: var(--gold); }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand"><span class="brand-mark">◊</span><span class="brand-name">FallKard</span></div>
+  <div class="tabs">
+    <a class="tab" href="index.html">Vault</a>
+    <a class="tab" href="loom.html">Loom</a>
+    <div class="tab active">Duel</div>
+    <a class="tab" href="campaign.html">Campaign</a>
+    <a class="tab" href="cube.html">Cube</a>
+    <a class="tab" href="coliseum.html">Coliseum</a>
+    <a class="tab" href="kono.html">$KONO</a>
+    <a class="tab" href="guild.html">Guild</a>
+    <a class="tab" href="govern.html">Assembly</a>
+    <a class="tab" href="arena.html">Arena</a>
+    <a class="tab" href="brain.html">Brain</a>
+    <a class="tab" href="clinic.html">Clinic</a>
+    <a class="tab" href="bloodline.html">Bloodline</a>
+    <a class="tab" href="herd.html">Herd</a>
+    <a class="tab" href="estate.html">Estate</a>
+    <a class="tab" href="charter.html">Charter</a>
+    <a class="tab" href="about.html">About</a>
+  </div>
+  <div class="spacer"></div>
+  <a class="tab" id="quit-btn" href="index.html" style="display:none;color:var(--rose)">✕ Quit</a>
+</div>
+
+<!-- ── PRE-MATCH ── -->
+<div class="premarch" id="premarch">
+  <div id="boss-eyebrow" style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.24em;color:var(--rose);text-transform:uppercase;margin-bottom:4px">◊ Chapter I · The Colony · Chamber Lord</div>
+  <div class="boss-portrait">
+    <div class="halo"></div>
+    <div class="glyph" id="boss-glyph">☠</div>
+  </div>
+  <h1 id="boss-name-h">Slack Fiend</h1>
+  <div class="lore" id="boss-lore">"The corrupt god of shattered attention. Every ping is a wound. Every notification another chain. It hungers for your focus. Cut its threads or drown in them."</div>
+  <div class="stats">
+    <div>HP · <b id="boss-hp-stat">26</b></div>
+    <div>Deck · <b>30</b></div>
+    <div>Ability · <b id="boss-ability-stat">Notification Cascade · +1 card/turn from t5</b></div>
+  </div>
+
+  <div id="lia-quote" style="font-family:'Libre Baskerville',serif;font-style:italic;color:var(--muted);max-width:520px;margin:18px auto 6px;font-size:13px;line-height:1.55;padding:10px 14px;border-left:2px solid var(--gold);background:rgba(212,160,23,0.04);text-align:left"><span style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:4px">◊ Lia</span>The Fiend's threads know your name.</div>
+
+  <div class="deck-picker">
+    <div class="lbl">Choose Your Deck</div>
+    <select id="deck-choice"></select>
+  </div>
+
+  <button class="fight-btn" id="fight-btn">◊ Fight</button>
+
+  <div style="margin-top:24px;font-family:'DM Mono',monospace;font-size:10px;color:var(--dim);letter-spacing:0.14em">You start with 20 HP · 3 cards in hand · Draw 1 per turn · Max 10 mana · socketed runes from the Cube apply automatically</div>
+</div>
+
+<!-- ── BOARD ── -->
+<div class="board-wrap" id="board">
+  <div class="hero-band enemy">
+    <div class="hero-portrait" id="enemy-portrait">☠</div>
+    <div class="hero-info">
+      <div class="hero-name enemy" id="enemy-name">Slack Fiend</div>
+      <div class="hero-tag" id="enemy-tag">Chamber Lord · Colony</div>
+    </div>
+    <div class="hp-bar">
+      <div class="lbl">Enemy HP</div>
+      <div class="track"><div class="fill enemy" id="enemy-hp-fill" style="width:100%"></div></div>
+      <div class="val enemy" id="enemy-hp-val">26</div>
+    </div>
+    <div class="mana-crystal" id="enemy-mana"></div>
+  </div>
+
+  <div class="lane-row" id="enemy-back"></div>
+  <div class="lane-row" id="enemy-front"></div>
+  <div class="lane-row" id="player-front"></div>
+  <div class="lane-row" id="player-back"></div>
+
+  <div class="hero-band">
+    <div class="hero-portrait">◊</div>
+    <div class="hero-info">
+      <div class="hero-name">You</div>
+      <div class="hero-tag" id="player-tag">House of the Fall</div>
+    </div>
+    <div class="hp-bar">
+      <div class="lbl">Your HP</div>
+      <div class="track"><div class="fill" id="player-hp-fill" style="width:100%"></div></div>
+      <div class="val" id="player-hp-val">20</div>
+    </div>
+    <div class="deck-meta"><b id="player-deck-count">27</b><span>deck</span></div>
+    <div class="mana-crystal" id="player-mana"></div>
+  </div>
+</div>
+
+<div class="hand-row" id="hand"></div>
+
+<button class="help-btn" id="help-btn" style="display:none">? Keywords</button>
+
+<div class="rail" id="rail" style="display:none">
+  <div class="rail-title">Match Log</div>
+  <div class="turn-info">
+    <div class="row">Turn <b id="turn-n">1</b></div>
+    <div class="row">Active <b id="active-side" class="active">You</b></div>
+    <div class="row">Enemy hand <b id="enemy-hand-count">3</b></div>
+  </div>
+  <div class="log-box" id="log-box"></div>
+  <button class="end-turn-btn" id="end-turn">◊ End Turn</button>
+</div>
+
+<div class="modal-veil" id="modal-veil" onclick="if(event.target===this)closeModal()">
+  <div class="modal" id="modal-body"></div>
+</div>
+
+<script>
+'use strict';
+
+const STATE = {
+  cards: [],
+  manifest: null,
+  cardsByID: {},
+  match: null,
+  selectedHandUuid: null,
+  attackerUuid: null,
+  db: null,
+  inventory: null,
+  currentBoss: null
+};
+let UUID = 1;
+const uuid = () => 'u' + (UUID++);
+
+const rarityIdx = { 'uber-unique':0, unique:1, rare:2, magic:3, common:4 };
+const rIdx = r => rarityIdx[r] ?? 9;
+const RARITY_BORDER = { common:{c:'#b8b6ad',g:0}, magic:{c:'#4a7dc9',g:4}, rare:{c:'#d4a017',g:8}, unique:{c:'#b8974a',g:14}, 'uber-unique':{c:'#c46a2e',g:20} };
+const KIND_SHAPE = { sdk:'pillar', api:'tower', mcp:'loom', tool:'blade', surface:'arch', wellness:'well' };
+
+function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+// ───────── SVG (mini)
+function svgFor(card) {
+  const chamber = STATE.manifest.chambers[card.chamber] || STATE.manifest.chambers.market;
+  const border = RARITY_BORDER[card.rarity] || RARITY_BORDER.common;
+  const shape = KIND_SHAPE[card.kind] || 'blade';
+  const emblems = {
+    pillar: `<rect x="120" y="120" width="60" height="150" fill="${chamber.color}" opacity="0.5"/><rect x="115" y="115" width="70" height="10" fill="${chamber.color}"/><rect x="115" y="265" width="70" height="10" fill="${chamber.color}"/>`,
+    tower:  `<polygon points="150,110 200,170 200,270 100,270 100,170" fill="${chamber.color}" opacity="0.5" stroke="${border.c}" stroke-width="1.2"/>`,
+    loom:   `<line x1="100" y1="130" x2="100" y2="280" stroke="${chamber.color}" stroke-width="2.5" opacity="0.7"/><line x1="200" y1="130" x2="200" y2="280" stroke="${chamber.color}" stroke-width="2.5" opacity="0.7"/><line x1="100" y1="160" x2="200" y2="160" stroke="${border.c}"/><line x1="100" y1="200" x2="200" y2="200" stroke="${border.c}"/><line x1="100" y1="240" x2="200" y2="240" stroke="${border.c}"/>`,
+    blade:  `<polygon points="150,100 175,280 150,300 125,280" fill="${chamber.color}" opacity="0.6" stroke="${border.c}" stroke-width="1.5"/>`,
+    arch:   `<path d="M 90 280 L 90 200 Q 90 130 150 130 Q 210 130 210 200 L 210 280" fill="${chamber.color}" opacity="0.45" stroke="${border.c}" stroke-width="1.6"/>`,
+    well:   `<ellipse cx="150" cy="270" rx="65" ry="14" fill="${chamber.color}" opacity="0.35"/><ellipse cx="150" cy="180" rx="55" ry="12" fill="${chamber.color}" opacity="0.55"/><ellipse cx="150" cy="130" rx="40" ry="9" fill="${chamber.color}" opacity="0.7"/>`
+  };
+  const nameShort = esc((card.name || card.id).slice(0, 20));
+  const atk = (card.currentAtk !== undefined) ? card.currentAtk : card.atk;
+  const hp = (card.currentHp !== undefined) ? card.currentHp : card.hp;
+  return `<svg viewBox="0 0 300 420" xmlns="http://www.w3.org/2000/svg">
+    <defs><radialGradient id="g${card.uuid||card.id}" cx="50%" cy="42%" r="70%"><stop offset="0%" stop-color="${chamber.color}" stop-opacity="0.28"/><stop offset="55%" stop-color="#141218"/><stop offset="100%" stop-color="#0b0a0f"/></radialGradient></defs>
+    <rect width="300" height="420" fill="url(#g${card.uuid||card.id})" rx="10"/>
+    <rect x="4" y="4" width="292" height="412" fill="none" stroke="${border.c}" stroke-width="2" rx="8" ${border.g?`filter="drop-shadow(0 0 ${border.g}px ${border.c})"`:''}/>
+    <text x="22" y="42" font-family="DM Mono" font-size="26" fill="${border.c}">${card.sigil}</text>
+    <text x="275" y="38" font-family="DM Mono" font-size="10" fill="${border.c}" text-anchor="end" letter-spacing="1.4">${esc(card.kind.toUpperCase())}</text>
+    ${emblems[shape] || emblems.blade}
+    <text x="150" y="336" font-family="Libre Baskerville" font-size="14" fill="#e6d8b0" text-anchor="middle" font-weight="700">${nameShort}</text>
+    <text x="150" y="352" font-family="DM Mono" font-size="8" fill="${chamber.color}" text-anchor="middle" letter-spacing="2.5">${esc(card.chamber.toUpperCase())}</text>
+    <rect x="8" y="390" width="284" height="20" fill="rgba(11,10,15,0.95)" stroke="${border.c}" stroke-width="0.5" rx="3"/>
+    <text x="26" y="405" font-family="DM Mono" font-size="14" fill="#d44a4a" font-weight="700">⚔ ${atk}</text>
+    <text x="115" y="405" font-family="DM Mono" font-size="14" fill="#5aa25c" font-weight="700">♥ ${hp}</text>
+    <text x="205" y="405" font-family="DM Mono" font-size="14" fill="${chamber.color}" font-weight="700">✦ ${card.cost}</text>
+  </svg>`;
+}
+
+// ───────── Load
+async function load() {
+  const [cardsRes, manRes] = await Promise.all([
+    fetch('cards.json').then(r => r.json()),
+    fetch('manifest.json').then(r => r.json())
+  ]);
+  STATE.cards = cardsRes.cards;
+  STATE.manifest = manRes;
+  STATE.cards.forEach(c => STATE.cardsByID[c.id] = c);
+  STATE.db = await openDB();
+  STATE.inventory = await loadInv();
+  // Resolve boss from URL or default to Slack Fiend
+  const bossId = new URLSearchParams(location.search).get('boss') || 'slack-fiend';
+  STATE.currentBoss = (window.BOSSES || []).find(b => b.id === bossId) || (window.BOSSES || []).find(b => b.id === 'slack-fiend');
+  applyBossToPreMatch();
+  await populateDeckPicker();
+}
+async function loadInv() {
+  return new Promise(res => {
+    const tx = STATE.db.transaction('inventory','readonly');
+    const req = tx.objectStore('inventory').get('main');
+    req.onsuccess = () => res(req.result || { id:'main', shards:0, runes:{}, charms:{}, cardDrops:[], socketed:{}, defeated:[] });
+  });
+}
+async function saveInv() {
+  return new Promise((res, rej) => {
+    const tx = STATE.db.transaction('inventory','readwrite');
+    tx.objectStore('inventory').put(STATE.inventory);
+    tx.oncomplete = () => res();
+    tx.onerror = () => rej(tx.error);
+  });
+}
+
+function applyBossToPreMatch() {
+  const boss = STATE.currentBoss;
+  if (!boss) return;
+  const chapterRoman = ['','I','II','III','IV','V','VI','VII','VIII','IX','X'][boss.chapter] || 'X';
+  const chapName = (window.CHAPTERS || []).find(c => c.n === boss.chapter)?.name || boss.chamber;
+  const tierLbl = boss.tier === 'uber' ? 'Uber' : boss.tier === 'lord' ? 'Chamber Lord' : 'Minor';
+  document.getElementById('boss-eyebrow').textContent = `◊ Chapter ${chapterRoman} · ${chapName} · ${tierLbl}`;
+  document.getElementById('boss-glyph').textContent = boss.portrait;
+  document.getElementById('boss-name-h').textContent = boss.name;
+  document.getElementById('boss-lore').textContent = `"${boss.lore}"`;
+  document.getElementById('boss-hp-stat').textContent = boss.hp;
+  document.getElementById('boss-ability-stat').textContent = boss.ability;
+  // Lia intro line varies by boss chapter
+  const liaLines = (window.LIA_LINES || {}).boss || [];
+  const liaLine = liaLines[boss.chapter - 1] || (window.LIA_LINES||{}).intro || 'The Fall waits for no one.';
+  document.querySelector('#lia-quote').innerHTML = `<span style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:4px">◊ Lia</span>${liaLine}`;
+  // Also update enemy hero band
+  document.getElementById('enemy-name').textContent = boss.name;
+  document.getElementById('enemy-tag').textContent = tierLbl + ' · ' + boss.chamber;
+  document.getElementById('enemy-portrait').textContent = boss.portrait;
+}
+
+function openDB() {
+  return new Promise((res, rej) => {
+    const req = indexedDB.open('fallkard', 2);
+    req.onerror = () => rej(req.error);
+    req.onupgradeneeded = () => {
+      const db = req.result;
+      if (!db.objectStoreNames.contains('decks')) db.createObjectStore('decks', { keyPath: 'name' });
+      if (!db.objectStoreNames.contains('inventory')) db.createObjectStore('inventory', { keyPath: 'id' });
+    };
+    req.onsuccess = () => res(req.result);
+  });
+}
+
+async function listDecks() {
+  return new Promise((res, rej) => {
+    const tx = STATE.db.transaction('decks', 'readonly');
+    const out = [];
+    tx.objectStore('decks').openCursor().onsuccess = e => { const cur = e.target.result; if (cur) { out.push(cur.value); cur.continue(); } else res(out); };
+    tx.onerror = () => rej(tx.error);
+  });
+}
+
+async function populateDeckPicker() {
+  const sel = document.getElementById('deck-choice');
+  sel.innerHTML = '';
+  const opt0 = document.createElement('option');
+  opt0.value = '__genesis__';
+  opt0.textContent = '◊ Genesis Bloodline (preset · Ubers + rares)';
+  sel.appendChild(opt0);
+  const opt1 = document.createElement('option');
+  opt1.value = '__blade__';
+  opt1.textContent = '☨ Aggro Blade (preset · tool-kind low cost)';
+  sel.appendChild(opt1);
+  const decks = await listDecks();
+  decks.forEach(d => {
+    if ((d.size || 0) < 20) return;
+    const opt = document.createElement('option');
+    opt.value = 'saved:' + d.name;
+    opt.textContent = '◈ ' + d.name + ' (' + d.size + ' cards)';
+    sel.appendChild(opt);
+  });
+}
+
+function buildDeckFrom(choice) {
+  if (choice === '__genesis__') {
+    const used = {};
+    const ubers = STATE.cards.filter(c => c.rarity === 'uber-unique');
+    ubers.forEach(c => used[c.id] = 1);
+    const uberChambers = new Set(ubers.map(c => c.chamber));
+    const support = STATE.cards.filter(c => c.rarity !== 'uber-unique' && uberChambers.has(c.chamber)).sort((a,b) => rIdx(a.rarity) - rIdx(b.rarity) || a.cost - b.cost);
+    let taken = ubers.length;
+    for (const c of support) {
+      const max = (c.rarity === 'unique' || c.rarity === 'uber-unique') ? 1 : 2;
+      while ((used[c.id] || 0) < max && taken < 30) { used[c.id] = (used[c.id] || 0) + 1; taken++; }
+      if (taken >= 30) break;
+    }
+    return used;
+  }
+  if (choice === '__blade__') {
+    const used = {};
+    const tools = STATE.cards.filter(c => c.kind === 'tool').sort((a,b) => a.cost - b.cost || rIdx(a.rarity) - rIdx(b.rarity));
+    const fillers = STATE.cards.filter(c => c.kind !== 'tool' && c.cost <= 3).sort((a,b) => a.cost - b.cost);
+    const pool = tools.concat(fillers);
+    let taken = 0;
+    for (const c of pool) {
+      const max = (c.rarity === 'unique' || c.rarity === 'uber-unique') ? 1 : 2;
+      while ((used[c.id] || 0) < max && taken < 30) { used[c.id] = (used[c.id] || 0) + 1; taken++; }
+      if (taken >= 30) break;
+    }
+    return used;
+  }
+  return null;
+}
+
+async function loadSavedDeck(name) {
+  return new Promise((res, rej) => {
+    const tx = STATE.db.transaction('decks', 'readonly');
+    const req = tx.objectStore('decks').get(name);
+    req.onsuccess = () => res(req.result?.deck || null);
+    req.onerror = () => rej(req.error);
+  });
+}
+
+// ───────── Boss deck · uses boss.deckRule
+function buildBossDeck() {
+  const boss = STATE.currentBoss;
+  const rule = boss?.deckRule || { kinds:['mcp','api'], chambers:['reach','bridge','colony'] };
+  const pool = STATE.cards.filter(c =>
+    rule.kinds.includes(c.kind) && rule.chambers.includes(c.chamber)
+  ).sort((a,b) => a.cost - b.cost);
+  const used = {};
+  let taken = 0;
+  for (const c of pool) {
+    const max = 2;
+    while ((used[c.id] || 0) < max && taken < 30) { used[c.id] = (used[c.id] || 0) + 1; taken++; }
+    if (taken >= 30) break;
+  }
+  // Ensure some cheap plays if under-filled
+  const cheap = STATE.cards.filter(c => c.cost <= 2 && c.kind === 'tool').sort((a,b)=>a.cost-b.cost);
+  for (const c of cheap) {
+    if (taken >= 30) break;
+    if ((used[c.id] || 0) >= 2) continue;
+    used[c.id] = (used[c.id] || 0) + 1;
+    taken++;
+  }
+  // If still short (unlikely), fill with any card
+  if (taken < 30) {
+    const fill = STATE.cards.filter(c => c.rarity !== 'uber-unique' && c.rarity !== 'unique').sort(()=>Math.random()-0.5);
+    for (const c of fill) {
+      if (taken >= 30) break;
+      if ((used[c.id] || 0) >= 2) continue;
+      used[c.id] = (used[c.id] || 0) + 1;
+      taken++;
+    }
+  }
+  return used;
+}
+
+// ───────── Match
+function newMatch(playerDeckMap) {
+  const boss = STATE.currentBoss;
+  const bossName = boss?.name || 'Slack Fiend';
+  const bossHp = boss?.hp || 26;
+  const bossDeckMap = buildBossDeck();
+  const player = createPlayer('You', 20, playerDeckMap, false);
+  const enemy = createPlayer(bossName, bossHp, bossDeckMap, true);
+  // Initial hand: 3 cards
+  for (let i = 0; i < 3; i++) drawCard(player);
+  for (let i = 0; i < 3; i++) drawCard(enemy);
+  STATE.match = {
+    turn: 1,
+    activeSide: 'player',
+    player, enemy,
+    boss,
+    log: [],
+    playedLastTurn: { player: false, enemy: false },
+    countPlayed: { player: 0, enemy: 0 },
+    over: false,
+    result: null
+  };
+  logLine('system', `The Duel begins. ${bossName} rises to meet you.`);
+  logLine('system', 'Turn 1 · your move.');
+  startTurn(player);
+  render();
+}
+
+function createPlayer(name, hp, deckMap, isEnemy) {
+  const deck = [];
+  Object.entries(deckMap).forEach(([id, n]) => {
+    const card = STATE.cardsByID[id];
+    if (!card) return;
+    for (let i = 0; i < n; i++) deck.push(instFromCard(card, !isEnemy));
+  });
+  shuffle(deck);
+  return {
+    name, hp, hpMax: hp,
+    mana: 0, manaMax: 0,
+    hand: [], deck, graveyard: [],
+    board: [null, null, null, null, null, null],
+    isEnemy
+  };
+}
+function instFromCard(card, isPlayerSide) {
+  const inst = {
+    ...card,
+    uuid: uuid(),
+    currentAtk: card.atk,
+    currentHp: card.hp,
+    currentCost: card.cost,
+    sealedUsed: false,
+    canAttack: false,
+    justPlayed: false,
+    keywords: [...(card.keywords || [])],
+    runes: []
+  };
+  // Apply socketed runes from inventory (player-side only)
+  if (isPlayerSide && STATE.inventory && STATE.inventory.socketed) {
+    const socketed = STATE.inventory.socketed[card.id] || [];
+    inst.runes = socketed;
+    for (const r of socketed) {
+      if (r === 'El')  inst.currentAtk += 1;
+      if (r === 'Eld') inst.currentHp += 1;
+      if (r === 'Ith' && !inst.keywords.includes('DrawOnPlay')) inst.keywords.push('DrawOnPlay');
+      if (r === 'Tir' && !inst.keywords.includes('ManaOnPlay')) inst.keywords.push('ManaOnPlay');
+      if (r === 'Nef' && !inst.keywords.includes('ReturnOnDeath')) inst.keywords.push('ReturnOnDeath');
+      if (r === 'Sol' && !inst.keywords.includes('Sovereign')) inst.keywords.push('Sovereign');
+      if (r === 'Zod' && !inst.keywords.includes('Indestructible')) inst.keywords.push('Indestructible');
+    }
+    // Runeword bonuses (stack on top of individual runes)
+    const rw = window.matchRuneword && window.matchRuneword(socketed);
+    if (rw) {
+      inst.runeword = rw.name;
+      if (rw.name === 'Steel')            { inst.currentAtk += 1; }
+      if (rw.name === 'Malice')           { inst.currentAtk += 1; inst.currentHp += 1; }
+      if (rw.name === 'Fortitude')        { inst.currentAtk += 1; if (!inst.keywords.includes('Indestructible')) inst.keywords.push('Indestructible'); }
+      if (rw.name === 'Heart of Wolves')  { inst.currentAtk += 2; inst.currentHp += 2; }
+      if (rw.name === 'Chains of Honor')  { inst.currentAtk += 3; inst.currentHp += 3; }
+      if (rw.name === 'Enigma')           { if (!inst.keywords.includes('Sovereign')) inst.keywords.push('Sovereign'); }
+    }
+  }
+  return inst;
+}
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [arr[i], arr[j]] = [arr[j], arr[i]]; }
+}
+function drawCard(p) {
+  if (!p.deck.length) { p.hp = Math.max(0, p.hp - 1); logLine(p.isEnemy?'enemy':'system', `${p.name} draws from an empty deck · <b>-1 HP</b>`); return; }
+  if (p.hand.length >= 10) { const c = p.deck.shift(); logLine(p.isEnemy?'enemy':'system', `${p.name}'s hand is full · <b>${c.name}</b> burned`); return; }
+  p.hand.push(p.deck.shift());
+}
+
+function startTurn(p) {
+  p.manaMax = Math.min(10, p.manaMax + 1);
+  p.mana = p.manaMax;
+  drawCard(p);
+  // At the start of your turn, all your minions can attack (they've been on board through at least one enemy turn)
+  p.board.forEach(m => { if (m) { m.canAttack = true; m.justPlayed = false; } });
+  // Marketplace: every 3rd card drawn draws 1 (fires on hand refresh) — simple version below in playCard
+  // Boss ability: Notification Cascade from turn 5 draws +1
+  if (p.isEnemy && STATE.match.turn >= 5) {
+    drawCard(p);
+    logLine('enemy', `<b>Notification Cascade</b> · +1 card`);
+  }
+}
+
+function endTurn() {
+  const m = STATE.match;
+  if (m.over) return;
+  if (m.activeSide === 'player') {
+    m.playedLastTurn.player = m.countPlayed.player > 0;
+    m.countPlayed.player = 0;
+    m.activeSide = 'enemy';
+    logLine('system', `— Enemy turn —`);
+    render();
+    setTimeout(enemyTurn, 500);
+  }
+}
+
+function enemyTurn() {
+  const m = STATE.match;
+  if (m.over) return;
+  startTurn(m.enemy);
+  // Play as many affordable cards as possible into empty front lanes, tallest cost first
+  let plays = 0;
+  const guard = 20;
+  while (plays++ < guard) {
+    const affordable = m.enemy.hand.filter(c => c.currentCost <= m.enemy.mana);
+    if (!affordable.length) break;
+    // Prefer front lane; then back
+    const emptyFront = [3,4,5].filter(i => !m.enemy.board[i]);
+    const emptyBack = [0,1,2].filter(i => !m.enemy.board[i]);
+    let slot = emptyFront[0] ?? emptyBack[0];
+    if (slot === undefined) break;
+    // Cheapest cost + trade discount? Simple: highest atk that fits
+    affordable.sort((a,b) => (b.currentAtk + b.currentHp) - (a.currentAtk + a.currentHp));
+    const pick = affordable[0];
+    playCard(m.enemy, pick.uuid, slot);
+    if (m.over) return;
+  }
+  // Attack phase
+  setTimeout(() => {
+    if (m.over) return;
+    const attackers = [3,4,5].map(i => m.enemy.board[i]).filter(x => x && x.canAttack && x.currentAtk > 0);
+    attackers.forEach((att, k) => {
+      setTimeout(() => {
+        if (m.over) return;
+        // Determine target: opposing front lane minion if any, else player hero
+        const laneIdx = m.enemy.board.indexOf(att);
+        const opposing = 5 - laneIdx; // mirror across 0-5
+        const target = m.player.board[opposing];
+        if (target) resolveCombat(att, target, m.enemy, m.player);
+        else damageHero(m.player, att.currentAtk, att, m.enemy);
+        att.canAttack = false;
+        render();
+        if (m.over) return;
+      }, 350 * k);
+    });
+    // End enemy turn
+    setTimeout(() => {
+      if (m.over) return;
+      m.playedLastTurn.enemy = m.countPlayed.enemy > 0;
+      m.countPlayed.enemy = 0;
+      m.activeSide = 'player';
+      m.turn++;
+      logLine('system', `— Turn ${m.turn} · your move —`);
+      startTurn(m.player);
+      render();
+    }, 350 * attackers.length + 400);
+  }, 400);
+}
+
+// ───────── Play / Combat
+function playCard(p, cardUuid, slot) {
+  const m = STATE.match;
+  const cardIdx = p.hand.findIndex(c => c.uuid === cardUuid);
+  if (cardIdx < 0) return false;
+  const card = p.hand[cardIdx];
+  let cost = card.currentCost;
+  // Trade: costs 1 less if you played a card last turn
+  const last = p.isEnemy ? m.playedLastTurn.enemy : m.playedLastTurn.player;
+  if ((card.keywords||[]).includes('Trade') && last) cost = Math.max(0, cost - 1);
+  if (cost > p.mana) return false;
+  if (p.board[slot]) return false;
+  p.mana -= cost;
+  p.hand.splice(cardIdx, 1);
+  p.board[slot] = card;
+  card.justPlayed = true;
+  card.canAttack = false;
+  m.countPlayed[p.isEnemy?'enemy':'player']++;
+  // Marketplace: every 3 played draws 1
+  if ((card.keywords||[]).includes('Marketplace') && m.countPlayed[p.isEnemy?'enemy':'player'] % 3 === 0) {
+    drawCard(p);
+    logLine(p.isEnemy?'enemy':'', `<b>${card.name}</b> · Marketplace · draw 1`);
+  }
+  logLine(p.isEnemy?'enemy':'', `<b>${p.name}</b> plays <b>${card.name}</b>${card.runeword ? ' <span style="color:var(--gold)">◊ '+card.runeword+'</span>' : ''} ${slot >= 3 ? 'front' : 'back'} lane`);
+  // Rune on-play effects
+  if ((card.keywords||[]).includes('ManaOnPlay')) {
+    p.mana = Math.min(p.manaMax + 1, p.mana + 1);
+    logLine('system', `<b>Tir</b> · +1 mana crystal`);
+  }
+  if ((card.keywords||[]).includes('DrawOnPlay')) {
+    drawCard(p);
+    logLine('system', `<b>Ith</b> · draw 1`);
+  }
+  return true;
+}
+
+function resolveCombat(attacker, defender, atkOwner, defOwner) {
+  const atkPower = attacker.currentAtk;
+  const defPower = defender.currentAtk;
+  logLine(atkOwner.isEnemy?'enemy':'', `<b>${attacker.name}</b> strikes <b>${defender.name}</b>`);
+  applyDamage(defender, atkPower, defOwner);
+  applyDamage(attacker, defPower, atkOwner);
+}
+
+function applyDamage(minion, dmg, owner) {
+  if (dmg <= 0) return;
+  // Indestructible (Zod) blocks all damage
+  if ((minion.keywords||[]).includes('Indestructible')) {
+    logLine('system', `<b>${minion.name}</b> · Zod · indestructible`);
+    return;
+  }
+  // Sealed: first damage prevented
+  if ((minion.keywords||[]).includes('Sealed') && !minion.sealedUsed) {
+    minion.sealedUsed = true;
+    logLine('system', `<b>${minion.name}</b> · Sealed absorbs first hit`);
+    return;
+  }
+  minion.currentHp -= dmg;
+  if (minion.currentHp <= 0) killMinion(minion, owner);
+}
+
+function killMinion(minion, owner) {
+  const slot = owner.board.indexOf(minion);
+  if (slot < 0) return;
+  owner.board[slot] = null;
+  owner.graveyard.push(minion);
+  logLine(owner.isEnemy?'enemy':'', `<b>${minion.name}</b> falls`);
+  // Fork: on death, spawn 1/1 in same lane
+  if ((minion.keywords||[]).includes('Fork')) {
+    const spawn = instFromCard({ ...minion, name: minion.name + ' (Fork)', atk: 1, hp: 1, cost: 1 });
+    spawn.currentAtk = 1; spawn.currentHp = 1;
+    owner.board[slot] = spawn;
+    spawn.canAttack = false; spawn.justPlayed = true;
+    logLine('system', `<b>${minion.name}</b> · Fork · spawns a Fork ${slot >= 3 ? 'front' : 'back'}`);
+  }
+}
+
+function damageHero(hero, dmg, source, srcOwner) {
+  hero.hp = Math.max(0, hero.hp - dmg);
+  logLine(srcOwner.isEnemy?'enemy':'', `<b>${source.name}</b> strikes <b>${hero.name}</b> · <b>-${dmg} HP</b>`);
+  if (hero.hp <= 0) endMatch(!hero.isEnemy ? 'loss' : 'win');
+}
+
+// ───────── Player interactions
+function selectHandCard(uuid) {
+  const m = STATE.match;
+  if (m.over || m.activeSide !== 'player') return;
+  const card = m.player.hand.find(c => c.uuid === uuid);
+  if (!card) return;
+  let cost = card.currentCost;
+  if ((card.keywords||[]).includes('Trade') && m.playedLastTurn.player) cost = Math.max(0, cost - 1);
+  if (cost > m.player.mana) return;
+  STATE.selectedHandUuid = uuid;
+  STATE.attackerUuid = null;
+  render();
+}
+
+function playSelectedToSlot(slot) {
+  const m = STATE.match;
+  if (!STATE.selectedHandUuid) return;
+  if (m.player.board[slot]) return;
+  const ok = playCard(m.player, STATE.selectedHandUuid, slot);
+  if (ok) {
+    STATE.selectedHandUuid = null;
+    render();
+  }
+}
+
+function selectAttacker(uuid) {
+  const m = STATE.match;
+  if (m.over || m.activeSide !== 'player') return;
+  const idx = m.player.board.findIndex(mn => mn && mn.uuid === uuid);
+  if (idx < 3) return; // Back row can't attack
+  const minion = m.player.board[idx];
+  if (!minion || !minion.canAttack) return;
+  STATE.attackerUuid = uuid;
+  STATE.selectedHandUuid = null;
+  render();
+}
+
+function attackTarget(kind, targetSlot) {
+  const m = STATE.match;
+  const attacker = m.player.board.find(mn => mn && mn.uuid === STATE.attackerUuid);
+  if (!attacker) return;
+  const enemyFrontHas = [3,4,5].some(i => m.enemy.board[i]);
+  if (kind === 'hero') {
+    if (enemyFrontHas) return; // must attack front minion first
+    damageHero(m.enemy, attacker.currentAtk, attacker, m.player);
+    attacker.canAttack = false;
+    STATE.attackerUuid = null;
+    render();
+    return;
+  }
+  if (kind === 'minion') {
+    // Only front lane targetable
+    if (targetSlot < 3) return;
+    const defender = m.enemy.board[targetSlot];
+    if (!defender) return;
+    resolveCombat(attacker, defender, m.player, m.enemy);
+    attacker.canAttack = false;
+    STATE.attackerUuid = null;
+    render();
+  }
+}
+
+// ───────── Log
+function logLine(cls, text) {
+  const m = STATE.match; if (!m) return;
+  m.log.push({ cls, text });
+  const box = document.getElementById('log-box');
+  if (box) { renderLog(); box.scrollTop = box.scrollHeight; }
+}
+
+function renderLog() {
+  const m = STATE.match; if (!m) return;
+  const box = document.getElementById('log-box');
+  const tail = m.log.slice(-30);
+  box.innerHTML = tail.map(l => `<div class="log-line ${esc(l.cls)}">${l.text}</div>`).join('');
+}
+
+// ───────── Render
+function render() {
+  const m = STATE.match; if (!m) return;
+  // HP
+  document.getElementById('player-hp-fill').style.width = (m.player.hp / m.player.hpMax * 100) + '%';
+  document.getElementById('player-hp-val').textContent = m.player.hp + ' / ' + m.player.hpMax;
+  document.getElementById('enemy-hp-fill').style.width = (m.enemy.hp / m.enemy.hpMax * 100) + '%';
+  document.getElementById('enemy-hp-val').textContent = m.enemy.hp + ' / ' + m.enemy.hpMax;
+  // Mana
+  renderMana('player-mana', m.player);
+  renderMana('enemy-mana', m.enemy);
+  // Deck counts
+  document.getElementById('player-deck-count').textContent = m.player.deck.length;
+  document.getElementById('enemy-hand-count').textContent = m.enemy.hand.length;
+  document.getElementById('turn-n').textContent = m.turn;
+  const activeEl = document.getElementById('active-side');
+  activeEl.textContent = m.activeSide === 'player' ? 'You' : m.enemy.name;
+  activeEl.className = 'active ' + (m.activeSide === 'enemy' ? 'enemy' : '');
+  // Boards
+  renderLanes('enemy-back', m.enemy.board.slice(0,3), true, 'back');
+  renderLanes('enemy-front', m.enemy.board.slice(3,6), true, 'front');
+  renderLanes('player-front', m.player.board.slice(3,6), false, 'front');
+  renderLanes('player-back', m.player.board.slice(0,3), false, 'back');
+  renderHand();
+  // End-turn button state
+  const et = document.getElementById('end-turn');
+  if (m.activeSide === 'player') {
+    et.disabled = false;
+    et.textContent = '◊ End Turn';
+    et.classList.remove('enemy-phase');
+  } else {
+    et.disabled = true;
+    et.textContent = '⌛ Enemy playing…';
+    et.classList.add('enemy-phase');
+  }
+  renderLog();
+}
+
+function renderMana(id, p) {
+  const el = document.getElementById(id);
+  let html = '';
+  for (let i = 0; i < p.manaMax; i++) {
+    const filled = i < p.mana;
+    html += `<div class="crystal ${filled ? 'filled' : 'spent'}"></div>`;
+  }
+  el.innerHTML = html || '<div style="font-family:DM Mono,monospace;font-size:9px;color:var(--dim);letter-spacing:0.12em">— no mana —</div>';
+}
+
+function renderLanes(id, arr, isEnemy, row) {
+  const el = document.getElementById(id);
+  const isPlayerAttacking = !isEnemy ? false : !!STATE.attackerUuid;
+  const enemyFrontEmpty = !STATE.match.enemy.board.slice(3,6).some(m => m);
+  let html = '';
+  arr.forEach((minion, i) => {
+    // Slot indexing: back = 0/1/2, front = 3/4/5
+    const slotAbsolute = row === 'back' ? i : i + 3;
+    let laneClass = 'lane' + (isEnemy ? ' enemy' : '');
+    let clickHandler = '';
+    if (!isEnemy && STATE.selectedHandUuid && !minion && STATE.match.activeSide === 'player') {
+      laneClass += ' playable';
+      clickHandler = `onclick="playSelectedToSlot(${slotAbsolute})"`;
+    }
+    if (isEnemy && STATE.attackerUuid && STATE.match.activeSide === 'player') {
+      if (row === 'front' && minion) { laneClass += ' target'; clickHandler = `onclick="attackTarget('minion', ${slotAbsolute})"`; }
+    }
+    let minionHtml = '';
+    if (minion) {
+      let mClass = 'minion rar-' + minion.rarity;
+      if (!isEnemy && minion.canAttack) mClass += ' can-attack';
+      if (!isEnemy && STATE.attackerUuid === minion.uuid) mClass += ' attacking';
+      if ((minion.keywords||[]).includes('Sealed') && !minion.sealedUsed) mClass += ' sealed';
+      let minionClick = '';
+      if (!isEnemy && row === 'front' && minion.canAttack && STATE.match.activeSide === 'player') {
+        minionClick = `onclick="event.stopPropagation();selectAttacker('${minion.uuid}')"`;
+      }
+      minionHtml = `<div class="${mClass}" ${minionClick} title="${esc(minion.name)}">${svgFor(minion)}</div>`;
+    }
+    html += `<div class="${laneClass}" ${clickHandler}><div class="lane-label">${row}·${i}</div>${minionHtml}</div>`;
+  });
+  el.innerHTML = html;
+}
+
+function renderHand() {
+  const m = STATE.match; if (!m) return;
+  const el = document.getElementById('hand');
+  const cards = m.player.hand;
+  let html = '';
+  cards.forEach(c => {
+    let cost = c.currentCost;
+    if ((c.keywords||[]).includes('Trade') && m.playedLastTurn.player) cost = Math.max(0, cost - 1);
+    const affordable = m.activeSide === 'player' && cost <= m.player.mana;
+    let cls = 'hcard rar-' + c.rarity + (affordable ? ' playable' : ' unaffordable') + (STATE.selectedHandUuid === c.uuid ? ' selected' : '');
+    html += `<div class="${cls}" onclick="selectHandCard('${c.uuid}')" title="${esc(c.name)} · cost ${cost}${(c.keywords||[]).length?' · '+c.keywords.join(', '):''}">${svgFor(c)}</div>`;
+  });
+  el.innerHTML = html;
+  // Hero-target lane click (attack enemy hero if no front minions)
+  const enemyBand = document.querySelector('.hero-band.enemy');
+  if (STATE.attackerUuid && ![3,4,5].some(i => m.enemy.board[i])) {
+    enemyBand.classList.add('target');
+    enemyBand.onclick = () => attackTarget('hero');
+    enemyBand.style.cursor = 'crosshair';
+  } else {
+    enemyBand.classList.remove('target');
+    enemyBand.onclick = null;
+    enemyBand.style.cursor = '';
+  }
+}
+
+function endMatch(result) {
+  const m = STATE.match; if (!m || m.over) return;
+  m.over = true; m.result = result;
+  setTimeout(() => showEndModal(result), 500);
+}
+
+async function showEndModal(result) {
+  const veil = document.getElementById('modal-veil');
+  const body = document.getElementById('modal-body');
+  const boss = STATE.currentBoss;
+  const nextBossHref = suggestNextBoss(boss);
+  if (result === 'win') {
+    const drops = boss?.drops || { shards: 1, runes: [], cardTier: 'rare' };
+    // Card drop
+    const tierPool = STATE.cards.filter(c => c.rarity === drops.cardTier);
+    const cardDrop = tierPool.length ? tierPool[Math.floor(Math.random() * tierPool.length)] : STATE.cards[0];
+    // Persist to inventory
+    STATE.inventory.shards = (STATE.inventory.shards || 0) + (drops.shards || 0);
+    (drops.runes || []).forEach(r => { STATE.inventory.runes[r] = (STATE.inventory.runes[r] || 0) + 1; });
+    STATE.inventory.cardDrops = STATE.inventory.cardDrops || [];
+    STATE.inventory.cardDrops.push({ card: cardDrop.id, when: new Date().toISOString(), boss: boss?.id || 'slack-fiend' });
+    if (drops.charm) {
+      STATE.inventory.charms = STATE.inventory.charms || {};
+      STATE.inventory.charms[drops.charm] = (STATE.inventory.charms[drops.charm] || 0) + 1;
+    }
+    STATE.inventory.defeated = STATE.inventory.defeated || [];
+    if (boss && !STATE.inventory.defeated.includes(boss.id)) STATE.inventory.defeated.push(boss.id);
+    await saveInv();
+
+    // Lia win line
+    const liaWinLines = (window.LIA_LINES || {}).win || [];
+    const liaLine = liaWinLines[(boss?.chapter || 1) - 1] || '"The threads snap silent."';
+
+    body.className = 'modal';
+    body.innerHTML = `
+      <h2>◊ Victory</h2>
+      <div class="lore">${liaLine}</div>
+      <div class="reward-row">
+        <div>
+          <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:8px">Card drop · ${cardDrop.rarity}</div>
+          <div class="reward-card">${svgFor(cardDrop)}</div>
+        </div>
+        <div>
+          ${drops.shards ? `<div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:8px">Shards</div><div class="shard-reward" style="margin-bottom:10px">◊ +${drops.shards}</div>` : ''}
+          ${(drops.runes||[]).length ? `<div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:8px">Runes</div><div class="shard-reward" style="margin-bottom:10px;color:var(--brass);border-color:var(--brass)">${drops.runes.map(r => (window.RUNE_SIGIL?.[r]||r) + ' ' + r).join(' · ')}</div>` : ''}
+          ${drops.charm ? `<div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:8px">Charm</div><div class="shard-reward" style="color:var(--plum);border-color:var(--plum)">◊ ${drops.charm}</div>` : ''}
+        </div>
+      </div>
+      <div class="modal-actions">
+        ${nextBossHref ? `<a class="action primary" href="${nextBossHref}">◊ Next Encounter</a>` : ''}
+        <a class="action" href="campaign.html">◈ Campaign Map</a>
+        <a class="action" href="cube.html">☨ To Cube</a>
+        <a class="action" href="loom.html">◇ To Loom</a>
+      </div>
+    `;
+  } else {
+    const liaLoss = (window.LIA_LINES || {}).loss || '"The chamber holds. Try again."';
+    body.className = 'modal loss';
+    body.innerHTML = `
+      <h2>◈ Defeated</h2>
+      <div class="lore">${liaLoss}</div>
+      <div class="modal-actions">
+        <button class="action primary" onclick="location.reload()">☨ Rematch</button>
+        <a class="action" href="campaign.html">◈ Campaign Map</a>
+        <a class="action" href="loom.html">◇ To Loom</a>
+      </div>
+    `;
+  }
+  veil.classList.add('open');
+}
+
+function suggestNextBoss(currentBoss) {
+  if (!currentBoss || !window.BOSSES) return null;
+  const defeated = new Set(STATE.inventory.defeated || []);
+  const next = window.BOSSES.find(b => !defeated.has(b.id) && (b.unlock || []).every(id => defeated.has(id)));
+  return next ? 'duel.html?boss=' + next.id : null;
+}
+
+function closeModal() { document.getElementById('modal-veil').classList.remove('open'); }
+window.closeModal = closeModal;
+
+// ───────── Wire
+window.selectHandCard = selectHandCard;
+window.playSelectedToSlot = playSelectedToSlot;
+window.selectAttacker = selectAttacker;
+window.attackTarget = attackTarget;
+window.endTurn = endTurn;
+
+document.getElementById('fight-btn').addEventListener('click', async () => {
+  const choice = document.getElementById('deck-choice').value;
+  let deckMap = null;
+  if (choice.startsWith('saved:')) {
+    deckMap = await loadSavedDeck(choice.slice(6));
+    // Validate
+    if (deckMap) {
+      const filtered = {};
+      Object.entries(deckMap).forEach(([id, n]) => { if (STATE.cardsByID[id]) filtered[id] = n; });
+      deckMap = filtered;
+    }
+  } else {
+    deckMap = buildDeckFrom(choice);
+  }
+  if (!deckMap || Object.values(deckMap).reduce((s,n)=>s+n, 0) < 20) {
+    alert('Deck must have at least 20 cards. Pick another or return to the Loom to build one.');
+    return;
+  }
+  document.getElementById('premarch').style.display = 'none';
+  document.getElementById('board').classList.add('active');
+  document.getElementById('rail').style.display = 'flex';
+  document.getElementById('quit-btn').style.display = 'inline-block';
+  document.getElementById('help-btn').style.display = 'block';
+  newMatch(deckMap);
+});
+
+document.getElementById('end-turn').addEventListener('click', endTurn);
+document.getElementById('help-btn').addEventListener('click', () => {
+  document.getElementById('modal-body').className = 'modal';
+  document.getElementById('modal-body').innerHTML = `
+    <h2 style="font-size:26px">◊ Keywords</h2>
+    <div style="text-align:left;font-family:'DM Sans',sans-serif;line-height:1.65;color:var(--muted);font-size:13px;margin-top:16px">
+      <p><b style="color:var(--gold)">Sealed</b> · First damage taken is prevented (one-shot shield)</p>
+      <p><b style="color:var(--gold)">Fork</b> · On death, spawns a 1/1 copy in the same lane</p>
+      <p><b style="color:var(--gold)">Trade</b> · Costs 1 less if you played a card last turn</p>
+      <p><b style="color:var(--gold)">Marketplace</b> · Every 3 cards you play draws 1</p>
+      <p><b style="color:var(--gold)">Sovereign</b> · Cannot be targeted by spells (no spells yet)</p>
+      <p><b style="color:var(--gold)">Descend</b> · The card opens the linked real tool</p>
+      <p style="margin-top:14px;color:var(--dim);font-size:12px">Front-row minions attack. Back-row protected.<br>Attack enemy hero only when no enemy front minion.</p>
+    </div>
+    <div class="modal-actions"><button class="action primary" onclick="closeModal()">◊ Ok</button></div>
+  `;
+  document.getElementById('modal-veil').classList.add('open');
+});
+
+load().catch(e=>{console.error('[fallkard] Duel load failed',e);});
+</script>
+  <script src="konomi-footer.js" defer></script>
+</body>
+</html>

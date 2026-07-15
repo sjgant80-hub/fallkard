@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>FallKard · the Fall's Fall · Campaign Map</title>
+<meta name="description" content="9 chapters. 30 boss encounters. Corrupt SaaS-god remnants haunt every chamber. Cut their threads to reclaim the Fall."/>
+<link rel="canonical" href="https://sjgant80-hub.github.io/fallkard/campaign.html"/>
+<meta name="theme-color" content="#0b0a0f"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --void:#0b0a0f; --shard:#141218; --shard2:#191720; --dim:#3d3a45; --muted:#8a857a; --text:#c4bfb2;
+  --gold:#d4a017; --brass:#b8974a; --amber:#e8a83a; --rose:#e6846e; --sage:#7ab88a;
+  --ox:#8b1a1a; --sap:#4a7dc9; --jade:#3fa068; --plum:#9a6dbf;
+  --border:rgba(212,160,23,0.14); --hard:rgba(212,160,23,0.32);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--void); color: var(--text); font-family: 'DM Sans', system-ui, sans-serif; }
+body { background: radial-gradient(ellipse at 20% 20%, rgba(139,26,26,0.06), transparent 55%), radial-gradient(ellipse at 80% 80%, rgba(212,160,23,0.04), transparent 55%), var(--void); min-height: 100vh; padding-bottom: 40px; }
+a { color: var(--brass); text-decoration: none; }
+button { background: none; border: none; color: inherit; font: inherit; cursor: pointer; }
+
+.topbar { position: sticky; top: 0; z-index: 30; display: flex; align-items: center; gap: 20px; padding: 14px 24px; background: rgba(11,10,15,0.94); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
+.brand { display: flex; align-items: baseline; gap: 10px; }
+.brand-mark { font-family: 'DM Mono', monospace; font-size: 20px; color: var(--gold); }
+.brand-name { font-family: 'Libre Baskerville', serif; font-size: 20px; font-weight: 700; color: var(--text); }
+.tabs { display: flex; gap: 4px; margin-left: 24px; flex-wrap: wrap; }
+.tab { padding: 8px 12px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); cursor: pointer; border: 1px solid transparent; border-radius: 4px; text-decoration: none; }
+.tab.active { color: var(--gold); border-color: var(--border); background: var(--shard); }
+.tab:hover { color: var(--text); }
+.spacer { flex: 1; }
+.inventory-mini { display: flex; gap: 12px; align-items: center; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--muted); }
+.inventory-mini b { color: var(--gold); font-weight: 700; }
+.inv-item { display: flex; align-items: center; gap: 4px; padding: 4px 8px; background: var(--shard); border: 1px solid var(--border); border-radius: 3px; }
+
+.wrap { max-width: 1240px; margin: 0 auto; padding: 30px 26px; }
+h1 { font-family: 'Libre Baskerville', serif; font-size: 40px; color: var(--text); margin-bottom: 6px; letter-spacing: -0.015em; }
+h1 em { color: var(--rose); font-style: italic; }
+.lede { color: var(--muted); font-size: 16px; line-height: 1.6; max-width: 720px; margin: 12px 0 32px; }
+.eyebrow { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose); margin-bottom: 12px; }
+
+.progress-bar { padding: 14px 20px; background: var(--shard); border: 1px solid var(--border); border-radius: 6px; display: flex; gap: 24px; align-items: center; margin-bottom: 34px; font-family: 'DM Mono', monospace; font-size: 12px; }
+.progress-bar b { color: var(--gold); font-size: 16px; font-weight: 700; }
+.progress-bar .track { flex: 1; height: 8px; background: var(--void); border-radius: 4px; overflow: hidden; border: 1px solid var(--border); }
+.progress-bar .fill { height: 100%; background: linear-gradient(90deg, var(--gold), var(--amber)); transition: width 0.4s; }
+.progress-bar .lbl { color: var(--muted); letter-spacing: 0.14em; text-transform: uppercase; font-size: 10px; }
+
+.narrator { padding: 16px 22px; background: linear-gradient(90deg, rgba(212,160,23,0.06), transparent); border-left: 3px solid var(--gold); margin-bottom: 32px; }
+.narrator .who { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+.narrator .said { font-family: 'Libre Baskerville', serif; font-style: italic; font-size: 15px; color: var(--text); line-height: 1.6; }
+
+.chapters { display: grid; gap: 24px; }
+.chapter { background: linear-gradient(180deg, var(--shard2), var(--shard)); border: 1px solid var(--border); border-radius: 8px; padding: 22px 26px; }
+.chapter.done { border-color: var(--sage); background: linear-gradient(180deg, rgba(122,184,138,0.05), var(--shard)); }
+.chapter-head { display: flex; align-items: center; gap: 18px; margin-bottom: 18px; }
+.chapter-num { font-family: 'DM Mono', monospace; font-size: 32px; color: var(--gold); min-width: 46px; text-align: center; }
+.chapter-name { flex: 1; }
+.chapter-name h2 { font-family: 'Libre Baskerville', serif; font-size: 24px; color: var(--gold); }
+.chapter-name .sub { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-top: 2px; }
+.chapter.done .chapter-name h2 { color: var(--sage); }
+.chapter-progress { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--muted); letter-spacing: 0.14em; text-transform: uppercase; }
+.chapter-progress b { color: var(--gold); }
+.chapter.done .chapter-progress b { color: var(--sage); }
+
+.bosses { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+.boss-card { position: relative; background: var(--void); border: 1px solid var(--border); border-radius: 6px; padding: 16px 14px; cursor: pointer; transition: all 0.15s; }
+.boss-card:hover { border-color: var(--gold); transform: translateY(-2px); box-shadow: 0 6px 22px rgba(212,160,23,0.15); }
+.boss-card.locked { opacity: 0.35; cursor: not-allowed; }
+.boss-card.locked:hover { transform: none; box-shadow: none; border-color: var(--border); }
+.boss-card.done { border-color: var(--sage); background: rgba(122,184,138,0.06); }
+.boss-card.done:hover { border-color: var(--sage); box-shadow: 0 6px 22px rgba(122,184,138,0.15); }
+.boss-card.lord { border-width: 2px; border-color: var(--rose); }
+.boss-card.lord.done { border-color: var(--sage); }
+.boss-card.lord:hover { border-color: var(--gold); box-shadow: 0 6px 26px rgba(230,132,110,0.3); }
+.boss-tier { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+.boss-tier.lord { color: var(--rose); }
+.boss-portrait { width: 60px; height: 60px; margin: 0 auto 10px; border-radius: 50%; background: radial-gradient(ellipse at center, rgba(139,26,26,0.4), rgba(0,0,0,0.9)); border: 2px solid var(--ox); display: flex; align-items: center; justify-content: center; font-family: 'DM Mono', monospace; font-size: 28px; color: var(--rose); }
+.boss-card.done .boss-portrait { border-color: var(--sage); background: radial-gradient(ellipse at center, rgba(122,184,138,0.25), rgba(0,0,0,0.9)); color: var(--sage); }
+.boss-card.lord .boss-portrait { width: 72px; height: 72px; font-size: 34px; box-shadow: 0 0 20px rgba(230,132,110,0.4); }
+.boss-name { font-family: 'Libre Baskerville', serif; font-size: 16px; font-weight: 700; color: var(--text); text-align: center; margin-bottom: 4px; }
+.boss-card.done .boss-name { color: var(--sage); }
+.boss-hp { font-family: 'DM Mono', monospace; font-size: 10px; text-align: center; color: var(--muted); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 8px; }
+.boss-hp b { color: var(--rose); font-size: 12px; }
+.boss-card.done .boss-hp b { color: var(--sage); }
+.boss-lore { font-family: 'Libre Baskerville', serif; font-style: italic; font-size: 11px; color: var(--muted); line-height: 1.5; text-align: center; margin: 8px 0; }
+.boss-badge { position: absolute; top: 8px; right: 8px; font-family: 'DM Mono', monospace; font-size: 10px; padding: 3px 7px; border-radius: 3px; background: var(--gold); color: var(--void); font-weight: 700; letter-spacing: 0.08em; }
+.boss-card.done .boss-badge { background: var(--sage); }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand"><span class="brand-mark">◊</span><span class="brand-name">FallKard</span></div>
+  <div class="tabs">
+    <a class="tab" href="index.html">Vault</a>
+    <a class="tab" href="loom.html">Loom</a>
+    <a class="tab" href="duel.html">Duel</a>
+    <div class="tab active">Campaign</div>
+    <a class="tab" href="cube.html">Cube</a>
+    <a class="tab" href="coliseum.html">Coliseum</a>
+    <a class="tab" href="kono.html">$KONO</a>
+    <a class="tab" href="guild.html">Guild</a>
+    <a class="tab" href="govern.html">Assembly</a>
+    <a class="tab" href="arena.html">Arena</a>
+    <a class="tab" href="brain.html">Brain</a>
+    <a class="tab" href="clinic.html">Clinic</a>
+    <a class="tab" href="bloodline.html">Bloodline</a>
+    <a class="tab" href="herd.html">Herd</a>
+    <a class="tab" href="estate.html">Estate</a>
+    <a class="tab" href="charter.html">Charter</a>
+    <a class="tab" href="about.html">About</a>
+  </div>
+  <div class="spacer"></div>
+  <div class="inventory-mini" id="inv-mini">
+    <span class="inv-item">◊ <b id="inv-shards">0</b> shards</span>
+    <span class="inv-item">⟁ <b id="inv-runes">0</b> runes</span>
+    <span class="inv-item">☨ <b id="inv-cards">0</b> drops</span>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="eyebrow">◊ The Fall's Fall · Chapter I - IX</div>
+  <h1>The <em>Fall's Fall</em>.<br>Cut every thread.</h1>
+  <p class="lede">Nine chambers. Thirty encounters. Every corrupt SaaS-god remnant that hunts sovereign tools stalks one of these chambers. Clear a chamber's minions first, then face its Chamber Lord. Beat all nine chambers and the Uber battles await.</p>
+
+  <div class="progress-bar">
+    <div class="lbl">Overall</div>
+    <b id="prog-count">0 / 30</b>
+    <div class="track"><div class="fill" id="prog-fill" style="width:0%"></div></div>
+    <div class="lbl">Chambers cleared <b id="chambers-cleared" style="color:var(--gold);font-size:14px">0</b> / 9</div>
+  </div>
+
+  <div class="narrator" id="narrator">
+    <div class="who">◊ Lia · your narrator</div>
+    <div class="said" id="lia-line">"The Fall waits for no one. The Ancient Architect walked these plains long ago and shaped what still stands. The SaaS-god's remnants remember him. They fear him. But he departed. You are what remains. Pick a chamber. Cut the threads."</div>
+  </div>
+
+  <div class="chapters" id="chapters"></div>
+</div>
+
+<script>
+'use strict';
+
+// ────────── Boss cast · 30 encounters · 9 chambers × (2 minions + 1 lord) + 3 Uber
+const BOSSES = [
+  // ═══════════════ CHAPTER I · COLONY ═══════════════
+  { id:'thread-imp', name:'Thread Imp', chapter:1, chamber:'colony', tier:'minor', hp:16, portrait:'ℹ', ability:'Ping Cascade · +1 draw t3', lore:'A single ping. Then two. Then ten.', deckRule:{kinds:['mcp','api'],chambers:['reach','colony']}, unlock:[] },
+  { id:'notif-wraith', name:'Notification Wraith', chapter:1, chamber:'colony', tier:'minor', hp:20, portrait:'◑', ability:'Silent Attention Drain · -1 mana t4 if you have full hand', lore:'It thrives when your focus scatters.', deckRule:{kinds:['api','mcp'],chambers:['reach','bridge']}, unlock:['thread-imp'] },
+  { id:'slack-fiend', name:'Slack Fiend', chapter:1, chamber:'colony', tier:'lord', hp:26, portrait:'☠', ability:'Notification Cascade · +1 card/turn from t5', lore:'The corrupt god of shattered attention. Cut its threads or drown in them.', deckRule:{kinds:['mcp','api'],chambers:['reach','bridge','colony']}, unlock:['thread-imp','notif-wraith'] },
+
+  // ═══════════════ CHAPTER II · STUDIO ═══════════════
+  { id:'draft-goblin', name:'Draft Goblin', chapter:2, chamber:'studio', tier:'minor', hp:18, portrait:'✎', ability:'Sketch · Steals cost 1 from your next play', lore:'Half-written. Half-remembered. Never shipped.', deckRule:{kinds:['sdk','tool'],chambers:['studio','forge']}, unlock:['slack-fiend'] },
+  { id:'canvas-hollow', name:'Canvas Hollow', chapter:2, chamber:'studio', tier:'minor', hp:22, portrait:'◇', ability:'Blank Slate · Discards your next drawn card at 50%', lore:'The empty page that eats intention.', deckRule:{kinds:['tool','sdk'],chambers:['studio']}, unlock:['draft-goblin'] },
+  { id:'notion-lich', name:'Notion Lich', chapter:2, chamber:'studio', tier:'lord', hp:30, portrait:'☩', ability:'Nested Curse · Every 3 turns, one of your minions loses -1/-1', lore:'Every doc a tomb. Every page a chain.', deckRule:{kinds:['mcp','tool','sdk'],chambers:['studio','forge']}, unlock:['draft-goblin','canvas-hollow'] },
+
+  // ═══════════════ CHAPTER III · MARKET ═══════════════
+  { id:'lead-imp', name:'Lead Imp', chapter:3, chamber:'market', tier:'minor', hp:20, portrait:'$', ability:'Cold Call · Deals 1 to random minion at start of its turn', lore:'It knew your name once.', deckRule:{kinds:['api','tool'],chambers:['market','reach']}, unlock:['notion-lich'] },
+  { id:'quota-shade', name:'Quota Shade', chapter:3, chamber:'market', tier:'minor', hp:24, portrait:'☯', ability:'Pipeline · Gains +1 ATK each turn a card sits in your hand', lore:'It grows fat on your deferred plays.', deckRule:{kinds:['tool','sdk'],chambers:['market']}, unlock:['lead-imp'] },
+  { id:'salesforce-wyrm', name:'Salesforce Wyrm', chapter:3, chamber:'market', tier:'lord', hp:32, portrait:'☾', ability:'Cloud Assault · At t7 all its minions gain +2/+2', lore:'The great wyrm coiled in a hundred subscriptions.', deckRule:{kinds:['api','mcp','tool'],chambers:['market','bridge','reach']}, unlock:['lead-imp','quota-shade'] },
+
+  // ═══════════════ CHAPTER IV · REACH ═══════════════
+  { id:'ad-mite', name:'Ad Mite', chapter:4, chamber:'reach', tier:'minor', hp:18, portrait:'◙', ability:'Retarget · Copies your last-played minion once', lore:'It shows you what you already saw.', deckRule:{kinds:['api','tool'],chambers:['reach','market']}, unlock:['salesforce-wyrm'] },
+  { id:'metric-shade', name:'Metric Shade', chapter:4, chamber:'reach', tier:'minor', hp:22, portrait:'◊', ability:'Vanity Reflection · If your minion has 5+ ATK, it takes 2 self', lore:'What gets measured gets bled.', deckRule:{kinds:['api','sdk'],chambers:['reach','studio']}, unlock:['ad-mite'] },
+  { id:'zoom-basilisk', name:'Zoom Basilisk', chapter:4, chamber:'reach', tier:'lord', hp:30, portrait:'◉', ability:'Screen Freeze · Locks a random own minion each of your turns from t5', lore:'It sees you. It always sees you.', deckRule:{kinds:['api','mcp'],chambers:['reach','bridge']}, unlock:['ad-mite','metric-shade'] },
+
+  // ═══════════════ CHAPTER V · BRIDGE ═══════════════
+  { id:'daemon-worm', name:'Daemon Worm', chapter:5, chamber:'bridge', tier:'minor', hp:20, portrait:'⚙', ability:'Runtime Loop · Attacks twice per turn if it survived last turn', lore:'It runs even when you stop it.', deckRule:{kinds:['sdk','mcp'],chambers:['forge','bridge']}, unlock:['zoom-basilisk'] },
+  { id:'orchestration-imp', name:'Orchestration Imp', chapter:5, chamber:'bridge', tier:'minor', hp:24, portrait:'⚘', ability:'Chain Trigger · When it kills a minion, plays a free 3-cost card from deck', lore:'Every tool moves the next. All the wrong way.', deckRule:{kinds:['mcp','api','sdk'],chambers:['bridge']}, unlock:['daemon-worm'] },
+  { id:'aws-behemoth', name:'AWS Behemoth', chapter:5, chamber:'bridge', tier:'lord', hp:36, portrait:'⬢', ability:'Cloud Bill · At end of every 3rd turn, deals 3 to you', lore:'Vast. Distributed. Uncounted.', deckRule:{kinds:['api','mcp','sdk'],chambers:['bridge','forge']}, unlock:['daemon-worm','orchestration-imp'] },
+
+  // ═══════════════ CHAPTER VI · FORGE ═══════════════
+  { id:'ci-imp', name:'CI Imp', chapter:6, chamber:'forge', tier:'minor', hp:16, portrait:'☒', ability:'Flaky Test · 25% chance your played minion enters silenced', lore:'Sometimes it passes. Sometimes it does not.', deckRule:{kinds:['sdk','tool'],chambers:['forge']}, unlock:['aws-behemoth'] },
+  { id:'lock-hydra', name:'Lockfile Hydra', chapter:6, chamber:'forge', tier:'minor', hp:24, portrait:'⚹', ability:'Cascade Update · Its minions gain +0/+2 each turn', lore:'You changed one. It broke ten thousand.', deckRule:{kinds:['sdk','api'],chambers:['forge','bridge']}, unlock:['ci-imp'] },
+  { id:'docker-hydra', name:'Docker Hydra', chapter:6, chamber:'forge', tier:'lord', hp:30, portrait:'⬣', ability:'Container Split · When one head dies, spawns a 2/2 in its lane', lore:'Kill one head. Two more rise.', deckRule:{kinds:['mcp','sdk'],chambers:['forge','bridge']}, unlock:['ci-imp','lock-hydra'] },
+
+  // ═══════════════ CHAPTER VII · VAULT ═══════════════
+  { id:'debit-mote', name:'Debit Mote', chapter:7, chamber:'vault', tier:'minor', hp:18, portrait:'◈', ability:'Micro-Charge · Deals 1 to you every card you draw', lore:'A single fee. A thousand times.', deckRule:{kinds:['api','tool'],chambers:['vault','market']}, unlock:['docker-hydra'] },
+  { id:'reconcile-shade', name:'Reconciliation Shade', chapter:7, chamber:'vault', tier:'minor', hp:22, portrait:'◇', ability:'Ledger Rot · At t6 you lose a random rune from inventory', lore:'It counts the coin you never held.', deckRule:{kinds:['api','sdk'],chambers:['vault']}, unlock:['debit-mote'] },
+  { id:'stripe-chimera', name:'Stripe Chimera', chapter:7, chamber:'vault', tier:'lord', hp:32, portrait:'§', ability:'Interchange · Each of its minions steals 1 mana from you on ETB', lore:'The horns are the fees. The tail is the chargeback.', deckRule:{kinds:['api','mcp'],chambers:['vault','market']}, unlock:['debit-mote','reconcile-shade'] },
+
+  // ═══════════════ CHAPTER VIII · ESTATE ═══════════════
+  { id:'boilerplate-imp', name:'Boilerplate Imp', chapter:8, chamber:'estate', tier:'minor', hp:20, portrait:'§', ability:'Fine Print · Your Trade keyword is silenced this match', lore:'Read every clause. Slowly.', deckRule:{kinds:['tool','sdk'],chambers:['estate']}, unlock:['stripe-chimera'] },
+  { id:'redaction-wraith', name:'Redaction Wraith', chapter:8, chamber:'estate', tier:'minor', hp:24, portrait:'◘', ability:'Blackout · Your top-deck card is hidden until played', lore:'What you cannot see cannot help you.', deckRule:{kinds:['api','tool'],chambers:['estate','vault']}, unlock:['boilerplate-imp'] },
+  { id:'contract-lich', name:'The Contract Lich', chapter:8, chamber:'estate', tier:'lord', hp:34, portrait:'☩', ability:'Binding Terms · Locks 1 of your played minions in place each turn', lore:'It signs in ink that never dries.', deckRule:{kinds:['tool','api','mcp'],chambers:['estate','vault']}, unlock:['boilerplate-imp','redaction-wraith'] },
+
+  // ═══════════════ CHAPTER IX · CLINIC ═══════════════
+  { id:'burnout-imp', name:'Burnout Imp', chapter:9, chamber:'clinic', tier:'minor', hp:22, portrait:'✕', ability:'Fatigue · Your hero HP drops 1 at end of each of your turns', lore:'It offers rest. It gives none.', deckRule:{kinds:['api','tool'],chambers:['clinic']}, unlock:['contract-lich'] },
+  { id:'metric-parasite', name:'Metric Parasite', chapter:9, chamber:'clinic', tier:'minor', hp:26, portrait:'◑', ability:'Health Snapshot · Deals your current HP loss as damage back to you t6', lore:'It measures what you feel.', deckRule:{kinds:['api','sdk'],chambers:['clinic','vault']}, unlock:['burnout-imp'] },
+  { id:'wellness-vulture', name:'The Wellness Vulture', chapter:9, chamber:'clinic', tier:'lord', hp:34, portrait:'☬', ability:'Prescription Cascade · Consumes 1 shard from you per turn from t4', lore:'It sells you the cure to the wound it opened.', deckRule:{kinds:['api','tool','sdk'],chambers:['clinic','market']}, unlock:['burnout-imp','metric-parasite'] },
+
+  // ═══════════════ UBER ═══════════════
+  { id:'ad-godling', name:'The Ad-Godling', chapter:10, chamber:'reach', tier:'uber', hp:44, portrait:'∆', ability:'Autoplay · Plays a random 4-cost from your deck against you every 3 turns', lore:'"Skip Ad" was a lie.', deckRule:{kinds:['api','tool'],chambers:['reach','market']}, unlock:['zoom-basilisk','wellness-vulture'] },
+  { id:'saas-emperor', name:'The SaaS Emperor', chapter:10, chamber:'bridge', tier:'uber', hp:52, portrait:'♛', ability:'Vendor Lock · Every rune socketed in your deck costs -1 rune from inventory per turn', lore:'"All-in-one." All-in-you.', deckRule:{kinds:['api','mcp','sdk','tool'],chambers:['bridge','market','vault']}, unlock:['aws-behemoth','stripe-chimera','contract-lich'] },
+  { id:'metric-wraith', name:'The Metric Wraith · Uber', chapter:10, chamber:'reach', tier:'uber', hp:48, portrait:'⬢', ability:'Impression Storm · +1 minion to enemy back lane per your card drawn', lore:'It has always been watching. Now it strikes back.', deckRule:{kinds:['api','tool'],chambers:['reach','studio']}, unlock:['ad-godling'] }
+];
+
+const CHAPTERS = [
+  { n:1, name:'Colony', sub:'The Chamber of the Broken Focus', chamber:'colony', color:'#e8a83a' },
+  { n:2, name:'Studio', sub:'The Chamber of the Empty Page', chamber:'studio', color:'#9a6dbf' },
+  { n:3, name:'Market', sub:'The Chamber of the False Bid', chamber:'market', color:'#d4a017' },
+  { n:4, name:'Reach', sub:'The Chamber of the Endless Ping', chamber:'reach', color:'#4a9d8f' },
+  { n:5, name:'Bridge', sub:'The Chamber of the Broken Chain', chamber:'bridge', color:'#7ab88a' },
+  { n:6, name:'Forge', sub:'The Chamber of the Failed Build', chamber:'forge', color:'#c46a2e' },
+  { n:7, name:'Vault', sub:'The Chamber of the Silent Ledger', chamber:'vault', color:'#3f3d4a' },
+  { n:8, name:'Estate', sub:'The Chamber of the Bound Word', chamber:'estate', color:'#c4bfb2' },
+  { n:9, name:'Clinic', sub:'The Chamber of the Hollow Mirror', chamber:'clinic', color:'#e6846e' },
+  { n:10, name:'Uber Rounds', sub:'The World Beneath Rises', chamber:null, color:'#e6846e' }
+];
+
+const LIA_LINES = [
+  '"The Fall waits for no one. The Ancient Architect walked these plains long ago and shaped what still stands. The SaaS-god\'s remnants remember him. They fear him. But he departed. You are what remains. Pick a chamber. Cut the threads."',
+  '"Every chamber lord holds a piece of the world beneath. Cut them one at a time. The Uber rounds only open when all nine chambers stand clean."',
+  '"You have cleared the first minions. The chambers are noticing. Watch your hand — the Fiend\'s cascade builds every turn."',
+  '"Rune drops from Chamber Lords. Uber Uniques drop from Uber rounds. What you socket in the Loom carries into the Duel."',
+  '"You have taken your first Lord. The chamber banner rises."',
+  '"The Fall grows quieter with each cut. Do not mistake it for peace."',
+  '"Beyond the ninth chamber the Ubers wait. They know your name. They wrote it in the ledger."',
+  '"You have cleared five chambers. The Ad-Godling stirs. It has begun."',
+  '"The Emperor sits above them all. It signed every contract you thought was yours."'
+];
+
+// ────────── State
+const STATE = { db: null, inventory: null, defeated: new Set() };
+
+async function openDB() {
+  return new Promise((res, rej) => {
+    const req = indexedDB.open('fallkard', 2);
+    req.onerror = () => rej(req.error);
+    req.onupgradeneeded = () => {
+      const db = req.result;
+      if (!db.objectStoreNames.contains('decks')) db.createObjectStore('decks', { keyPath: 'name' });
+      if (!db.objectStoreNames.contains('inventory')) db.createObjectStore('inventory', { keyPath: 'id' });
+    };
+    req.onsuccess = () => res(req.result);
+  });
+}
+
+async function loadInv() {
+  return new Promise((res) => {
+    const tx = STATE.db.transaction('inventory', 'readonly');
+    const req = tx.objectStore('inventory').get('main');
+    req.onsuccess = () => res(req.result || { id:'main', shards:0, runes:{}, charms:{}, cardDrops:[], socketed:{}, defeated:[] });
+  });
+}
+
+function isUnlocked(boss) {
+  if (!boss.unlock.length) return true;
+  return boss.unlock.every(id => STATE.defeated.has(id));
+}
+
+function pickLia() {
+  const n = STATE.defeated.size;
+  if (n === 0) return LIA_LINES[0];
+  if (n < 3) return LIA_LINES[2];
+  if (n < 6) return LIA_LINES[3];
+  const chamLords = BOSSES.filter(b => b.tier==='lord' && STATE.defeated.has(b.id));
+  if (chamLords.length === 0 && n >= 2) return LIA_LINES[2];
+  if (chamLords.length === 1) return LIA_LINES[4];
+  if (chamLords.length >= 5) return LIA_LINES[7];
+  if (chamLords.length >= 3) return LIA_LINES[5];
+  return LIA_LINES[6];
+}
+
+function render() {
+  // Inventory mini
+  document.getElementById('inv-shards').textContent = STATE.inventory.shards || 0;
+  const totalRunes = Object.values(STATE.inventory.runes || {}).reduce((s,n)=>s+n, 0);
+  document.getElementById('inv-runes').textContent = totalRunes;
+  document.getElementById('inv-cards').textContent = (STATE.inventory.cardDrops || []).length;
+
+  // Progress
+  const total = BOSSES.length;
+  const done = STATE.defeated.size;
+  document.getElementById('prog-count').textContent = done + ' / ' + total;
+  document.getElementById('prog-fill').style.width = (done/total*100) + '%';
+  const chambersCleared = CHAPTERS.slice(0,9).filter(ch => BOSSES.filter(b=>b.chamber===ch.chamber && b.chapter===ch.n).every(b=>STATE.defeated.has(b.id))).length;
+  document.getElementById('chambers-cleared').textContent = chambersCleared;
+
+  // Lia
+  document.getElementById('lia-line').textContent = pickLia();
+
+  // Chapters
+  const chaptersEl = document.getElementById('chapters');
+  chaptersEl.innerHTML = '';
+  CHAPTERS.forEach(ch => {
+    const bosses = BOSSES.filter(b => b.chapter === ch.n);
+    if (!bosses.length) return;
+    const chDone = bosses.every(b => STATE.defeated.has(b.id));
+    const chBeatCount = bosses.filter(b => STATE.defeated.has(b.id)).length;
+    const chap = document.createElement('div');
+    chap.className = 'chapter' + (chDone ? ' done' : '');
+    chap.innerHTML = `
+      <div class="chapter-head">
+        <div class="chapter-num" style="color:${ch.color}">${['','I','II','III','IV','V','VI','VII','VIII','IX','X'][ch.n] || ch.n}</div>
+        <div class="chapter-name">
+          <h2>${ch.name}</h2>
+          <div class="sub">${ch.sub}</div>
+        </div>
+        <div class="chapter-progress"><b>${chBeatCount}</b> / ${bosses.length} cleared</div>
+      </div>
+      <div class="bosses"></div>
+    `;
+    const bossGrid = chap.querySelector('.bosses');
+    bosses.forEach(boss => {
+      const locked = !isUnlocked(boss);
+      const done = STATE.defeated.has(boss.id);
+      const card = document.createElement('div');
+      card.className = 'boss-card' + (locked?' locked':'') + (done?' done':'') + (boss.tier==='lord'||boss.tier==='uber'?' lord':'');
+      const badge = done ? '<div class="boss-badge">✓ cleared</div>' : boss.tier==='uber' ? '<div class="boss-badge" style="background:var(--rose)">Uber</div>' : boss.tier==='lord' ? '<div class="boss-badge" style="background:var(--rose);color:var(--void)">Lord</div>' : '';
+      card.innerHTML = `
+        <div class="boss-tier ${boss.tier==='lord'||boss.tier==='uber'?'lord':''}">Ch.${boss.chapter} · ${boss.tier}</div>
+        <div class="boss-portrait">${boss.portrait}</div>
+        <div class="boss-name">${boss.name}</div>
+        <div class="boss-hp">HP <b>${boss.hp}</b></div>
+        <div class="boss-lore">${boss.lore}</div>
+        <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:0.1em;text-align:center;padding:6px 0 0;border-top:1px solid var(--border);margin-top:8px">◊ ${boss.ability}</div>
+        ${badge}
+      `;
+      if (!locked && !done) card.onclick = () => location.href = 'duel.html?boss=' + boss.id;
+      else if (done) card.onclick = () => { if (confirm('Rematch ' + boss.name + '?')) location.href = 'duel.html?boss=' + boss.id; };
+      bossGrid.appendChild(card);
+    });
+    chaptersEl.appendChild(chap);
+  });
+}
+
+async function init() {
+  STATE.db = await openDB();
+  STATE.inventory = await loadInv();
+  STATE.defeated = new Set(STATE.inventory.defeated || []);
+  render();
+}
+init().catch(e=>{const l=document.getElementById('lia-line'); if(l) l.textContent='The Fall could not load your progress — refresh to retry.'; console.error('[fallkard] Campaign init failed',e);});
+</script>
+  <script src="konomi-footer.js" defer></script>
+</body>
+</html>

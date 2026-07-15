@@ -1,0 +1,53 @@
+{
+  "generated": "2026-07-12",
+  "seals": [
+    {
+      "id": "seal-ee80cd2b34d5e",
+      "name": "Sealed · Fen-a×Fen-r×Roo-13×Fen-1g~21",
+      "kind": "mcp",
+      "chamber": "market",
+      "atk": 6,
+      "hp": 5,
+      "cost": 5,
+      "rarity": "rare",
+      "keywords": [
+        "Sealed",
+        "Fork",
+        "Marketplace"
+      ],
+      "seal": true,
+      "shadow": "hoard",
+      "resilience": 0.636,
+      "lineage": {
+        "parent": "sim:Fen-a×Fen-r×Roo-13×Fen-1g",
+        "generation": 5
+      },
+      "deckSig": "seal-ee80cd2b34d5e",
+      "cast": "2026-07-12"
+    },
+    {
+      "id": "seal-c980ade740913",
+      "name": "Sealed · Fen-a×Fen-r×Roo-13~2p",
+      "kind": "tool",
+      "chamber": "market",
+      "atk": 7,
+      "hp": 5,
+      "cost": 5,
+      "rarity": "rare",
+      "keywords": [
+        "Sealed",
+        "Fork",
+        "Marketplace"
+      ],
+      "seal": true,
+      "shadow": "hoard",
+      "resilience": 0.66,
+      "lineage": {
+        "parent": "sim:Fen-a×Fen-r×Roo-13~1v",
+        "generation": 5
+      },
+      "deckSig": "seal-c980ade740913",
+      "cast": "2026-07-12"
+    }
+  ]
+}

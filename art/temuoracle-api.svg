@@ -1,0 +1,61 @@
+<svg viewBox="0 0 300 420" xmlns="http://www.w3.org/2000/svg" width="300" height="420">
+  <defs>
+    <radialGradient id="g_temuoracle-api" cx="50%" cy="42%" r="70%">
+      <stop offset="0%" stop-color="#7ab88a" stop-opacity="0.28"/>
+      <stop offset="55%" stop-color="#141218" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#0b0a0f" stop-opacity="1"/>
+    </radialGradient>
+    <filter id="grain_temuoracle-api" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7"/>
+      <feColorMatrix values="0 0 0 0 0.06  0 0 0 0 0.06  0 0 0 0 0.08  0 0 0 0.14 0"/>
+    </filter>
+  </defs>
+  <rect x="0" y="0" width="300" height="420" fill="url(#g_temuoracle-api)" rx="10"/>
+  <rect x="0" y="0" width="300" height="420" fill="url(#g_temuoracle-api)" filter="url(#grain_temuoracle-api)" rx="10" opacity="0.6"/>
+
+  <!-- Rarity border -->
+  <rect x="4" y="4" width="292" height="412" fill="none" stroke="#4a7dc9" stroke-width="2" rx="8" opacity="0.9"
+        filter="drop-shadow(0 0 4px #4a7dc9)"/>
+
+  <!-- Corner brackets -->
+  <path d="M 8 22 L 8 8 L 22 8" fill="none" stroke="#4a7dc9" stroke-width="1.2"/>
+  <path d="M 292 22 L 292 8 L 278 8" fill="none" stroke="#4a7dc9" stroke-width="1.2"/>
+  <path d="M 8 398 L 8 412 L 22 412" fill="none" stroke="#4a7dc9" stroke-width="1.2"/>
+  <path d="M 292 398 L 292 412 L 278 412" fill="none" stroke="#4a7dc9" stroke-width="1.2"/>
+
+  <!-- Sigil top-left -->
+  <text x="22" y="42" font-family="DM Mono, monospace" font-size="24" fill="#4a7dc9" opacity="0.85">⟁</text>
+
+  <!-- Kind badge top-right -->
+  <rect x="215" y="22" width="70" height="22" fill="rgba(11,10,15,0.9)" stroke="#4a7dc9" stroke-width="0.6" rx="3"/>
+  <text x="250" y="38" font-family="DM Mono, monospace" font-size="10" fill="#4a7dc9" text-anchor="middle" letter-spacing="1.5">API</text>
+
+  <!-- Central emblem -->
+  <polygon points="150,110 200,170 200,270 100,270 100,170" fill="#7ab88a" opacity="0.5" stroke="#4a7dc9" stroke-width="1.2"/>
+             <rect x="140" y="130" width="20" height="30" fill="#4a7dc9" opacity="0.8"/>
+             <circle cx="150" cy="200" r="14" fill="none" stroke="#4a7dc9" stroke-width="1.4"/>
+
+  <!-- Divider before name -->
+  <line x1="30" y1="315" x2="270" y2="315" stroke="#4a7dc9" stroke-width="0.7" opacity="0.5"/>
+
+  <!-- Name -->
+  <text x="150" y="336" font-family="Libre Baskerville, serif" font-size="15" fill="#e6d8b0" text-anchor="middle" font-weight="700">temuoracle API</text>
+
+  <!-- Chamber line -->
+  <text x="150" y="352" font-family="DM Mono, monospace" font-size="8" fill="#7ab88a" text-anchor="middle" letter-spacing="2.5">BRIDGE</text>
+
+  <!-- Type-line -->
+  <text x="150" y="366" font-family="DM Mono, monospace" font-size="7" fill="#8a857a" text-anchor="middle" letter-spacing="1.2">Magic · Signal Shape · Bridge</text>
+
+  <!-- Flavour -->
+  <text x="150" y="384" font-family="Libre Baskerville, serif" font-size="8" fill="#8a857a" text-anchor="middle" font-style="italic">The signal carries.</text>
+
+  <!-- Stats bar -->
+  <rect x="8" y="390" width="284" height="20" fill="rgba(11,10,15,0.9)" stroke="#4a7dc9" stroke-width="0.6" rx="3"/>
+  <text x="30" y="405" font-family="DM Mono, monospace" font-size="12" fill="#d44a4a" font-weight="700">⚔ 3</text>
+  <text x="118" y="405" font-family="DM Mono, monospace" font-size="12" fill="#5aa25c" font-weight="700">♥ 11</text>
+  <text x="200" y="405" font-family="DM Mono, monospace" font-size="12" fill="#7ab88a" font-weight="700">✦ 4</text>
+
+  <!-- Socket dots -->
+  <circle cx="255" cy="400" r="3" fill="#3d3a45" stroke="#4a7dc9" stroke-width="0.6"/>
+</svg>

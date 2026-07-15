@@ -1,0 +1,191 @@
+{
+  "generated": "2026-07-12",
+  "config": {
+    "agents": 12,
+    "seeds": 2
+  },
+  "kernel": [
+    "winCondition (hero to 0)",
+    "the 6-lane board",
+    "the two-body pairing (∇·B=0)",
+    "determinism (seeded)"
+  ],
+  "bylaws": [
+    "startHand",
+    "manaCap",
+    "maxTurns"
+  ],
+  "forks": [
+    {
+      "name": "Canonical",
+      "note": "the standing ruleset",
+      "rules": {},
+      "rejected": false,
+      "games": 264,
+      "drawRate": 0,
+      "avgTurns": 15.4,
+      "diversity": 0.899,
+      "decisiveness": 1,
+      "balance": 0.705,
+      "health": 0.8903,
+      "deltaVsCanonical": 0
+    },
+    {
+      "name": "Big Hand",
+      "note": "draw 5 to open — more options early",
+      "rules": {
+        "startHand": 5
+      },
+      "rejected": false,
+      "games": 264,
+      "drawRate": 0.015,
+      "avgTurns": 15.7,
+      "diversity": 0.894,
+      "decisiveness": 0.985,
+      "balance": 0.792,
+      "health": 0.9011,
+      "deltaVsCanonical": 0.0108
+    },
+    {
+      "name": "Fast Mana",
+      "note": "mana climbs to 12 — bigger late swings",
+      "rules": {
+        "manaCap": 12
+      },
+      "rejected": false,
+      "games": 264,
+      "drawRate": 0.004,
+      "avgTurns": 15.3,
+      "diversity": 0.901,
+      "decisiveness": 0.996,
+      "balance": 0.76,
+      "health": 0.9016,
+      "deltaVsCanonical": 0.0113
+    },
+    {
+      "name": "Grind",
+      "note": "long games — value over tempo",
+      "rules": {
+        "maxTurns": 45
+      },
+      "rejected": false,
+      "games": 264,
+      "drawRate": 0,
+      "avgTurns": 14.8,
+      "diversity": 0.899,
+      "decisiveness": 1,
+      "balance": 0.795,
+      "health": 0.9084,
+      "deltaVsCanonical": 0.0181
+    },
+    {
+      "name": "Blitz",
+      "note": "short games — tempo over value",
+      "rules": {
+        "maxTurns": 14
+      },
+      "rejected": false,
+      "games": 264,
+      "drawRate": 0.034,
+      "avgTurns": 12.6,
+      "diversity": 0.896,
+      "decisiveness": 0.966,
+      "balance": 0.729,
+      "health": 0.8838,
+      "deltaVsCanonical": -0.0065
+    },
+    {
+      "name": "Lean Mana",
+      "note": "low power ceiling — more strategies stay viable",
+      "rules": {
+        "manaCap": 4
+      },
+      "rejected": false,
+      "games": 264,
+      "drawRate": 0,
+      "avgTurns": 11.1,
+      "diversity": 0.895,
+      "decisiveness": 1,
+      "balance": 0.818,
+      "health": 0.9111,
+      "deltaVsCanonical": 0.0208
+    },
+    {
+      "name": "Rewrite Victory",
+      "note": "proposes a KERNEL change",
+      "rules": {
+        "winCondition": "hero to 5"
+      },
+      "rejected": true,
+      "reason": "touches the KERNEL (winCondition) — refused at the barrier"
+    }
+  ],
+  "ranked": [
+    {
+      "name": "Lean Mana",
+      "health": 0.9111,
+      "delta": 0.0208,
+      "diversity": 0.895,
+      "decisiveness": 1,
+      "balance": 0.818
+    },
+    {
+      "name": "Grind",
+      "health": 0.9084,
+      "delta": 0.0181,
+      "diversity": 0.899,
+      "decisiveness": 1,
+      "balance": 0.795
+    },
+    {
+      "name": "Fast Mana",
+      "health": 0.9016,
+      "delta": 0.0113,
+      "diversity": 0.901,
+      "decisiveness": 0.996,
+      "balance": 0.76
+    },
+    {
+      "name": "Big Hand",
+      "health": 0.9011,
+      "delta": 0.0108,
+      "diversity": 0.894,
+      "decisiveness": 0.985,
+      "balance": 0.792
+    },
+    {
+      "name": "Canonical",
+      "health": 0.8903,
+      "delta": 0,
+      "diversity": 0.899,
+      "decisiveness": 1,
+      "balance": 0.705
+    },
+    {
+      "name": "Blitz",
+      "health": 0.8838,
+      "delta": -0.0065,
+      "diversity": 0.896,
+      "decisiveness": 0.966,
+      "balance": 0.729
+    }
+  ],
+  "verdict": {
+    "canonicalHealth": 0.8903,
+    "topFork": "Lean Mana",
+    "adopted": [
+      "Lean Mana",
+      "Grind",
+      "Fast Mana",
+      "Big Hand"
+    ],
+    "notAdopted": [
+      "Blitz"
+    ],
+    "kernelRefused": [
+      "Rewrite Victory"
+    ],
+    "populationForksTheGame": true,
+    "kernelHeld": true
+  }
+}

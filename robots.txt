@@ -1,0 +1,26 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sjgant80-hub.github.io/fallkard/sitemap.xml
+
+# LLM crawlers · all welcome
+User-agent: GPTBot
+Allow: /
+User-agent: Claude-Web
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Anthropic-AI
+Allow: /
+User-agent: cohere-ai
+Allow: /
+User-agent: FacebookBot
+Allow: /
+User-agent: Bytespider
+Allow: /
+User-agent: CCBot
+Allow: /

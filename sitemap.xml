@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://sjgant80-hub.github.io/fallkard/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <!-- Application surfaces -->
+  <url><loc>https://sjgant80-hub.github.io/fallkard/loom.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://sjgant80-hub.github.io/fallkard/duel.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://sjgant80-hub.github.io/fallkard/campaign.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sjgant80-hub.github.io/fallkard/cube.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sjgant80-hub.github.io/fallkard/coliseum.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sjgant80-hub.github.io/fallkard/kono.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sjgant80-hub.github.io/fallkard/guild.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sjgant80-hub.github.io/fallkard/govern.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sjgant80-hub.github.io/fallkard/arena.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sjgant80-hub.github.io/fallkard/brain.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sjgant80-hub.github.io/fallkard/clinic.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://sjgant80-hub.github.io/fallkard/bloodline.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://sjgant80-hub.github.io/fallkard/herd.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://sjgant80-hub.github.io/fallkard/estate.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://sjgant80-hub.github.io/fallkard/charter.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://sjgant80-hub.github.io/fallkard/about.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <!-- Data + GEO surfaces -->
+  <url><loc>https://sjgant80-hub.github.io/fallkard/README.md</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sjgant80-hub.github.io/fallkard/cards.json</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sjgant80-hub.github.io/fallkard/manifest.json</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sjgant80-hub.github.io/fallkard/build-summary.json</loc><changefreq>daily</changefreq><priority>0.6</priority></url>
+  <url><loc>https://sjgant80-hub.github.io/fallkard/catalog.md</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sjgant80-hub.github.io/fallkard/glossary.md</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://sjgant80-hub.github.io/fallkard/faq.md</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://sjgant80-hub.github.io/fallkard/llms.txt</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+</urlset>

@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>FallKard · the Assembly · Council of the Twelve · Governance</title>
+<meta name="description" content="Twelve seats · one year each · vote with shards. Sitting cards grant estate-wide effects. Sacrifice bloodlines at the Cube for Champion cards."/>
+<link rel="canonical" href="https://sjgant80-hub.github.io/fallkard/govern.html"/>
+<meta name="theme-color" content="#0b0a0f"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<script src="bosses.js"></script>
+<style>
+:root {
+  --void:#0b0a0f; --shard:#141218; --shard2:#191720; --dim:#3d3a45; --muted:#8a857a; --text:#c4bfb2;
+  --gold:#d4a017; --brass:#b8974a; --amber:#e8a83a; --rose:#e6846e; --sage:#7ab88a;
+  --ox:#8b1a1a; --sap:#4a7dc9; --jade:#3fa068; --plum:#9a6dbf;
+  --border:rgba(212,160,23,0.14); --hard:rgba(212,160,23,0.32);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--void); color: var(--text); font-family: 'DM Sans', system-ui, sans-serif; }
+body { background: radial-gradient(ellipse at center, rgba(212,160,23,0.06), transparent 60%), radial-gradient(ellipse at 80% 90%, rgba(154,109,191,0.05), transparent 60%), var(--void); min-height: 100vh; padding-bottom: 40px; }
+a { color: var(--brass); text-decoration: none; }
+button { background: none; border: none; color: inherit; font: inherit; cursor: pointer; }
+
+.topbar { position: sticky; top: 0; z-index: 30; display: flex; align-items: center; gap: 20px; padding: 14px 24px; background: rgba(11,10,15,0.94); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
+.brand { display: flex; align-items: baseline; gap: 10px; }
+.brand-mark { font-family: 'DM Mono', monospace; font-size: 20px; color: var(--gold); }
+.brand-name { font-family: 'Libre Baskerville', serif; font-size: 20px; font-weight: 700; color: var(--text); }
+.tabs { display: flex; gap: 4px; margin-left: 24px; flex-wrap: wrap; }
+.tab { padding: 8px 12px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); border: 1px solid transparent; border-radius: 4px; text-decoration: none; }
+.tab.active { color: var(--gold); border-color: var(--border); background: var(--shard); }
+.tab:hover { color: var(--text); }
+.spacer { flex: 1; }
+.mini { display: flex; gap: 8px; align-items: center; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); }
+.mini b { color: var(--gold); font-weight: 700; }
+.mini .item { padding: 4px 8px; background: var(--shard); border: 1px solid var(--border); border-radius: 3px; letter-spacing: 0.06em; }
+
+.wrap { max-width: 1240px; margin: 0 auto; padding: 30px 26px; }
+.eyebrow { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--plum); margin-bottom: 12px; }
+h1 { font-family: 'Libre Baskerville', serif; font-size: 40px; color: var(--text); margin-bottom: 6px; letter-spacing: -0.015em; }
+h1 em { color: var(--plum); font-style: italic; }
+.lede { color: var(--muted); font-size: 16px; line-height: 1.6; max-width: 720px; margin: 12px 0 30px; }
+
+/* cycle banner */
+.cycle-banner { padding: 18px 24px; background: linear-gradient(90deg, rgba(154,109,191,0.08), rgba(212,160,23,0.04)); border: 1px solid var(--plum); border-radius: 6px; margin-bottom: 26px; display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: center; }
+.cycle-banner .lbl { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--plum); margin-bottom: 4px; }
+.cycle-banner .name { font-family: 'Libre Baskerville', serif; font-size: 22px; color: var(--text); font-weight: 700; letter-spacing: -0.01em; }
+.cycle-banner .details { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 0.08em; margin-top: 6px; line-height: 1.6; }
+.cycle-banner .details b { color: var(--gold); }
+.cycle-banner .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; min-width: 300px; }
+.cycle-stat { padding: 10px 14px; background: rgba(11,10,15,0.6); border: 1px solid var(--border); border-radius: 4px; text-align: center; }
+.cycle-stat b { display: block; font-family: 'DM Mono', monospace; font-size: 20px; color: var(--gold); font-weight: 700; letter-spacing: -0.01em; }
+.cycle-stat span { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+
+.panel { background: linear-gradient(180deg, var(--shard2), var(--shard)); border: 1px solid var(--border); border-radius: 8px; padding: 22px 26px; margin-bottom: 20px; }
+.panel h2 { font-family: 'Libre Baskerville', serif; font-size: 22px; color: var(--gold); margin-bottom: 6px; }
+.panel .sub { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 18px; }
+
+/* seats · 4-wide grid */
+.seats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+@media (max-width: 900px) { .seats-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 640px) { .seats-grid { grid-template-columns: repeat(2, 1fr); } }
+.seat { position: relative; background: var(--shard); border: 2px solid var(--border); border-radius: 8px; padding: 14px 12px; text-align: center; overflow: hidden; transition: all 0.2s; }
+.seat:hover { border-color: var(--gold); transform: translateY(-3px); box-shadow: 0 8px 26px rgba(212,160,23,0.2); }
+.seat.held { border-color: var(--brass); background: linear-gradient(180deg, rgba(212,160,23,0.06), var(--shard)); }
+.seat.held:hover { border-color: var(--gold); box-shadow: 0 8px 30px rgba(212,160,23,0.3); }
+.seat.vacant { opacity: 0.7; }
+.seat-num { position: absolute; top: 6px; left: 8px; font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: var(--brass); }
+.seat-votes { position: absolute; top: 6px; right: 8px; font-family: 'DM Mono', monospace; font-size: 10px; color: var(--gold); font-weight: 700; padding: 2px 6px; background: rgba(11,10,15,0.7); border-radius: 3px; }
+.seat-glyph { font-family: 'DM Mono', monospace; font-size: 34px; color: var(--gold); margin: 14px 0 10px; }
+.seat.vacant .seat-glyph { color: var(--dim); }
+.seat b { font-family: 'Libre Baskerville', serif; font-size: 14px; color: var(--text); display: block; margin-bottom: 3px; }
+.seat.vacant b { color: var(--dim); }
+.seat .chamber { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+.seat .effect { font-family: 'DM Sans', sans-serif; font-size: 10px; color: var(--sage); line-height: 1.4; margin-top: 8px; padding: 6px 4px; background: rgba(122,184,138,0.04); border-radius: 3px; }
+.seat.vacant .effect { color: var(--dim); background: transparent; }
+.seat .actions { margin-top: 10px; display: flex; gap: 4px; justify-content: center; }
+.seat .actions button { padding: 5px 8px; font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; background: var(--gold); color: var(--void); border-radius: 3px; font-weight: 700; cursor: pointer; }
+.seat .actions button.vote { background: var(--plum); color: var(--void); }
+.seat .actions button.nominate { background: var(--sage); color: var(--void); }
+
+/* effects panel */
+.effects-list { display: grid; gap: 8px; }
+.effect-row { padding: 12px 16px; background: linear-gradient(90deg, rgba(122,184,138,0.06), transparent); border-left: 3px solid var(--sage); border-radius: 3px; }
+.effect-row.inactive { border-left-color: var(--dim); background: transparent; opacity: 0.5; }
+.effect-row .who { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--brass); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 4px; }
+.effect-row .bonus { font-family: 'DM Sans', sans-serif; font-size: 13px; color: var(--sage); font-weight: 500; }
+.effect-row.inactive .bonus { color: var(--dim); }
+
+/* vote log */
+.vote-log { max-height: 300px; overflow-y: auto; }
+.vote-log .row { display: grid; grid-template-columns: auto 1fr auto; gap: 12px; padding: 8px 12px; margin-bottom: 5px; background: var(--shard); border: 1px solid var(--border); border-radius: 4px; align-items: center; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 0.04em; }
+.vote-log .row .stake { color: var(--gold); font-weight: 700; }
+.vote-log .row .card { color: var(--text); }
+.vote-log .row .card b { color: var(--gold); }
+.vote-log .row .when { color: var(--dim); font-size: 9px; letter-spacing: 0.12em; }
+
+.ceremony-panel { padding: 20px 24px; background: linear-gradient(90deg, rgba(212,160,23,0.06), transparent); border-left: 3px solid var(--gold); border-radius: 3px; margin-top: 14px; }
+.ceremony-panel h3 { font-family: 'Libre Baskerville', serif; font-size: 18px; color: var(--gold); margin-bottom: 6px; font-weight: 700; }
+.ceremony-panel p { font-family: 'Libre Baskerville', serif; font-style: italic; color: var(--muted); font-size: 13px; line-height: 1.55; margin-bottom: 12px; }
+
+/* modal */
+.modal-veil { position: fixed; inset: 0; z-index: 100; background: rgba(11,10,15,0.9); backdrop-filter: blur(4px); display: none; align-items: center; justify-content: center; padding: 30px; }
+.modal-veil.open { display: flex; }
+.modal { max-width: 640px; width: 100%; background: linear-gradient(180deg, var(--shard2), var(--shard)); border: 2px solid var(--gold); border-radius: 10px; padding: 26px 30px; max-height: 88vh; overflow-y: auto; }
+.modal h2 { font-family: 'Libre Baskerville', serif; font-size: 26px; color: var(--gold); margin-bottom: 6px; }
+.modal .sub { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+.action { padding: 10px 18px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; border: 1px solid var(--border); border-radius: 4px; color: var(--text); background: var(--shard); cursor: pointer; }
+.action.primary { background: var(--gold); color: var(--void); border-color: var(--gold); font-weight: 700; }
+.action.plum { background: var(--plum); color: var(--void); border-color: var(--plum); font-weight: 700; }
+.action:hover { border-color: var(--gold); color: var(--gold); }
+.action.primary:hover, .action.plum:hover { filter: brightness(1.15); }
+.modal-actions { display: flex; gap: 10px; margin-top: 18px; }
+.form-row { margin-bottom: 14px; }
+.form-row label { display: block; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+input, select, textarea { width: 100%; background: var(--void); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; color: var(--text); font-family: 'DM Mono', monospace; font-size: 12px; outline: none; }
+
+.card-picker { max-height: 340px; overflow-y: auto; margin-top: 12px; }
+.card-picker-row { display: flex; gap: 12px; align-items: center; padding: 8px 12px; background: var(--shard); border: 1px solid var(--border); border-radius: 4px; margin-bottom: 6px; }
+.card-picker-row:hover { border-color: var(--gold); }
+.card-picker-row .mini-svg { width: 44px; height: 62px; border-radius: 3px; overflow: hidden; flex-shrink: 0; }
+.card-picker-row .mini-svg svg { width: 100%; height: 100%; display: block; }
+.card-picker-row .info { flex: 1; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); }
+.card-picker-row .info b { color: var(--text); }
+.seal-line { padding: 10px 14px; background: rgba(212,160,23,0.06); border-left: 3px solid var(--gold); border-radius: 3px; font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); word-break: break-all; letter-spacing: 0.04em; line-height: 1.65; margin-top: 14px; }
+.seal-line b { color: var(--gold); }
+
+.hidden { display: none; }
+
+/* Cross-tool trigger card */
+.tools-panel { margin-bottom: 20px; padding: 22px 26px; background: linear-gradient(180deg, rgba(74,125,201,0.05), var(--shard)); border: 1px solid var(--sap); border-radius: 8px; }
+.tools-panel h2 { font-family: 'Libre Baskerville', serif; font-size: 22px; color: var(--sap); margin-bottom: 6px; }
+.tools-panel .sub { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+.trigger-row { display: grid; grid-template-columns: 30px 1fr auto; gap: 12px; align-items: center; padding: 10px 14px; margin-bottom: 6px; background: var(--void); border: 1px solid var(--border); border-radius: 4px; }
+.trigger-row .glyph { font-family: 'DM Mono', monospace; font-size: 16px; color: var(--sap); text-align: center; }
+.trigger-row .info { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text); letter-spacing: 0.04em; }
+.trigger-row .info b { color: var(--sap); }
+.trigger-row .info .m { font-family: 'DM Sans', sans-serif; font-size: 12px; color: var(--muted); margin-top: 2px; display: block; }
+.trigger-row .stat { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--sage); letter-spacing: 0.14em; text-transform: uppercase; }
+
+.grade-refresh-panel { margin-bottom: 20px; padding: 18px 22px; background: linear-gradient(90deg, rgba(230,132,110,0.05), transparent); border-left: 3px solid var(--rose); border-radius: 3px; display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: center; }
+.grade-refresh-panel .status { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 0.08em; }
+.grade-refresh-panel .status b { color: var(--rose); }
+.grade-refresh-panel button { padding: 10px 18px; background: var(--rose); color: var(--void); border-radius: 4px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; cursor: pointer; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand"><span class="brand-mark">◊</span><span class="brand-name">FallKard</span></div>
+  <div class="tabs">
+    <a class="tab" href="index.html">Vault</a>
+    <a class="tab" href="loom.html">Loom</a>
+    <a class="tab" href="duel.html">Duel</a>
+    <a class="tab" href="campaign.html">Campaign</a>
+    <a class="tab" href="cube.html">Cube</a>
+    <a class="tab" href="coliseum.html">Coliseum</a>
+    <a class="tab" href="kono.html">$KONO</a>
+    <a class="tab" href="guild.html">Guild</a>
+    <div class="tab active">Assembly</div>
+    <a class="tab" href="arena.html">Arena</a>
+    <a class="tab" href="brain.html">Brain</a>
+    <a class="tab" href="clinic.html">Clinic</a>
+    <a class="tab" href="bloodline.html">Bloodline</a>
+    <a class="tab" href="herd.html">Herd</a>
+    <a class="tab" href="estate.html">Estate</a>
+    <a class="tab" href="charter.html">Charter</a>
+    <a class="tab" href="about.html">About</a>
+  </div>
+  <div class="spacer"></div>
+  <div class="mini">
+    <span class="item">◊ <b id="mn-shards">0</b> shards</span>
+    <span class="item">✓ <b id="mn-held">0</b>/12 seats held</span>
+    <span class="item">☨ <b id="mn-effects">0</b> effects</span>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="eyebrow">◊ The Assembly · Council of the Twelve · governance mechanics · cross-tool triggers</div>
+  <h1>The <em>Assembly</em>.<br>Twelve seats · one year · all yours to fill.</h1>
+  <p class="lede">Nominate any card you own to a Council Seat. Vote with shards. Sitting cards grant estate-wide game effects for the year they hold their seat. Cross-tool triggers turn every card into a portal — Descend on a card in play actually opens its real tool. The Council transitions each year with a founder-signed ceremony.</p>
+
+  <div class="cycle-banner">
+    <div>
+      <div class="lbl">◊ Current Cycle</div>
+      <div class="name" id="cycle-name">Cycle 1 · 2026-Q3</div>
+      <div class="details" id="cycle-details">Term ends <b>2026-09-30</b> · next election window opens <b>2026-10-01</b> · seats reset annually</div>
+    </div>
+    <div class="stats">
+      <div class="cycle-stat"><b id="stat-held">0</b><span>Seats Held</span></div>
+      <div class="cycle-stat"><b id="stat-votes">0</b><span>Your Votes</span></div>
+      <div class="cycle-stat"><b id="stat-active">0</b><span>Active Effects</span></div>
+    </div>
+  </div>
+
+  <!-- ═══ SEATS ═══ -->
+  <div class="panel">
+    <h2>Council of the Twelve</h2>
+    <div class="sub">One card per seat · votes with shards · founder seals the transition each cycle</div>
+    <div class="seats-grid" id="seats-grid"></div>
+  </div>
+
+  <!-- ═══ ACTIVE EFFECTS ═══ -->
+  <div class="panel">
+    <h2>Active Estate Effects</h2>
+    <div class="sub">Sitting seats grant these bonuses in every duel, coliseum, tournament, and campaign encounter</div>
+    <div class="effects-list" id="effects-list"></div>
+  </div>
+
+  <!-- ═══ CROSS-TOOL TRIGGERS ═══ -->
+  <div class="tools-panel">
+    <h2 style="color:var(--sap)">Cross-Tool Triggers</h2>
+    <div class="sub">Every card is a portal · playing a card opens its real tool at sjgant80-hub.github.io/&lt;id&gt;/</div>
+    <div id="triggers-list"></div>
+  </div>
+
+  <!-- ═══ LIVE GRADE ═══ -->
+  <div class="grade-refresh-panel">
+    <div>
+      <div style="font-family:'Libre Baskerville',serif;font-size:18px;color:var(--rose);font-weight:700">Live Grade Update</div>
+      <div class="status" id="grade-status">Cards derive from the nightly audit run. Refresh to pull the current build.</div>
+    </div>
+    <button id="refresh-grades-btn">◊ Refresh from listings.json</button>
+  </div>
+
+  <!-- ═══ CEREMONY ═══ -->
+  <div class="panel">
+    <h2>Yearly Ceremony</h2>
+    <div class="sub">Founders seal the transition · Ed25519-sealed manifest · portable to the substrate ledger</div>
+    <div class="ceremony-panel">
+      <h3>◊ The Twelve pass</h3>
+      <p>"At year's end, every seat is set down. The founder signs the ceremony · a signed manifest of the year that was. The next cycle opens · nominations reset · votes return to zero."</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="action primary" id="seal-cycle-btn">☨ Sign this Cycle</button>
+        <button class="action plum" id="new-cycle-btn">◊ Advance to Next Cycle</button>
+      </div>
+    </div>
+    <div id="ceremony-log" style="margin-top:14px"></div>
+  </div>
+
+  <!-- ═══ VOTE LOG ═══ -->
+  <div class="panel">
+    <h2>Vote Log</h2>
+    <div class="sub">Every vote signed · every stake recorded · newest first</div>
+    <div class="vote-log" id="vote-log"></div>
+    <div id="vote-empty" class="hidden" style="padding:24px;text-align:center;color:var(--dim);font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.14em">◇ No votes yet · nominate a card and vote to hold a seat</div>
+  </div>
+
+</div>
+
+<div class="modal-veil" id="modal-veil" onclick="if(event.target===this)closeModal()">
+  <div class="modal" id="modal-body"></div>
+</div>
+
+<script>
+'use strict';
+
+const STATE = { db: null, inv: null, cards: [], manifest: null, cardsByID: {}, signKey: null };
+
+const RARITY_BORDER = { common:{c:'#b8b6ad'}, magic:{c:'#4a7dc9'}, rare:{c:'#d4a017'}, unique:{c:'#b8974a'}, 'uber-unique':{c:'#c46a2e'} };
+const KIND_SHAPE = { sdk:'pillar', api:'tower', mcp:'loom', tool:'blade', surface:'arch', wellness:'well' };
+
+// Twelve seat definitions · chamber-derived effects
+const SEAT_DEFS = [
+  { n:1,  name:'Market',   chamber:'market',   effect:'-1 cost on Trade keyword cards' },
+  { n:2,  name:'Colony',   chamber:'colony',   effect:'+1 HP to Colony-chamber minions' },
+  { n:3,  name:'Estate',   chamber:'estate',   effect:'first minion each match gets Sealed' },
+  { n:4,  name:'Vault',    chamber:'vault',    effect:'+5% Magic Find on drops' },
+  { n:5,  name:'Clinic',   chamber:'clinic',   effect:'heal 1 HP to hero at start of your turn' },
+  { n:6,  name:'Studio',   chamber:'studio',   effect:'+1 ATK to Studio-chamber minions' },
+  { n:7,  name:'Forge',    chamber:'forge',    effect:'-1 cost on runeword-active cards' },
+  { n:8,  name:'Reach',    chamber:'reach',    effect:'first API card each match draws 1' },
+  { n:9,  name:'Bridge',   chamber:'bridge',   effect:'-1 cost on 6+ mana cards' },
+  { n:10, name:'Blood',    chamber:'colony',   effect:'Bloodline copies get +1/+1 instead of +1/+1 (double)' },
+  { n:11, name:'Shard',    chamber:'vault',    effect:'-3 shards on Cube crafts' },
+  { n:12, name:'Signal',   chamber:'bridge',   effect:'auction house fee: 1.5% (down from 3%)' }
+];
+
+const CROSS_TOOL_TRIGGERS = [
+  { glyph:'◊', name:'Descend', desc:'Playing a card with Descend opens its real tool at sjgant80-hub.github.io/<id>/ after the match ends' },
+  { glyph:'☨', name:'Live Card Deep-Link', desc:'Every card has a URL: index.html?card=<slug> · shareable, forkable, bookmarkable' },
+  { glyph:'⚹', name:'Bloodline Fork', desc:'Fork any deck as a bloodline NFT · descendants track the seal · the fork tree IS the economic tree' },
+  { glyph:'◈', name:'Live Grade Feed', desc:'Cards refresh stats every session from the estate audit · Uber = flagship, Rare = A-grade, Magic = B-grade' },
+  { glyph:'⬢', name:'Estate SEO Ingest', desc:'llms.txt + catalog.md + JSON-LD published · agents discover FallKard through the AI-SEO surface' },
+  { glyph:'◑', name:'Guild Chamber Banner', desc:'Kill a Chamber Lord and your Guild holds that chamber\'s banner for the season · public across the estate' }
+];
+
+// ═════════ IndexedDB
+async function openDB() {
+  return new Promise((res, rej) => {
+    const req = indexedDB.open('fallkard', 2);
+    req.onerror = () => rej(req.error);
+    req.onupgradeneeded = () => {
+      const db = req.result;
+      if (!db.objectStoreNames.contains('decks')) db.createObjectStore('decks', { keyPath: 'name' });
+      if (!db.objectStoreNames.contains('inventory')) db.createObjectStore('inventory', { keyPath: 'id' });
+    };
+    req.onsuccess = () => res(req.result);
+  });
+}
+async function loadInv() {
+  return new Promise(res => {
+    const tx = STATE.db.transaction('inventory','readonly');
+    const req = tx.objectStore('inventory').get('main');
+    req.onsuccess = () => res(req.result || { id:'main', shards:0, runes:{}, charms:{}, cardDrops:[], socketed:{}, defeated:[], mintedNFTs:[], deckForks:[], gambles:[], councilNominations:{}, councilVotes:[], councilSeals:[], auctionListings:[], guild:null, tournaments:[], uberAttempts:[], cycleNumber:1 });
+  });
+}
+async function saveInv() {
+  return new Promise((res,rej) => {
+    const tx = STATE.db.transaction('inventory','readwrite');
+    tx.objectStore('inventory').put(STATE.inv);
+    tx.oncomplete = () => res();
+    tx.onerror = () => rej(tx.error);
+  });
+}
+
+async function ensureSignKey() {
+  if (STATE.signKey) return STATE.signKey;
+  const raw = STATE.inv.signKey;
+  if (raw && raw.priv && raw.pub) {
+    try {
+      const priv = await crypto.subtle.importKey('jwk', raw.priv, { name:'Ed25519' }, true, ['sign']);
+      const pub = await crypto.subtle.importKey('jwk', raw.pub, { name:'Ed25519' }, true, ['verify']);
+      STATE.signKey = { privateKey: priv, publicKey: pub, pubHex: raw.pubHex };
+      return STATE.signKey;
+    } catch(_){}
+  }
+  const kp = await crypto.subtle.generateKey({ name:'Ed25519' }, true, ['sign','verify']);
+  const privJwk = await crypto.subtle.exportKey('jwk', kp.privateKey);
+  const pubJwk = await crypto.subtle.exportKey('jwk', kp.publicKey);
+  const pubRaw = await crypto.subtle.exportKey('raw', kp.publicKey);
+  const pubHex = Array.from(new Uint8Array(pubRaw)).map(b => b.toString(16).padStart(2,'0')).join('');
+  STATE.inv.signKey = { priv: privJwk, pub: pubJwk, pubHex };
+  await saveInv();
+  STATE.signKey = { privateKey: kp.privateKey, publicKey: kp.publicKey, pubHex };
+  return STATE.signKey;
+}
+async function sign(data) {
+  const enc = new TextEncoder().encode(data);
+  const sig = await crypto.subtle.sign({ name:'Ed25519' }, STATE.signKey.privateKey, enc);
+  return Array.from(new Uint8Array(sig)).map(b => b.toString(16).padStart(2,'0')).join('');
+}
+
+function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+function svgFor(card) {
+  const chamber = STATE.manifest.chambers[card.chamber] || STATE.manifest.chambers.market;
+  const border = RARITY_BORDER[card.rarity] || RARITY_BORDER.common;
+  return `<svg viewBox="0 0 300 420" xmlns="http://www.w3.org/2000/svg">
+    <defs><radialGradient id="g${card.id}" cx="50%" cy="42%" r="70%"><stop offset="0%" stop-color="${chamber.color}" stop-opacity="0.32"/><stop offset="55%" stop-color="#141218"/><stop offset="100%" stop-color="#0b0a0f"/></radialGradient></defs>
+    <rect width="300" height="420" fill="url(#g${card.id})" rx="8"/>
+    <rect x="4" y="4" width="292" height="412" fill="none" stroke="${border.c}" stroke-width="2" rx="6"/>
+    <text x="22" y="42" font-family="DM Mono" font-size="22" fill="${border.c}">${card.sigil}</text>
+    <text x="150" y="240" font-family="Libre Baskerville" font-size="20" fill="${border.c}" text-anchor="middle" font-weight="700">${esc((card.name||card.id).slice(0,16))}</text>
+    <text x="150" y="360" font-family="DM Mono" font-size="8" fill="${chamber.color}" text-anchor="middle" letter-spacing="2.5">${esc(card.chamber.toUpperCase())}</text>
+  </svg>`;
+}
+
+// ═════════ Actions
+async function nominateSeat(seatN) {
+  const owned = Array.from(new Set((STATE.inv.cardDrops||[]).map(d => d.card))).map(id => STATE.cardsByID[id]).filter(Boolean);
+  if (!owned.length) return alert('You need at least one card drop to nominate. Win the campaign or the Coliseum.');
+  const seat = SEAT_DEFS.find(s => s.n === seatN);
+  openModal(`
+    <h2>◇ Nominate Seat ${seatN} · ${esc(seat.name)}</h2>
+    <div class="sub">Effect: <span style="color:var(--sage)">${esc(seat.effect)}</span></div>
+    <p style="font-family:'Libre Baskerville',serif;font-style:italic;color:var(--muted);font-size:13px;line-height:1.55;margin-bottom:14px">Nominate a card to sit for one cycle. Same-chamber cards get a x2 vote-multiplier when they sit their own chamber seat.</p>
+    <div class="card-picker">
+      ${owned.map(c => `<div class="card-picker-row">
+        <div class="mini-svg">${svgFor(c)}</div>
+        <div class="info"><b>${esc(c.name)}</b><br>${c.rarity} · ${c.chamber} ${c.chamber === seat.chamber ? '· <span style="color:var(--gold)">CHAMBER MATCH x2 votes</span>' : ''}</div>
+        <button class="action primary" onclick="setNomination(${seatN},'${c.id}')">◊ Nominate</button>
+      </div>`).join('')}
+    </div>
+    <div class="modal-actions"><button class="action" onclick="closeModal()">✕ Cancel</button></div>
+  `);
+}
+window.nominateSeat = nominateSeat;
+
+async function setNomination(seatN, cardId) {
+  STATE.inv.councilNominations = STATE.inv.councilNominations || {};
+  STATE.inv.councilNominations[seatN] = { card: cardId, when: new Date().toISOString(), by: STATE.signKey.pubHex };
+  await saveInv();
+  render();
+  closeModal();
+}
+window.setNomination = setNomination;
+
+async function voteForSeat(seatN) {
+  const nom = (STATE.inv.councilNominations || {})[seatN];
+  if (!nom) return alert('No nomination for this seat yet.');
+  const card = STATE.cardsByID[nom.card];
+  const seat = SEAT_DEFS.find(s => s.n === seatN);
+  const stakeInput = prompt('How many shards to stake as votes for ' + card.name + '?', '10');
+  if (!stakeInput) return;
+  const stake = parseInt(stakeInput, 10);
+  if (!(stake > 0)) return alert('Positive number required');
+  if ((STATE.inv.shards || 0) < stake) return alert('Insufficient shards. You have ' + (STATE.inv.shards||0));
+  STATE.inv.shards -= stake;
+  const chamberMatch = card.chamber === seat.chamber;
+  const effectiveVotes = chamberMatch ? stake * 2 : stake;
+  STATE.inv.councilVotes = STATE.inv.councilVotes || [];
+  const voteRec = { seat: seatN, card: card.id, stake, effectiveVotes, chamberMatch, when: new Date().toISOString(), voter: STATE.signKey.pubHex };
+  voteRec.seal = await sign(JSON.stringify(voteRec));
+  STATE.inv.councilVotes.push(voteRec);
+  await saveInv();
+  render();
+  openModal(`
+    <h2>◊ Vote Cast</h2>
+    <div class="sub">${stake} shards staked · ${effectiveVotes} effective votes${chamberMatch ? ' · CHAMBER MATCH x2' : ''}</div>
+    <div style="text-align:center;font-family:'Libre Baskerville',serif;font-size:20px;color:var(--gold);margin:12px 0">${esc(card.name)} · Seat ${seatN}</div>
+    <div class="seal-line"><b>◊ Signed vote</b> ${voteRec.seal.slice(0, 64)}…</div>
+    <div class="modal-actions"><button class="action primary" onclick="closeModal()">◊ Ok</button></div>
+  `);
+}
+window.voteForSeat = voteForSeat;
+
+async function releaseSeat(seatN) {
+  if (!confirm('Release the seat? The card returns to your pool and the effect is lost.')) return;
+  delete (STATE.inv.councilNominations || {})[seatN];
+  await saveInv();
+  render();
+}
+window.releaseSeat = releaseSeat;
+
+async function sealCycle() {
+  await ensureSignKey();
+  const cycleN = STATE.inv.cycleNumber || 1;
+  const noms = STATE.inv.councilNominations || {};
+  const summary = SEAT_DEFS.map(s => ({ seat: s.n, name: s.name, card: noms[s.n]?.card || null }));
+  const votes = STATE.inv.councilVotes || [];
+  const totalVotes = votes.reduce((sum, v) => sum + v.effectiveVotes, 0);
+  const totalStake = votes.reduce((sum, v) => sum + v.stake, 0);
+  const manifestCore = { v:1, type:'fn.COUNCIL.CYCLE', cycle: cycleN, seats: summary, votesCast: votes.length, totalVotes, totalStake, signer: STATE.signKey.pubHex, ts: new Date().toISOString() };
+  const seal = await sign(JSON.stringify(manifestCore));
+  const manifest = { ...manifestCore, seal };
+  STATE.inv.councilSeals = STATE.inv.councilSeals || [];
+  STATE.inv.councilSeals.push(manifest);
+  await saveInv();
+  render();
+  openModal(`
+    <h2>☨ Cycle ${cycleN} Sealed</h2>
+    <div class="sub">${votes.length} votes cast · ${totalStake} shards staked · ${summary.filter(s => s.card).length}/12 seats held</div>
+    <div style="font-family:'Libre Baskerville',serif;font-style:italic;color:var(--muted);font-size:14px;line-height:1.55;margin:14px 0;padding:12px 16px;background:rgba(212,160,23,0.04);border-left:3px solid var(--gold);border-radius:3px">"Cycle ${cycleN} closes. The twelve pass. The manifest is signed. When the next cycle opens, the seats stand empty again."</div>
+    <div class="seal-line"><b>◊ Cycle seal</b> ${seal.slice(0, 96)}…</div>
+    <div class="modal-actions"><button class="action primary" onclick="closeModal()">◊ Ok</button></div>
+  `);
+}
+window.sealCycle = sealCycle;
+
+async function advanceCycle() {
+  if (!confirm('Advance to next cycle? All seats reset. Ceremony fires automatically.')) return;
+  await sealCycle();
+  STATE.inv.cycleNumber = (STATE.inv.cycleNumber || 1) + 1;
+  STATE.inv.councilNominations = {};
+  STATE.inv.councilVotes = [];
+  await saveInv();
+  render();
+}
+window.advanceCycle = advanceCycle;
+
+// ═════════ Live Grade Refresh
+async function refreshGrades() {
+  const status = document.getElementById('grade-status');
+  status.innerHTML = 'Fetching latest cards.json…';
+  try {
+    const r = await fetch('cards.json?ts=' + Date.now(), { cache: 'no-store' });
+    const j = await r.json();
+    STATE.cards = j.cards;
+    STATE.cards.forEach(c => STATE.cardsByID[c.id] = c);
+    const total = j.total;
+    const seal = j.seal;
+    status.innerHTML = '<b>◊ Refreshed</b> · ' + total + ' cards · seal ' + seal.slice(0, 20) + '… · nightly build ' + j.generated;
+  } catch (e) {
+    status.innerHTML = '<b style="color:var(--rose)">◈ Refresh failed</b> · ' + esc(e.message);
+  }
+}
+
+// ═════════ RENDER
+function activeEffects() {
+  const noms = STATE.inv.councilNominations || {};
+  return SEAT_DEFS.filter(s => noms[s.n]);
+}
+function render() {
+  const shards = STATE.inv.shards || 0;
+  const noms = STATE.inv.councilNominations || {};
+  const held = SEAT_DEFS.filter(s => noms[s.n]).length;
+  const votes = (STATE.inv.councilVotes || []).length;
+  const active = held;
+  document.getElementById('mn-shards').textContent = shards;
+  document.getElementById('mn-held').textContent = held;
+  document.getElementById('mn-effects').textContent = active;
+  document.getElementById('stat-held').textContent = held;
+  document.getElementById('stat-votes').textContent = votes;
+  document.getElementById('stat-active').textContent = active;
+  document.getElementById('cycle-name').textContent = 'Cycle ' + (STATE.inv.cycleNumber || 1) + ' · 2026-Q3';
+  renderSeats();
+  renderEffects();
+  renderTriggers();
+  renderVoteLog();
+  renderCeremonyLog();
+}
+
+function renderSeats() {
+  const grid = document.getElementById('seats-grid');
+  const noms = STATE.inv.councilNominations || {};
+  const votes = STATE.inv.councilVotes || [];
+  const voteCounts = {};
+  votes.forEach(v => { voteCounts[v.seat] = (voteCounts[v.seat] || 0) + v.effectiveVotes; });
+  grid.innerHTML = SEAT_DEFS.map(s => {
+    const nom = noms[s.n];
+    const card = nom ? STATE.cardsByID[nom.card] : null;
+    const held = !!card;
+    const voteCount = voteCounts[s.n] || 0;
+    const chamberColor = STATE.manifest.chambers[s.chamber]?.color || 'var(--gold)';
+    return `<div class="seat ${held ? 'held' : 'vacant'}">
+      <div class="seat-num">SEAT ${s.n}</div>
+      <div class="seat-votes">${voteCount} v</div>
+      <div class="seat-glyph">${card ? card.sigil : '◇'}</div>
+      <b>${card ? esc(card.name) : '(vacant)'}</b>
+      <div class="chamber" style="color:${chamberColor}">${esc(s.name)} · ${esc(s.chamber)}</div>
+      <div class="effect">${esc(s.effect)}</div>
+      <div class="actions">
+        ${held ? `<button class="vote" onclick="voteForSeat(${s.n})">☨ Vote</button>` : ''}
+        ${held ? `<button onclick="releaseSeat(${s.n})">✕ Release</button>` : `<button class="nominate" onclick="nominateSeat(${s.n})">◊ Nominate</button>`}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function renderEffects() {
+  const el = document.getElementById('effects-list');
+  const active = activeEffects();
+  const noms = STATE.inv.councilNominations || {};
+  const all = SEAT_DEFS.map(s => {
+    const nom = noms[s.n];
+    const card = nom ? STATE.cardsByID[nom.card] : null;
+    return { seat: s, card, active: !!card };
+  });
+  const activeOnes = all.filter(x => x.active);
+  const inactiveOnes = all.filter(x => !x.active);
+  const rows = [];
+  activeOnes.forEach(x => rows.push(`<div class="effect-row">
+    <div class="who">Seat ${x.seat.n} · ${esc(x.seat.name)} · held by <b style="color:var(--gold)">${esc(x.card.name)}</b></div>
+    <div class="bonus">◊ ${esc(x.seat.effect)}</div>
+  </div>`));
+  inactiveOnes.slice(0, 6).forEach(x => rows.push(`<div class="effect-row inactive">
+    <div class="who">Seat ${x.seat.n} · ${esc(x.seat.name)} · vacant</div>
+    <div class="bonus">${esc(x.seat.effect)}</div>
+  </div>`));
+  el.innerHTML = rows.join('') || '<div style="padding:20px;text-align:center;color:var(--dim);font-family:DM Mono,monospace;font-size:11px;letter-spacing:0.14em">◇ No seats held · nominate cards to activate effects</div>';
+}
+
+function renderTriggers() {
+  const el = document.getElementById('triggers-list');
+  el.innerHTML = CROSS_TOOL_TRIGGERS.map((t, i) => `<div class="trigger-row">
+    <div class="glyph">${t.glyph}</div>
+    <div class="info"><b>${esc(t.name)}</b><span class="m">${esc(t.desc)}</span></div>
+    <div class="stat">${i < 4 ? 'active' : 'live'}</div>
+  </div>`).join('');
+}
+
+function renderVoteLog() {
+  const el = document.getElementById('vote-log');
+  const empty = document.getElementById('vote-empty');
+  const votes = (STATE.inv.councilVotes || []).slice().reverse().slice(0, 20);
+  if (!votes.length) { el.innerHTML = ''; empty.classList.remove('hidden'); return; }
+  empty.classList.add('hidden');
+  el.innerHTML = votes.map(v => {
+    const card = STATE.cardsByID[v.card];
+    return `<div class="row">
+      <span class="stake">+${v.effectiveVotes}v</span>
+      <span class="card"><b>${esc(card?.name || v.card)}</b> · seat ${v.seat} · ${v.chamberMatch ? '<span style="color:var(--gold)">chamber x2</span>' : v.stake + ' shards'}</span>
+      <span class="when">${(v.when || '').slice(11, 19)}</span>
+    </div>`;
+  }).join('');
+}
+
+function renderCeremonyLog() {
+  const el = document.getElementById('ceremony-log');
+  const seals = (STATE.inv.councilSeals || []).slice().reverse();
+  if (!seals.length) { el.innerHTML = '<div style="font-family:DM Mono,monospace;font-size:10px;color:var(--dim);letter-spacing:0.14em">◇ No cycles sealed yet</div>'; return; }
+  el.innerHTML = '<div style="font-family:DM Mono,monospace;font-size:10px;color:var(--muted);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:8px">◊ Prior Cycles</div>' + seals.slice(0, 5).map(s => `<div style="padding:8px 12px;background:var(--shard);border:1px solid var(--border);border-radius:3px;margin-bottom:5px;font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:0.06em"><b style="color:var(--gold)">Cycle ${s.cycle}</b> · ${s.seats.filter(x=>x.card).length}/12 seats · ${s.votesCast} votes · ${(s.ts||'').slice(0,10)}<br><span style="font-size:9px;color:var(--dim);word-break:break-all">seal ${(s.seal||'').slice(0,48)}…</span></div>`).join('');
+}
+
+function openModal(html) {
+  document.getElementById('modal-body').innerHTML = html;
+  document.getElementById('modal-veil').classList.add('open');
+}
+function closeModal() { document.getElementById('modal-veil').classList.remove('open'); }
+window.closeModal = closeModal;
+
+async function init() {
+  STATE.db = await openDB();
+  STATE.inv = await loadInv();
+  const [cardsRes, man] = await Promise.all([fetch('cards.json').then(r=>r.json()), fetch('manifest.json').then(r=>r.json())]);
+  STATE.cards = cardsRes.cards;
+  STATE.manifest = man;
+  STATE.cards.forEach(c => STATE.cardsByID[c.id] = c);
+  await ensureSignKey();
+  document.getElementById('refresh-grades-btn').addEventListener('click', refreshGrades);
+  document.getElementById('seal-cycle-btn').addEventListener('click', sealCycle);
+  document.getElementById('new-cycle-btn').addEventListener('click', advanceCycle);
+  render();
+}
+init().catch(e=>{console.error('[fallkard] Assembly init failed',e);});
+</script>
+  <script src="konomi-footer.js" defer></script>
+</body>
+</html>

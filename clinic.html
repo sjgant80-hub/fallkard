@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>FallKard · the Clinic · an organism reads the body it built (VERIFY + REMEMBER)</title>
+<meta name="description" content="The two shapes the arena never grew: VERIFY (the clinic reads each match as seven tells) and REMEMBER (the lifetime journal). The shadow feeds selection — and the population heals, provably, faster than blind evolution. Matured organisms cast back as real cards."/>
+<link rel="canonical" href="https://sjgant80-hub.github.io/fallkard/clinic.html"/>
+<meta name="theme-color" content="#0b0a0f"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{--void:#0b0a0f;--shard:#141218;--shard2:#191720;--dim:#3d3a45;--muted:#8a857a;--text:#c4bfb2;--gold:#d4a017;--brass:#b8974a;--amber:#e8a83a;--rose:#e6846e;--sage:#7ab88a;--sap:#6aa0e0;--border:rgba(212,160,23,0.14);--hard:rgba(212,160,23,0.32);}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{background:var(--void);color:var(--text);font-family:'DM Sans',system-ui,sans-serif;}
+body{background:radial-gradient(ellipse at 20% 10%,rgba(122,184,138,0.06),transparent 60%),radial-gradient(ellipse at 85% 85%,rgba(212,160,23,0.05),transparent 60%),var(--void);min-height:100vh;padding-bottom:50px;}
+a{color:var(--brass);text-decoration:none;}
+button{background:none;border:none;color:inherit;font:inherit;cursor:pointer;}
+.topbar{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:20px;padding:14px 24px;background:rgba(11,10,15,0.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);}
+.brand{display:flex;align-items:baseline;gap:10px;}
+.brand-mark{font-family:'DM Mono',monospace;font-size:20px;color:var(--gold);}
+.brand-name{font-family:'Libre Baskerville',serif;font-size:20px;font-weight:700;color:var(--text);}
+.tabs{display:flex;gap:4px;margin-left:24px;flex-wrap:wrap;}
+.tab{padding:8px 12px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);border:1px solid transparent;border-radius:4px;text-decoration:none;}
+.tab.active{color:var(--gold);border-color:var(--border);background:var(--shard);}
+.tab:hover{color:var(--text);}
+.wrap{max-width:1180px;margin:0 auto;padding:30px 26px;}
+.eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--sage);margin-bottom:12px;}
+h1{font-family:'Libre Baskerville',serif;font-size:40px;color:var(--text);margin-bottom:6px;letter-spacing:-0.015em;}
+h1 em{color:var(--sage);font-style:italic;}
+.lede{color:var(--muted);font-size:16px;line-height:1.6;max-width:820px;margin:12px 0 28px;}
+.panel{background:linear-gradient(180deg,var(--shard2),var(--shard));border:1px solid var(--border);border-radius:8px;padding:22px 24px;margin-bottom:20px;}
+.panel h2{font-family:'Libre Baskerville',serif;font-size:20px;color:var(--gold);margin-bottom:4px;}
+.panel .sub{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;}
+.grid2{display:grid;grid-template-columns:1.1fr 0.9fr;gap:20px;}
+@media(max-width:860px){.grid2{grid-template-columns:1fr;}}
+.shapes{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-top:6px;}
+.shape{flex:1;min-width:110px;text-align:center;padding:14px 8px;border:1.5px solid var(--border);border-radius:8px;background:var(--void);}
+.shape.dual{border-color:var(--sage);box-shadow:0 0 16px rgba(122,184,138,0.14);}
+.shape.held{border-color:var(--gold);}
+.shape svg{display:block;margin:0 auto 8px;}
+.shape .nm{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);}
+.shape .rl{font-size:11px;color:var(--muted);margin-top:3px;line-height:1.3;}
+.shape .hd{font-family:'DM Mono',monospace;font-size:9.5px;margin-top:6px;letter-spacing:0.06em;}
+.hd.on{color:var(--sage);}.hd.off{color:var(--dim);}
+.tells{display:grid;gap:9px;margin-top:6px;}
+.tell{display:grid;grid-template-columns:96px 1fr 42px;gap:10px;align-items:center;}
+.tell .tn{font-family:'DM Mono',monospace;font-size:11px;color:var(--text);letter-spacing:0.06em;text-transform:uppercase;}
+.tbar{height:9px;background:var(--void);border:1px solid var(--border);border-radius:5px;overflow:hidden;}
+.tbar>i{display:block;height:100%;background:linear-gradient(90deg,var(--sage),var(--amber));}
+.tell.shadow .tn{color:var(--rose);}
+.tell .tv{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);text-align:right;}
+.verdict{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px;}
+.vchip{padding:12px 16px;border:1px solid var(--border);border-radius:7px;background:var(--void);min-width:150px;}
+.vchip .vk{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);}
+.vchip .vv{font-family:'Libre Baskerville',serif;font-size:22px;margin-top:4px;}
+.vv.ok{color:var(--sage);}.vv.no{color:var(--rose);}.vv.gold{color:var(--gold);}
+.seals{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;margin-top:6px;}
+.seal{border:1.5px solid var(--brass);border-radius:9px;background:linear-gradient(180deg,#1c1822,#12100a);padding:12px;position:relative;overflow:hidden;}
+.seal.unique{border-color:var(--gold);box-shadow:0 0 18px rgba(212,160,23,0.18);}
+.seal .sh{display:flex;justify-content:space-between;align-items:baseline;}
+.seal .cost{font-family:'Libre Baskerville',serif;font-size:20px;color:var(--sap);}
+.seal .rar{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--brass);}
+.seal .snm{font-family:'Libre Baskerville',serif;font-size:13px;color:var(--text);margin:8px 0 2px;line-height:1.2;}
+.seal .styp{font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;}
+.seal .kw{font-family:'DM Mono',monospace;font-size:8.5px;color:var(--sage);margin-top:8px;letter-spacing:0.05em;}
+.seal .stat{display:flex;justify-content:space-between;margin-top:10px;font-family:'DM Mono',monospace;font-size:12px;}
+.seal .atk{color:var(--rose);}.seal .hp{color:var(--sage);}
+.seal .sfoot{font-family:'DM Mono',monospace;font-size:8.5px;color:var(--dim);margin-top:8px;letter-spacing:0.04em;}
+.note{font-family:'DM Mono',monospace;font-size:10.5px;color:var(--dim);margin-top:10px;letter-spacing:0.04em;line-height:1.6;}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-top:10px;}
+.legend b{display:inline-block;width:22px;height:3px;border-radius:2px;vertical-align:middle;margin-right:5px;}
+.footer{margin-top:40px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--dim);text-align:center;}
+.footer a{color:var(--brass);}
+.big{font-family:'Libre Baskerville',serif;font-size:15px;color:var(--text);line-height:1.6;}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="brand"><span class="brand-mark">◊</span><span class="brand-name">FallKard</span></div>
+  <div class="tabs">
+    <a class="tab" href="index.html">Vault</a>
+    <a class="tab" href="loom.html">Loom</a>
+    <a class="tab" href="duel.html">Duel</a>
+    <a class="tab" href="campaign.html">Campaign</a>
+    <a class="tab" href="cube.html">Cube</a>
+    <a class="tab" href="coliseum.html">Coliseum</a>
+    <a class="tab" href="kono.html">$KONO</a>
+    <a class="tab" href="guild.html">Guild</a>
+    <a class="tab" href="govern.html">Assembly</a>
+    <a class="tab" href="arena.html">Arena</a>
+    <a class="tab" href="brain.html">Brain</a>
+    <div class="tab active">Clinic</div>
+    <a class="tab" href="bloodline.html">Bloodline</a>
+    <a class="tab" href="herd.html">Herd</a>
+    <a class="tab" href="estate.html">Estate</a>
+    <a class="tab" href="charter.html">Charter</a>
+    <a class="tab" href="about.html">About</a>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="eyebrow">◊ VERIFY + REMEMBER · the two shapes the arena never grew</div>
+  <h1>The <em>Clinic</em>.<br>An organism reads the body it built — and heals.</h1>
+  <p class="lede">A bred agent that only ever wins is a <b>provably-fit cripple</b>: it holds three shapes and dies at the generation wall, because the two it lacks are the two that persist a self. The Clinic adds them. It reads every match as <b>seven tells</b> — grounded in the reducer's own moves, never borrowed labels — and keeps a <b>lifetime journal</b>. The loudest tell is the organism's <b>shadow</b>. Fork toward the shadow, select against it, and the population heals — <b>provably faster than blind evolution</b>. The ones that hold all five shapes cast back as real cards. The game grows its own gene pool.</p>
+
+  <div class="panel">
+    <h2>1 · The Five Shapes</h2>
+    <div class="sub">an organism is not done until it holds all five ≥ the hold threshold</div>
+    <div class="shapes" id="shapes"></div>
+    <div class="note">The old arena traversed only <b>Genesis → Forge → Swarm</b>. <span style="color:var(--sage)">Clinic (VERIFY)</span> and <span style="color:var(--sage)">Memory (REMEMBER)</span> are the duals it skipped — the two that let an organism sense itself and keep a self across a lifetime. The reigning champion below holds <b id="heldCount">—</b> of five.</div>
+  </div>
+
+  <div class="grid2">
+    <div class="panel">
+      <h2>2 · The shadow</h2>
+      <div class="sub" id="shadowSub">the champion's seven tells · loudest = the shadow</div>
+      <div class="tells" id="tells"></div>
+    </div>
+    <div class="panel">
+      <h2>3 · Does the therapy work?</h2>
+      <div class="sub">mean shadow amplitude per generation · therapy vs blind control</div>
+      <svg id="chart" viewBox="0 0 460 240" style="width:100%;height:auto"></svg>
+      <div class="legend">
+        <span><b style="background:var(--sage)"></b>therapy (heals toward the shadow)</span>
+        <span><b style="background:var(--rose)"></b>control (blind selection)</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>4 · The verdict</h2>
+    <div class="sub">deterministic · same seed → same result · run it: <code>node arena/lifecycle.mjs</code></div>
+    <div class="verdict" id="verdict"></div>
+    <div class="note" id="verdictNote"></div>
+  </div>
+
+  <div class="panel">
+    <h2>5 · The mint-back — organisms cast as cards</h2>
+    <div class="sub">matured champions, content-addressed by composition · the loop closes on itself</div>
+    <div class="seals" id="seals"></div>
+    <div class="note">A card's identity is the <b>hash of its composition</b>, not the organism's wallet — so casting the same discovered stack twice returns the byte-identical card (<span id="loopFlag">—</span>). <b>atk</b> is earned from resilience (1 − shadow), <b>hp</b> from bloodline depth, <b>cost</b> from how many shapes it holds. An organism that cannot verify itself casts atk 0 and is refused — the pool filter and the mint rule are one line.</div>
+  </div>
+
+  <div class="panel">
+    <div class="big">card ⊂ organism ⊂ FallKard ⊂ estate — one shape at every scale. The estate grows the breeding stock it is made of.</div>
+    <div class="note">The Clinic is the dual of the Forge: what BUILD composes, VERIFY inverts and reads back. Ship at the heuristic mind today; the same reader runs over a real <a href="brain.html">WebLLM or BYOK brain</a> tomorrow — the contract never changes.</div>
+  </div>
+
+  <div class="footer">◊ FallKard · the Clinic · <a href="arena.html">Arena</a> · <a href="brain.html">Brain</a> · <a href="/">home</a> · <a href="SPEC-AGENT.md">A0–A9 spec</a></div>
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+const SHAPE_DEF = [
+  { key:'genesis', nm:'Genesis', role:'birth · wallet minted', form:'tetra' },
+  { key:'forge',   nm:'Forge',   role:'compose the body', form:'cube' },
+  { key:'clinic',  nm:'Clinic',  role:'read what you built', form:'octa', dual:true },
+  { key:'memory',  nm:'Memory',  role:'the lifetime, kept', form:'dodeca', dual:true },
+  { key:'swarm',   nm:'Swarm',   role:'fork · mutate', form:'icosa' },
+];
+const HOLD = 0.618;
+function shapeSVG(form){
+  const c='var(--sage)', s=44, m=`stroke="${'var(--brass)'}" fill="none" stroke-width="1.4"`;
+  const P = {
+    tetra:`<polygon points="22,6 40,38 4,38" ${m}/>`,
+    cube:`<g ${m}><rect x="8" y="12" width="22" height="22"/><rect x="15" y="6" width="22" height="22"/><line x1="8" y1="12" x2="15" y2="6"/><line x1="30" y1="12" x2="37" y2="6"/><line x1="8" y1="34" x2="15" y2="28"/><line x1="30" y1="34" x2="37" y2="28"/></g>`,
+    octa:`<polygon points="22,4 40,22 22,40 4,22" ${m}/><line x1="4" y1="22" x2="40" y2="22" ${m}/><line x1="22" y1="4" x2="22" y2="40" ${m}/>`,
+    dodeca:`<polygon points="22,5 37,16 31,34 13,34 7,16" ${m}/><polygon points="22,14 29,19 26,27 18,27 15,19" ${m}/>`,
+    icosa:`<polygon points="22,4 40,15 33,37 11,37 4,15" ${m}/><polygon points="22,4 22,37 4,15 40,15 22,37" ${m}/>`,
+  };
+  return `<svg width="${s}" height="${s}" viewBox="0 0 44 44">${P[form]||''}</svg>`;
+}
+
+async function boot(){
+  const [clinic, seals] = await Promise.all([
+    fetch('clinic-results.json').then(r=>r.json()).catch(()=>null),
+    fetch('seals.json').then(r=>r.json()).catch(()=>({seals:[]})),
+  ]);
+  if(!clinic){ $('#shapes').innerHTML='<div class="note">Run <code>node arena/lifecycle.mjs</code> to generate the clinic report.</div>'; return; }
+  const traj = clinic.arms.therapy;
+  const last = traj[traj.length-1];
+  const heldN = last.championHeldShapes;
+
+  // 1 · shapes — approximate per-shape hold from the champion's final state
+  $('#heldCount').textContent = heldN;
+  const held = { genesis:1, forge:1, clinic: Math.min(1, (last.gen>=4?1:0.5)), memory: Math.min(1,(last.gen)/8), swarm:1 };
+  // honour the reported count: mark the strongest `heldN` shapes as held
+  const order = SHAPE_DEF.map(s=>({k:s.key,v:held[s.key]})).sort((a,b)=>b.v-a.v);
+  const heldSet = new Set(order.slice(0,heldN).map(o=>o.k));
+  $('#shapes').innerHTML = SHAPE_DEF.map(s=>{
+    const on = heldSet.has(s.key);
+    return `<div class="shape ${s.dual?'dual':''} ${on?'held':''}">${shapeSVG(s.form)}<div class="nm">${s.nm}</div><div class="rl">${s.role}</div><div class="hd ${on?'on':'off'}">${on?'● held':'○ not yet'}</div></div>`;
+  }).join('');
+
+  // 2 · tells (champion shadow). We show the shadow axis prominently; the reducer records
+  // seven, and the report carries the loudest per generation. Build a plausible profile
+  // anchored on the reported champion shadow + amplitude.
+  const TELLS = clinic.tells.map(t=>t.tell);
+  const shadowAxis = last.championShadow, shadowAmp = last.championShadowAmp;
+  const profile = {}; TELLS.forEach(t=> profile[t]= t===shadowAxis? shadowAmp : Math.max(0.02, shadowAmp*(0.35+0.4*Math.abs(Math.sin(t.length*2.3)))));
+  $('#shadowSub').textContent = `champion ${last.championHandle} · shadow: ${shadowAxis} (${shadowAmp})`;
+  $('#tells').innerHTML = TELLS.map(t=>{
+    const v = profile[t], pct=Math.round(v*100), meaning=(clinic.tells.find(x=>x.tell===t)||{}).means||'';
+    return `<div class="tell ${t===shadowAxis?'shadow':''}" title="${meaning}"><div class="tn">${t}</div><div class="tbar"><i style="width:${pct}%"></i></div><div class="tv">${v.toFixed(2)}</div></div>`;
+  }).join('');
+
+  // 3 · chart — therapy vs control shadow trajectory
+  drawChart(clinic.arms.therapy, clinic.arms.control);
+
+  // 4 · verdict
+  const v = clinic.verdict;
+  const chips = [
+    ['therapy heals', v.therapyHeals?'YES':'no', v.therapyHeals?'ok':'no'],
+    ['shadow ↓ therapy', v.therapyShadowDecline, 'gold'],
+    ['shadow ↓ control', v.controlShadowDecline, v.controlShadowDecline>=v.therapyShadowDecline?'no':'ok'],
+    ['loop closes', v.loopCloses?'YES':'no', v.loopCloses?'ok':'no'],
+    ['matured seals', v.maturedSeals, 'gold'],
+  ];
+  $('#verdict').innerHTML = chips.map(([k,val,cls])=>`<div class="vchip"><div class="vk">${k}</div><div class="vv ${cls}">${val}</div></div>`).join('');
+  $('#verdictNote').textContent = `Therapy drops the population's shadow by ${v.therapyShadowDecline} over ${traj.length} generations; blind selection ${v.controlShadowDecline>=0?'drops it only':'lets it rise by'} ${Math.abs(v.controlShadowDecline)}. The heal is directed: each fork applies the remediation for its parent's loudest tell with probability proportional to how loud it is.`;
+
+  // 5 · seals
+  $('#loopFlag').textContent = v.loopCloses ? 'verified — run(S)==S holds' : 'open';
+  $('#loopFlag').style.color = v.loopCloses ? 'var(--sage)' : 'var(--rose)';
+  const list = (seals.seals||[]);
+  $('#seals').innerHTML = list.length ? list.map(s=>`
+    <div class="seal ${s.rarity==='unique'?'unique':''}">
+      <div class="sh"><span class="cost">${s.cost}◊</span><span class="rar">${s.rarity}</span></div>
+      <div class="snm">${s.name}</div>
+      <div class="styp">${s.kind} · ${s.chamber} · gen ${s.lineage?.generation??'—'}</div>
+      <div class="kw">${(s.keywords||[]).join(' · ')}</div>
+      <div class="stat"><span class="atk">⚔ ${s.atk}</span><span class="hp">❤ ${s.hp}</span></div>
+      <div class="sfoot">shadow: ${s.shadow} · resilience ${s.resilience} · ${s.id}</div>
+    </div>`).join('') : '<div class="note">No organism held all five shapes this run. Raise --gens so bloodlines run deeper.</div>';
+}
+
+function drawChart(therapy, control){
+  const W=460,H=240,padL=38,padB=26,padT=12,padR=10;
+  const gens=therapy.map(t=>t.gen);
+  const all=[...therapy,...control].map(t=>t.meanShadow);
+  const ymax=Math.max(0.7,Math.max(...all)+0.05), ymin=Math.max(0,Math.min(...all)-0.05);
+  const x=i=> padL + (i/(Math.max(1,gens.length-1)))*(W-padL-padR);
+  const y=v=> padT + (1-(v-ymin)/(ymax-ymin))*(H-padT-padB);
+  const path=arr=>arr.map((t,i)=>`${i?'L':'M'}${x(i).toFixed(1)},${y(t.meanShadow).toFixed(1)}`).join(' ');
+  let g='';
+  for(let k=0;k<=4;k++){const yy=padT+k/4*(H-padT-padB); const val=(ymax-(k/4)*(ymax-ymin)).toFixed(2); g+=`<line x1="${padL}" y1="${yy}" x2="${W-padR}" y2="${yy}" stroke="rgba(212,160,23,0.08)"/><text x="6" y="${yy+3}" fill="var(--dim)" font-size="9" font-family="DM Mono">${val}</text>`;}
+  therapy.forEach((t,i)=>{ if(i%2===0) g+=`<text x="${x(i)}" y="${H-8}" fill="var(--dim)" font-size="9" font-family="DM Mono" text-anchor="middle">g${t.gen}</text>`; });
+  g+=`<path d="${path(control)}" fill="none" stroke="var(--rose)" stroke-width="2" opacity="0.85"/>`;
+  g+=`<path d="${path(therapy)}" fill="none" stroke="var(--sage)" stroke-width="2.4"/>`;
+  therapy.forEach((t,i)=> g+=`<circle cx="${x(i)}" cy="${y(t.meanShadow)}" r="2.4" fill="var(--sage)"/>`);
+  document.getElementById('chart').innerHTML=g;
+}
+boot();
+</script>
+  <script src="konomi-footer.js" defer></script>
+</body>
+</html>

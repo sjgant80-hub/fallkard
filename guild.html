@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>FallKard · the Guild Hall · Swarm · Tournaments · Uber Boss</title>
+<meta name="description" content="Bind to a FallSwarm guild. Compete for the nine chamber banners. Run Swiss tournaments co-signed via FallBond. Face the weekly Uber-Diablo boss event."/>
+<link rel="canonical" href="https://sjgant80-hub.github.io/fallkard/guild.html"/>
+<meta name="theme-color" content="#0b0a0f"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<script src="bosses.js"></script>
+<style>
+:root {
+  --void:#0b0a0f; --shard:#141218; --shard2:#191720; --dim:#3d3a45; --muted:#8a857a; --text:#c4bfb2;
+  --gold:#d4a017; --brass:#b8974a; --amber:#e8a83a; --rose:#e6846e; --sage:#7ab88a;
+  --ox:#8b1a1a; --sap:#4a7dc9; --jade:#3fa068; --plum:#9a6dbf;
+  --border:rgba(212,160,23,0.14); --hard:rgba(212,160,23,0.32);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--void); color: var(--text); font-family: 'DM Sans', system-ui, sans-serif; }
+body { background: radial-gradient(ellipse at 20% 20%, rgba(122,184,138,0.05), transparent 60%), radial-gradient(ellipse at 80% 80%, rgba(212,160,23,0.05), transparent 60%), var(--void); min-height: 100vh; padding-bottom: 40px; }
+a { color: var(--brass); text-decoration: none; }
+button { background: none; border: none; color: inherit; font: inherit; cursor: pointer; }
+
+.topbar { position: sticky; top: 0; z-index: 30; display: flex; align-items: center; gap: 20px; padding: 14px 24px; background: rgba(11,10,15,0.94); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
+.brand { display: flex; align-items: baseline; gap: 10px; }
+.brand-mark { font-family: 'DM Mono', monospace; font-size: 20px; color: var(--gold); }
+.brand-name { font-family: 'Libre Baskerville', serif; font-size: 20px; font-weight: 700; color: var(--text); }
+.tabs { display: flex; gap: 4px; margin-left: 24px; flex-wrap: wrap; }
+.tab { padding: 8px 12px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); border: 1px solid transparent; border-radius: 4px; text-decoration: none; }
+.tab.active { color: var(--gold); border-color: var(--border); background: var(--shard); }
+.tab:hover { color: var(--text); }
+.spacer { flex: 1; }
+.guild-mini { display: flex; gap: 8px; align-items: center; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); }
+.guild-mini b { color: var(--gold); font-weight: 700; }
+.guild-mini .item { padding: 4px 8px; background: var(--shard); border: 1px solid var(--border); border-radius: 3px; letter-spacing: 0.06em; }
+
+.wrap { max-width: 1240px; margin: 0 auto; padding: 30px 26px; }
+.eyebrow { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sage); margin-bottom: 12px; }
+h1 { font-family: 'Libre Baskerville', serif; font-size: 40px; color: var(--text); margin-bottom: 6px; letter-spacing: -0.015em; }
+h1 em { color: var(--sage); font-style: italic; }
+.lede { color: var(--muted); font-size: 16px; line-height: 1.6; max-width: 720px; margin: 12px 0 30px; }
+
+/* Guild identity card */
+.guild-card { position: relative; padding: 26px 30px; background: linear-gradient(135deg, rgba(122,184,138,0.06), rgba(20,18,24,0.9)); border: 2px solid var(--sage); border-radius: 10px; margin-bottom: 24px; overflow: hidden; }
+.guild-card.no-guild { border-color: var(--border); background: linear-gradient(135deg, var(--shard2), var(--shard)); }
+.guild-crest { position: absolute; top: 20px; right: 26px; width: 82px; height: 82px; border-radius: 50%; background: radial-gradient(ellipse at center, rgba(122,184,138,0.4), rgba(0,0,0,0.9)); border: 2px solid var(--sage); display: flex; align-items: center; justify-content: center; font-family: 'DM Mono', monospace; font-size: 34px; color: var(--sage); box-shadow: 0 0 20px rgba(122,184,138,0.35); }
+.guild-card.no-guild .guild-crest { border-color: var(--dim); background: radial-gradient(ellipse at center, rgba(61,58,69,0.4), rgba(0,0,0,0.9)); color: var(--dim); }
+.guild-hero-eyebrow { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage); margin-bottom: 6px; }
+.guild-name-big { font-family: 'Libre Baskerville', serif; font-size: 32px; color: var(--text); font-weight: 700; letter-spacing: -0.01em; }
+.guild-motto { font-family: 'Libre Baskerville', serif; font-style: italic; font-size: 14px; color: var(--muted); margin-top: 4px; }
+.guild-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 22px; max-width: 640px; }
+.gs-cell { padding: 10px 14px; background: rgba(11,10,15,0.5); border: 1px solid var(--border); border-radius: 5px; }
+.gs-cell b { display: block; font-family: 'DM Mono', monospace; font-size: 22px; color: var(--gold); font-weight: 700; letter-spacing: -0.01em; }
+.gs-cell span { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+.guild-actions { margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap; }
+
+.action { padding: 10px 18px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; border: 1px solid var(--border); border-radius: 4px; color: var(--text); background: var(--shard); cursor: pointer; }
+.action.primary { background: var(--gold); color: var(--void); border-color: var(--gold); font-weight: 700; }
+.action.sage { background: var(--sage); color: var(--void); border-color: var(--sage); font-weight: 700; }
+.action:hover { border-color: var(--gold); color: var(--gold); }
+.action.primary:hover, .action.sage:hover { filter: brightness(1.15); }
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-bottom: 24px; }
+@media (max-width: 940px) { .grid-2 { grid-template-columns: 1fr; } }
+
+.panel { background: linear-gradient(180deg, var(--shard2), var(--shard)); border: 1px solid var(--border); border-radius: 8px; padding: 22px 26px; }
+.panel h2 { font-family: 'Libre Baskerville', serif; font-size: 22px; color: var(--gold); margin-bottom: 6px; }
+.panel .sub { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 18px; }
+
+/* chamber banners */
+.chambers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+@media (max-width: 640px) { .chambers-grid { grid-template-columns: repeat(2, 1fr); } }
+.chamber-tile { position: relative; padding: 14px 12px; background: var(--void); border: 1px solid var(--border); border-radius: 6px; text-align: center; overflow: hidden; }
+.chamber-tile.mine { border-color: var(--sage); background: linear-gradient(180deg, rgba(122,184,138,0.09), var(--void)); }
+.chamber-tile.mine::before { content: '◊'; position: absolute; top: 6px; right: 8px; color: var(--sage); font-family: 'DM Mono', monospace; }
+.chamber-tile .cham-name { font-family: 'Libre Baskerville', serif; font-size: 15px; color: var(--gold); font-weight: 700; margin-bottom: 4px; }
+.chamber-tile .cham-sub { font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+.chamber-tile .holder { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--sage); margin-top: 8px; }
+.chamber-tile .holder.rival { color: var(--rose); }
+.chamber-tile .holder.vacant { color: var(--dim); }
+.chamber-tile .score { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
+.chamber-tile .score b { color: var(--gold); }
+
+/* roster */
+.roster { display: grid; gap: 8px; }
+.roster-row { display: grid; grid-template-columns: 34px 1fr auto auto; gap: 10px; align-items: center; padding: 10px 14px; background: var(--shard); border: 1px solid var(--border); border-radius: 4px; }
+.roster-row.founder { border-color: var(--gold); }
+.avatar { width: 34px; height: 34px; border-radius: 50%; background: radial-gradient(ellipse at center, rgba(212,160,23,0.35), rgba(0,0,0,0.85)); border: 1px solid var(--brass); display: flex; align-items: center; justify-content: center; font-family: 'DM Mono', monospace; font-size: 14px; color: var(--brass); }
+.roster-row.founder .avatar { background: radial-gradient(ellipse at center, rgba(212,160,23,0.4), rgba(0,0,0,0.85)); border-color: var(--gold); color: var(--gold); }
+.roster-row .who { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--text); letter-spacing: 0.04em; }
+.roster-row .who b { color: var(--gold); }
+.roster-row .role { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); padding: 3px 8px; background: var(--void); border: 1px solid var(--border); border-radius: 3px; }
+.roster-row .role.founder { color: var(--gold); border-color: var(--gold); }
+.roster-row .lp { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--gold); font-weight: 700; }
+
+/* tournament */
+.tournament-list { display: grid; gap: 10px; }
+.tourn-card { padding: 14px 18px; background: var(--shard); border: 1px solid var(--border); border-radius: 6px; }
+.tourn-card:hover { border-color: var(--gold); }
+.tourn-card .head { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.tourn-card .name { font-family: 'Libre Baskerville', serif; font-size: 16px; color: var(--gold); font-weight: 700; flex: 1; }
+.tourn-card .status { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; padding: 3px 8px; border-radius: 3px; }
+.tourn-card .status.active { background: var(--amber); color: var(--void); font-weight: 700; }
+.tourn-card .status.done { background: var(--sage); color: var(--void); font-weight: 700; }
+.tourn-card .meta { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.06em; margin-bottom: 8px; }
+.bracket { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; align-items: center; margin-top: 12px; padding: 12px; background: var(--void); border-radius: 4px; border: 1px solid var(--border); }
+.bracket-round { display: grid; gap: 8px; }
+.bracket-match { padding: 6px 10px; background: var(--shard); border: 1px solid var(--border); border-radius: 3px; font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.04em; }
+.bracket-match .winner { color: var(--gold); font-weight: 700; }
+.bracket-match .loser { color: var(--dim); text-decoration: line-through; }
+.bracket-match .vs { color: var(--dim); font-size: 9px; margin: 2px 0; }
+
+/* Uber Boss panel */
+.uber-panel { padding: 26px 30px; background: radial-gradient(ellipse at 30% 20%, rgba(139,26,26,0.15), transparent 60%), linear-gradient(180deg, var(--shard2), var(--shard)); border: 2px solid var(--rose); border-radius: 10px; margin-bottom: 24px; position: relative; overflow: hidden; }
+.uber-panel::after { content: '☠'; position: absolute; right: -30px; top: -20px; font-family: 'DM Mono', monospace; font-size: 220px; color: rgba(139,26,26,0.05); z-index: 0; }
+.uber-panel > * { position: relative; z-index: 1; }
+.uber-eyebrow { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--rose); margin-bottom: 6px; }
+.uber-title { font-family: 'Libre Baskerville', serif; font-size: 32px; color: var(--rose); font-weight: 700; margin-bottom: 4px; letter-spacing: -0.01em; }
+.uber-lore { font-family: 'Libre Baskerville', serif; font-style: italic; font-size: 14px; color: var(--muted); margin-bottom: 20px; max-width: 620px; line-height: 1.5; }
+.uber-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 16px 0; max-width: 640px; }
+.uber-stat { padding: 12px 14px; background: rgba(11,10,15,0.6); border: 1px solid rgba(230,132,110,0.3); border-radius: 5px; }
+.uber-stat b { display: block; font-family: 'DM Mono', monospace; font-size: 20px; color: var(--rose); font-weight: 700; }
+.uber-stat span { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+
+/* leaderboard */
+.leaderboard { display: grid; gap: 6px; }
+.lb-row { display: grid; grid-template-columns: 44px 1fr auto auto; gap: 10px; align-items: center; padding: 10px 14px; background: var(--shard); border: 1px solid var(--border); border-radius: 4px; }
+.lb-row.mine { border-color: var(--sage); }
+.lb-row .rank { font-family: 'DM Mono', monospace; font-size: 18px; color: var(--gold); font-weight: 700; text-align: center; }
+.lb-row .rank.podium { color: var(--rose); }
+.lb-row .who { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--text); letter-spacing: 0.04em; }
+.lb-row .who b { color: var(--gold); font-family: 'Libre Baskerville', serif; font-size: 14px; }
+.lb-row .banners { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--sage); }
+.lb-row .banners b { font-weight: 700; }
+.lb-row .points { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--gold); font-weight: 700; }
+
+/* modal */
+.modal-veil { position: fixed; inset: 0; z-index: 100; background: rgba(11,10,15,0.9); backdrop-filter: blur(4px); display: none; align-items: center; justify-content: center; padding: 30px; }
+.modal-veil.open { display: flex; }
+.modal { max-width: 640px; width: 100%; background: linear-gradient(180deg, var(--shard2), var(--shard)); border: 2px solid var(--gold); border-radius: 10px; padding: 26px 30px; max-height: 88vh; overflow-y: auto; }
+.modal h2 { font-family: 'Libre Baskerville', serif; font-size: 26px; color: var(--gold); margin-bottom: 6px; }
+.modal .sub { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+.form-row { margin-bottom: 14px; }
+.form-row label { display: block; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+input[type="text"], textarea, select { width: 100%; background: var(--void); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; color: var(--text); font-family: 'DM Mono', monospace; font-size: 16px; outline: none; }
+textarea { min-height: 100px; resize: vertical; letter-spacing: 0.03em; line-height: 1.4; word-break: break-all; }
+.modal-actions { display: flex; gap: 10px; margin-top: 18px; }
+
+.seal { padding: 12px 14px; background: rgba(74,125,201,0.06); border-left: 3px solid var(--sap); border-radius: 3px; margin-top: 12px; font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); word-break: break-all; letter-spacing: 0.04em; line-height: 1.65; }
+.seal b { color: var(--sap); }
+.hidden { display: none; }
+.empty-hint { padding: 24px 16px; text-align: center; color: var(--dim); font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.14em; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand"><span class="brand-mark">◊</span><span class="brand-name">FallKard</span></div>
+  <div class="tabs">
+    <a class="tab" href="index.html">Vault</a>
+    <a class="tab" href="loom.html">Loom</a>
+    <a class="tab" href="duel.html">Duel</a>
+    <a class="tab" href="campaign.html">Campaign</a>
+    <a class="tab" href="cube.html">Cube</a>
+    <a class="tab" href="coliseum.html">Coliseum</a>
+    <a class="tab" href="kono.html">$KONO</a>
+    <div class="tab active">Guild</div>
+    <a class="tab" href="govern.html">Assembly</a>
+    <a class="tab" href="arena.html">Arena</a>
+    <a class="tab" href="brain.html">Brain</a>
+    <a class="tab" href="clinic.html">Clinic</a>
+    <a class="tab" href="bloodline.html">Bloodline</a>
+    <a class="tab" href="herd.html">Herd</a>
+    <a class="tab" href="estate.html">Estate</a>
+    <a class="tab" href="charter.html">Charter</a>
+    <a class="tab" href="about.html">About</a>
+  </div>
+  <div class="spacer"></div>
+  <div class="guild-mini">
+    <span class="item">◊ <b id="gm-guild">—</b></span>
+    <span class="item">Banners <b id="gm-banners">0</b>/9</span>
+    <span class="item">Tourn <b id="gm-tourn">0</b></span>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="eyebrow">◊ The Guild Hall · FallSwarm binding · Chamber banners · Tournaments · Uber events</div>
+  <h1>The <em>Guild Hall</em>.<br>Swarm the chambers · sign the bracket.</h1>
+  <p class="lede">Bind to a FallSwarm guild. Compete for the nine chamber banners — each held by the guild that fastest cleared its Chamber Lord that season. Run Swiss tournaments co-signed via FallBond. Every weekly rotation, one Uber-Diablo boss rises across the whole Fall — all guilds attempt, one wins the shard.</p>
+
+  <!-- ═══ GUILD IDENTITY ═══ -->
+  <div id="guild-identity"></div>
+
+  <!-- ═══ UBER BOSS ═══ -->
+  <div class="uber-panel" id="uber-panel"></div>
+
+  <div class="grid-2">
+    <div class="panel">
+      <h2>Chamber Banners</h2>
+      <div class="sub">Nine chambers · whichever guild slew the lord first holds the banner this season</div>
+      <div class="chambers-grid" id="chambers-grid"></div>
+    </div>
+
+    <div class="panel">
+      <h2>Roster</h2>
+      <div class="sub">Members bound to your guild · founder holds the ceremony key</div>
+      <div class="roster" id="roster"></div>
+      <div id="roster-empty" class="empty-hint hidden">◇ You are not in a guild. Create or join one above.</div>
+      <div id="invite-block" class="hidden" style="margin-top:14px">
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:0.16em;text-transform:uppercase;margin-bottom:6px">◊ Signed invite URL</div>
+        <textarea id="invite-url" readonly></textarea>
+        <button class="action" onclick="copyInviteURL()">◈ Copy invite</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>Tournaments</h2>
+    <div class="sub">Swiss + top-4 bracket · signed by FallBond · winner earns leaderboard points</div>
+    <div style="margin-bottom:14px;display:flex;gap:8px;flex-wrap:wrap">
+      <button class="action sage" id="new-tourn-btn">☨ New Tournament</button>
+      <button class="action" id="quick-tourn-btn">◊ Quick Swiss (auto-fill AI opponents)</button>
+    </div>
+    <div class="tournament-list" id="tournament-list"></div>
+    <div id="tourn-empty" class="empty-hint hidden">◇ No tournaments yet · fire one above</div>
+  </div>
+
+  <div class="panel">
+    <h2>Season Leaderboard</h2>
+    <div class="sub">Top guilds by banners held + tournament wins + Uber shards</div>
+    <div class="leaderboard" id="leaderboard"></div>
+  </div>
+
+</div>
+
+<div class="modal-veil" id="modal-veil" onclick="if(event.target===this)closeModal()">
+  <div class="modal" id="modal-body"></div>
+</div>
+
+<script>
+'use strict';
+const STATE = { db: null, inv: null, cards: [], manifest: null, cardsByID: {}, decks: [], signKey: null, guildData: null, uberBoss: null, seedGuilds: [] };
+
+const CHAMBER_MOTTOS = { colony:'"Nine chambers, one house."', studio:'"Every page a spell."', market:'"Every fork a coin."', reach:'"The signal never sleeps."', bridge:'"One tool moves another."', forge:'"Sharp. Sovereign. Signed."', vault:'"The seal never breaks."', estate:'"Every clause a chain."', clinic:'"Seven shapes of the shape."' };
+
+function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+// ═════════ IndexedDB
+async function openDB() {
+  return new Promise((res, rej) => {
+    const req = indexedDB.open('fallkard', 2);
+    req.onerror = () => rej(req.error);
+    req.onupgradeneeded = () => {
+      const db = req.result;
+      if (!db.objectStoreNames.contains('decks')) db.createObjectStore('decks', { keyPath: 'name' });
+      if (!db.objectStoreNames.contains('inventory')) db.createObjectStore('inventory', { keyPath: 'id' });
+    };
+    req.onsuccess = () => res(req.result);
+  });
+}
+async function loadInv() {
+  return new Promise(res => {
+    const tx = STATE.db.transaction('inventory','readonly');
+    const req = tx.objectStore('inventory').get('main');
+    req.onsuccess = () => res(req.result || { id:'main', shards:0, runes:{}, charms:{}, cardDrops:[], socketed:{}, defeated:[], mintedNFTs:[], deckForks:[], gambles:[], councilNominations:{}, auctionListings:[], guild:null, tournaments:[], uberAttempts:[], uberShards:0 });
+  });
+}
+async function saveInv() {
+  return new Promise((res,rej) => {
+    const tx = STATE.db.transaction('inventory','readwrite');
+    tx.objectStore('inventory').put(STATE.inv);
+    tx.oncomplete = () => res();
+    tx.onerror = () => rej(tx.error);
+  });
+}
+async function listDecks() {
+  return new Promise(res => {
+    const tx = STATE.db.transaction('decks','readonly');
+    const out = [];
+    tx.objectStore('decks').openCursor().onsuccess = e => { const cur = e.target.result; if (cur) { out.push(cur.value); cur.continue(); } else res(out); };
+  });
+}
+
+// ═════════ Ed25519
+async function ensureSignKey() {
+  if (STATE.signKey) return STATE.signKey;
+  const raw = STATE.inv.signKey;
+  if (raw && raw.priv && raw.pub) {
+    try {
+      const priv = await crypto.subtle.importKey('jwk', raw.priv, { name:'Ed25519' }, true, ['sign']);
+      const pub = await crypto.subtle.importKey('jwk', raw.pub, { name:'Ed25519' }, true, ['verify']);
+      STATE.signKey = { privateKey: priv, publicKey: pub, pubHex: raw.pubHex };
+      return STATE.signKey;
+    } catch(_){}
+  }
+  const kp = await crypto.subtle.generateKey({ name:'Ed25519' }, true, ['sign','verify']);
+  const privJwk = await crypto.subtle.exportKey('jwk', kp.privateKey);
+  const pubJwk = await crypto.subtle.exportKey('jwk', kp.publicKey);
+  const pubRaw = await crypto.subtle.exportKey('raw', kp.publicKey);
+  const pubHex = Array.from(new Uint8Array(pubRaw)).map(b => b.toString(16).padStart(2,'0')).join('');
+  STATE.inv.signKey = { priv: privJwk, pub: pubJwk, pubHex };
+  await saveInv();
+  STATE.signKey = { privateKey: kp.privateKey, publicKey: kp.publicKey, pubHex };
+  return STATE.signKey;
+}
+async function sign(data) {
+  const enc = new TextEncoder().encode(data);
+  const sig = await crypto.subtle.sign({ name:'Ed25519' }, STATE.signKey.privateKey, enc);
+  return Array.from(new Uint8Array(sig)).map(b => b.toString(16).padStart(2,'0')).join('');
+}
+function b64enc(o) { return btoa(unescape(encodeURIComponent(JSON.stringify(o)))); }
+function b64dec(s) { return JSON.parse(decodeURIComponent(escape(atob(s)))); }
+
+// ═════════ Deterministic RNG (mulberry32)
+function seededRng(seedStr) {
+  let a = 0;
+  for (let i = 0; i < seedStr.length; i++) a = ((a * 31) + seedStr.charCodeAt(i)) >>> 0;
+  return function () {
+    a |= 0; a = a + 0x6D2B79F5 | 0;
+    let t = Math.imul(a ^ a >>> 15, 1 | a);
+    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  };
+}
+
+// ═════════ Seed rival guilds (mock)
+function seedGuilds() {
+  return [
+    { id:'g-fallmaster',    name:'Fallmaster Rite',      motto:'"By the seal, by the fork."',  founder:'0x4ac2f6…', crest:'⬢', members: 42, banners:['colony','vault'],    tournWins: 3, uberShards: 12, chamber:'colony' },
+    { id:'g-underforge',    name:'Underforge Circle',    motto:'"Forge every fork."',           founder:'0xd4a017…', crest:'⚙', members: 28, banners:['forge','bridge'],   tournWins: 2, uberShards: 9,  chamber:'forge' },
+    { id:'g-hollowsong',    name:'Hollowsong Compact',   motto:'"Sing the shape."',             founder:'0xe6846e…', crest:'◑', members: 19, banners:['clinic'],           tournWins: 2, uberShards: 6,  chamber:'clinic' },
+    { id:'g-gilded-bar',    name:'Gilded Bar',           motto:'"Every clause an axe."',        founder:'0xc4bfb2…', crest:'§', members: 24, banners:['estate','vault'],   tournWins: 1, uberShards: 5,  chamber:'estate' },
+    { id:'g-pigment-house', name:'Pigment House',        motto:'"Print the world."',            founder:'0x9a6dbf…', crest:'✎', members: 15, banners:['studio'],           tournWins: 1, uberShards: 4,  chamber:'studio' },
+    { id:'g-market-cutters',name:'Market Cutters',       motto:'"Trim the wyrm."',              founder:'0x8b3d1a…', crest:'$', members: 33, banners:['market'],           tournWins: 2, uberShards: 7,  chamber:'market' },
+    { id:'g-signal-flags',  name:'Signal Flags',         motto:'"The wire hums."',              founder:'0x4a9d8f…', crest:'⚘', members: 21, banners:['reach'],            tournWins: 1, uberShards: 3,  chamber:'reach' }
+  ];
+}
+
+// ═════════ Uber Boss rotator (weekly)
+function pickUberBoss() {
+  const now = new Date('2026-07-11');  // Deterministic date; day-of build
+  const isoYear = now.getUTCFullYear();
+  const jan1 = new Date(Date.UTC(isoYear, 0, 1));
+  const week = Math.floor((now - jan1) / 86400000 / 7);
+  const uberList = (window.BOSSES || []).filter(b => b.tier === 'uber');
+  if (!uberList.length) return { id:'ad-godling', name:'The Ad-Godling', hp:44, portrait:'∆', lore:'"Skip Ad was a lie."', ability:'Autoplay', chamber:'reach' };
+  return uberList[week % uberList.length];
+}
+
+// ═════════ Score / leaderboard
+function guildScore(g) {
+  return (g.banners||[]).length * 40 + (g.tournWins||0) * 20 + (g.uberShards||0) * 5;
+}
+
+// ═════════ Actions
+async function createGuild() {
+  await ensureSignKey();
+  const nameEl = document.getElementById('gname-input');
+  const mottoEl = document.getElementById('gmotto-input');
+  const chamberEl = document.getElementById('gchamber-input');
+  const name = (nameEl.value || '').trim();
+  if (!name) return alert('Name required');
+  const motto = (mottoEl.value || '').trim();
+  const chamber = chamberEl.value;
+  const crestEmojis = ['◊','◈','⬢','⚙','⚘','⚹','☨','◑','◐','§'];
+  const crest = crestEmojis[Math.floor(Math.random() * crestEmojis.length)];
+  const guildCore = { v:1, type:'fn.GUILD', id:'g-'+Date.now().toString(36), name, motto, chamber, crest, founder: STATE.signKey.pubHex, founderName: STATE.inv.playerName || 'Anonymous', created: new Date().toISOString(), members: [], defeated: [...(STATE.inv.defeated||[])], banners: [] };
+  guildCore.seal = await sign(JSON.stringify({...guildCore, seal: undefined}));
+  STATE.inv.guild = guildCore;
+  await recalcBanners();
+  await saveInv();
+  render();
+  closeModal();
+}
+async function joinGuildFromUrl(raw) {
+  await ensureSignKey();
+  try {
+    const m = raw.match(/[?&]guild=([^&]+)/);
+    const enc = m ? decodeURIComponent(m[1]) : raw;
+    const g = b64dec(enc);
+    if (g.type !== 'fn.GUILD') throw new Error('Not a guild bundle');
+    STATE.inv.guild = { ...g, members: [...(g.members||[]), { pub: STATE.signKey.pubHex, name: STATE.inv.playerName || 'Anonymous', role: 'member', joined: new Date().toISOString() }] };
+    await recalcBanners();
+    await saveInv();
+    render();
+    closeModal();
+  } catch(e) { alert('Failed: ' + e.message); }
+}
+async function leaveGuild() {
+  if (!confirm('Leave your guild? You keep your NFTs but lose banners.')) return;
+  STATE.inv.guild = null;
+  await saveInv();
+  render();
+}
+async function recalcBanners() {
+  const g = STATE.inv.guild;
+  if (!g) return;
+  const defeated = new Set(STATE.inv.defeated || []);
+  const chambers = [];
+  for (const ch of (window.CHAPTERS || []).slice(0, 9)) {
+    const bosses = (window.BOSSES || []).filter(b => b.chapter === ch.n && b.tier === 'lord');
+    if (bosses.length && bosses.every(b => defeated.has(b.id))) chambers.push(ch.chamber);
+  }
+  g.banners = chambers;
+}
+function copyInviteURL() {
+  const el = document.getElementById('invite-url');
+  el.select(); navigator.clipboard.writeText(el.value);
+  alert('Invite copied.');
+}
+window.copyInviteURL = copyInviteURL;
+
+async function issueInvite() {
+  const g = STATE.inv.guild;
+  if (!g) return;
+  const enc = b64enc(g);
+  const url = location.origin + location.pathname + '?guild=' + enc;
+  document.getElementById('invite-block').classList.remove('hidden');
+  document.getElementById('invite-url').value = url;
+}
+
+async function openCreateModal() {
+  const chamberOpts = (window.CHAPTERS || []).slice(0, 9).map(c => `<option value="${c.chamber}">${c.name}</option>`).join('');
+  openModal(`
+    <h2>☨ Found a Guild</h2>
+    <div class="sub">Sign a manifest · become the founder · issue signed invites</div>
+    <div class="form-row"><label>Guild Name</label><input type="text" id="gname-input" placeholder="e.g. Ember Reach" maxlength="40"/></div>
+    <div class="form-row"><label>Motto (optional)</label><input type="text" id="gmotto-input" placeholder="e.g. Every chamber is our chamber." maxlength="80"/></div>
+    <div class="form-row"><label>Home Chamber</label><select id="gchamber-input">${chamberOpts}</select></div>
+    <div class="modal-actions">
+      <button class="action sage" onclick="createGuild()">☨ Sign + Found</button>
+      <button class="action" onclick="closeModal()">✕ Cancel</button>
+    </div>
+  `);
+}
+window.createGuild = createGuild;
+
+function openJoinModal() {
+  openModal(`
+    <h2>◈ Join a Guild</h2>
+    <div class="sub">Paste a signed guild invite URL</div>
+    <div class="form-row"><label>Invite URL</label><textarea id="join-input" placeholder="Paste the guild URL a founder shared…"></textarea></div>
+    <div class="modal-actions">
+      <button class="action primary" onclick="joinGuildFromUrl(document.getElementById('join-input').value)">◊ Join</button>
+      <button class="action" onclick="closeModal()">✕ Cancel</button>
+    </div>
+  `);
+}
+window.openJoinModal = openJoinModal;
+window.joinGuildFromUrl = joinGuildFromUrl;
+window.leaveGuild = leaveGuild;
+
+// ═════════ TOURNAMENT (Swiss + top-4)
+async function createQuickTournament() {
+  if (!STATE.inv.guild) return alert('You must be in a guild to run a tournament.');
+  await ensureSignKey();
+  // 4-player Swiss with the local player + 3 seeded AI opponents
+  const tournId = 't-' + Date.now().toString(36);
+  const seed = Array.from(crypto.getRandomValues(new Uint8Array(16))).map(b => b.toString(16).padStart(2,'0')).join('');
+  const rng = seededRng(seed);
+  const rivals = ['SwarmVoice','ChamberSteel','BloodlineForge'];
+  const players = [
+    { name: STATE.inv.playerName || 'You', pub: STATE.signKey.pubHex, isYou: true, deckMap: buildGenesisPreset() },
+    { name: rivals[0], pub: 'sim-A', deckMap: buildAggroPreset() },
+    { name: rivals[1], pub: 'sim-B', deckMap: buildAggroPreset() },
+    { name: rivals[2], pub: 'sim-C', deckMap: buildGenesisPreset() }
+  ];
+  // Swiss: 2 rounds pair by score; top-4 auto reduces to a single-elim final round
+  const roundResults = [];
+  const record = players.map(p => ({ name: p.name, w: 0, l: 0, isYou: p.isYou, hp: 0 }));
+  // Round 1: 0-1, 2-3
+  const r1 = [ resolvePairing(players[0], players[1], seed + ':r1a', rng()),
+               resolvePairing(players[2], players[3], seed + ':r1b', rng()) ];
+  // Round 2 · pair by record: 1-1 vs 1-1
+  const winners = [r1[0].winner, r1[1].winner];
+  const losers  = [r1[0].loser,  r1[1].loser];
+  const r2 = [ resolvePairing(winners[0], winners[1], seed + ':r2a', rng()),
+               resolvePairing(losers[0],  losers[1],  seed + ':r2b', rng()) ];
+  // Update records
+  const rounds = [r1, r2];
+  rounds.forEach(rr => rr.forEach(m => {
+    const wRec = record.find(x => x.name === m.winner.name);
+    const lRec = record.find(x => x.name === m.loser.name);
+    if (wRec) wRec.w++;
+    if (lRec) lRec.l++;
+  }));
+  record.sort((a,b) => b.w - a.w || a.l - b.l);
+  const champion = record[0];
+  // Sign manifest
+  const manifestCore = { v:1, type:'fn.TOURN.FALLBOND', id: tournId, guild: STATE.inv.guild.id, seed, players: players.map(p => ({ name: p.name, pub: p.pub })), rounds: rounds.map(rr => rr.map(m => ({ winner: m.winner.name, loser: m.loser.name, aHp: m.aHp, bHp: m.bHp, turns: m.turns }))), record, champion: champion.name, ts: new Date().toISOString() };
+  const seal = await sign(JSON.stringify(manifestCore));
+  const manifest = { ...manifestCore, seal };
+  STATE.inv.tournaments = STATE.inv.tournaments || [];
+  STATE.inv.tournaments.push(manifest);
+  // Bump guild tournWins if you won (mock: tally locally)
+  if (champion.isYou) {
+    STATE.inv.guild.tournWins = (STATE.inv.guild.tournWins || 0) + 1;
+  }
+  await saveInv();
+  render();
+  const youRec = record.find(x => x.isYou);
+  const yourPlace = record.findIndex(x => x.isYou) + 1;
+  openModal(`
+    <h2>${champion.isYou ? '◊ Champion' : '☨ Bracket Sealed'}</h2>
+    <div class="sub">FallBond-signed Swiss · 2 rounds · 4 seats</div>
+    <div style="text-align:center;font-family:'Libre Baskerville',serif;font-size:26px;color:${champion.isYou?'var(--sage)':'var(--gold)'};margin:10px 0">${esc(champion.name)}</div>
+    <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);text-align:center;letter-spacing:0.14em;text-transform:uppercase">Champion of ${STATE.inv.guild.name}</div>
+    <div style="margin-top:16px;padding:12px 16px;background:var(--void);border:1px solid var(--border);border-radius:4px">
+      <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:8px">Final Table · <b style="color:var(--gold)">You placed #${yourPlace}</b> · <b style="color:var(--gold)">${youRec.w}W-${youRec.l}L</b></div>
+      ${record.map((r,i) => `<div style="font-family:'DM Mono',monospace;font-size:11px;padding:4px 0;color:${r.isYou?'var(--sage)':'var(--text)'}">#${i+1} <b>${esc(r.name)}</b> · ${r.w}-${r.l}</div>`).join('')}
+    </div>
+    <div class="seal"><b>◊ FallBond Seal</b> ${seal.slice(0, 64)}…<br><b>Seed</b> ${seed}<br><b>Tournament ID</b> ${tournId}</div>
+    <div class="modal-actions"><button class="action primary" onclick="closeModal()">◊ Ok</button></div>
+  `);
+}
+window.createQuickTournament = createQuickTournament;
+
+function resolvePairing(A, B, seed, rngExtra) {
+  const res = resolveMatch(A.deckMap, B.deckMap, seed);
+  const winner = res.verdict === 'A' ? A : res.verdict === 'B' ? B : (rngExtra > 0.5 ? A : B);
+  const loser = winner === A ? B : A;
+  return { winner, loser, aHp: res.aHp, bHp: res.bHp, turns: res.turns };
+}
+
+// Deterministic reducer (mirror of coliseum resolver, tight)
+function resolveMatch(deckA, deckB, seed) {
+  const rng = seededRng(seed);
+  const shuffle = arr => { for (let i = arr.length-1; i > 0; i--) { const j = Math.floor(rng()*(i+1)); [arr[i],arr[j]] = [arr[j],arr[i]]; } return arr; };
+  const mkPlayer = deckMap => {
+    const deck = [];
+    Object.entries(deckMap).forEach(([id,n]) => {
+      const c = STATE.cardsByID[id]; if (!c) return;
+      for (let i = 0; i < n; i++) deck.push({...c, currentAtk: c.atk, currentHp: c.hp});
+    });
+    shuffle(deck);
+    return { hp: 20, mana: 0, manaMax: 0, hand: [], deck, board: [null,null,null,null,null,null] };
+  };
+  const A = mkPlayer(deckA); const B = mkPlayer(deckB);
+  const draw = p => { if (!p.deck.length) { p.hp--; return; } if (p.hand.length < 10) p.hand.push(p.deck.shift()); };
+  for (let i = 0; i < 3; i++) { draw(A); draw(B); }
+  let turn = 1, active = 'A';
+  const doTurn = (p, opp) => {
+    p.manaMax = Math.min(10, p.manaMax + 1); p.mana = p.manaMax; draw(p);
+    let guard = 20;
+    while (guard-- > 0) {
+      const aff = p.hand.filter(c => c.cost <= p.mana); if (!aff.length) break;
+      const empties = [3,4,5].filter(i => !p.board[i]).concat([0,1,2].filter(i => !p.board[i]));
+      if (!empties.length) break;
+      aff.sort((a,b) => (b.atk+b.hp) - (a.atk+a.hp));
+      const c = aff[0];
+      p.hand.splice(p.hand.indexOf(c), 1);
+      p.mana -= c.cost;
+      p.board[empties[0]] = {...c};
+    }
+    for (const i of [3,4,5]) {
+      const atk = p.board[i]; if (!atk) continue;
+      const oppSlot = 8 - i;
+      const t = opp.board[oppSlot];
+      if (t) { t.currentHp -= atk.currentAtk; atk.currentHp -= t.currentAtk; if (t.currentHp <= 0) opp.board[oppSlot] = null; if (atk.currentHp <= 0) p.board[i] = null; }
+      else { opp.hp -= atk.currentAtk; if (opp.hp <= 0) return; }
+    }
+  };
+  const MAX_TURNS = 25;
+  while (turn <= MAX_TURNS && A.hp > 0 && B.hp > 0) {
+    if (active === 'A') { doTurn(A, B); if (B.hp <= 0) break; active = 'B'; }
+    else { doTurn(B, A); if (A.hp <= 0) break; active = 'A'; turn++; }
+  }
+  let verdict;
+  if (A.hp <= 0 && B.hp <= 0) verdict = 'draw';
+  else if (A.hp <= 0) verdict = 'B';
+  else if (B.hp <= 0) verdict = 'A';
+  else verdict = A.hp > B.hp ? 'A' : (B.hp > A.hp ? 'B' : 'draw');
+  return { verdict, aHp: A.hp, bHp: B.hp, turns: turn };
+}
+
+function buildGenesisPreset() {
+  const used = {};
+  const ubers = STATE.cards.filter(c => c.rarity === 'uber-unique');
+  ubers.forEach(c => used[c.id] = 1);
+  const uberChambers = new Set(ubers.map(c => c.chamber));
+  const support = STATE.cards.filter(c => c.rarity !== 'uber-unique' && uberChambers.has(c.chamber)).sort((a,b) => (({'uber-unique':0,unique:1,rare:2,magic:3,common:4})[a.rarity]??9) - (({'uber-unique':0,unique:1,rare:2,magic:3,common:4})[b.rarity]??9) || a.cost - b.cost);
+  let taken = ubers.length;
+  for (const c of support) { const max = (c.rarity==='unique'||c.rarity==='uber-unique')?1:2; while ((used[c.id]||0) < max && taken < 30) { used[c.id]=(used[c.id]||0)+1; taken++; } if (taken>=30) break; }
+  return used;
+}
+function buildAggroPreset() {
+  const used = {};
+  const tools = STATE.cards.filter(c => c.kind === 'tool').sort((a,b) => a.cost - b.cost);
+  const fillers = STATE.cards.filter(c => c.kind !== 'tool' && c.cost <= 3).sort((a,b) => a.cost - b.cost);
+  const pool = tools.concat(fillers);
+  let taken = 0;
+  for (const c of pool) { const max = (c.rarity==='unique'||c.rarity==='uber-unique')?1:2; while ((used[c.id]||0) < max && taken < 30) { used[c.id]=(used[c.id]||0)+1; taken++; } if (taken>=30) break; }
+  return used;
+}
+
+// ═════════ Uber attempt
+async function fireUber() {
+  await ensureSignKey();
+  const uber = STATE.uberBoss;
+  const alreadyToday = (STATE.inv.uberAttempts || []).find(a => a.boss === uber.id && a.when.startsWith(new Date().toISOString().slice(0,10)));
+  if (alreadyToday) return alert('You have already attempted the Uber today. Come back tomorrow.');
+  location.href = 'duel.html?boss=' + uber.id + '&uber=1';
+}
+window.fireUber = fireUber;
+
+// ═════════ RENDER
+function renderGuildIdentity() {
+  const el = document.getElementById('guild-identity');
+  const g = STATE.inv.guild;
+  if (!g) {
+    el.innerHTML = `
+      <div class="guild-card no-guild">
+        <div class="guild-crest">◊</div>
+        <div class="guild-hero-eyebrow">◊ Unbound</div>
+        <div class="guild-name-big">No Guild</div>
+        <div class="guild-motto">"You walk the Fall alone. Your Ed25519 key is your only banner."</div>
+        <div class="guild-actions">
+          <button class="action sage" onclick="openCreateModal()">☨ Found a Guild</button>
+          <button class="action" onclick="openJoinModal()">◈ Join via invite URL</button>
+        </div>
+      </div>
+    `;
+    return;
+  }
+  const score = guildScore(g);
+  el.innerHTML = `
+    <div class="guild-card">
+      <div class="guild-crest">${g.crest || '◊'}</div>
+      <div class="guild-hero-eyebrow">◊ Bound to</div>
+      <div class="guild-name-big">${esc(g.name)}</div>
+      <div class="guild-motto">${esc(g.motto || CHAMBER_MOTTOS[g.chamber] || '"Every fork is a coin."')}</div>
+      <div class="guild-stats">
+        <div class="gs-cell"><b>${(g.banners||[]).length}</b><span>Banners</span></div>
+        <div class="gs-cell"><b>${g.tournWins||0}</b><span>Tournament Wins</span></div>
+        <div class="gs-cell"><b>${(g.members||[]).length + 1}</b><span>Members</span></div>
+        <div class="gs-cell"><b>${score}</b><span>Season Points</span></div>
+      </div>
+      <div class="guild-actions">
+        <button class="action" onclick="issueInvite()">◊ Issue Invite URL</button>
+        <button class="action" onclick="leaveGuild()">✕ Leave Guild</button>
+      </div>
+    </div>
+  `;
+}
+window.issueInvite = issueInvite;
+window.openCreateModal = openCreateModal;
+
+function renderChambers() {
+  const grid = document.getElementById('chambers-grid');
+  const g = STATE.inv.guild;
+  const chapters = (window.CHAPTERS || []).slice(0, 9);
+  const rivals = STATE.seedGuilds;
+  grid.innerHTML = chapters.map(ch => {
+    const mine = g && (g.banners||[]).includes(ch.chamber);
+    let holder = 'vacant';
+    let holderName = '(vacant)';
+    if (mine) { holder = 'mine'; holderName = g.name; }
+    else {
+      const rivalGuild = rivals.find(r => (r.banners||[]).includes(ch.chamber));
+      if (rivalGuild) { holder = 'rival'; holderName = rivalGuild.name; }
+    }
+    return `<div class="chamber-tile ${holder}" title="${esc(holderName)}">
+      <div class="cham-name">${ch.name}</div>
+      <div class="cham-sub">${esc(ch.chamber)}</div>
+      <div class="holder ${holder}">${esc(holderName)}</div>
+      <div class="score">${holder==='mine'?'◊ your banner':holder==='rival'?'held by rival':'not yet claimed'}</div>
+    </div>`;
+  }).join('');
+}
+
+function renderRoster() {
+  const g = STATE.inv.guild;
+  const rosterEl = document.getElementById('roster');
+  const emptyEl = document.getElementById('roster-empty');
+  if (!g) { rosterEl.innerHTML = ''; emptyEl.classList.remove('hidden'); return; }
+  emptyEl.classList.add('hidden');
+  const founder = { name: g.founderName || 'Founder', pub: g.founder, role: 'Founder', joined: g.created };
+  const members = (g.members || []).map(m => ({ ...m, role: m.role || 'Member' }));
+  const all = [founder, ...members];
+  rosterEl.innerHTML = all.map((m,i) => `
+    <div class="roster-row ${i===0?'founder':''}">
+      <div class="avatar">${(m.name || 'A').slice(0,1).toUpperCase()}</div>
+      <div class="who"><b>${esc(m.name || 'Anonymous')}</b><br>${(m.pub || '').slice(0, 16)}…</div>
+      <div class="role ${i===0?'founder':''}">${esc(m.role)}</div>
+      <div class="lp">${STATE.inv.rank?.lp || 1000} LP</div>
+    </div>
+  `).join('');
+}
+
+function renderTournaments() {
+  const list = document.getElementById('tournament-list');
+  const empty = document.getElementById('tourn-empty');
+  const tourns = (STATE.inv.tournaments || []).slice().reverse();
+  if (!tourns.length) { list.innerHTML = ''; empty.classList.remove('hidden'); return; }
+  empty.classList.add('hidden');
+  list.innerHTML = tourns.map(t => {
+    const bracketRows = t.rounds.map((round, ri) => `<div class="bracket-round">
+      <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.16em;color:var(--muted);text-transform:uppercase;margin-bottom:4px">Round ${ri+1}</div>
+      ${round.map(m => `<div class="bracket-match"><span class="winner">${esc(m.winner)}</span> <span class="vs">defeats · ${m.aHp}–${m.bHp} · t${m.turns}</span> <span class="loser">${esc(m.loser)}</span></div>`).join('')}
+    </div>`).join('');
+    return `<div class="tourn-card">
+      <div class="head">
+        <div class="name">${esc(t.champion)} takes it</div>
+        <div class="status done">◊ Sealed</div>
+      </div>
+      <div class="meta">FallBond-signed · ${esc(t.id)} · ${esc((t.ts||'').slice(0,10))} · players ${(t.players||[]).length}</div>
+      <div class="bracket">${bracketRows}</div>
+      <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--dim);word-break:break-all;letter-spacing:0.04em;margin-top:10px">Seal ${(t.seal||'').slice(0,48)}…</div>
+    </div>`;
+  }).join('');
+}
+
+function renderUber() {
+  const u = STATE.uberBoss;
+  const p = document.getElementById('uber-panel');
+  const attempts = (STATE.inv.uberAttempts || []).filter(a => a.boss === u.id);
+  const yourWins = attempts.filter(a => a.won).length;
+  const todayAttempt = attempts.find(a => a.when.startsWith(new Date().toISOString().slice(0,10)));
+  p.innerHTML = `
+    <div class="uber-eyebrow">◊ The Uber Rises · Weekly rotation</div>
+    <div class="uber-title">${esc(u.name)}</div>
+    <div class="uber-lore">${esc(u.lore)}</div>
+    <div class="uber-stats">
+      <div class="uber-stat"><b>${u.hp}</b><span>HP</span></div>
+      <div class="uber-stat"><b>${u.portrait}</b><span>Glyph</span></div>
+      <div class="uber-stat"><b>${yourWins}</b><span>Your Kills</span></div>
+      <div class="uber-stat"><b>${todayAttempt ? '✓' : '—'}</b><span>Today's Attempt</span></div>
+    </div>
+    <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:0.06em;margin-top:6px;line-height:1.6">◊ <b style="color:var(--rose)">Ability</b> ${esc(u.ability)} · <b style="color:var(--rose)">Chamber</b> ${esc(u.chamber)} · <b style="color:var(--rose)">Drops</b> Zod runes + Uber card + charm</div>
+    <div style="margin-top:18px;display:flex;gap:10px">
+      <button class="action" style="background:var(--rose);color:var(--void);border-color:var(--rose);font-weight:700" onclick="fireUber()">☠ Attempt · Enter the Duel</button>
+    </div>
+  `;
+}
+
+function renderLeaderboard() {
+  const el = document.getElementById('leaderboard');
+  const mine = STATE.inv.guild;
+  const all = STATE.seedGuilds.slice();
+  if (mine) all.push({ ...mine, id: mine.id || 'g-me', chamber: mine.chamber, name: mine.name, motto: mine.motto, crest: mine.crest, members: (mine.members||[]).length + 1, isMine: true, uberShards: STATE.inv.uberShards || 0, tournWins: mine.tournWins || 0 });
+  all.forEach(g => g.score = guildScore(g));
+  all.sort((a,b) => b.score - a.score);
+  el.innerHTML = all.slice(0, 10).map((g,i) => `
+    <div class="lb-row ${g.isMine?'mine':''}">
+      <div class="rank ${i<3?'podium':''}">${i+1}</div>
+      <div class="who"><b>${esc(g.name)}</b>${g.isMine?' <span style="color:var(--sage);font-family:DM Mono,monospace;font-size:9px;letter-spacing:0.14em">YOURS</span>':''}<br><span style="color:var(--muted)">${esc(g.chamber || '')} · ${g.members || 1} members</span></div>
+      <div class="banners"><b>${(g.banners||[]).length}</b> banners</div>
+      <div class="points">${g.score} pts</div>
+    </div>
+  `).join('');
+}
+
+function renderMini() {
+  const g = STATE.inv.guild;
+  document.getElementById('gm-guild').textContent = g ? (g.name || 'Bound').slice(0, 20) : '—';
+  document.getElementById('gm-banners').textContent = g ? (g.banners||[]).length : 0;
+  document.getElementById('gm-tourn').textContent = (STATE.inv.tournaments || []).length;
+}
+
+function render() {
+  renderMini();
+  renderGuildIdentity();
+  renderChambers();
+  renderRoster();
+  renderTournaments();
+  renderUber();
+  renderLeaderboard();
+}
+
+function openModal(html) {
+  document.getElementById('modal-body').innerHTML = html;
+  document.getElementById('modal-veil').classList.add('open');
+}
+function closeModal() { document.getElementById('modal-veil').classList.remove('open'); }
+window.closeModal = closeModal;
+
+async function init() {
+  STATE.db = await openDB();
+  STATE.inv = await loadInv();
+  const [cardsRes, man] = await Promise.all([fetch('cards.json').then(r=>r.json()), fetch('manifest.json').then(r=>r.json())]);
+  STATE.cards = cardsRes.cards;
+  STATE.manifest = man;
+  STATE.cards.forEach(c => STATE.cardsByID[c.id] = c);
+  STATE.decks = await listDecks();
+  STATE.uberBoss = pickUberBoss();
+  STATE.seedGuilds = seedGuilds();
+  await ensureSignKey();
+  // Auto-load ?guild= param
+  const p = new URLSearchParams(location.search);
+  if (p.get('guild') && !STATE.inv.guild) openJoinModalWithParam(p.get('guild'));
+  document.getElementById('quick-tourn-btn').addEventListener('click', createQuickTournament);
+  document.getElementById('new-tourn-btn').addEventListener('click', () => {
+    if (!STATE.inv.guild) return alert('Bind to a guild first.');
+    createQuickTournament();
+  });
+  render();
+}
+
+function openJoinModalWithParam(param) {
+  openModal(`
+    <h2>◈ Invite Received</h2>
+    <div class="sub">A signed guild invite is in the URL</div>
+    <div class="form-row"><label>Preview</label><textarea id="join-input" readonly>${esc(location.href)}</textarea></div>
+    <div class="modal-actions">
+      <button class="action primary" onclick="joinGuildFromUrl(document.getElementById('join-input').value)">◊ Join</button>
+      <button class="action" onclick="closeModal()">✕ Not Now</button>
+    </div>
+  `);
+}
+
+init().catch(e=>{console.error('[fallkard] Guild init failed',e);});
+</script>
+  <script src="konomi-footer.js" defer></script>
+</body>
+</html>
