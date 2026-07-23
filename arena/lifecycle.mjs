@@ -20,6 +20,7 @@ import { makeRandomAgent, forkAgent, crossover, deckSignature, updatePhase, held
 import { scoreShape, record as clinicRecord, readShadow, chamberContext, TELLS, TELL_MEANING } from './clinic.mjs';
 import { castSeal, upsertSeal, assertClosed, admissible } from './mintback.mjs';
 import { analyze as analyzeBloodline } from './bloodline.mjs';
+import { SPINE as FOLD_SPINE, foldNumber, unfoldState, stateSignature } from '../foldkit.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const arg = (k, d) => { const i = process.argv.indexOf(k); return i >= 0 ? process.argv[i + 1] : d; };
@@ -214,6 +215,44 @@ const herdRoster = {
   births: therapyArm.births,
 };
 writeFileSync(HERD_OUT, JSON.stringify(herdRoster, null, 2));
+
+// ── ⑥ SUBSTRATE · the arena speaks the fold algebra. PURELY POST-HOC: this block reads the
+// final population's existing lifetime journals and writes one new file. It consumes no rng
+// and touches nothing in the loops above — the same pure-additive contract as the herd roster.
+// Verified by diffing a full run before and after: clinic-results.json, seals.json,
+// bloodline.json and herd.json are byte-identical.
+// The mapping is structural, not decorative — the clinic records exactly 7 TELLS and the spine
+// has exactly 7 primes, so an organism's shadow IS a fold state. foldkit.js is the vendored
+// canonical algebra (github.com/sjgant80-hub/foldkit); drift-guarded by foldkit/sync-copies.mjs.
+const SUBSTRATE_OUT = join(__dirname, '..', 'arena-substrate.json');
+const foldOf = (agent) => {
+  const shadow = readShadow(agent.journal);
+  const means = TELLS.map(t => shadow.means[t] || 0);
+  const peak = Math.max(...means, 1e-9);
+  // Scale-invariant: each tell becomes an exponent 0..2 relative to the organism's OWN
+  // strongest tell, so the signature describes shadow SHAPE, not match count. Capped at 2 so
+  // the fold number stays well inside Number.MAX_SAFE_INTEGER (510510² ≈ 2.6e11).
+  const state = means.map(v => Math.min(2, Math.round((v / peak) * 2)));
+  const fold = foldNumber(state);
+  return {
+    state, fold, glyphs: stateSignature(state), axis: shadow.axis,
+    foldsBack: String(unfoldState(fold)) === String(state),
+  };
+};
+const organisms = therapyArm.finalPop.map(a => ({
+  id: a.agentId, handle: a.handle, gen: a.lineage.generation,
+  matches: a.journal?.matches || 0, ...foldOf(a),
+}));
+const substrateOut = {
+  generated: '2026-07-12',
+  spine: FOLD_SPINE,
+  tells: TELLS,
+  note: 'each organism carries a fold-signature derived from its 7-tell clinic shadow (7 tells ↔ 7 spine primes). Pure-additive telemetry — every other arena output is byte-identical.',
+  organisms,
+  allFoldsRoundTrip: organisms.every(o => o.foldsBack),
+  totalRecordedMatches: organisms.reduce((n, o) => n + o.matches, 0),
+};
+writeFileSync(SUBSTRATE_OUT, JSON.stringify(substrateOut, null, 2));
 
 console.log(`[clinic] minted ${seals.seals.length} Seal(s) · loop ${loopClosed ? 'CLOSED ✓ (re-cast returns byte-identical card)' : 'OPEN ✗'}`);
 const topF = blood.founders[0];

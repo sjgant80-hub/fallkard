@@ -1,0 +1,368 @@
+{
+  "generated": "2026-07-12",
+  "spine": [
+    2,
+    3,
+    5,
+    7,
+    11,
+    13,
+    17
+  ],
+  "tells": [
+    "hoard",
+    "blindspot",
+    "loop",
+    "freeze",
+    "tunnel",
+    "echo",
+    "miss"
+  ],
+  "note": "each organism carries a fold-signature derived from its 7-tell clinic shadow (7 tells ↔ 7 spine primes). Pure-additive telemetry — every other arena output is byte-identical.",
+  "organisms": [
+    {
+      "id": "sim:Quill-9×Qui-1o×Qui-2g×Qui-2q~32",
+      "handle": "Quill-9×Qui-1o×Qui-2g×Qui-2q~32",
+      "gen": 7,
+      "matches": 34,
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1
+      ],
+      "fold": 189618,
+      "glyphs": "●^1·〜^1·△^1·◐^2·◯^1",
+      "axis": "echo",
+      "foldsBack": true
+    },
+    {
+      "id": "sim:Quill-9×Qui-1o×Qui-2g",
+      "handle": "Quill-9×Qui-1o×Qui-2g",
+      "gen": 5,
+      "matches": 102,
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1
+      ],
+      "fold": 189618,
+      "glyphs": "●^1·〜^1·△^1·◐^2·◯^1",
+      "axis": "echo",
+      "foldsBack": true
+    },
+    {
+      "id": "sim:Quill-9×Qui-1o~38",
+      "handle": "Quill-9×Qui-1o~38",
+      "gen": 8,
+      "matches": 34,
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1
+      ],
+      "fold": 189618,
+      "glyphs": "●^1·〜^1·△^1·◐^2·◯^1",
+      "axis": "echo",
+      "foldsBack": true
+    },
+    {
+      "id": "sim:Quill-9×Qui-1o×Qui-2g×Qui-37",
+      "handle": "Quill-9×Qui-1o×Qui-2g×Qui-37",
+      "gen": 6,
+      "matches": 34,
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        0
+      ],
+      "fold": 11154,
+      "glyphs": "●^1·〜^1·△^1·◐^2",
+      "axis": "echo",
+      "foldsBack": true
+    },
+    {
+      "id": "sim:Quill-9×Qui-1o~26",
+      "handle": "Quill-9×Qui-1o~26",
+      "gen": 5,
+      "matches": 136,
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1
+      ],
+      "fold": 189618,
+      "glyphs": "●^1·〜^1·△^1·◐^2·◯^1",
+      "axis": "echo",
+      "foldsBack": true
+    },
+    {
+      "id": "sim:Sable-h×Nyx-m~34",
+      "handle": "Sable-h×Nyx-m~34",
+      "gen": 7,
+      "matches": 34,
+      "state": [
+        2,
+        2,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "fold": 87516,
+      "glyphs": "●^2·〜^2·△^1·◐^1·◯^1",
+      "axis": "blindspot",
+      "foldsBack": true
+    },
+    {
+      "id": "sim:Quill-9×Qui-1o×Sab-2k~2x",
+      "handle": "Quill-9×Qui-1o×Sab-2k~2x",
+      "gen": 7,
+      "matches": 68,
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        2,
+        2,
+        1
+      ],
+      "fold": 2085798,
+      "glyphs": "●^1·〜^1·△^2·◐^2·◯^1",
+      "axis": "echo",
+      "foldsBack": true
+    },
+    {
+      "id": "sim:Quill-9×Qui-1o×Qui-2g×Qui-2q~33",
+      "handle": "Quill-9×Qui-1o×Qui-2g×Qui-2q~33",
+      "gen": 7,
+      "matches": 34,
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1
+      ],
+      "fold": 189618,
+      "glyphs": "●^1·〜^1·△^1·◐^2·◯^1",
+      "axis": "echo",
+      "foldsBack": true
+    },
+    {
+      "id": "sim:Quill-9×Qui-1o×Qui-2g×Qui-2q",
+      "handle": "Quill-9×Qui-1o×Qui-2g×Qui-2q",
+      "gen": 6,
+      "matches": 68,
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1
+      ],
+      "fold": 189618,
+      "glyphs": "●^1·〜^1·△^1·◐^2·◯^1",
+      "axis": "echo",
+      "foldsBack": true
+    },
+    {
+      "id": "sim:Quill-9×Qui-1o~31",
+      "handle": "Quill-9×Qui-1o~31",
+      "gen": 6,
+      "matches": 34,
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1
+      ],
+      "fold": 189618,
+      "glyphs": "●^1·〜^1·△^1·◐^2·◯^1",
+      "axis": "echo",
+      "foldsBack": true
+    },
+    {
+      "id": "sim:Quill-9×Qui-1o×Sab-2k~2y",
+      "handle": "Quill-9×Qui-1o×Sab-2k~2y",
+      "gen": 8,
+      "matches": 34,
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        2,
+        2,
+        1
+      ],
+      "fold": 2085798,
+      "glyphs": "●^1·〜^1·△^2·◐^2·◯^1",
+      "axis": "echo",
+      "foldsBack": true
+    },
+    {
+      "id": "sim:Quill-9×Qui-1o~2h",
+      "handle": "Quill-9×Qui-1o~2h",
+      "gen": 6,
+      "matches": 102,
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1
+      ],
+      "fold": 189618,
+      "glyphs": "●^1·〜^1·△^1·◐^2·◯^1",
+      "axis": "echo",
+      "foldsBack": true
+    },
+    {
+      "id": "sim:Quill-9×Qui-1o×Qui-2g~36",
+      "handle": "Quill-9×Qui-1o×Qui-2g~36",
+      "gen": 6,
+      "matches": 34,
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1
+      ],
+      "fold": 189618,
+      "glyphs": "●^1·〜^1·△^1·◐^2·◯^1",
+      "axis": "echo",
+      "foldsBack": true
+    },
+    {
+      "id": "sim:Sable-h×Nyx-m~2u",
+      "handle": "Sable-h×Nyx-m~2u",
+      "gen": 6,
+      "matches": 68,
+      "state": [
+        2,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1
+      ],
+      "fold": 1137708,
+      "glyphs": "●^2·〜^2·△^1·◐^2·◯^1",
+      "axis": "blindspot",
+      "foldsBack": true
+    },
+    {
+      "id": "sim:Quill-9×Qui-1o~2t",
+      "handle": "Quill-9×Qui-1o~2t",
+      "gen": 7,
+      "matches": 68,
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1
+      ],
+      "fold": 189618,
+      "glyphs": "●^1·〜^1·△^1·◐^2·◯^1",
+      "axis": "echo",
+      "foldsBack": true
+    },
+    {
+      "id": "sim:Quill-9×Qui-1o~2z",
+      "handle": "Quill-9×Qui-1o~2z",
+      "gen": 7,
+      "matches": 34,
+      "state": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        2,
+        1
+      ],
+      "fold": 63206,
+      "glyphs": "●^1·△^1·◐^2·◯^1",
+      "axis": "echo",
+      "foldsBack": true
+    },
+    {
+      "id": "sim:Loom-30",
+      "handle": "Loom-30",
+      "gen": 9,
+      "matches": 34,
+      "state": [
+        2,
+        2,
+        0,
+        0,
+        2,
+        0,
+        1
+      ],
+      "fold": 74052,
+      "glyphs": "●^2·〜^2·△^2·◯^1",
+      "axis": "tunnel",
+      "foldsBack": true
+    },
+    {
+      "id": "sim:Quill-9×Qui-1o~35",
+      "handle": "Quill-9×Qui-1o~35",
+      "gen": 6,
+      "matches": 34,
+      "state": [
+        1,
+        2,
+        0,
+        0,
+        2,
+        1,
+        0
+      ],
+      "fold": 28314,
+      "glyphs": "●^1·〜^2·△^2·◐^1",
+      "axis": "blindspot",
+      "foldsBack": true
+    }
+  ],
+  "allFoldsRoundTrip": true,
+  "totalRecordedMatches": 986
+}
