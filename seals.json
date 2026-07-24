@@ -2,35 +2,11 @@
   "generated": "2026-07-12",
   "seals": [
     {
-      "id": "seal-ee80cd2b34d5e",
-      "name": "Sealed · Fen-a×Fen-r×Roo-13×Fen-1g~21",
-      "kind": "mcp",
-      "chamber": "market",
-      "atk": 6,
-      "hp": 5,
-      "cost": 5,
-      "rarity": "rare",
-      "keywords": [
-        "Sealed",
-        "Fork",
-        "Marketplace"
-      ],
-      "seal": true,
-      "shadow": "hoard",
-      "resilience": 0.636,
-      "lineage": {
-        "parent": "sim:Fen-a×Fen-r×Roo-13×Fen-1g",
-        "generation": 5
-      },
-      "deckSig": "seal-ee80cd2b34d5e",
-      "cast": "2026-07-12"
-    },
-    {
-      "id": "seal-c980ade740913",
-      "name": "Sealed · Fen-a×Fen-r×Roo-13~2p",
+      "id": "seal-1251a6667f1774",
+      "name": "Sealed · Quill-9×Qui-1o~21",
       "kind": "tool",
-      "chamber": "market",
-      "atk": 7,
+      "chamber": "estate",
+      "atk": 5,
       "hp": 5,
       "cost": 5,
       "rarity": "rare",
@@ -40,13 +16,13 @@
         "Marketplace"
       ],
       "seal": true,
-      "shadow": "hoard",
-      "resilience": 0.66,
+      "shadow": "echo",
+      "resilience": 0.498,
       "lineage": {
-        "parent": "sim:Fen-a×Fen-r×Roo-13~1v",
+        "parent": "sim:Quill-9×Qui-1o",
         "generation": 5
       },
-      "deckSig": "seal-c980ade740913",
+      "deckSig": "seal-1251a6667f1774",
       "cast": "2026-07-12"
     }
   ]

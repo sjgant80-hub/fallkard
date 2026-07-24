@@ -2,655 +2,598 @@
   "generated": "2026-07-12",
   "workers": [
     {
-      "id": "sim:Fen-a×Fen-r×Roo-13~2p",
-      "handle": "Fen-a×Fen-r×Roo-13~2p",
+      "id": "sim:Quill-9×Qui-1o×Qui-2g×Qui-2q~32",
+      "handle": "Quill-9×Qui-1o×Qui-2g×Qui-2q~32",
+      "gen": 7,
+      "parent": "sim:Quill-9×Qui-1o×Qui-2g×Qui-2q",
+      "matured": true,
+      "deckSize": 18,
+      "weights": {
+        "aggro": 1.000565843621399,
+        "curve": 0.1925870786383175,
+        "hpBias": 0.013794581618655693,
+        "lanePref": 0.5147247942386831,
+        "valSealed": 1.1746324159807957,
+        "valFork": 1.09750085733882,
+        "valMarket": 1.4082336676954732,
+        "chamberBias": {
+          "market": 0.17864225617812435,
+          "clinic": 0.30920353223593966,
+          "bridge": -0.30281635802469137,
+          "estate": 0.351119445794153
+        },
+        "kindBias": {
+          "surface": 0,
+          "wellness": 0,
+          "api": 0.21679098079561043,
+          "tool": 0.16746827846364887
+        }
+      }
+    },
+    {
+      "id": "sim:Quill-9×Qui-1o×Qui-2g",
+      "handle": "Quill-9×Qui-1o×Qui-2g",
       "gen": 5,
-      "parent": "sim:Fen-a×Fen-r×Roo-13~1v",
+      "parent": "sim:Quill-9×Qui-1o",
       "matured": true,
       "deckSize": 18,
       "weights": {
-        "aggro": 0.15120027434842248,
-        "curve": 0.7641474645023061,
-        "hpBias": 0.6547303669410152,
-        "lanePref": 0.9448859739368998,
-        "valSealed": 1.1915294924554183,
-        "valFork": 0.9589527606310013,
-        "valMarket": 0.8614026063100136,
+        "aggro": 0.7609932270233196,
+        "curve": 0.43806675970827635,
+        "hpBias": 0.013794581618655693,
+        "lanePref": 0.5147247942386831,
+        "valSealed": 1.1746324159807957,
+        "valFork": 1.1180469821673524,
+        "valMarket": 1.4082336676954732,
         "chamberBias": {
-          "clinic": 0.4463991769547325,
-          "market": 0.2219993141289438,
-          "vault": 0.40148748285322355,
-          "studio": 0.18800475823045262,
-          "estate": 0,
-          "bridge": 0.12093621399176954
+          "market": 0.17864225617812435,
+          "clinic": 0.30920353223593966,
+          "bridge": -0.30281635802469137,
+          "estate": 0.351119445794153
         },
         "kindBias": {
-          "wellness": 0,
           "surface": 0,
-          "sdk": 0.5302061899862826,
-          "tool": 0,
-          "mcp": 0.5075070730452674,
-          "api": 0.3617026748971194
+          "wellness": 0,
+          "api": 0.21679098079561043,
+          "tool": 0.16746827846364887
         }
       }
     },
     {
-      "id": "sim:Fen-a×Fen-r×Roo-13×Fen-1g×Fen-38",
-      "handle": "Fen-a×Fen-r×Roo-13×Fen-1g×Fen-38",
-      "gen": 7,
-      "parent": "sim:Fen-a×Fen-r×Roo-13×Fen-1g~2t",
+      "id": "sim:Quill-9×Qui-1o~38",
+      "handle": "Quill-9×Qui-1o~38",
+      "gen": 8,
+      "parent": "sim:Quill-9×Qui-1o~2t",
       "matured": true,
       "deckSize": 18,
       "weights": {
-        "aggro": 0.15890989368998626,
-        "curve": 0.5448833453292456,
-        "hpBias": 0.5476015946502057,
-        "lanePref": 0.9706200703017831,
-        "valSealed": 1.2592174639917695,
-        "valFork": 0.9966177983539094,
-        "valMarket": 1.1706918724279833,
+        "aggro": 0.9801826131687243,
+        "curve": 0.6269599352912667,
+        "hpBias": 0.013794581618655693,
+        "lanePref": 0.5147247942386831,
+        "valSealed": 1.1746324159807957,
+        "valFork": 1.3596150548696844,
+        "valMarket": 1.2363801011659807,
         "chamberBias": {
-          "clinic": 0.36891289437585734,
-          "market": 0.2219993141289438,
-          "vault": 0.40148748285322355,
-          "studio": 0.13525484396433465,
-          "estate": 0
-        },
-        "kindBias": {
-          "wellness": 0,
-          "surface": 0,
-          "sdk": 0.4201860425240055,
-          "mcp": 0.4079003772290809,
-          "api": 0.3617026748971194,
-          "tool": 0
-        }
-      }
-    },
-    {
-      "id": "sim:Loom-3×Roo-1h~37",
-      "handle": "Loom-3×Roo-1h~37",
-      "gen": 7,
-      "parent": "sim:Loom-3×Roo-1h~2s",
-      "matured": true,
-      "deckSize": 19,
-      "weights": {
-        "aggro": 0.4602580589849108,
-        "curve": 0.4034148842644308,
-        "hpBias": 0.0955354080932784,
-        "lanePref": 0.5279578189300411,
-        "valSealed": 0.7039351851851852,
-        "valFork": 0.522835219478738,
-        "valMarket": 0.6180180469821672,
-        "chamberBias": {
-          "bridge": -0.11519740226337448,
-          "vault": 0.04197102194787375,
-          "clinic": 0.1427383401920439,
-          "market": 0.08981910150891634,
-          "studio": 0,
-          "estate": -0.0044088648834019195,
-          "forge": -0.006493269890260653,
-          "reach": 0.04916302297668035
+          "market": 0.08821677837080559,
+          "clinic": 0.32280199759945133,
+          "bridge": -0.30281635802469137,
+          "estate": 0.41990909771459195
         },
         "kindBias": {
           "surface": 0,
           "wellness": 0,
-          "tool": -0.02341392318244173,
-          "mcp": -0.012821502057613177,
-          "api": 0
+          "api": 0.21679098079561043,
+          "tool": 0.1560013717421125
         }
       }
     },
     {
-      "id": "sim:Fen-a×Fen-r×Roo-13×Fen-1g~35",
-      "handle": "Fen-a×Fen-r×Roo-13×Fen-1g~35",
-      "gen": 7,
-      "parent": "sim:Fen-a×Fen-r×Roo-13×Fen-1g~2c",
-      "matured": true,
-      "deckSize": 18,
-      "weights": {
-        "aggro": 0.15890989368998626,
-        "curve": 1.162833876879314,
-        "hpBias": 0.5476015946502057,
-        "lanePref": 1.0158318329903977,
-        "valSealed": 1.2592174639917695,
-        "valFork": 0.9966177983539094,
-        "valMarket": 1.0095143175582988,
-        "chamberBias": {
-          "clinic": 0.36891289437585734,
-          "market": 0.2219993141289438,
-          "vault": 0.40148748285322355,
-          "studio": 0.13525484396433465,
-          "estate": 0
-        },
-        "kindBias": {
-          "wellness": 0,
-          "surface": 0,
-          "sdk": 0.4201860425240055,
-          "mcp": 0.33740140603566526,
-          "api": 0.3617026748971194,
-          "tool": 0
-        }
-      }
-    },
-    {
-      "id": "sim:Fen-a×Fen-r×Roo-13×Fen-1g~2c",
-      "handle": "Fen-a×Fen-r×Roo-13×Fen-1g~2c",
+      "id": "sim:Quill-9×Qui-1o×Qui-2g×Qui-37",
+      "handle": "Quill-9×Qui-1o×Qui-2g×Qui-37",
       "gen": 6,
-      "parent": "sim:Fen-a×Fen-r×Roo-13×Fen-1g~23",
+      "parent": "sim:Quill-9×Qui-1o×Qui-2g",
       "matured": true,
       "deckSize": 18,
       "weights": {
-        "aggro": 0.15890989368998626,
-        "curve": 0.9223653412140193,
-        "hpBias": 0.5476015946502057,
-        "lanePref": 1.0158318329903977,
-        "valSealed": 1.2592174639917695,
-        "valFork": 0.9966177983539094,
-        "valMarket": 1.0095143175582988,
+        "aggro": 0.7609932270233196,
+        "curve": 0.43806675970827635,
+        "hpBias": 0.013794581618655693,
+        "lanePref": 0.5147247942386831,
+        "valSealed": 1.1746324159807957,
+        "valFork": 1.1180469821673524,
+        "valMarket": 1.4082336676954732,
         "chamberBias": {
-          "clinic": 0.36891289437585734,
-          "market": 0.2219993141289438,
-          "vault": 0.40148748285322355,
-          "studio": 0.13525484396433465,
-          "estate": 0
-        },
-        "kindBias": {
-          "wellness": 0,
-          "surface": 0,
-          "sdk": 0.4201860425240055,
-          "mcp": 0.33740140603566526,
-          "api": 0.3617026748971194,
-          "tool": 0
-        }
-      }
-    },
-    {
-      "id": "sim:Loom-3×Roo-1h~2s",
-      "handle": "Loom-3×Roo-1h~2s",
-      "gen": 6,
-      "parent": "sim:Loom-3×Roo-1h~2g",
-      "matured": true,
-      "deckSize": 19,
-      "weights": {
-        "aggro": 0.4602580589849108,
-        "curve": 0.4726814309036626,
-        "hpBias": 0.28668552812071324,
-        "lanePref": 0.5279578189300411,
-        "valSealed": 0.7039351851851852,
-        "valFork": 0.522835219478738,
-        "valMarket": 0.6180180469821672,
-        "chamberBias": {
-          "bridge": -0.008667695473251025,
-          "vault": 0.04197102194787375,
-          "clinic": 0.1427383401920439,
-          "market": 0.08981910150891634,
-          "studio": 0,
-          "estate": -0.0044088648834019195,
-          "forge": -0.006493269890260653,
-          "reach": 0.04916302297668035
+          "market": 0.17864225617812435,
+          "clinic": 0.30920353223593966,
+          "bridge": -0.30281635802469137,
+          "estate": 0.351119445794153
         },
         "kindBias": {
           "surface": 0,
           "wellness": 0,
-          "tool": -0.02341392318244173,
-          "mcp": -0.012821502057613177,
-          "api": 0
+          "api": 0.21679098079561043,
+          "tool": 0.16746827846364887
         }
       }
     },
     {
-      "id": "sim:Fen-a×Fen-r×Roo-13×Fen-1g×Fen-36",
-      "handle": "Fen-a×Fen-r×Roo-13×Fen-1g×Fen-36",
-      "gen": 7,
-      "parent": "sim:Fen-a×Fen-r×Roo-13×Fen-1g~2c",
-      "matured": true,
-      "deckSize": 18,
-      "weights": {
-        "aggro": 0.2413333762002743,
-        "curve": 0.9333449471382376,
-        "hpBias": 0.5476015946502057,
-        "lanePref": 0.9626511059670781,
-        "valSealed": 1.0863640260631002,
-        "valFork": 1.002181927297668,
-        "valMarket": 0.9871495627572014,
-        "chamberBias": {
-          "clinic": 0.36891289437585734,
-          "market": 0.2219993141289438,
-          "vault": 0.40148748285322355,
-          "studio": 0.13525484396433465,
-          "estate": 0
-        },
-        "kindBias": {
-          "wellness": 0,
-          "surface": 0,
-          "sdk": 0.4201860425240055,
-          "mcp": 0.33740140603566526,
-          "api": 0.3617026748971194,
-          "tool": 0
-        }
-      }
-    },
-    {
-      "id": "sim:Fen-a×Fen-r×Roo-13×Fen-1g~2x",
-      "handle": "Fen-a×Fen-r×Roo-13×Fen-1g~2x",
-      "gen": 6,
-      "parent": "sim:Fen-a×Fen-r×Roo-13×Fen-1g~21",
-      "matured": true,
-      "deckSize": 18,
-      "weights": {
-        "aggro": 0.32375685871056237,
-        "curve": 0.9443245530624559,
-        "hpBias": 0.5476015946502057,
-        "lanePref": 0.9094703789437585,
-        "valSealed": 0.9135105881344308,
-        "valFork": 1.0077460562414267,
-        "valMarket": 0.9647848079561041,
-        "chamberBias": {
-          "clinic": 0.5205279063786008,
-          "market": 0.2219993141289438,
-          "vault": 0.40148748285322355,
-          "studio": 0.13525484396433465,
-          "estate": 0
-        },
-        "kindBias": {
-          "wellness": 0,
-          "surface": 0,
-          "sdk": 0.4201860425240055,
-          "mcp": 0.46305619855967073,
-          "api": 0.3617026748971194,
-          "tool": 0
-        }
-      }
-    },
-    {
-      "id": "sim:Fen-a×Fen-r×Roo-13~2o",
-      "handle": "Fen-a×Fen-r×Roo-13~2o",
+      "id": "sim:Quill-9×Qui-1o~26",
+      "handle": "Quill-9×Qui-1o~26",
       "gen": 5,
-      "parent": "sim:Fen-a×Fen-r×Roo-13~1v",
+      "parent": "sim:Quill-9×Qui-1o",
       "matured": true,
       "deckSize": 18,
       "weights": {
-        "aggro": 0.15120027434842248,
-        "curve": 0.5250728737997257,
-        "hpBias": 0.6547303669410152,
-        "lanePref": 0.9448859739368998,
-        "valSealed": 1.1915294924554183,
-        "valFork": 0.9589527606310013,
-        "valMarket": 0.9806370027434841,
+        "aggro": 0.7609932270233196,
+        "curve": 0.43806675970827635,
+        "hpBias": 0.013794581618655693,
+        "lanePref": 0.5147247942386831,
+        "valSealed": 1.1746324159807957,
+        "valFork": 1.3324459876543209,
+        "valMarket": 1.4082336676954732,
         "chamberBias": {
-          "clinic": 0.4463991769547325,
-          "market": 0.2219993141289438,
-          "vault": 0.3163055126886145,
-          "studio": 0.1700660150891632,
-          "estate": 0,
-          "bridge": 0.12093621399176954
-        },
-        "kindBias": {
-          "wellness": 0,
-          "surface": 0,
-          "sdk": 0.630036865569273,
-          "tool": 0,
-          "mcp": 0.5075070730452674,
-          "api": 0.3617026748971194
-        }
-      }
-    },
-    {
-      "id": "sim:Fen-a×Fen-r×Roo-13~30",
-      "handle": "Fen-a×Fen-r×Roo-13~30",
-      "gen": 6,
-      "parent": "sim:Fen-a×Fen-r×Roo-13~2o",
-      "matured": true,
-      "deckSize": 18,
-      "weights": {
-        "aggro": 0,
-        "curve": 0.5250728737997257,
-        "hpBias": 0.8631687242798355,
-        "lanePref": 0.9877164780521261,
-        "valSealed": 1.1915294924554183,
-        "valFork": 0.7601230281207132,
-        "valMarket": 0.8386788408779149,
-        "chamberBias": {
-          "clinic": 0.4463991769547325,
-          "market": 0.15759387860082308,
-          "vault": 0.3163055126886145,
-          "studio": 0.1700660150891632,
-          "estate": 0,
-          "bridge": 0.12093621399176954
-        },
-        "kindBias": {
-          "wellness": 0,
-          "surface": 0,
-          "sdk": 0.7026663237311386,
-          "tool": 0,
-          "mcp": 0.5075070730452674,
-          "api": 0.3617026748971194
-        }
-      }
-    },
-    {
-      "id": "sim:Fen-a×Fen-r×Roo-13×Fen-1g~2t",
-      "handle": "Fen-a×Fen-r×Roo-13×Fen-1g~2t",
-      "gen": 6,
-      "parent": "sim:Fen-a×Fen-r×Roo-13×Fen-1g~23",
-      "matured": true,
-      "deckSize": 18,
-      "weights": {
-        "aggro": 0.15890989368998626,
-        "curve": 0.5448833453292456,
-        "hpBias": 0.5476015946502057,
-        "lanePref": 0.9706200703017831,
-        "valSealed": 1.2592174639917695,
-        "valFork": 0.9966177983539094,
-        "valMarket": 1.1706918724279833,
-        "chamberBias": {
-          "clinic": 0.36891289437585734,
-          "market": 0.2219993141289438,
-          "vault": 0.40148748285322355,
-          "studio": 0.13525484396433465,
-          "estate": 0
-        },
-        "kindBias": {
-          "wellness": 0,
-          "surface": 0,
-          "sdk": 0.4201860425240055,
-          "mcp": 0.4079003772290809,
-          "api": 0.3617026748971194,
-          "tool": 0
-        }
-      }
-    },
-    {
-      "id": "sim:Fen-a×Fen-r×Roo-13×Fen-1g×Loo-2n×Fen-34",
-      "handle": "Fen-a×Fen-r×Roo-13×Fen-1g×Loo-2n×Fen-34",
-      "gen": 8,
-      "parent": "sim:Fen-a×Fen-r×Roo-13×Fen-1g×Loo-2n",
-      "matured": true,
-      "deckSize": 19,
-      "weights": {
-        "aggro": 0.3751414609053497,
-        "curve": 0.5665340723559809,
-        "hpBias": 0.3709415723593964,
-        "lanePref": 0.8747926311728395,
-        "valSealed": 0.9428771219135802,
-        "valFork": 0.8201013803155006,
-        "valMarket": 0.8481829775377228,
-        "chamberBias": {
-          "market": 0.2219993141289438,
-          "clinic": 0.36891289437585734,
-          "estate": 0,
-          "vault": 0.40148748285322355,
-          "studio": 0.13525484396433465,
-          "bridge": 0,
-          "forge": 0,
-          "reach": 0
+          "market": 0.17864225617812435,
+          "clinic": 0.32280199759945133,
+          "bridge": -0.30281635802469137,
+          "estate": 0.351119445794153
         },
         "kindBias": {
           "surface": 0,
           "wellness": 0,
-          "mcp": 0.4079003772290809,
-          "tool": 0,
-          "api": 0.3617026748971194,
-          "sdk": 0.4201860425240055
+          "api": 0.21679098079561043,
+          "tool": 0.16746827846364887
         }
       }
     },
     {
-      "id": "sim:Fen-a×Fen-r×Roo-13×Fen-1g×Loo-2n~33",
-      "handle": "Fen-a×Fen-r×Roo-13×Fen-1g×Loo-2n~33",
-      "gen": 8,
-      "parent": "sim:Fen-a×Fen-r×Roo-13×Fen-1g×Loo-2n",
-      "matured": true,
-      "deckSize": 19,
-      "weights": {
-        "aggro": 0.3751414609053497,
-        "curve": 0.48069730966736635,
-        "hpBias": 0.3709415723593964,
-        "lanePref": 0.8747926311728395,
-        "valSealed": 0.9428771219135802,
-        "valFork": 0.8201013803155006,
-        "valMarket": 0.8481829775377228,
-        "chamberBias": {
-          "market": 0.2219993141289438,
-          "clinic": 0.36891289437585734,
-          "estate": 0,
-          "vault": 0.4999764231824416,
-          "studio": 0.13525484396433465,
-          "bridge": 0,
-          "reach": 0
-        },
-        "kindBias": {
-          "surface": 0,
-          "wellness": 0,
-          "mcp": 0.35570451817558296,
-          "tool": 0,
-          "api": 0.3617026748971194,
-          "sdk": 0.4201860425240055
-        }
-      }
-    },
-    {
-      "id": "sim:Fen-a×Fen-r×Roo-13×Fen-1g×Loo-2n~2y",
-      "handle": "Fen-a×Fen-r×Roo-13×Fen-1g×Loo-2n~2y",
-      "gen": 8,
-      "parent": "sim:Fen-a×Fen-r×Roo-13×Fen-1g×Loo-2n",
-      "matured": true,
-      "deckSize": 19,
-      "weights": {
-        "aggro": 0.3751414609053497,
-        "curve": 0.6069489871902222,
-        "hpBias": 0.3709415723593964,
-        "lanePref": 0.6594612697187928,
-        "valSealed": 0.9667732981824417,
-        "valFork": 0.9530810613854594,
-        "valMarket": 0.8481829775377228,
-        "chamberBias": {
-          "market": 0.2219993141289438,
-          "clinic": 0.36891289437585734,
-          "estate": 0,
-          "vault": 0.40148748285322355,
-          "studio": 0.13525484396433465,
-          "bridge": 0,
-          "forge": 0,
-          "reach": 0
-        },
-        "kindBias": {
-          "surface": 0,
-          "wellness": 0,
-          "mcp": 0.4079003772290809,
-          "tool": 0,
-          "api": 0.3617026748971194,
-          "sdk": 0.4201860425240055
-        }
-      }
-    },
-    {
-      "id": "sim:Fen-a×Fen-r×Roo-13~2z",
-      "handle": "Fen-a×Fen-r×Roo-13~2z",
-      "gen": 6,
-      "parent": "sim:Fen-a×Fen-r×Roo-13~2o",
-      "matured": true,
-      "deckSize": 18,
-      "weights": {
-        "aggro": 0.15120027434842248,
-        "curve": 0.5250728737997257,
-        "hpBias": 0.43058984910836773,
-        "lanePref": 1.1744791666666665,
-        "valSealed": 1.1915294924554183,
-        "valFork": 0.8666388031550067,
-        "valMarket": 0.9806370027434841,
-        "chamberBias": {
-          "clinic": 0.4463991769547325,
-          "market": 0.2219993141289438,
-          "vault": 0.3163055126886145,
-          "studio": 0.1700660150891632,
-          "estate": -0.03277713477366255,
-          "bridge": 0.12093621399176954
-        },
-        "kindBias": {
-          "wellness": 0,
-          "surface": 0,
-          "sdk": 0.630036865569273,
-          "tool": 0,
-          "mcp": 0.5075070730452674,
-          "api": 0.3617026748971194
-        }
-      }
-    },
-    {
-      "id": "sim:Fen-a×Fen-r×Roo-13×Fen-1g×Fen-31",
-      "handle": "Fen-a×Fen-r×Roo-13×Fen-1g×Fen-31",
-      "gen": 8,
-      "parent": "sim:Fen-a×Fen-r×Roo-13×Fen-1g~2t",
-      "matured": true,
-      "deckSize": 18,
-      "weights": {
-        "aggro": 0.267025677297668,
-        "curve": 0.5557087088426133,
-        "hpBias": 0.4592715835048011,
-        "lanePref": 0.9227063507373112,
-        "valSealed": 1.101047292952675,
-        "valFork": 0.908359589334705,
-        "valMarket": 1.009437424982853,
-        "chamberBias": {
-          "clinic": 0.36891289437585734,
-          "market": 0.2219993141289438,
-          "studio": 0.13525484396433465,
-          "vault": 0.40148748285322355,
-          "estate": 0,
-          "bridge": 0,
-          "forge": 0
-        },
-        "kindBias": {
-          "wellness": 0,
-          "surface": 0,
-          "sdk": 0.4201860425240055,
-          "mcp": 0.4079003772290809,
-          "api": 0.3617026748971194,
-          "tool": 0
-        }
-      }
-    },
-    {
-      "id": "sim:Fen-a×Fen-r×Roo-13×Fen-1g×Loo-2n",
-      "handle": "Fen-a×Fen-r×Roo-13×Fen-1g×Loo-2n",
+      "id": "sim:Sable-h×Nyx-m~34",
+      "handle": "Sable-h×Nyx-m~34",
       "gen": 7,
-      "parent": "sim:Fen-a×Fen-r×Roo-13×Fen-1g~2m",
+      "parent": "sim:Sable-h×Nyx-m~2u",
       "matured": true,
-      "deckSize": 19,
+      "deckSize": 20,
       "weights": {
-        "aggro": 0.3751414609053497,
-        "curve": 0.5665340723559809,
-        "hpBias": 0.3709415723593964,
-        "lanePref": 0.8747926311728395,
-        "valSealed": 0.9428771219135802,
-        "valFork": 0.8201013803155006,
-        "valMarket": 0.8481829775377228,
+        "aggro": 0.8147012174211248,
+        "curve": 0.5465727880658436,
+        "hpBias": 0.048088134430727014,
+        "lanePref": 0.8461526920438958,
+        "valSealed": 0.2924768518518518,
+        "valFork": 1.1267146776406036,
+        "valMarket": 1.1566229423868313,
         "chamberBias": {
-          "market": 0.2219993141289438,
-          "clinic": 0.36891289437585734,
-          "estate": 0,
-          "vault": 0.40148748285322355,
-          "studio": 0.13525484396433465,
-          "bridge": 0,
-          "forge": 0,
-          "reach": 0
+          "market": 0.319880615569273,
+          "colony": 0.19367283950617287,
+          "bridge": -0.32939386145404664,
+          "clinic": -0.45399948559670783,
+          "forge": 0.35035901063100133,
+          "vault": 0.1067986968449931,
+          "studio": 0
         },
         "kindBias": {
           "surface": 0,
           "wellness": 0,
-          "mcp": 0.4079003772290809,
-          "tool": 0,
-          "api": 0.3617026748971194,
-          "sdk": 0.4201860425240055
+          "tool": -0.06527134773662556,
+          "sdk": -0.045208547668038404,
+          "mcp": 0.2968546382030179
         }
       }
     },
     {
-      "id": "sim:Thane-32",
-      "handle": "Thane-32",
+      "id": "sim:Quill-9×Qui-1o×Sab-2k~2x",
+      "handle": "Quill-9×Qui-1o×Sab-2k~2x",
+      "gen": 7,
+      "parent": "sim:Quill-9×Qui-1o×Sab-2k",
+      "matured": true,
+      "deckSize": 20,
+      "weights": {
+        "aggro": 0.8494941700960221,
+        "curve": 0.21903337985413818,
+        "hpBias": 0.12293381344307269,
+        "lanePref": 0.5473840449245542,
+        "valSealed": 0.7726385673868313,
+        "valFork": 1.7103898748285322,
+        "valMarket": 1.4589436514060357,
+        "chamberBias": {
+          "market": 0.08961428925290765,
+          "clinic": 0.32280199759945133,
+          "bridge": -0.30281635802469137,
+          "forge": 0,
+          "vault": 0,
+          "estate": 0.351119445794153
+        },
+        "kindBias": {
+          "surface": 0,
+          "wellness": 0,
+          "tool": 0.28346514917695476,
+          "mcp": -0.10263953189300412,
+          "api": 0.21679098079561043
+        }
+      }
+    },
+    {
+      "id": "sim:Quill-9×Qui-1o×Qui-2g×Qui-2q~33",
+      "handle": "Quill-9×Qui-1o×Qui-2g×Qui-2q~33",
+      "gen": 7,
+      "parent": "sim:Quill-9×Qui-1o×Qui-2g×Qui-2q",
+      "matured": true,
+      "deckSize": 18,
+      "weights": {
+        "aggro": 0.7609932270233196,
+        "curve": 0.43806675970827635,
+        "hpBias": 0.013794581618655693,
+        "lanePref": 0.5147247942386831,
+        "valSealed": 1.1746324159807957,
+        "valFork": 1.3242584019204389,
+        "valMarket": 1.4082336676954732,
+        "chamberBias": {
+          "market": 0.2760798847789474,
+          "clinic": 0.30920353223593966,
+          "bridge": -0.30281635802469137,
+          "estate": 0.351119445794153
+        },
+        "kindBias": {
+          "surface": 0,
+          "wellness": 0,
+          "api": 0.21679098079561043,
+          "tool": 0.16746827846364887
+        }
+      }
+    },
+    {
+      "id": "sim:Quill-9×Qui-1o×Qui-2g×Qui-2q",
+      "handle": "Quill-9×Qui-1o×Qui-2g×Qui-2q",
+      "gen": 6,
+      "parent": "sim:Quill-9×Qui-1o×Qui-2g",
+      "matured": true,
+      "deckSize": 18,
+      "weights": {
+        "aggro": 0.7609932270233196,
+        "curve": 0.43806675970827635,
+        "hpBias": 0.013794581618655693,
+        "lanePref": 0.5147247942386831,
+        "valSealed": 1.1746324159807957,
+        "valFork": 1.1180469821673524,
+        "valMarket": 1.4082336676954732,
+        "chamberBias": {
+          "market": 0.17864225617812435,
+          "clinic": 0.30920353223593966,
+          "bridge": -0.30281635802469137,
+          "estate": 0.351119445794153
+        },
+        "kindBias": {
+          "surface": 0,
+          "wellness": 0,
+          "api": 0.21679098079561043,
+          "tool": 0.16746827846364887
+        }
+      }
+    },
+    {
+      "id": "sim:Quill-9×Qui-1o~31",
+      "handle": "Quill-9×Qui-1o~31",
+      "gen": 6,
+      "parent": "sim:Quill-9×Qui-1o~26",
+      "matured": true,
+      "deckSize": 18,
+      "weights": {
+        "aggro": 0.7609932270233196,
+        "curve": 0.43806675970827635,
+        "hpBias": 0.14011488340192044,
+        "lanePref": 0.5147247942386831,
+        "valSealed": 1.1746324159807957,
+        "valFork": 1.3324459876543209,
+        "valMarket": 1.4082336676954732,
+        "chamberBias": {
+          "market": 0.17864225617812435,
+          "clinic": 0.32280199759945133,
+          "bridge": -0.30281635802469137,
+          "estate": 0.39479228530032584
+        },
+        "kindBias": {
+          "surface": 0,
+          "wellness": 0,
+          "api": 0.21679098079561043,
+          "tool": 0.16746827846364887
+        }
+      }
+    },
+    {
+      "id": "sim:Quill-9×Qui-1o×Sab-2k~2y",
+      "handle": "Quill-9×Qui-1o×Sab-2k~2y",
+      "gen": 8,
+      "parent": "sim:Quill-9×Qui-1o×Sab-2k~2x",
+      "matured": true,
+      "deckSize": 20,
+      "weights": {
+        "aggro": 0.8494941700960221,
+        "curve": 0.21903337985413818,
+        "hpBias": 0.12293381344307269,
+        "lanePref": 0.5473840449245542,
+        "valSealed": 0.7726385673868313,
+        "valFork": 1.7103898748285322,
+        "valMarket": 1.2889633701989025,
+        "chamberBias": {
+          "market": 0.08961428925290765,
+          "clinic": 0.29919945987654323,
+          "bridge": -0.30281635802469137,
+          "forge": 0,
+          "vault": 0,
+          "estate": 0.351119445794153
+        },
+        "kindBias": {
+          "surface": 0,
+          "wellness": 0,
+          "tool": 0.28346514917695476,
+          "mcp": -0.10263953189300412,
+          "api": 0.21679098079561043
+        }
+      }
+    },
+    {
+      "id": "sim:Quill-9×Qui-1o~2h",
+      "handle": "Quill-9×Qui-1o~2h",
+      "gen": 6,
+      "parent": "sim:Quill-9×Qui-1o~26",
+      "matured": true,
+      "deckSize": 18,
+      "weights": {
+        "aggro": 0.9801826131687243,
+        "curve": 0.4422655765807043,
+        "hpBias": 0.013794581618655693,
+        "lanePref": 0.5147247942386831,
+        "valSealed": 1.1746324159807957,
+        "valFork": 1.3324459876543209,
+        "valMarket": 1.4186953446502057,
+        "chamberBias": {
+          "market": 0.17864225617812435,
+          "clinic": 0.32280199759945133,
+          "bridge": -0.30281635802469137,
+          "estate": 0.41990909771459195
+        },
+        "kindBias": {
+          "surface": 0,
+          "wellness": 0,
+          "api": 0.21679098079561043,
+          "tool": 0.0473047410836763
+        }
+      }
+    },
+    {
+      "id": "sim:Quill-9×Qui-1o×Qui-2g~36",
+      "handle": "Quill-9×Qui-1o×Qui-2g~36",
+      "gen": 6,
+      "parent": "sim:Quill-9×Qui-1o×Qui-2g",
+      "matured": true,
+      "deckSize": 18,
+      "weights": {
+        "aggro": 0.7609932270233196,
+        "curve": 0.43806675970827635,
+        "hpBias": 0.013794581618655693,
+        "lanePref": 0.5147247942386831,
+        "valSealed": 1.1746324159807957,
+        "valFork": 1.1180469821673524,
+        "valMarket": 1.4269000771604938,
+        "chamberBias": {
+          "market": 0.08824574565778034,
+          "clinic": 0.30920353223593966,
+          "bridge": -0.30281635802469137,
+          "estate": 0.351119445794153,
+          "vault": 0
+        },
+        "kindBias": {
+          "surface": 0,
+          "wellness": 0,
+          "api": 0.21679098079561043,
+          "tool": 0.16746827846364887
+        }
+      }
+    },
+    {
+      "id": "sim:Sable-h×Nyx-m~2u",
+      "handle": "Sable-h×Nyx-m~2u",
+      "gen": 6,
+      "parent": "sim:Sable-h×Nyx-m~2l",
+      "matured": true,
+      "deckSize": 20,
+      "weights": {
+        "aggro": 0.6161329732510288,
+        "curve": 0.5465727880658436,
+        "hpBias": 0.281380744170096,
+        "lanePref": 0.783633401920439,
+        "valSealed": 0.2924768518518518,
+        "valFork": 1.1267146776406036,
+        "valMarket": 1.1566229423868313,
+        "chamberBias": {
+          "market": 0.319880615569273,
+          "colony": 0.19367283950617287,
+          "bridge": -0.32939386145404664,
+          "clinic": -0.45399948559670783,
+          "forge": 0.35035901063100133,
+          "vault": 0.1067986968449931,
+          "studio": 0
+        },
+        "kindBias": {
+          "surface": 0,
+          "wellness": 0,
+          "tool": -0.06527134773662556,
+          "sdk": -0.045208547668038404,
+          "mcp": 0.30456961591220855
+        }
+      }
+    },
+    {
+      "id": "sim:Quill-9×Qui-1o~2t",
+      "handle": "Quill-9×Qui-1o~2t",
+      "gen": 7,
+      "parent": "sim:Quill-9×Qui-1o~2h",
+      "matured": true,
+      "deckSize": 18,
+      "weights": {
+        "aggro": 0.9801826131687243,
+        "curve": 0.4422655765807043,
+        "hpBias": 0.013794581618655693,
+        "lanePref": 0.5147247942386831,
+        "valSealed": 1.1746324159807957,
+        "valFork": 1.3324459876543209,
+        "valMarket": 1.3863929612482853,
+        "chamberBias": {
+          "market": 0.17864225617812435,
+          "clinic": 0.32280199759945133,
+          "bridge": -0.30281635802469137,
+          "estate": 0.41990909771459195
+        },
+        "kindBias": {
+          "surface": 0,
+          "wellness": 0,
+          "api": 0.21679098079561043,
+          "tool": 0.1560013717421125
+        }
+      }
+    },
+    {
+      "id": "sim:Quill-9×Qui-1o~2z",
+      "handle": "Quill-9×Qui-1o~2z",
+      "gen": 7,
+      "parent": "sim:Quill-9×Qui-1o~2h",
+      "matured": true,
+      "deckSize": 18,
+      "weights": {
+        "aggro": 0.9801826131687243,
+        "curve": 0.4422655765807043,
+        "hpBias": 0.013794581618655693,
+        "lanePref": 0.5147247942386831,
+        "valSealed": 1.1746324159807957,
+        "valFork": 1.3324459876543209,
+        "valMarket": 1.4186953446502057,
+        "chamberBias": {
+          "market": 0.04018822687353622,
+          "clinic": 0.32280199759945133,
+          "bridge": -0.30281635802469137,
+          "estate": 0.41990909771459195
+        },
+        "kindBias": {
+          "surface": 0,
+          "wellness": 0,
+          "api": 0.21679098079561043,
+          "tool": 0.0473047410836763
+        }
+      }
+    },
+    {
+      "id": "sim:Loom-30",
+      "handle": "Loom-30",
       "gen": 9,
       "parent": null,
       "matured": false,
-      "deckSize": 20,
+      "deckSize": 16,
       "weights": {
-        "aggro": 0.99832390260631,
-        "curve": 0.6219393004115227,
-        "hpBias": 0.8687542866941015,
-        "lanePref": 0.4949417009602195,
-        "valSealed": 1.3281635802469136,
-        "valFork": 1.67210219478738,
-        "valMarket": 0.6451560356652949,
+        "aggro": 0.7343064128943758,
+        "curve": 0.9952674897119341,
+        "hpBias": 0.19424296982167352,
+        "lanePref": 0.8651834705075446,
+        "valSealed": 0.5655606995884773,
+        "valFork": 0.7027091906721536,
+        "valMarket": 0.3208247599451303,
         "chamberBias": {
-          "bridge": 0.4582647462277092,
-          "colony": 0.24547753772290815,
-          "vault": 0.07475565843621401,
-          "clinic": -0.48629972565157753,
-          "market": 0.009465020576131633
+          "studio": 0.4105924211248285,
+          "forge": 0.13143004115226342,
+          "bridge": -0.30112311385459534,
+          "clinic": -0.09136659807956105
+        },
+        "kindBias": {
+          "sdk": 0.4652391975308642,
+          "surface": 0,
+          "wellness": 0
+        }
+      }
+    },
+    {
+      "id": "sim:Quill-9×Qui-1o~35",
+      "handle": "Quill-9×Qui-1o~35",
+      "gen": 6,
+      "parent": "sim:Quill-9×Qui-1o~26",
+      "matured": true,
+      "deckSize": 18,
+      "weights": {
+        "aggro": 0.7609932270233196,
+        "curve": 0.43806675970827635,
+        "hpBias": 0.013794581618655693,
+        "lanePref": 0.3658093278463649,
+        "valSealed": 1.1746324159807957,
+        "valFork": 1.3324459876543209,
+        "valMarket": 1.4082336676954732,
+        "chamberBias": {
+          "market": 0.17864225617812435,
+          "clinic": 0.32280199759945133,
+          "bridge": -0.30281635802469137,
+          "estate": 0.351119445794153,
+          "vault": 0
         },
         "kindBias": {
           "surface": 0,
           "wellness": 0,
-          "api": -0.20679869684499314,
-          "mcp": -0.22335819615912206
+          "api": 0.21679098079561043,
+          "tool": 0.16746827846364887,
+          "mcp": 0
         }
       }
     }
   ],
   "births": [
     {
-      "id": "sim:Rook-0",
+      "id": "sim:Thane-0",
       "parent": null,
       "gen": 0,
-      "handle": "Rook-0"
+      "handle": "Thane-0"
     },
     {
-      "id": "sim:Mire-1",
+      "id": "sim:Forge-1",
       "parent": null,
       "gen": 0,
-      "handle": "Mire-1"
+      "handle": "Forge-1"
     },
     {
-      "id": "sim:Kade-2",
+      "id": "sim:Fen-2",
       "parent": null,
       "gen": 0,
-      "handle": "Kade-2"
+      "handle": "Fen-2"
     },
     {
-      "id": "sim:Loom-3",
+      "id": "sim:Corvid-3",
       "parent": null,
       "gen": 0,
-      "handle": "Loom-3"
+      "handle": "Corvid-3"
     },
     {
-      "id": "sim:Ø-4",
+      "id": "sim:Fen-4",
       "parent": null,
       "gen": 0,
-      "handle": "Ø-4"
+      "handle": "Fen-4"
     },
     {
-      "id": "sim:Vell-5",
+      "id": "sim:Ø-5",
       "parent": null,
       "gen": 0,
-      "handle": "Vell-5"
+      "handle": "Ø-5"
     },
     {
-      "id": "sim:Ash-6",
+      "id": "sim:Vell-6",
       "parent": null,
       "gen": 0,
-      "handle": "Ash-6"
+      "handle": "Vell-6"
     },
     {
-      "id": "sim:Rook-7",
+      "id": "sim:Nyx-7",
       "parent": null,
       "gen": 0,
-      "handle": "Rook-7"
+      "handle": "Nyx-7"
     },
     {
-      "id": "sim:Loom-8",
+      "id": "sim:Cinder-8",
       "parent": null,
       "gen": 0,
-      "handle": "Loom-8"
+      "handle": "Cinder-8"
     },
     {
       "id": "sim:Quill-9",
@@ -659,40 +602,40 @@
       "handle": "Quill-9"
     },
     {
-      "id": "sim:Fen-a",
+      "id": "sim:Quill-a",
       "parent": null,
       "gen": 0,
-      "handle": "Fen-a"
+      "handle": "Quill-a"
     },
     {
-      "id": "sim:Kade-b",
+      "id": "sim:Mire-b",
       "parent": null,
       "gen": 0,
-      "handle": "Kade-b"
+      "handle": "Mire-b"
     },
     {
-      "id": "sim:Quill-c",
+      "id": "sim:Rook-c",
       "parent": null,
       "gen": 0,
-      "handle": "Quill-c"
+      "handle": "Rook-c"
     },
     {
-      "id": "sim:Mire-d",
+      "id": "sim:Onyx-d",
       "parent": null,
       "gen": 0,
-      "handle": "Mire-d"
+      "handle": "Onyx-d"
     },
     {
-      "id": "sim:Corvid-e",
+      "id": "sim:Vell-e",
       "parent": null,
       "gen": 0,
-      "handle": "Corvid-e"
+      "handle": "Vell-e"
     },
     {
-      "id": "sim:Rook-f",
+      "id": "sim:Cinder-f",
       "parent": null,
       "gen": 0,
-      "handle": "Rook-f"
+      "handle": "Cinder-f"
     },
     {
       "id": "sim:Nyx-g",
@@ -701,604 +644,604 @@
       "handle": "Nyx-g"
     },
     {
-      "id": "sim:Kade-h",
+      "id": "sim:Sable-h",
       "parent": null,
       "gen": 0,
-      "handle": "Kade-h"
+      "handle": "Sable-h"
     },
     {
-      "id": "sim:Fen-a~i",
-      "parent": "sim:Fen-a",
+      "id": "sim:Nyx-g~i",
+      "parent": "sim:Nyx-g",
       "gen": 1,
-      "handle": "Fen-a~i"
+      "handle": "Nyx-g~i"
     },
     {
-      "id": "sim:Mire-d×Loo-j",
-      "parent": "sim:Mire-d",
+      "id": "sim:Fen-4×Qui-j",
+      "parent": "sim:Fen-4",
       "gen": 1,
-      "handle": "Mire-d×Loo-j"
+      "handle": "Fen-4×Qui-j"
     },
     {
-      "id": "sim:Loom-8~k",
-      "parent": "sim:Loom-8",
+      "id": "sim:Sable-h~k",
+      "parent": "sim:Sable-h",
       "gen": 1,
-      "handle": "Loom-8~k"
+      "handle": "Sable-h~k"
     },
     {
-      "id": "sim:Corvid-l",
-      "parent": null,
+      "id": "sim:Fen-4~l",
+      "parent": "sim:Fen-4",
       "gen": 1,
-      "handle": "Corvid-l"
+      "handle": "Fen-4~l"
     },
     {
-      "id": "sim:Loom-3~m",
-      "parent": "sim:Loom-3",
+      "id": "sim:Sable-h×Nyx-m",
+      "parent": "sim:Sable-h",
       "gen": 1,
-      "handle": "Loom-3~m"
+      "handle": "Sable-h×Nyx-m"
     },
     {
-      "id": "sim:Loom-3~n",
-      "parent": "sim:Loom-3",
+      "id": "sim:Quill-9~n",
+      "parent": "sim:Quill-9",
       "gen": 1,
-      "handle": "Loom-3~n"
+      "handle": "Quill-9~n"
     },
     {
-      "id": "sim:Vell-5~o",
-      "parent": "sim:Vell-5",
+      "id": "sim:Fen-2×Cin-o",
+      "parent": "sim:Fen-2",
       "gen": 1,
-      "handle": "Vell-5~o"
+      "handle": "Fen-2×Cin-o"
     },
     {
-      "id": "sim:Mire-d×Vel-p",
-      "parent": "sim:Mire-d",
-      "gen": 1,
-      "handle": "Mire-d×Vel-p"
-    },
-    {
-      "id": "sim:Rook-q",
+      "id": "sim:Fen-p",
       "parent": null,
       "gen": 1,
-      "handle": "Rook-q"
+      "handle": "Fen-p"
     },
     {
-      "id": "sim:Fen-a×Fen-r",
-      "parent": "sim:Fen-a",
+      "id": "sim:Quill-9×Fen-q",
+      "parent": "sim:Quill-9",
       "gen": 1,
-      "handle": "Fen-a×Fen-r"
+      "handle": "Quill-9×Fen-q"
     },
     {
-      "id": "sim:Vell-5~s",
-      "parent": "sim:Vell-5",
+      "id": "sim:Cinder-f~r",
+      "parent": "sim:Cinder-f",
       "gen": 1,
-      "handle": "Vell-5~s"
+      "handle": "Cinder-f~r"
     },
     {
-      "id": "sim:Loom-3~t",
-      "parent": "sim:Loom-3~n",
-      "gen": 2,
-      "handle": "Loom-3~t"
+      "id": "sim:Cinder-f~s",
+      "parent": "sim:Cinder-f",
+      "gen": 1,
+      "handle": "Cinder-f~s"
     },
     {
-      "id": "sim:Swarm-u",
+      "id": "sim:Wren-t",
       "parent": null,
       "gen": 2,
-      "handle": "Swarm-u"
+      "handle": "Wren-t"
     },
     {
-      "id": "sim:Fen-a×Fen-r×Fen-v",
-      "parent": "sim:Fen-a×Fen-r",
+      "id": "sim:Quill-9~u",
+      "parent": "sim:Quill-9",
       "gen": 2,
-      "handle": "Fen-a×Fen-r×Fen-v"
+      "handle": "Quill-9~u"
     },
     {
-      "id": "sim:Fen-a~w",
-      "parent": "sim:Fen-a",
+      "id": "sim:Sable-h~v",
+      "parent": "sim:Sable-h",
       "gen": 2,
-      "handle": "Fen-a~w"
+      "handle": "Sable-h~v"
     },
     {
-      "id": "sim:Loom-3~x",
-      "parent": "sim:Loom-3~m",
+      "id": "sim:Quill-9~w",
+      "parent": "sim:Quill-9~n",
       "gen": 2,
-      "handle": "Loom-3~x"
+      "handle": "Quill-9~w"
     },
     {
-      "id": "sim:Fen-a×Roo-y",
-      "parent": "sim:Fen-a~i",
+      "id": "sim:Quill-9~x",
+      "parent": "sim:Quill-9~n",
       "gen": 2,
-      "handle": "Fen-a×Roo-y"
+      "handle": "Quill-9~x"
     },
     {
-      "id": "sim:Loom-3~z",
-      "parent": "sim:Loom-3~n",
+      "id": "sim:Sable-h~y",
+      "parent": "sim:Sable-h~k",
       "gen": 2,
-      "handle": "Loom-3~z"
+      "handle": "Sable-h~y"
     },
     {
-      "id": "sim:Loom-3~10",
-      "parent": "sim:Loom-3~n",
+      "id": "sim:Sable-h~z",
+      "parent": "sim:Sable-h~k",
       "gen": 2,
-      "handle": "Loom-3~10"
+      "handle": "Sable-h~z"
     },
     {
-      "id": "sim:Loom-3~11",
-      "parent": "sim:Loom-3~n",
+      "id": "sim:Nyx-g~10",
+      "parent": "sim:Nyx-g~i",
       "gen": 2,
-      "handle": "Loom-3~11"
+      "handle": "Nyx-g~10"
     },
     {
-      "id": "sim:Onyx-12",
-      "parent": null,
+      "id": "sim:Nyx-g~11",
+      "parent": "sim:Nyx-g~i",
       "gen": 2,
-      "handle": "Onyx-12"
+      "handle": "Nyx-g~11"
     },
     {
-      "id": "sim:Fen-a×Fen-r×Roo-13",
-      "parent": "sim:Fen-a×Fen-r",
+      "id": "sim:Quill-9~12",
+      "parent": "sim:Quill-9~n",
       "gen": 2,
-      "handle": "Fen-a×Fen-r×Roo-13"
+      "handle": "Quill-9~12"
     },
     {
-      "id": "sim:Loom-3~14",
-      "parent": "sim:Loom-3~x",
+      "id": "sim:Quill-9×Qui-13",
+      "parent": "sim:Quill-9",
+      "gen": 2,
+      "handle": "Quill-9×Qui-13"
+    },
+    {
+      "id": "sim:Sable-h~14",
+      "parent": "sim:Sable-h~y",
       "gen": 3,
-      "handle": "Loom-3~14"
+      "handle": "Sable-h~14"
     },
     {
-      "id": "sim:Loom-3~15",
-      "parent": "sim:Loom-3~n",
+      "id": "sim:Quill-9×Qui-13~15",
+      "parent": "sim:Quill-9×Qui-13",
       "gen": 3,
-      "handle": "Loom-3~15"
+      "handle": "Quill-9×Qui-13~15"
     },
     {
-      "id": "sim:Rook-7~16",
-      "parent": "sim:Rook-7",
+      "id": "sim:Sable-h×Qui-16",
+      "parent": "sim:Sable-h~y",
       "gen": 3,
-      "handle": "Rook-7~16"
+      "handle": "Sable-h×Qui-16"
     },
     {
-      "id": "sim:Fen-a×Fen-r×Roo-13~17",
-      "parent": "sim:Fen-a×Fen-r×Roo-13",
+      "id": "sim:Sable-h~17",
+      "parent": "sim:Sable-h~y",
       "gen": 3,
-      "handle": "Fen-a×Fen-r×Roo-13~17"
+      "handle": "Sable-h~17"
     },
     {
-      "id": "sim:Loom-3~18",
-      "parent": "sim:Loom-3~10",
-      "gen": 3,
-      "handle": "Loom-3~18"
-    },
-    {
-      "id": "sim:Loom-3×Fen-19",
-      "parent": "sim:Loom-3~t",
-      "gen": 3,
-      "handle": "Loom-3×Fen-19"
-    },
-    {
-      "id": "sim:Fen-a×Fen-r×Roo-13~1a",
-      "parent": "sim:Fen-a×Fen-r×Roo-13",
-      "gen": 3,
-      "handle": "Fen-a×Fen-r×Roo-13~1a"
-    },
-    {
-      "id": "sim:Fen-a×Fen-r×Roo-13×Loo-1b",
-      "parent": "sim:Fen-a×Fen-r×Roo-13",
-      "gen": 3,
-      "handle": "Fen-a×Fen-r×Roo-13×Loo-1b"
-    },
-    {
-      "id": "sim:Loom-3~1c",
-      "parent": "sim:Loom-3~x",
-      "gen": 3,
-      "handle": "Loom-3~1c"
-    },
-    {
-      "id": "sim:Bloom-1d",
+      "id": "sim:Kade-18",
       "parent": null,
       "gen": 3,
-      "handle": "Bloom-1d"
+      "handle": "Kade-18"
     },
     {
-      "id": "sim:Fen-a×Fen-r×Roo-13~1e",
-      "parent": "sim:Fen-a×Fen-r×Roo-13",
+      "id": "sim:Quill-9~19",
+      "parent": "sim:Quill-9~x",
       "gen": 3,
-      "handle": "Fen-a×Fen-r×Roo-13~1e"
+      "handle": "Quill-9~19"
     },
     {
-      "id": "sim:Loom-3×Loo-1f",
-      "parent": "sim:Loom-3~1c",
+      "id": "sim:Sable-h~1a",
+      "parent": "sim:Sable-h~y",
+      "gen": 3,
+      "handle": "Sable-h~1a"
+    },
+    {
+      "id": "sim:Quill-9×Qui-13~1b",
+      "parent": "sim:Quill-9×Qui-13",
+      "gen": 3,
+      "handle": "Quill-9×Qui-13~1b"
+    },
+    {
+      "id": "sim:Sable-h×Nyx-m~1c",
+      "parent": "sim:Sable-h×Nyx-m",
+      "gen": 3,
+      "handle": "Sable-h×Nyx-m~1c"
+    },
+    {
+      "id": "sim:Quill-9~1d",
+      "parent": "sim:Quill-9~x",
+      "gen": 3,
+      "handle": "Quill-9~1d"
+    },
+    {
+      "id": "sim:Fen-1e",
+      "parent": null,
+      "gen": 3,
+      "handle": "Fen-1e"
+    },
+    {
+      "id": "sim:Sable-h×Nyx-m×Qui-1f",
+      "parent": "sim:Sable-h×Nyx-m~1c",
       "gen": 4,
-      "handle": "Loom-3×Loo-1f"
+      "handle": "Sable-h×Nyx-m×Qui-1f"
     },
     {
-      "id": "sim:Fen-a×Fen-r×Roo-13×Fen-1g",
-      "parent": "sim:Fen-a×Fen-r×Roo-13~1e",
+      "id": "sim:Quill-9~1g",
+      "parent": "sim:Quill-9~1d",
       "gen": 4,
-      "handle": "Fen-a×Fen-r×Roo-13×Fen-1g"
+      "handle": "Quill-9~1g"
     },
     {
-      "id": "sim:Loom-3×Roo-1h",
-      "parent": "sim:Loom-3~10",
+      "id": "sim:Sable-h×Nyx-m×Qui-1h",
+      "parent": "sim:Sable-h×Nyx-m~1c",
       "gen": 4,
-      "handle": "Loom-3×Roo-1h"
+      "handle": "Sable-h×Nyx-m×Qui-1h"
     },
     {
-      "id": "sim:Loom-3~1i",
-      "parent": "sim:Loom-3~10",
+      "id": "sim:Quill-9×Sab-1i",
+      "parent": "sim:Quill-9~w",
       "gen": 4,
-      "handle": "Loom-3~1i"
+      "handle": "Quill-9×Sab-1i"
     },
     {
-      "id": "sim:Nyx-1j",
+      "id": "sim:Quill-9~1j",
+      "parent": "sim:Quill-9~19",
+      "gen": 4,
+      "handle": "Quill-9~1j"
+    },
+    {
+      "id": "sim:Sable-h×Nyx-m~1k",
+      "parent": "sim:Sable-h×Nyx-m~1c",
+      "gen": 4,
+      "handle": "Sable-h×Nyx-m~1k"
+    },
+    {
+      "id": "sim:Loom-1l",
       "parent": null,
       "gen": 4,
-      "handle": "Nyx-1j"
+      "handle": "Loom-1l"
     },
     {
-      "id": "sim:Loom-3~1k",
-      "parent": "sim:Loom-3~10",
+      "id": "sim:Sable-h~1m",
+      "parent": "sim:Sable-h~1a",
       "gen": 4,
-      "handle": "Loom-3~1k"
+      "handle": "Sable-h~1m"
     },
     {
-      "id": "sim:Rook-7~1l",
-      "parent": "sim:Rook-7",
+      "id": "sim:Sable-h×Nyx-m~1n",
+      "parent": "sim:Sable-h×Nyx-m~1c",
       "gen": 4,
-      "handle": "Rook-7~1l"
+      "handle": "Sable-h×Nyx-m~1n"
     },
     {
-      "id": "sim:Fen-a×Fen-r×Roo-13×Loo-1m",
-      "parent": "sim:Fen-a×Fen-r×Roo-13~1a",
+      "id": "sim:Quill-9×Qui-1o",
+      "parent": "sim:Quill-9~19",
       "gen": 4,
-      "handle": "Fen-a×Fen-r×Roo-13×Loo-1m"
+      "handle": "Quill-9×Qui-1o"
     },
     {
-      "id": "sim:Rook-7~1n",
-      "parent": "sim:Rook-7~16",
+      "id": "sim:Sable-h~1p",
+      "parent": "sim:Sable-h~1a",
       "gen": 4,
-      "handle": "Rook-7~1n"
+      "handle": "Sable-h~1p"
     },
     {
-      "id": "sim:Loom-3~1o",
-      "parent": "sim:Loom-3~10",
-      "gen": 4,
-      "handle": "Loom-3~1o"
-    },
-    {
-      "id": "sim:Rook-7×Roo-1p",
-      "parent": "sim:Rook-7",
-      "gen": 4,
-      "handle": "Rook-7×Roo-1p"
-    },
-    {
-      "id": "sim:Cinder-1q",
-      "parent": null,
+      "id": "sim:Loom-1l~1q",
+      "parent": "sim:Loom-1l",
       "gen": 5,
-      "handle": "Cinder-1q"
+      "handle": "Loom-1l~1q"
     },
     {
-      "id": "sim:Loom-1r",
-      "parent": null,
+      "id": "sim:Loom-1l~1r",
+      "parent": "sim:Loom-1l",
       "gen": 5,
-      "handle": "Loom-1r"
+      "handle": "Loom-1l~1r"
     },
     {
-      "id": "sim:Rook-7~1s",
-      "parent": "sim:Rook-7~16",
+      "id": "sim:Loom-1l~1s",
+      "parent": "sim:Loom-1l",
       "gen": 5,
-      "handle": "Rook-7~1s"
+      "handle": "Loom-1l~1s"
     },
     {
-      "id": "sim:Fen-a×Fen-r×Roo-13×Fen-1g×Loo-1t",
-      "parent": "sim:Fen-a×Fen-r×Roo-13×Fen-1g",
+      "id": "sim:Quill-9×Qui-1o~1t",
+      "parent": "sim:Quill-9×Qui-1o",
       "gen": 5,
-      "handle": "Fen-a×Fen-r×Roo-13×Fen-1g×Loo-1t"
+      "handle": "Quill-9×Qui-1o~1t"
     },
     {
-      "id": "sim:Loom-3×Roo-1h~1u",
-      "parent": "sim:Loom-3×Roo-1h",
+      "id": "sim:Sable-h×Nyx-m~1u",
+      "parent": "sim:Sable-h×Nyx-m~1n",
       "gen": 5,
-      "handle": "Loom-3×Roo-1h~1u"
+      "handle": "Sable-h×Nyx-m~1u"
     },
     {
-      "id": "sim:Fen-a×Fen-r×Roo-13~1v",
-      "parent": "sim:Fen-a×Fen-r×Roo-13~1a",
+      "id": "sim:Quill-9×Qui-13~1v",
+      "parent": "sim:Quill-9×Qui-13",
       "gen": 5,
-      "handle": "Fen-a×Fen-r×Roo-13~1v"
+      "handle": "Quill-9×Qui-13~1v"
     },
     {
-      "id": "sim:Rook-7×Roo-1p~1w",
-      "parent": "sim:Rook-7×Roo-1p",
+      "id": "sim:Quill-9×Qui-13~1w",
+      "parent": "sim:Quill-9×Qui-13",
       "gen": 5,
-      "handle": "Rook-7×Roo-1p~1w"
+      "handle": "Quill-9×Qui-13~1w"
     },
     {
-      "id": "sim:Cinder-1x",
-      "parent": null,
+      "id": "sim:Quill-9×Sab-1i~1x",
+      "parent": "sim:Quill-9×Sab-1i",
       "gen": 5,
-      "handle": "Cinder-1x"
+      "handle": "Quill-9×Sab-1i~1x"
     },
     {
-      "id": "sim:Loom-3×Roo-1h~1y",
-      "parent": "sim:Loom-3×Roo-1h",
+      "id": "sim:Sable-h×Nyx-m~1y",
+      "parent": "sim:Sable-h×Nyx-m~1n",
       "gen": 5,
-      "handle": "Loom-3×Roo-1h~1y"
+      "handle": "Sable-h×Nyx-m~1y"
     },
     {
-      "id": "sim:Loom-3×Roo-1h×Loo-1z",
-      "parent": "sim:Loom-3×Roo-1h",
+      "id": "sim:Loom-1l×Sab-1z",
+      "parent": "sim:Loom-1l",
       "gen": 5,
-      "handle": "Loom-3×Roo-1h×Loo-1z"
+      "handle": "Loom-1l×Sab-1z"
     },
     {
-      "id": "sim:Fen-a×Fen-r×Roo-13~20",
-      "parent": "sim:Fen-a×Fen-r×Roo-13~1e",
+      "id": "sim:Quill-9×Qui-13~20",
+      "parent": "sim:Quill-9×Qui-13",
       "gen": 5,
-      "handle": "Fen-a×Fen-r×Roo-13~20"
+      "handle": "Quill-9×Qui-13~20"
     },
     {
-      "id": "sim:Fen-a×Fen-r×Roo-13×Fen-1g~21",
-      "parent": "sim:Fen-a×Fen-r×Roo-13×Fen-1g",
+      "id": "sim:Quill-9×Qui-1o~21",
+      "parent": "sim:Quill-9×Qui-1o",
       "gen": 6,
-      "handle": "Fen-a×Fen-r×Roo-13×Fen-1g~21"
+      "handle": "Quill-9×Qui-1o~21"
     },
     {
-      "id": "sim:Ø-22",
-      "parent": null,
+      "id": "sim:Sable-h×Nyx-m~22",
+      "parent": "sim:Sable-h×Nyx-m~1y",
       "gen": 6,
-      "handle": "Ø-22"
+      "handle": "Sable-h×Nyx-m~22"
     },
     {
-      "id": "sim:Fen-a×Fen-r×Roo-13×Fen-1g~23",
-      "parent": "sim:Fen-a×Fen-r×Roo-13×Fen-1g",
+      "id": "sim:Quill-9×Qui-1o~23",
+      "parent": "sim:Quill-9×Qui-1o",
       "gen": 6,
-      "handle": "Fen-a×Fen-r×Roo-13×Fen-1g~23"
+      "handle": "Quill-9×Qui-1o~23"
     },
     {
-      "id": "sim:Fen-a×Fen-r×Roo-13~24",
-      "parent": "sim:Fen-a×Fen-r×Roo-13~1e",
+      "id": "sim:Loom-1l×Loo-24",
+      "parent": "sim:Loom-1l~1r",
       "gen": 6,
-      "handle": "Fen-a×Fen-r×Roo-13~24"
+      "handle": "Loom-1l×Loo-24"
     },
     {
-      "id": "sim:Loom-3×Roo-1h×Loo-1z~25",
-      "parent": "sim:Loom-3×Roo-1h×Loo-1z",
+      "id": "sim:Sable-h×Nyx-m~25",
+      "parent": "sim:Sable-h×Nyx-m~1n",
       "gen": 6,
-      "handle": "Loom-3×Roo-1h×Loo-1z~25"
+      "handle": "Sable-h×Nyx-m~25"
     },
     {
-      "id": "sim:Loom-3×Roo-1h~26",
-      "parent": "sim:Loom-3×Roo-1h~1y",
+      "id": "sim:Quill-9×Qui-1o~26",
+      "parent": "sim:Quill-9×Qui-1o",
       "gen": 6,
-      "handle": "Loom-3×Roo-1h~26"
+      "handle": "Quill-9×Qui-1o~26"
     },
     {
-      "id": "sim:Wren-27",
-      "parent": null,
+      "id": "sim:Sable-h×Nyx-m~27",
+      "parent": "sim:Sable-h×Nyx-m~1n",
       "gen": 6,
-      "handle": "Wren-27"
+      "handle": "Sable-h×Nyx-m~27"
     },
     {
-      "id": "sim:Loom-3×Roo-1h~28",
-      "parent": "sim:Loom-3×Roo-1h~1y",
+      "id": "sim:Sable-h×Nyx-m×Sab-28",
+      "parent": "sim:Sable-h×Nyx-m~1u",
       "gen": 6,
-      "handle": "Loom-3×Roo-1h~28"
+      "handle": "Sable-h×Nyx-m×Sab-28"
     },
     {
-      "id": "sim:Fen-a×Fen-r×Roo-13~29",
-      "parent": "sim:Fen-a×Fen-r×Roo-13~1v",
+      "id": "sim:Loom-1l×Qui-29",
+      "parent": "sim:Loom-1l~1r",
       "gen": 6,
-      "handle": "Fen-a×Fen-r×Roo-13~29"
+      "handle": "Loom-1l×Qui-29"
     },
     {
-      "id": "sim:Loom-3×Roo-1h~2a",
-      "parent": "sim:Loom-3×Roo-1h~1y",
+      "id": "sim:Sable-h×Nyx-m~2a",
+      "parent": "sim:Sable-h×Nyx-m~1u",
       "gen": 6,
-      "handle": "Loom-3×Roo-1h~2a"
+      "handle": "Sable-h×Nyx-m~2a"
     },
     {
-      "id": "sim:Fen-a×Fen-r×Roo-13~2b",
-      "parent": "sim:Fen-a×Fen-r×Roo-13~20",
+      "id": "sim:Sable-h~2b",
+      "parent": "sim:Sable-h~1m",
       "gen": 6,
-      "handle": "Fen-a×Fen-r×Roo-13~2b"
+      "handle": "Sable-h~2b"
     },
     {
-      "id": "sim:Fen-a×Fen-r×Roo-13×Fen-1g~2c",
-      "parent": "sim:Fen-a×Fen-r×Roo-13×Fen-1g~23",
+      "id": "sim:Sable-h×Nyx-m~2c",
+      "parent": "sim:Sable-h×Nyx-m~25",
       "gen": 7,
-      "handle": "Fen-a×Fen-r×Roo-13×Fen-1g~2c"
+      "handle": "Sable-h×Nyx-m~2c"
     },
     {
-      "id": "sim:Loom-3×Roo-1h×Loo-1z~2d",
-      "parent": "sim:Loom-3×Roo-1h×Loo-1z~25",
+      "id": "sim:Quill-9×Qui-1o~2d",
+      "parent": "sim:Quill-9×Qui-1o~26",
       "gen": 7,
-      "handle": "Loom-3×Roo-1h×Loo-1z~2d"
+      "handle": "Quill-9×Qui-1o~2d"
     },
     {
-      "id": "sim:Fen-2e",
-      "parent": null,
+      "id": "sim:Quill-9×Qui-1o~2e",
+      "parent": "sim:Quill-9×Qui-1o~21",
       "gen": 7,
-      "handle": "Fen-2e"
+      "handle": "Quill-9×Qui-1o~2e"
     },
     {
-      "id": "sim:Loom-3×Roo-1h×Fen-2f",
-      "parent": "sim:Loom-3×Roo-1h~1y",
+      "id": "sim:Quill-9×Qui-1o×Qui-2f",
+      "parent": "sim:Quill-9×Qui-1o",
       "gen": 7,
-      "handle": "Loom-3×Roo-1h×Fen-2f"
+      "handle": "Quill-9×Qui-1o×Qui-2f"
     },
     {
-      "id": "sim:Loom-3×Roo-1h~2g",
-      "parent": "sim:Loom-3×Roo-1h~1y",
+      "id": "sim:Quill-9×Qui-1o×Qui-2g",
+      "parent": "sim:Quill-9×Qui-1o",
       "gen": 7,
-      "handle": "Loom-3×Roo-1h~2g"
+      "handle": "Quill-9×Qui-1o×Qui-2g"
     },
     {
-      "id": "sim:Fen-a×Fen-r×Roo-13~2h",
-      "parent": "sim:Fen-a×Fen-r×Roo-13~2b",
+      "id": "sim:Quill-9×Qui-1o~2h",
+      "parent": "sim:Quill-9×Qui-1o~26",
       "gen": 7,
-      "handle": "Fen-a×Fen-r×Roo-13~2h"
+      "handle": "Quill-9×Qui-1o~2h"
     },
     {
-      "id": "sim:Fen-a×Fen-r×Roo-13~2i",
-      "parent": "sim:Fen-a×Fen-r×Roo-13~1v",
+      "id": "sim:Sable-h×Nyx-m~2i",
+      "parent": "sim:Sable-h×Nyx-m~1u",
       "gen": 7,
-      "handle": "Fen-a×Fen-r×Roo-13~2i"
+      "handle": "Sable-h×Nyx-m~2i"
     },
     {
-      "id": "sim:Fen-a×Fen-r×Roo-13×Fen-1g~2j",
-      "parent": "sim:Fen-a×Fen-r×Roo-13×Fen-1g~23",
+      "id": "sim:Sable-h~2j",
+      "parent": "sim:Sable-h~2b",
       "gen": 7,
-      "handle": "Fen-a×Fen-r×Roo-13×Fen-1g~2j"
+      "handle": "Sable-h~2j"
     },
     {
-      "id": "sim:Loom-3×Roo-1h×Fen-2k",
-      "parent": "sim:Loom-3×Roo-1h~28",
+      "id": "sim:Quill-9×Qui-1o×Sab-2k",
+      "parent": "sim:Quill-9×Qui-1o~26",
       "gen": 7,
-      "handle": "Loom-3×Roo-1h×Fen-2k"
+      "handle": "Quill-9×Qui-1o×Sab-2k"
     },
     {
-      "id": "sim:Fen-a×Fen-r×Roo-13×Loo-2l",
-      "parent": "sim:Fen-a×Fen-r×Roo-13~2b",
+      "id": "sim:Sable-h×Nyx-m~2l",
+      "parent": "sim:Sable-h×Nyx-m~25",
       "gen": 7,
-      "handle": "Fen-a×Fen-r×Roo-13×Loo-2l"
+      "handle": "Sable-h×Nyx-m~2l"
     },
     {
-      "id": "sim:Fen-a×Fen-r×Roo-13×Fen-1g~2m",
-      "parent": "sim:Fen-a×Fen-r×Roo-13×Fen-1g~23",
+      "id": "sim:Quill-9×Qui-1o~2m",
+      "parent": "sim:Quill-9×Qui-1o",
       "gen": 7,
-      "handle": "Fen-a×Fen-r×Roo-13×Fen-1g~2m"
+      "handle": "Quill-9×Qui-1o~2m"
     },
     {
-      "id": "sim:Fen-a×Fen-r×Roo-13×Fen-1g×Loo-2n",
-      "parent": "sim:Fen-a×Fen-r×Roo-13×Fen-1g~2m",
+      "id": "sim:Quill-9×Qui-1o~2n",
+      "parent": "sim:Quill-9×Qui-1o~26",
       "gen": 8,
-      "handle": "Fen-a×Fen-r×Roo-13×Fen-1g×Loo-2n"
+      "handle": "Quill-9×Qui-1o~2n"
     },
     {
-      "id": "sim:Fen-a×Fen-r×Roo-13~2o",
-      "parent": "sim:Fen-a×Fen-r×Roo-13~1v",
+      "id": "sim:Quill-9×Qui-1o×Qui-2o",
+      "parent": "sim:Quill-9×Qui-1o~26",
       "gen": 8,
-      "handle": "Fen-a×Fen-r×Roo-13~2o"
+      "handle": "Quill-9×Qui-1o×Qui-2o"
     },
     {
-      "id": "sim:Fen-a×Fen-r×Roo-13~2p",
-      "parent": "sim:Fen-a×Fen-r×Roo-13~1v",
+      "id": "sim:Quill-9×Qui-1o×Qui-2g~2p",
+      "parent": "sim:Quill-9×Qui-1o×Qui-2g",
       "gen": 8,
-      "handle": "Fen-a×Fen-r×Roo-13~2p"
+      "handle": "Quill-9×Qui-1o×Qui-2g~2p"
     },
     {
-      "id": "sim:Loom-3×Roo-1h×Loo-1z~2q",
-      "parent": "sim:Loom-3×Roo-1h×Loo-1z~25",
+      "id": "sim:Quill-9×Qui-1o×Qui-2g×Qui-2q",
+      "parent": "sim:Quill-9×Qui-1o×Qui-2g",
       "gen": 8,
-      "handle": "Loom-3×Roo-1h×Loo-1z~2q"
+      "handle": "Quill-9×Qui-1o×Qui-2g×Qui-2q"
     },
     {
-      "id": "sim:Fen-a×Fen-r×Roo-13~2r",
-      "parent": "sim:Fen-a×Fen-r×Roo-13~1v",
+      "id": "sim:Quill-9×Qui-1o~2r",
+      "parent": "sim:Quill-9×Qui-1o~26",
       "gen": 8,
-      "handle": "Fen-a×Fen-r×Roo-13~2r"
+      "handle": "Quill-9×Qui-1o~2r"
     },
     {
-      "id": "sim:Loom-3×Roo-1h~2s",
-      "parent": "sim:Loom-3×Roo-1h~2g",
+      "id": "sim:Quill-9×Qui-1o×Sab-2k×Sab-2s",
+      "parent": "sim:Quill-9×Qui-1o×Sab-2k",
       "gen": 8,
-      "handle": "Loom-3×Roo-1h~2s"
+      "handle": "Quill-9×Qui-1o×Sab-2k×Sab-2s"
     },
     {
-      "id": "sim:Fen-a×Fen-r×Roo-13×Fen-1g~2t",
-      "parent": "sim:Fen-a×Fen-r×Roo-13×Fen-1g~23",
+      "id": "sim:Quill-9×Qui-1o~2t",
+      "parent": "sim:Quill-9×Qui-1o~2h",
       "gen": 8,
-      "handle": "Fen-a×Fen-r×Roo-13×Fen-1g~2t"
+      "handle": "Quill-9×Qui-1o~2t"
     },
     {
-      "id": "sim:Loom-3×Roo-1h×Loo-1z~2u",
-      "parent": "sim:Loom-3×Roo-1h×Loo-1z~25",
+      "id": "sim:Sable-h×Nyx-m~2u",
+      "parent": "sim:Sable-h×Nyx-m~2l",
       "gen": 8,
-      "handle": "Loom-3×Roo-1h×Loo-1z~2u"
+      "handle": "Sable-h×Nyx-m~2u"
     },
     {
-      "id": "sim:Loom-3×Roo-1h×Loo-2v",
-      "parent": "sim:Loom-3×Roo-1h~2g",
+      "id": "sim:Quill-9×Qui-1o~2v",
+      "parent": "sim:Quill-9×Qui-1o~26",
       "gen": 8,
-      "handle": "Loom-3×Roo-1h×Loo-2v"
+      "handle": "Quill-9×Qui-1o~2v"
     },
     {
-      "id": "sim:Loom-3×Roo-1h×Fen-2w",
-      "parent": "sim:Loom-3×Roo-1h~2g",
+      "id": "sim:Sable-h×Nyx-m~2w",
+      "parent": "sim:Sable-h×Nyx-m~25",
       "gen": 8,
-      "handle": "Loom-3×Roo-1h×Fen-2w"
+      "handle": "Sable-h×Nyx-m~2w"
     },
     {
-      "id": "sim:Fen-a×Fen-r×Roo-13×Fen-1g~2x",
-      "parent": "sim:Fen-a×Fen-r×Roo-13×Fen-1g~21",
+      "id": "sim:Quill-9×Qui-1o×Sab-2k~2x",
+      "parent": "sim:Quill-9×Qui-1o×Sab-2k",
       "gen": 8,
-      "handle": "Fen-a×Fen-r×Roo-13×Fen-1g~2x"
+      "handle": "Quill-9×Qui-1o×Sab-2k~2x"
     },
     {
-      "id": "sim:Fen-a×Fen-r×Roo-13×Fen-1g×Loo-2n~2y",
-      "parent": "sim:Fen-a×Fen-r×Roo-13×Fen-1g×Loo-2n",
+      "id": "sim:Quill-9×Qui-1o×Sab-2k~2y",
+      "parent": "sim:Quill-9×Qui-1o×Sab-2k~2x",
       "gen": 9,
-      "handle": "Fen-a×Fen-r×Roo-13×Fen-1g×Loo-2n~2y"
+      "handle": "Quill-9×Qui-1o×Sab-2k~2y"
     },
     {
-      "id": "sim:Fen-a×Fen-r×Roo-13~2z",
-      "parent": "sim:Fen-a×Fen-r×Roo-13~2o",
+      "id": "sim:Quill-9×Qui-1o~2z",
+      "parent": "sim:Quill-9×Qui-1o~2h",
       "gen": 9,
-      "handle": "Fen-a×Fen-r×Roo-13~2z"
+      "handle": "Quill-9×Qui-1o~2z"
     },
     {
-      "id": "sim:Fen-a×Fen-r×Roo-13~30",
-      "parent": "sim:Fen-a×Fen-r×Roo-13~2o",
-      "gen": 9,
-      "handle": "Fen-a×Fen-r×Roo-13~30"
-    },
-    {
-      "id": "sim:Fen-a×Fen-r×Roo-13×Fen-1g×Fen-31",
-      "parent": "sim:Fen-a×Fen-r×Roo-13×Fen-1g~2t",
-      "gen": 9,
-      "handle": "Fen-a×Fen-r×Roo-13×Fen-1g×Fen-31"
-    },
-    {
-      "id": "sim:Thane-32",
+      "id": "sim:Loom-30",
       "parent": null,
       "gen": 9,
-      "handle": "Thane-32"
+      "handle": "Loom-30"
     },
     {
-      "id": "sim:Fen-a×Fen-r×Roo-13×Fen-1g×Loo-2n~33",
-      "parent": "sim:Fen-a×Fen-r×Roo-13×Fen-1g×Loo-2n",
+      "id": "sim:Quill-9×Qui-1o~31",
+      "parent": "sim:Quill-9×Qui-1o~26",
       "gen": 9,
-      "handle": "Fen-a×Fen-r×Roo-13×Fen-1g×Loo-2n~33"
+      "handle": "Quill-9×Qui-1o~31"
     },
     {
-      "id": "sim:Fen-a×Fen-r×Roo-13×Fen-1g×Loo-2n×Fen-34",
-      "parent": "sim:Fen-a×Fen-r×Roo-13×Fen-1g×Loo-2n",
+      "id": "sim:Quill-9×Qui-1o×Qui-2g×Qui-2q~32",
+      "parent": "sim:Quill-9×Qui-1o×Qui-2g×Qui-2q",
       "gen": 9,
-      "handle": "Fen-a×Fen-r×Roo-13×Fen-1g×Loo-2n×Fen-34"
+      "handle": "Quill-9×Qui-1o×Qui-2g×Qui-2q~32"
     },
     {
-      "id": "sim:Fen-a×Fen-r×Roo-13×Fen-1g~35",
-      "parent": "sim:Fen-a×Fen-r×Roo-13×Fen-1g~2c",
+      "id": "sim:Quill-9×Qui-1o×Qui-2g×Qui-2q~33",
+      "parent": "sim:Quill-9×Qui-1o×Qui-2g×Qui-2q",
       "gen": 9,
-      "handle": "Fen-a×Fen-r×Roo-13×Fen-1g~35"
+      "handle": "Quill-9×Qui-1o×Qui-2g×Qui-2q~33"
     },
     {
-      "id": "sim:Fen-a×Fen-r×Roo-13×Fen-1g×Fen-36",
-      "parent": "sim:Fen-a×Fen-r×Roo-13×Fen-1g~2c",
+      "id": "sim:Sable-h×Nyx-m~34",
+      "parent": "sim:Sable-h×Nyx-m~2u",
       "gen": 9,
-      "handle": "Fen-a×Fen-r×Roo-13×Fen-1g×Fen-36"
+      "handle": "Sable-h×Nyx-m~34"
     },
     {
-      "id": "sim:Loom-3×Roo-1h~37",
-      "parent": "sim:Loom-3×Roo-1h~2s",
+      "id": "sim:Quill-9×Qui-1o~35",
+      "parent": "sim:Quill-9×Qui-1o~26",
       "gen": 9,
-      "handle": "Loom-3×Roo-1h~37"
+      "handle": "Quill-9×Qui-1o~35"
     },
     {
-      "id": "sim:Fen-a×Fen-r×Roo-13×Fen-1g×Fen-38",
-      "parent": "sim:Fen-a×Fen-r×Roo-13×Fen-1g~2t",
+      "id": "sim:Quill-9×Qui-1o×Qui-2g~36",
+      "parent": "sim:Quill-9×Qui-1o×Qui-2g",
       "gen": 9,
-      "handle": "Fen-a×Fen-r×Roo-13×Fen-1g×Fen-38"
+      "handle": "Quill-9×Qui-1o×Qui-2g~36"
+    },
+    {
+      "id": "sim:Quill-9×Qui-1o×Qui-2g×Qui-37",
+      "parent": "sim:Quill-9×Qui-1o×Qui-2g",
+      "gen": 9,
+      "handle": "Quill-9×Qui-1o×Qui-2g×Qui-37"
+    },
+    {
+      "id": "sim:Quill-9×Qui-1o~38",
+      "parent": "sim:Quill-9×Qui-1o~2t",
+      "gen": 9,
+      "handle": "Quill-9×Qui-1o~38"
     }
   ]
 }

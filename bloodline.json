@@ -4,190 +4,172 @@
   "sharesPerSeal": 100,
   "forest": {
     "nodes": 117,
-    "roots": 31,
+    "roots": 24,
     "maxDepth": 8
   },
   "founders": [
     {
-      "handle": "Fen-a×Fen-r×Roo-13",
-      "gen": 2,
-      "price": 8.437,
-      "descendants": 35,
-      "deepest": 6
+      "handle": "Quill-9×Qui-1o",
+      "gen": 4,
+      "price": 11.381,
+      "descendants": 29,
+      "deepest": 4
     },
     {
-      "handle": "Loom-3~n",
-      "gen": 1,
-      "price": 7.652,
-      "descendants": 28,
-      "deepest": 6
-    },
-    {
-      "handle": "Loom-3",
+      "handle": "Quill-9",
       "gen": 0,
-      "price": 6.965,
-      "descendants": 34,
-      "deepest": 7
-    },
-    {
-      "handle": "Loom-3~10",
-      "gen": 2,
-      "price": 6.763,
-      "descendants": 22,
-      "deepest": 5
-    },
-    {
-      "handle": "Fen-a×Fen-r",
-      "gen": 1,
-      "price": 6.45,
-      "descendants": 37,
-      "deepest": 7
-    },
-    {
-      "handle": "Fen-a",
-      "gen": 0,
-      "price": 6.222,
-      "descendants": 41,
+      "price": 8.479,
+      "descendants": 48,
       "deepest": 8
     },
     {
-      "handle": "Fen-a×Fen-r×Roo-13~1e",
+      "handle": "Quill-9~19",
       "gen": 3,
-      "price": 6.034,
-      "descendants": 22,
+      "price": 8.269,
+      "descendants": 31,
       "deepest": 5
     },
     {
-      "handle": "Loom-3×Roo-1h",
-      "gen": 4,
-      "price": 5.944,
+      "handle": "Quill-9×Qui-1o~26",
+      "gen": 6,
+      "price": 7.562,
+      "descendants": 15,
+      "deepest": 3
+    },
+    {
+      "handle": "Quill-9~x",
+      "gen": 2,
+      "price": 6.728,
+      "descendants": 34,
+      "deepest": 6
+    },
+    {
+      "handle": "Sable-h",
+      "gen": 0,
+      "price": 6.63,
+      "descendants": 31,
+      "deepest": 7
+    },
+    {
+      "handle": "Quill-9~n",
+      "gen": 1,
+      "price": 6.63,
+      "descendants": 39,
+      "deepest": 7
+    },
+    {
+      "handle": "Sable-h×Nyx-m~1c",
+      "gen": 3,
+      "price": 5.888,
       "descendants": 17,
-      "deepest": 4
+      "deepest": 5
     }
   ],
   "spine": [
     {
-      "handle": "Fen-a",
+      "handle": "Quill-9",
       "gen": 0,
-      "price": 6.222,
-      "descendants": 41
+      "price": 8.479,
+      "descendants": 48
     },
     {
-      "handle": "Fen-a×Fen-r",
+      "handle": "Quill-9~n",
       "gen": 1,
-      "price": 6.45,
-      "descendants": 37
+      "price": 6.63,
+      "descendants": 39
     },
     {
-      "handle": "Fen-a×Fen-r×Roo-13",
+      "handle": "Quill-9~x",
       "gen": 2,
-      "price": 8.437,
-      "descendants": 35
+      "price": 6.728,
+      "descendants": 34
     },
     {
-      "handle": "Fen-a×Fen-r×Roo-13~1e",
+      "handle": "Quill-9~19",
       "gen": 3,
-      "price": 6.034,
-      "descendants": 22
+      "price": 8.269,
+      "descendants": 31
     },
     {
-      "handle": "Fen-a×Fen-r×Roo-13×Fen-1g",
+      "handle": "Quill-9×Qui-1o",
       "gen": 4,
-      "price": 5.381,
-      "descendants": 16
+      "price": 11.381,
+      "descendants": 29
     },
     {
-      "handle": "Fen-a×Fen-r×Roo-13×Fen-1g~23",
+      "handle": "Quill-9×Qui-1o~26",
       "gen": 6,
-      "price": 5.09,
-      "descendants": 12
+      "price": 7.562,
+      "descendants": 15
     },
     {
-      "handle": "Fen-a×Fen-r×Roo-13×Fen-1g~2m",
+      "handle": "Quill-9×Qui-1o~2h",
       "gen": 7,
-      "price": 1.764,
-      "descendants": 4
-    },
-    {
-      "handle": "Fen-a×Fen-r×Roo-13×Fen-1g×Loo-2n",
-      "gen": 8,
-      "price": 1.854,
+      "price": 1.618,
       "descendants": 3
     },
     {
-      "handle": "Fen-a×Fen-r×Roo-13×Fen-1g×Loo-2n~2y",
+      "handle": "Quill-9×Qui-1o~2t",
+      "gen": 8,
+      "price": 0.618,
+      "descendants": 1
+    },
+    {
+      "handle": "Quill-9×Qui-1o~38",
       "gen": 9,
       "price": 0,
       "descendants": 0
     }
   ],
   "topFounder": {
-    "handle": "Fen-a×Fen-r×Roo-13",
-    "gen": 2,
-    "price": 8.437,
-    "descendants": 35,
+    "handle": "Quill-9×Qui-1o",
+    "gen": 4,
+    "price": 11.381,
+    "descendants": 29,
     "growth": [
       {
         "depth": 1,
-        "forkSharePrice": 2.472,
-        "copyShareValue": 0.25
+        "forkSharePrice": 4.326,
+        "copyShareValue": 0.143
       },
       {
         "depth": 2,
-        "forkSharePrice": 4.382,
-        "copyShareValue": 0.111
+        "forkSharePrice": 9.673,
+        "copyShareValue": 0.048
       },
       {
         "depth": 3,
-        "forkSharePrice": 6.506,
-        "copyShareValue": 0.056
-      },
-      {
-        "depth": 4,
-        "forkSharePrice": 7.819,
+        "forkSharePrice": 11.089,
         "copyShareValue": 0.037
       },
       {
-        "depth": 5,
-        "forkSharePrice": 8.269,
-        "copyShareValue": 0.031
-      },
-      {
-        "depth": 6,
-        "forkSharePrice": 8.437,
-        "copyShareValue": 0.029
+        "depth": 4,
+        "forkSharePrice": 11.381,
+        "copyShareValue": 0.034
       }
     ]
   },
   "listed": [
     {
-      "id": "sim:Fen-a×Fen-r×Roo-13×Fen-1g~21",
-      "handle": "Fen-a×Fen-r×Roo-13×Fen-1g~21",
+      "id": "sim:Quill-9×Qui-1o~21",
+      "handle": "Quill-9×Qui-1o~21",
       "gen": 6,
       "price": 0.618,
       "descendants": 1,
       "deepest": 1
     },
     {
-      "id": "sim:Fen-a×Fen-r×Roo-13×Fen-1g~2m",
-      "handle": "Fen-a×Fen-r×Roo-13×Fen-1g~2m",
-      "gen": 7,
-      "price": 1.764,
-      "descendants": 4,
-      "deepest": 2
+      "id": "sim:Quill-9×Qui-1o~26",
+      "handle": "Quill-9×Qui-1o~26",
+      "gen": 6,
+      "price": 7.562,
+      "descendants": 15,
+      "deepest": 3
     },
     {
-      "id": "sim:Fen-a×Fen-r×Roo-13×Fen-1g~2x",
-      "handle": "Fen-a×Fen-r×Roo-13×Fen-1g~2x",
-      "gen": 8,
-      "price": 0,
-      "descendants": 0,
-      "deepest": 0
-    },
-    {
-      "id": "sim:Fen-a×Fen-r×Roo-13~2p",
-      "handle": "Fen-a×Fen-r×Roo-13~2p",
-      "gen": 8,
+      "id": "sim:Quill-9×Qui-1o×Qui-2g×Qui-2q~32",
+      "handle": "Quill-9×Qui-1o×Qui-2g×Qui-2q~32",
+      "gen": 9,
       "price": 0,
       "descendants": 0,
       "deepest": 0
@@ -196,7 +178,7 @@
   "verdict": {
     "provenanceInvertsScarcity": true,
     "forkShareAppreciates": true,
-    "ancestorMeanPrice": 2.917,
+    "ancestorMeanPrice": 2.988,
     "leafPrice": 0,
     "maxChainPrice": 1.583,
     "convergesUnderBound": true
