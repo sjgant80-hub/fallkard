@@ -2,12 +2,12 @@
   "generated": "2026-07-12",
   "seals": [
     {
-      "id": "seal-1251a6667f1774",
-      "name": "Sealed · Quill-9×Qui-1o~21",
+      "id": "seal-1ae742089f6cd9",
+      "name": "Sealed · Nyx-o×Nyx-4v",
       "kind": "tool",
-      "chamber": "estate",
-      "atk": 5,
-      "hp": 5,
+      "chamber": "reach",
+      "atk": 6,
+      "hp": 7,
       "cost": 5,
       "rarity": "rare",
       "keywords": [
@@ -16,13 +16,159 @@
         "Marketplace"
       ],
       "seal": true,
-      "shadow": "echo",
-      "resilience": 0.498,
+      "shadow": "hoard",
+      "resilience": 0.552,
       "lineage": {
-        "parent": "sim:Quill-9×Qui-1o",
-        "generation": 5
+        "parent": "sim:Nyx-o~4c",
+        "coParent": "sim:Nyx-o~3q",
+        "generation": 7
       },
-      "deckSig": "seal-1251a6667f1774",
+      "deckSig": "seal-1ae742089f6cd9",
+      "cast": "2026-07-12"
+    },
+    {
+      "id": "seal-1c78da971d3c80",
+      "name": "Sealed · Bram-12×Ash-1o×Bra-4k~6d",
+      "kind": "tool",
+      "chamber": "bridge",
+      "atk": 5,
+      "hp": 10,
+      "cost": 5,
+      "rarity": "unique",
+      "keywords": [
+        "Sealed",
+        "Fork",
+        "Marketplace"
+      ],
+      "seal": true,
+      "shadow": "hoard",
+      "resilience": 0.546,
+      "lineage": {
+        "parent": "sim:Bram-12×Ash-1o×Bra-4k~5v",
+        "generation": 10
+      },
+      "deckSig": "seal-1c78da971d3c80",
+      "cast": "2026-07-12"
+    },
+    {
+      "id": "seal-1a51299a2cca25",
+      "name": "Sealed · Quill-9×Nyx-6k",
+      "kind": "tool",
+      "chamber": "estate",
+      "atk": 5,
+      "hp": 8,
+      "cost": 5,
+      "rarity": "unique",
+      "keywords": [
+        "Sealed",
+        "Fork",
+        "Marketplace"
+      ],
+      "seal": true,
+      "shadow": "echo",
+      "resilience": 0.533,
+      "lineage": {
+        "parent": "sim:Quill-9~63",
+        "coParent": "sim:Nyx-o×Nyx-4v",
+        "generation": 8
+      },
+      "deckSig": "seal-1a51299a2cca25",
+      "cast": "2026-07-12"
+    },
+    {
+      "id": "seal-c128030650b4f",
+      "name": "Sealed · Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68~7k",
+      "kind": "tool",
+      "chamber": "bridge",
+      "atk": 5,
+      "hp": 10,
+      "cost": 5,
+      "rarity": "unique",
+      "keywords": [
+        "Sealed",
+        "Fork",
+        "Marketplace"
+      ],
+      "seal": true,
+      "shadow": "echo",
+      "resilience": 0.491,
+      "lineage": {
+        "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68",
+        "generation": 10
+      },
+      "deckSig": "seal-c128030650b4f",
+      "cast": "2026-07-12"
+    },
+    {
+      "id": "seal-1c2deac6bc7196",
+      "name": "Sealed · Bram-12×Ash-1o~7a",
+      "kind": "tool",
+      "chamber": "bridge",
+      "atk": 6,
+      "hp": 10,
+      "cost": 5,
+      "rarity": "unique",
+      "keywords": [
+        "Sealed",
+        "Fork",
+        "Marketplace"
+      ],
+      "seal": true,
+      "shadow": "hoard",
+      "resilience": 0.588,
+      "lineage": {
+        "parent": "sim:Bram-12×Ash-1o~6g",
+        "generation": 10
+      },
+      "deckSig": "seal-1c2deac6bc7196",
+      "cast": "2026-07-12"
+    },
+    {
+      "id": "seal-150c4641d11727",
+      "name": "Sealed · Quill-9×Bra-80~8j",
+      "kind": "tool",
+      "chamber": "estate",
+      "atk": 6,
+      "hp": 10,
+      "cost": 5,
+      "rarity": "unique",
+      "keywords": [
+        "Sealed",
+        "Fork",
+        "Marketplace"
+      ],
+      "seal": true,
+      "shadow": "hoard",
+      "resilience": 0.626,
+      "lineage": {
+        "parent": "sim:Quill-9×Bra-80",
+        "generation": 11
+      },
+      "deckSig": "seal-150c4641d11727",
+      "cast": "2026-07-12"
+    },
+    {
+      "id": "seal-16f3b589a9f6bb",
+      "name": "Sealed · Bram-12×Ash-1o~a3",
+      "kind": "tool",
+      "chamber": "bridge",
+      "atk": 6,
+      "hp": 10,
+      "cost": 5,
+      "rarity": "unique",
+      "keywords": [
+        "Sealed",
+        "Fork",
+        "Marketplace"
+      ],
+      "seal": true,
+      "shadow": "echo",
+      "resilience": 0.613,
+      "lineage": {
+        "parent": "sim:Bram-12×Ash-1o~9q",
+        "generation": 13
+      },
+      "deckSig": "seal-16f3b589a9f6bb",
       "cast": "2026-07-12"
     }
   ]

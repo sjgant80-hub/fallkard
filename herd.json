@@ -2,540 +2,955 @@
   "generated": "2026-07-12",
   "workers": [
     {
-      "id": "sim:Quill-9×Qui-1o×Qui-2g×Qui-2q~32",
-      "handle": "Quill-9×Qui-1o×Qui-2g×Qui-2q~32",
-      "gen": 7,
-      "parent": "sim:Quill-9×Qui-1o×Qui-2g×Qui-2q",
+      "id": "sim:Bram-12×Ash-1o~a3",
+      "handle": "Bram-12×Ash-1o~a3",
+      "gen": 13,
+      "parent": "sim:Bram-12×Ash-1o~9q",
       "matured": true,
       "deckSize": 18,
       "weights": {
-        "aggro": 1.000565843621399,
-        "curve": 0.1925870786383175,
-        "hpBias": 0.013794581618655693,
-        "lanePref": 0.5147247942386831,
-        "valSealed": 1.1746324159807957,
-        "valFork": 1.09750085733882,
-        "valMarket": 1.4082336676954732,
+        "aggro": 0.7952610596707819,
+        "curve": 0.6746318185746347,
+        "hpBias": 0.9359825102880659,
+        "lanePref": 1.0054762517146778,
+        "valSealed": 1.997905949931413,
+        "valFork": 1.3610125171467766,
+        "valMarket": 0.9219071502057613,
         "chamberBias": {
-          "market": 0.17864225617812435,
+          "clinic": 0.014679783950617253,
+          "vault": 0.2937650034293553,
+          "colony": -0.05188936042524006,
+          "market": 0.2562547840698856,
+          "studio": 0.31704925411522633,
+          "bridge": -0.33945044581618655
+        },
+        "kindBias": {
+          "wellness": 0,
+          "surface": 0,
+          "tool": -0.2814086076817558,
+          "mcp": 0.39468985768175585
+        }
+      }
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Qui-7u~9y",
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Qui-7u~9y",
+      "gen": 15,
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Qui-7u~9f",
+      "matured": true,
+      "deckSize": 18,
+      "weights": {
+        "aggro": 0.7006738817086762,
+        "curve": 0.6942381771405592,
+        "hpBias": 0.6765918370627573,
+        "lanePref": 0.7126470202117627,
+        "valSealed": 1.5687698259602194,
+        "valFork": 1.2705064729080933,
+        "valMarket": 1.1877721380958504,
+        "chamberBias": {
+          "clinic": -0.032677469135802495,
+          "market": 0.35230195473251025,
+          "bridge": -0.39572616598079563,
+          "studio": 0.24242005315500686,
+          "vault": 0.39649026920438957,
+          "colony": -0.05188936042524006,
+          "estate": -0.23390346364883402
+        },
+        "kindBias": {
+          "wellness": 0,
+          "surface": 0,
+          "mcp": 0.329857896090535,
+          "tool": -0.2814086076817558,
+          "api": 0
+        }
+      }
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m×Qui-a6",
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-7m×Qui-a6",
+      "gen": 13,
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m~9b",
+      "matured": true,
+      "deckSize": 17,
+      "weights": {
+        "aggro": 0.8490089364176097,
+        "curve": 0.5330402489971724,
+        "hpBias": 0.2872610837834362,
+        "lanePref": 0.7044032720871913,
+        "valSealed": 1.605996683170439,
+        "valFork": 1.1727158618398492,
+        "valMarket": 1.17255313491298,
+        "chamberBias": {
+          "clinic": -0.032677469135802495,
+          "colony": -0.022264017489711935,
+          "market": 0.35230195473251025,
+          "bridge": -0.39572616598079563,
+          "vault": 0.3396626371742112,
+          "estate": 0,
+          "studio": 0.1734750085733882
+        },
+        "kindBias": {
+          "wellness": 0,
+          "tool": -0.2814086076817558,
+          "surface": 0,
+          "mcp": 0.2891632373113855,
+          "api": 0
+        }
+      }
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m×Bra-8e×Bra-a2",
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-7m×Bra-8e×Bra-a2",
+      "gen": 14,
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m×Bra-8e",
+      "matured": true,
+      "deckSize": 18,
+      "weights": {
+        "aggro": 0.8625364703896604,
+        "curve": 0.6538774462964718,
+        "hpBias": 0.5752287353180727,
+        "lanePref": 0.7313067652070473,
+        "valSealed": 1.6485018004115226,
+        "valFork": 1.2621557248799726,
+        "valMarket": 1.0916030025612997,
+        "chamberBias": {
+          "clinic": -0.032677469135802495,
+          "vault": 0.3022022890946502,
+          "colony": -0.05188936042524006,
+          "market": 0.35230195473251025,
+          "bridge": -0.39572616598079563,
+          "studio": 0.1734750085733882,
+          "estate": 0
+        },
+        "kindBias": {
+          "wellness": 0,
+          "surface": 0,
+          "tool": -0.2814086076817558,
+          "mcp": 0.2891632373113855,
+          "api": 0
+        }
+      }
+    },
+    {
+      "id": "sim:Quill-9×Bra-80~a8",
+      "handle": "Quill-9×Bra-80~a8",
+      "gen": 12,
+      "parent": "sim:Quill-9×Bra-80~8j",
+      "matured": true,
+      "deckSize": 18,
+      "weights": {
+        "aggro": 0.9037456999099794,
+        "curve": 0.4115532965886426,
+        "hpBias": 0.3467663590963649,
+        "lanePref": 0.8427349242326818,
+        "valSealed": 1.4837595914780521,
+        "valFork": 1.0916267468278464,
+        "valMarket": 1.3496724027992113,
+        "chamberBias": {
+          "market": 0.21675177524932265,
           "clinic": 0.30920353223593966,
-          "bridge": -0.30281635802469137,
-          "estate": 0.351119445794153
+          "bridge": -0.2152070473251029,
+          "estate": 0.27144525891632365,
+          "studio": 0,
+          "vault": -0.14514424725651576,
+          "colony": 0
         },
         "kindBias": {
           "surface": 0,
           "wellness": 0,
-          "api": 0.21679098079561043,
-          "tool": 0.16746827846364887
-        }
-      }
-    },
-    {
-      "id": "sim:Quill-9×Qui-1o×Qui-2g",
-      "handle": "Quill-9×Qui-1o×Qui-2g",
-      "gen": 5,
-      "parent": "sim:Quill-9×Qui-1o",
-      "matured": true,
-      "deckSize": 18,
-      "weights": {
-        "aggro": 0.7609932270233196,
-        "curve": 0.43806675970827635,
-        "hpBias": 0.013794581618655693,
-        "lanePref": 0.5147247942386831,
-        "valSealed": 1.1746324159807957,
-        "valFork": 1.1180469821673524,
-        "valMarket": 1.4082336676954732,
-        "chamberBias": {
-          "market": 0.17864225617812435,
-          "clinic": 0.30920353223593966,
-          "bridge": -0.30281635802469137,
-          "estate": 0.351119445794153
-        },
-        "kindBias": {
-          "surface": 0,
-          "wellness": 0,
-          "api": 0.21679098079561043,
-          "tool": 0.16746827846364887
-        }
-      }
-    },
-    {
-      "id": "sim:Quill-9×Qui-1o~38",
-      "handle": "Quill-9×Qui-1o~38",
-      "gen": 8,
-      "parent": "sim:Quill-9×Qui-1o~2t",
-      "matured": true,
-      "deckSize": 18,
-      "weights": {
-        "aggro": 0.9801826131687243,
-        "curve": 0.6269599352912667,
-        "hpBias": 0.013794581618655693,
-        "lanePref": 0.5147247942386831,
-        "valSealed": 1.1746324159807957,
-        "valFork": 1.3596150548696844,
-        "valMarket": 1.2363801011659807,
-        "chamberBias": {
-          "market": 0.08821677837080559,
-          "clinic": 0.32280199759945133,
-          "bridge": -0.30281635802469137,
-          "estate": 0.41990909771459195
-        },
-        "kindBias": {
-          "surface": 0,
-          "wellness": 0,
-          "api": 0.21679098079561043,
-          "tool": 0.1560013717421125
-        }
-      }
-    },
-    {
-      "id": "sim:Quill-9×Qui-1o×Qui-2g×Qui-37",
-      "handle": "Quill-9×Qui-1o×Qui-2g×Qui-37",
-      "gen": 6,
-      "parent": "sim:Quill-9×Qui-1o×Qui-2g",
-      "matured": true,
-      "deckSize": 18,
-      "weights": {
-        "aggro": 0.7609932270233196,
-        "curve": 0.43806675970827635,
-        "hpBias": 0.013794581618655693,
-        "lanePref": 0.5147247942386831,
-        "valSealed": 1.1746324159807957,
-        "valFork": 1.1180469821673524,
-        "valMarket": 1.4082336676954732,
-        "chamberBias": {
-          "market": 0.17864225617812435,
-          "clinic": 0.30920353223593966,
-          "bridge": -0.30281635802469137,
-          "estate": 0.351119445794153
-        },
-        "kindBias": {
-          "surface": 0,
-          "wellness": 0,
-          "api": 0.21679098079561043,
-          "tool": 0.16746827846364887
-        }
-      }
-    },
-    {
-      "id": "sim:Quill-9×Qui-1o~26",
-      "handle": "Quill-9×Qui-1o~26",
-      "gen": 5,
-      "parent": "sim:Quill-9×Qui-1o",
-      "matured": true,
-      "deckSize": 18,
-      "weights": {
-        "aggro": 0.7609932270233196,
-        "curve": 0.43806675970827635,
-        "hpBias": 0.013794581618655693,
-        "lanePref": 0.5147247942386831,
-        "valSealed": 1.1746324159807957,
-        "valFork": 1.3324459876543209,
-        "valMarket": 1.4082336676954732,
-        "chamberBias": {
-          "market": 0.17864225617812435,
-          "clinic": 0.32280199759945133,
-          "bridge": -0.30281635802469137,
-          "estate": 0.351119445794153
-        },
-        "kindBias": {
-          "surface": 0,
-          "wellness": 0,
-          "api": 0.21679098079561043,
-          "tool": 0.16746827846364887
-        }
-      }
-    },
-    {
-      "id": "sim:Sable-h×Nyx-m~34",
-      "handle": "Sable-h×Nyx-m~34",
-      "gen": 7,
-      "parent": "sim:Sable-h×Nyx-m~2u",
-      "matured": true,
-      "deckSize": 20,
-      "weights": {
-        "aggro": 0.8147012174211248,
-        "curve": 0.5465727880658436,
-        "hpBias": 0.048088134430727014,
-        "lanePref": 0.8461526920438958,
-        "valSealed": 0.2924768518518518,
-        "valFork": 1.1267146776406036,
-        "valMarket": 1.1566229423868313,
-        "chamberBias": {
-          "market": 0.319880615569273,
-          "colony": 0.19367283950617287,
-          "bridge": -0.32939386145404664,
-          "clinic": -0.45399948559670783,
-          "forge": 0.35035901063100133,
-          "vault": 0.1067986968449931,
-          "studio": 0
-        },
-        "kindBias": {
-          "surface": 0,
-          "wellness": 0,
-          "tool": -0.06527134773662556,
-          "sdk": -0.045208547668038404,
-          "mcp": 0.2968546382030179
-        }
-      }
-    },
-    {
-      "id": "sim:Quill-9×Qui-1o×Sab-2k~2x",
-      "handle": "Quill-9×Qui-1o×Sab-2k~2x",
-      "gen": 7,
-      "parent": "sim:Quill-9×Qui-1o×Sab-2k",
-      "matured": true,
-      "deckSize": 20,
-      "weights": {
-        "aggro": 0.8494941700960221,
-        "curve": 0.21903337985413818,
-        "hpBias": 0.12293381344307269,
-        "lanePref": 0.5473840449245542,
-        "valSealed": 0.7726385673868313,
-        "valFork": 1.7103898748285322,
-        "valMarket": 1.4589436514060357,
-        "chamberBias": {
-          "market": 0.08961428925290765,
-          "clinic": 0.32280199759945133,
-          "bridge": -0.30281635802469137,
-          "forge": 0,
-          "vault": 0,
-          "estate": 0.351119445794153
-        },
-        "kindBias": {
-          "surface": 0,
-          "wellness": 0,
-          "tool": 0.28346514917695476,
-          "mcp": -0.10263953189300412,
-          "api": 0.21679098079561043
-        }
-      }
-    },
-    {
-      "id": "sim:Quill-9×Qui-1o×Qui-2g×Qui-2q~33",
-      "handle": "Quill-9×Qui-1o×Qui-2g×Qui-2q~33",
-      "gen": 7,
-      "parent": "sim:Quill-9×Qui-1o×Qui-2g×Qui-2q",
-      "matured": true,
-      "deckSize": 18,
-      "weights": {
-        "aggro": 0.7609932270233196,
-        "curve": 0.43806675970827635,
-        "hpBias": 0.013794581618655693,
-        "lanePref": 0.5147247942386831,
-        "valSealed": 1.1746324159807957,
-        "valFork": 1.3242584019204389,
-        "valMarket": 1.4082336676954732,
-        "chamberBias": {
-          "market": 0.2760798847789474,
-          "clinic": 0.30920353223593966,
-          "bridge": -0.30281635802469137,
-          "estate": 0.351119445794153
-        },
-        "kindBias": {
-          "surface": 0,
-          "wellness": 0,
-          "api": 0.21679098079561043,
-          "tool": 0.16746827846364887
-        }
-      }
-    },
-    {
-      "id": "sim:Quill-9×Qui-1o×Qui-2g×Qui-2q",
-      "handle": "Quill-9×Qui-1o×Qui-2g×Qui-2q",
-      "gen": 6,
-      "parent": "sim:Quill-9×Qui-1o×Qui-2g",
-      "matured": true,
-      "deckSize": 18,
-      "weights": {
-        "aggro": 0.7609932270233196,
-        "curve": 0.43806675970827635,
-        "hpBias": 0.013794581618655693,
-        "lanePref": 0.5147247942386831,
-        "valSealed": 1.1746324159807957,
-        "valFork": 1.1180469821673524,
-        "valMarket": 1.4082336676954732,
-        "chamberBias": {
-          "market": 0.17864225617812435,
-          "clinic": 0.30920353223593966,
-          "bridge": -0.30281635802469137,
-          "estate": 0.351119445794153
-        },
-        "kindBias": {
-          "surface": 0,
-          "wellness": 0,
-          "api": 0.21679098079561043,
-          "tool": 0.16746827846364887
-        }
-      }
-    },
-    {
-      "id": "sim:Quill-9×Qui-1o~31",
-      "handle": "Quill-9×Qui-1o~31",
-      "gen": 6,
-      "parent": "sim:Quill-9×Qui-1o~26",
-      "matured": true,
-      "deckSize": 18,
-      "weights": {
-        "aggro": 0.7609932270233196,
-        "curve": 0.43806675970827635,
-        "hpBias": 0.14011488340192044,
-        "lanePref": 0.5147247942386831,
-        "valSealed": 1.1746324159807957,
-        "valFork": 1.3324459876543209,
-        "valMarket": 1.4082336676954732,
-        "chamberBias": {
-          "market": 0.17864225617812435,
-          "clinic": 0.32280199759945133,
-          "bridge": -0.30281635802469137,
-          "estate": 0.39479228530032584
-        },
-        "kindBias": {
-          "surface": 0,
-          "wellness": 0,
-          "api": 0.21679098079561043,
-          "tool": 0.16746827846364887
-        }
-      }
-    },
-    {
-      "id": "sim:Quill-9×Qui-1o×Sab-2k~2y",
-      "handle": "Quill-9×Qui-1o×Sab-2k~2y",
-      "gen": 8,
-      "parent": "sim:Quill-9×Qui-1o×Sab-2k~2x",
-      "matured": true,
-      "deckSize": 20,
-      "weights": {
-        "aggro": 0.8494941700960221,
-        "curve": 0.21903337985413818,
-        "hpBias": 0.12293381344307269,
-        "lanePref": 0.5473840449245542,
-        "valSealed": 0.7726385673868313,
-        "valFork": 1.7103898748285322,
-        "valMarket": 1.2889633701989025,
-        "chamberBias": {
-          "market": 0.08961428925290765,
-          "clinic": 0.29919945987654323,
-          "bridge": -0.30281635802469137,
-          "forge": 0,
-          "vault": 0,
-          "estate": 0.351119445794153
-        },
-        "kindBias": {
-          "surface": 0,
-          "wellness": 0,
-          "tool": 0.28346514917695476,
-          "mcp": -0.10263953189300412,
-          "api": 0.21679098079561043
-        }
-      }
-    },
-    {
-      "id": "sim:Quill-9×Qui-1o~2h",
-      "handle": "Quill-9×Qui-1o~2h",
-      "gen": 6,
-      "parent": "sim:Quill-9×Qui-1o~26",
-      "matured": true,
-      "deckSize": 18,
-      "weights": {
-        "aggro": 0.9801826131687243,
-        "curve": 0.4422655765807043,
-        "hpBias": 0.013794581618655693,
-        "lanePref": 0.5147247942386831,
-        "valSealed": 1.1746324159807957,
-        "valFork": 1.3324459876543209,
-        "valMarket": 1.4186953446502057,
-        "chamberBias": {
-          "market": 0.17864225617812435,
-          "clinic": 0.32280199759945133,
-          "bridge": -0.30281635802469137,
-          "estate": 0.41990909771459195
-        },
-        "kindBias": {
-          "surface": 0,
-          "wellness": 0,
-          "api": 0.21679098079561043,
-          "tool": 0.0473047410836763
-        }
-      }
-    },
-    {
-      "id": "sim:Quill-9×Qui-1o×Qui-2g~36",
-      "handle": "Quill-9×Qui-1o×Qui-2g~36",
-      "gen": 6,
-      "parent": "sim:Quill-9×Qui-1o×Qui-2g",
-      "matured": true,
-      "deckSize": 18,
-      "weights": {
-        "aggro": 0.7609932270233196,
-        "curve": 0.43806675970827635,
-        "hpBias": 0.013794581618655693,
-        "lanePref": 0.5147247942386831,
-        "valSealed": 1.1746324159807957,
-        "valFork": 1.1180469821673524,
-        "valMarket": 1.4269000771604938,
-        "chamberBias": {
-          "market": 0.08824574565778034,
-          "clinic": 0.30920353223593966,
-          "bridge": -0.30281635802469137,
-          "estate": 0.351119445794153,
-          "vault": 0
-        },
-        "kindBias": {
-          "surface": 0,
-          "wellness": 0,
-          "api": 0.21679098079561043,
-          "tool": 0.16746827846364887
-        }
-      }
-    },
-    {
-      "id": "sim:Sable-h×Nyx-m~2u",
-      "handle": "Sable-h×Nyx-m~2u",
-      "gen": 6,
-      "parent": "sim:Sable-h×Nyx-m~2l",
-      "matured": true,
-      "deckSize": 20,
-      "weights": {
-        "aggro": 0.6161329732510288,
-        "curve": 0.5465727880658436,
-        "hpBias": 0.281380744170096,
-        "lanePref": 0.783633401920439,
-        "valSealed": 0.2924768518518518,
-        "valFork": 1.1267146776406036,
-        "valMarket": 1.1566229423868313,
-        "chamberBias": {
-          "market": 0.319880615569273,
-          "colony": 0.19367283950617287,
-          "bridge": -0.32939386145404664,
-          "clinic": -0.45399948559670783,
-          "forge": 0.35035901063100133,
-          "vault": 0.1067986968449931,
-          "studio": 0
-        },
-        "kindBias": {
-          "surface": 0,
-          "wellness": 0,
-          "tool": -0.06527134773662556,
-          "sdk": -0.045208547668038404,
-          "mcp": 0.30456961591220855
-        }
-      }
-    },
-    {
-      "id": "sim:Quill-9×Qui-1o~2t",
-      "handle": "Quill-9×Qui-1o~2t",
-      "gen": 7,
-      "parent": "sim:Quill-9×Qui-1o~2h",
-      "matured": true,
-      "deckSize": 18,
-      "weights": {
-        "aggro": 0.9801826131687243,
-        "curve": 0.4422655765807043,
-        "hpBias": 0.013794581618655693,
-        "lanePref": 0.5147247942386831,
-        "valSealed": 1.1746324159807957,
-        "valFork": 1.3324459876543209,
-        "valMarket": 1.3863929612482853,
-        "chamberBias": {
-          "market": 0.17864225617812435,
-          "clinic": 0.32280199759945133,
-          "bridge": -0.30281635802469137,
-          "estate": 0.41990909771459195
-        },
-        "kindBias": {
-          "surface": 0,
-          "wellness": 0,
-          "api": 0.21679098079561043,
-          "tool": 0.1560013717421125
-        }
-      }
-    },
-    {
-      "id": "sim:Quill-9×Qui-1o~2z",
-      "handle": "Quill-9×Qui-1o~2z",
-      "gen": 7,
-      "parent": "sim:Quill-9×Qui-1o~2h",
-      "matured": true,
-      "deckSize": 18,
-      "weights": {
-        "aggro": 0.9801826131687243,
-        "curve": 0.4422655765807043,
-        "hpBias": 0.013794581618655693,
-        "lanePref": 0.5147247942386831,
-        "valSealed": 1.1746324159807957,
-        "valFork": 1.3324459876543209,
-        "valMarket": 1.4186953446502057,
-        "chamberBias": {
-          "market": 0.04018822687353622,
-          "clinic": 0.32280199759945133,
-          "bridge": -0.30281635802469137,
-          "estate": 0.41990909771459195
-        },
-        "kindBias": {
-          "surface": 0,
-          "wellness": 0,
-          "api": 0.21679098079561043,
-          "tool": 0.0473047410836763
-        }
-      }
-    },
-    {
-      "id": "sim:Loom-30",
-      "handle": "Loom-30",
-      "gen": 9,
-      "parent": null,
-      "matured": false,
-      "deckSize": 16,
-      "weights": {
-        "aggro": 0.7343064128943758,
-        "curve": 0.9952674897119341,
-        "hpBias": 0.19424296982167352,
-        "lanePref": 0.8651834705075446,
-        "valSealed": 0.5655606995884773,
-        "valFork": 0.7027091906721536,
-        "valMarket": 0.3208247599451303,
-        "chamberBias": {
-          "studio": 0.4105924211248285,
-          "forge": 0.13143004115226342,
-          "bridge": -0.30112311385459534,
-          "clinic": -0.09136659807956105
-        },
-        "kindBias": {
-          "sdk": 0.4652391975308642,
-          "surface": 0,
-          "wellness": 0
-        }
-      }
-    },
-    {
-      "id": "sim:Quill-9×Qui-1o~35",
-      "handle": "Quill-9×Qui-1o~35",
-      "gen": 6,
-      "parent": "sim:Quill-9×Qui-1o~26",
-      "matured": true,
-      "deckSize": 18,
-      "weights": {
-        "aggro": 0.7609932270233196,
-        "curve": 0.43806675970827635,
-        "hpBias": 0.013794581618655693,
-        "lanePref": 0.3658093278463649,
-        "valSealed": 1.1746324159807957,
-        "valFork": 1.3324459876543209,
-        "valMarket": 1.4082336676954732,
-        "chamberBias": {
-          "market": 0.17864225617812435,
-          "clinic": 0.32280199759945133,
-          "bridge": -0.30281635802469137,
-          "estate": 0.351119445794153,
-          "vault": 0
-        },
-        "kindBias": {
-          "surface": 0,
-          "wellness": 0,
-          "api": 0.21679098079561043,
+          "api": 0.2767168209876543,
           "tool": 0.16746827846364887,
           "mcp": 0
+        }
+      }
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o~9q",
+      "handle": "Bram-12×Ash-1o~9q",
+      "gen": 12,
+      "parent": "sim:Bram-12×Ash-1o~93",
+      "matured": true,
+      "deckSize": 18,
+      "weights": {
+        "aggro": 0.7952610596707819,
+        "curve": 0.6746318185746347,
+        "hpBias": 0.8503793724279836,
+        "lanePref": 0.9532793209876544,
+        "valSealed": 1.997905949931413,
+        "valFork": 1.329025205761317,
+        "valMarket": 0.9219071502057613,
+        "chamberBias": {
+          "clinic": 0.014679783950617253,
+          "vault": 0.2937650034293553,
+          "colony": -0.05188936042524006,
+          "market": 0.3128661185255566,
+          "studio": 0.31704925411522633,
+          "bridge": -0.33945044581618655
+        },
+        "kindBias": {
+          "wellness": 0,
+          "surface": 0,
+          "tool": -0.2814086076817558,
+          "mcp": 0.39468985768175585
+        }
+      }
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Qui-7u×Bra-9u",
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Qui-7u×Bra-9u",
+      "gen": 14,
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Qui-7u~94",
+      "matured": true,
+      "deckSize": 18,
+      "weights": {
+        "aggro": 0.8230281542031035,
+        "curve": 0.6538774462964718,
+        "hpBias": 0.5752287353180727,
+        "lanePref": 0.6393593200767318,
+        "valSealed": 1.6485018004115226,
+        "valFork": 1.2621557248799726,
+        "valMarket": 1.0916030025612997,
+        "chamberBias": {
+          "clinic": -0.032677469135802495,
+          "market": 0.35230195473251025,
+          "bridge": -0.39572616598079563,
+          "vault": 0.3022022890946502,
+          "colony": -0.05188936042524006,
+          "studio": 0.24242005315500686,
+          "estate": -0.0002754200960219527
+        },
+        "kindBias": {
+          "wellness": 0,
+          "surface": 0,
+          "tool": -0.2814086076817558,
+          "mcp": 0.329857896090535,
+          "api": 0
+        }
+      }
+    },
+    {
+      "id": "sim:Quill-9×Bra-5a×Bra-71×Qui-8k×Bra-8v",
+      "handle": "Quill-9×Bra-5a×Bra-71×Qui-8k×Bra-8v",
+      "gen": 14,
+      "parent": "sim:Quill-9×Bra-5a×Bra-71×Qui-8k",
+      "matured": true,
+      "deckSize": 18,
+      "weights": {
+        "aggro": 0.851784135480967,
+        "curve": 0.6621011479773649,
+        "hpBias": 0.4318848326045953,
+        "lanePref": 0.7126470202117627,
+        "valSealed": 1.702853330761317,
+        "valFork": 1.3187023105281208,
+        "valMarket": 0.993874782986111,
+        "chamberBias": {
+          "market": 0.2735433104902354,
+          "bridge": -0.30726058813443075,
+          "colony": 0,
+          "vault": 0,
+          "clinic": 0.30920353223593966,
+          "studio": 0,
+          "estate": 0.416139403292181
+        },
+        "kindBias": {
+          "surface": 0,
+          "tool": 0.09905156893004119,
+          "wellness": 0,
+          "mcp": 0,
+          "api": 0.2767168209876543
+        }
+      }
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m×Bra-8e×Bra-9l",
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-7m×Bra-8e×Bra-9l",
+      "gen": 13,
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m×Bra-8e",
+      "matured": true,
+      "deckSize": 18,
+      "weights": {
+        "aggro": 0.8430295339827675,
+        "curve": 0.6589036005887049,
+        "hpBias": 0.5163098663623114,
+        "lanePref": 0.7382869097758059,
+        "valSealed": 1.7142180266203704,
+        "valFork": 1.280960782107339,
+        "valMarket": 0.9811913593642831,
+        "chamberBias": {
+          "clinic": -0.032677469135802495,
+          "vault": 0.3022022890946502,
+          "colony": -0.05188936042524006,
+          "market": 0.35230195473251025,
+          "bridge": -0.39572616598079563,
+          "studio": 0.1734750085733882
+        },
+        "kindBias": {
+          "wellness": 0,
+          "surface": 0,
+          "tool": -0.2814086076817558,
+          "mcp": 0.2891632373113855
+        }
+      }
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m×Bra-8e",
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-7m×Bra-8e",
+      "gen": 12,
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m",
+      "matured": true,
+      "deckSize": 18,
+      "weights": {
+        "aggro": 0.8732888052983538,
+        "curve": 0.6545272014057022,
+        "hpBias": 0.4738656335733882,
+        "lanePref": 0.749966510202332,
+        "valSealed": 1.7282337748628258,
+        "valFork": 1.253804976851852,
+        "valMarket": 0.995433867026749,
+        "chamberBias": {
+          "clinic": -0.032677469135802495,
+          "vault": 0.3022022890946502,
+          "colony": -0.05188936042524006,
+          "market": 0.35230195473251025,
+          "bridge": -0.39572616598079563,
+          "studio": 0.1734750085733882
+        },
+        "kindBias": {
+          "wellness": 0,
+          "surface": 0,
+          "tool": -0.2814086076817558,
+          "mcp": 0.2891632373113855
+        }
+      }
+    },
+    {
+      "id": "sim:Quill-9×Bra-80~8j",
+      "handle": "Quill-9×Bra-80~8j",
+      "gen": 11,
+      "parent": "sim:Quill-9×Bra-80",
+      "matured": true,
+      "deckSize": 18,
+      "weights": {
+        "aggro": 0.9037456999099794,
+        "curve": 0.4115532965886426,
+        "hpBias": 0.10065653399348423,
+        "lanePref": 0.8427349242326818,
+        "valSealed": 1.4837595914780521,
+        "valFork": 1.0916267468278464,
+        "valMarket": 1.3496724027992113,
+        "chamberBias": {
+          "market": 0.21675177524932265,
+          "clinic": 0.30920353223593966,
+          "bridge": -0.2152070473251029,
+          "estate": 0.3834126371742112,
+          "studio": 0,
+          "vault": -0.07177211934156379,
+          "colony": 0
+        },
+        "kindBias": {
+          "surface": 0,
+          "wellness": 0,
+          "api": 0.2767168209876543,
+          "tool": 0.16746827846364887,
+          "mcp": 0
+        }
+      }
+    },
+    {
+      "id": "sim:Kade-aa",
+      "handle": "Kade-aa",
+      "gen": 19,
+      "parent": null,
+      "matured": false,
+      "deckSize": 20,
+      "weights": {
+        "aggro": 0.06607510288065843,
+        "curve": 0.7758530521262003,
+        "hpBias": 0.42055898491083676,
+        "lanePref": 0.8304398148148148,
+        "valSealed": 0.26407750342935526,
+        "valFork": 0.6075017146776406,
+        "valMarket": 0.7960905349794238,
+        "chamberBias": {
+          "colony": 0.43462791495198905,
+          "market": -0.06964591906721534,
+          "clinic": 0.2298568244170096,
+          "bridge": -0.4130272633744856,
+          "vault": -0.41253429355281207
+        },
+        "kindBias": {
+          "surface": 0,
+          "wellness": 0,
+          "api": -0.019963134430727003,
+          "tool": -0.12175497256515777,
+          "sdk": -0.35525548696844994
+        }
+      }
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Bra-86×Bra-9t",
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Bra-86×Bra-9t",
+      "gen": 14,
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Bra-86~96",
+      "matured": true,
+      "deckSize": 18,
+      "weights": {
+        "aggro": 0.851784135480967,
+        "curve": 0.6061705066879273,
+        "hpBias": 0.4756466210133745,
+        "lanePref": 0.6849989149305555,
+        "valSealed": 1.6442381472908094,
+        "valFork": 1.3967940886488341,
+        "valMarket": 0.8960556386102536,
+        "chamberBias": {
+          "clinic": -0.032677469135802495,
+          "market": 0.2898074752933995,
+          "bridge": -0.4129768947187929,
+          "vault": 0.3022022890946502,
+          "colony": -0.05188936042524006,
+          "studio": 0.1734750085733882,
+          "estate": 0.07493569958847737
+        },
+        "kindBias": {
+          "wellness": 0,
+          "surface": 0,
+          "tool": -0.2814086076817558,
+          "mcp": 0.2891632373113855,
+          "api": 0
+        }
+      }
+    },
+    {
+      "id": "sim:Quill-9×Bra-80~9z",
+      "handle": "Quill-9×Bra-80~9z",
+      "gen": 12,
+      "parent": "sim:Quill-9×Bra-80~8j",
+      "matured": true,
+      "deckSize": 18,
+      "weights": {
+        "aggro": 0.9037456999099794,
+        "curve": 0.4115532965886426,
+        "hpBias": 0.10065653399348423,
+        "lanePref": 0.8427349242326818,
+        "valSealed": 1.2816891182270234,
+        "valFork": 1.0916267468278464,
+        "valMarket": 1.3496724027992113,
+        "chamberBias": {
+          "market": 0.21675177524932265,
+          "clinic": 0.3208729852537723,
+          "bridge": -0.2152070473251029,
+          "estate": 0.35724344135802466,
+          "studio": 0,
+          "vault": -0.16376993312757201,
+          "colony": 0.08569851680384089
+        },
+        "kindBias": {
+          "surface": 0,
+          "wellness": 0,
+          "api": 0.2767168209876543,
+          "tool": 0.05164073216735257,
+          "mcp": 0
+        }
+      }
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Qui-7u~9f",
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Qui-7u~9f",
+      "gen": 14,
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Qui-7u~94",
+      "matured": true,
+      "deckSize": 18,
+      "weights": {
+        "aggro": 0.851784135480967,
+        "curve": 0.6942381771405592,
+        "hpBias": 0.6765918370627573,
+        "lanePref": 0.7126470202117627,
+        "valSealed": 1.5687698259602194,
+        "valFork": 1.2705064729080933,
+        "valMarket": 1.1877721380958504,
+        "chamberBias": {
+          "clinic": -0.032677469135802495,
+          "market": 0.35230195473251025,
+          "bridge": -0.39572616598079563,
+          "studio": 0.24242005315500686,
+          "vault": 0.3022022890946502,
+          "colony": -0.05188936042524006,
+          "estate": -0.1240869341563786
+        },
+        "kindBias": {
+          "wellness": 0,
+          "surface": 0,
+          "mcp": 0.329857896090535,
+          "tool": -0.2814086076817558,
+          "api": 0
+        }
+      }
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o~7a",
+      "handle": "Bram-12×Ash-1o~7a",
+      "gen": 10,
+      "parent": "sim:Bram-12×Ash-1o~6g",
+      "matured": true,
+      "deckSize": 18,
+      "weights": {
+        "aggro": 0.7952610596707819,
+        "curve": 0.6746318185746347,
+        "hpBias": 0.6400805898491084,
+        "lanePref": 0.7778870884773663,
+        "valSealed": 1.7661501200274348,
+        "valFork": 1.329025205761317,
+        "valMarket": 0.9219071502057613,
+        "chamberBias": {
+          "clinic": 0.014679783950617253,
+          "vault": 0.3022022890946502,
+          "colony": -0.05188936042524006,
+          "market": 0.38705847050754455,
+          "studio": 0.2302672753772291,
+          "bridge": -0.33945044581618655
+        },
+        "kindBias": {
+          "wellness": 0,
+          "surface": 0,
+          "tool": -0.2814086076817558,
+          "mcp": 0.39468985768175585
+        }
+      }
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o~9x",
+      "handle": "Bram-12×Ash-1o~9x",
+      "gen": 11,
+      "parent": "sim:Bram-12×Ash-1o~7a",
+      "matured": true,
+      "deckSize": 18,
+      "weights": {
+        "aggro": 0.7952610596707819,
+        "curve": 0.6746318185746347,
+        "hpBias": 0.6400805898491084,
+        "lanePref": 0.8835583847736626,
+        "valSealed": 1.7661501200274348,
+        "valFork": 1.187249228395062,
+        "valMarket": 0.9219071502057613,
+        "chamberBias": {
+          "clinic": 0.041998885459533564,
+          "vault": 0.3022022890946502,
+          "colony": -0.05188936042524006,
+          "market": 0.38705847050754455,
+          "studio": 0.15973615397805213,
+          "bridge": -0.3163301611796982
+        },
+        "kindBias": {
+          "wellness": 0,
+          "surface": 0,
+          "tool": -0.2814086076817558,
+          "mcp": 0.39468985768175585
+        }
+      }
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Qui-7u~94",
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Qui-7u~94",
+      "gen": 13,
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Qui-7u",
+      "matured": true,
+      "deckSize": 18,
+      "weights": {
+        "aggro": 0.851784135480967,
+        "curve": 0.6532276911872413,
+        "hpBias": 0.6765918370627573,
+        "lanePref": 0.7126470202117627,
+        "valSealed": 1.5687698259602194,
+        "valFork": 1.2705064729080933,
+        "valMarket": 1.1877721380958504,
+        "chamberBias": {
+          "clinic": -0.032677469135802495,
+          "market": 0.35230195473251025,
+          "bridge": -0.39572616598079563,
+          "studio": 0.24242005315500686,
+          "vault": 0.3022022890946502,
+          "colony": -0.05188936042524006,
+          "estate": -0.0002754200960219527
+        },
+        "kindBias": {
+          "wellness": 0,
+          "surface": 0,
+          "mcp": 0.329857896090535,
+          "tool": -0.2814086076817558,
+          "api": 0
+        }
+      }
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m×Bra-8e~a0",
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-7m×Bra-8e~a0",
+      "gen": 13,
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m×Bra-8e",
+      "matured": true,
+      "deckSize": 18,
+      "weights": {
+        "aggro": 0.8732888052983538,
+        "curve": 0.6545272014057022,
+        "hpBias": 0.4738656335733882,
+        "lanePref": 0.749966510202332,
+        "valSealed": 1.7282337748628258,
+        "valFork": 1.4004163451646092,
+        "valMarket": 0.995433867026749,
+        "chamberBias": {
+          "clinic": -0.032677469135802495,
+          "vault": 0.3022022890946502,
+          "colony": -0.05188936042524006,
+          "market": 0.35230195473251025,
+          "bridge": -0.39572616598079563,
+          "studio": 0.1734750085733882
+        },
+        "kindBias": {
+          "wellness": 0,
+          "surface": 0,
+          "tool": -0.2814086076817558,
+          "mcp": 0.2891632373113855
+        }
+      }
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-ab",
+      "handle": "Bram-12×Ash-1o×Bra-ab",
+      "gen": 13,
+      "parent": "sim:Bram-12×Ash-1o~7a",
+      "matured": true,
+      "deckSize": 18,
+      "weights": {
+        "aggro": 0.7947666162980109,
+        "curve": 0.6645795099901685,
+        "hpBias": 0.5569731117112483,
+        "lanePref": 0.6719793542095336,
+        "valSealed": 1.7471919474451303,
+        "valFork": 1.2914150913065845,
+        "valMarket": 0.9586705086162551,
+        "chamberBias": {
+          "clinic": 0.014679783950617253,
+          "vault": 0.3022022890946502,
+          "colony": -0.05188936042524006,
+          "market": 0.38705847050754455,
+          "studio": 0.2302672753772291,
+          "bridge": -0.33945044581618655
+        },
+        "kindBias": {
+          "wellness": 0,
+          "surface": 0,
+          "tool": -0.2814086076817558,
+          "mcp": 0.39468985768175585
+        }
+      }
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m~9b",
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-7m~9b",
+      "gen": 12,
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m",
+      "matured": true,
+      "deckSize": 18,
+      "weights": {
+        "aggro": 0.79427217292524,
+        "curve": 0.6545272014057022,
+        "hpBias": 0.4738656335733882,
+        "lanePref": 0.566071619941701,
+        "valSealed": 1.7282337748628258,
+        "valFork": 1.253804976851852,
+        "valMarket": 0.995433867026749,
+        "chamberBias": {
+          "clinic": -0.032677469135802495,
+          "vault": 0.3396626371742112,
+          "colony": -0.022264017489711935,
+          "market": 0.35230195473251025,
+          "bridge": -0.39572616598079563,
+          "studio": 0.1734750085733882
+        },
+        "kindBias": {
+          "wellness": 0,
+          "surface": 0,
+          "tool": -0.2814086076817558,
+          "mcp": 0.2891632373113855
+        }
+      }
+    },
+    {
+      "id": "sim:Quill-9×Bra-80×Bra-a4",
+      "handle": "Quill-9×Bra-80×Bra-a4",
+      "gen": 13,
+      "parent": "sim:Quill-9×Bra-80~9m",
+      "matured": true,
+      "deckSize": 18,
+      "weights": {
+        "aggro": 0.8495033797903806,
+        "curve": 0.5430925575816387,
+        "hpBias": 0.47551795321073387,
+        "lanePref": 0.8980071226101681,
+        "valSealed": 1.7408327707047326,
+        "valFork": 1.2103259762945817,
+        "valMarket": 1.1357897765024862,
+        "chamberBias": {
+          "market": 0.21675177524932265,
+          "clinic": 0.2891482338820302,
+          "bridge": -0.2152070473251029,
+          "studio": 0,
+          "vault": -0.07177211934156379,
+          "colony": 0,
+          "estate": 0.3834126371742112
+        },
+        "kindBias": {
+          "surface": 0,
+          "wellness": 0,
+          "mcp": 0,
+          "tool": 0.16746827846364887,
+          "api": 0.2767168209876543
+        }
+      }
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Bra-86×Bra-9t×Bra-a1",
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Bra-86×Bra-9t×Bra-a1",
+      "gen": 15,
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Bra-86×Bra-9t",
+      "matured": true,
+      "deckSize": 18,
+      "weights": {
+        "aggro": 0.8230281542031035,
+        "curve": 0.6303488540468147,
+        "hpBias": 0.47475612729338135,
+        "lanePref": 0.6255352674361283,
+        "valSealed": 1.6862359610768176,
+        "valFork": 1.3252995327503432,
+        "valMarket": 0.9457447528185012,
+        "chamberBias": {
+          "clinic": -0.032677469135802495,
+          "market": 0.2898074752933995,
+          "bridge": -0.4129768947187929,
+          "vault": 0.3022022890946502,
+          "colony": -0.05188936042524006,
+          "studio": 0.1734750085733882
+        },
+        "kindBias": {
+          "wellness": 0,
+          "surface": 0,
+          "tool": -0.2814086076817558,
+          "mcp": 0.2891632373113855
+        }
+      }
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o~a7",
+      "handle": "Bram-12×Ash-1o~a7",
+      "gen": 13,
+      "parent": "sim:Bram-12×Ash-1o~9q",
+      "matured": true,
+      "deckSize": 18,
+      "weights": {
+        "aggro": 0.7952610596707819,
+        "curve": 0.6746318185746347,
+        "hpBias": 0.8503793724279836,
+        "lanePref": 0.7597479423868314,
+        "valSealed": 1.997905949931413,
+        "valFork": 1.329025205761317,
+        "valMarket": 0.9219071502057613,
+        "chamberBias": {
+          "clinic": 0.014679783950617253,
+          "vault": 0.2937650034293553,
+          "market": 0.3128661185255566,
+          "colony": -0.05188936042524006,
+          "studio": 0.31704925411522633,
+          "bridge": -0.33945044581618655
+        },
+        "kindBias": {
+          "wellness": 0,
+          "surface": 0,
+          "tool": -0.2814086076817558,
+          "mcp": 0.39468985768175585
+        }
+      }
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m×Bra-8e×Bra-9l~9v",
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-7m×Bra-8e×Bra-9l~9v",
+      "gen": 14,
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m×Bra-8e×Bra-9l",
+      "matured": true,
+      "deckSize": 18,
+      "weights": {
+        "aggro": 0.8430295339827675,
+        "curve": 0.6589036005887049,
+        "hpBias": 0.5163098663623114,
+        "lanePref": 0.6335565428347908,
+        "valSealed": 1.7142180266203704,
+        "valFork": 1.0881195612568588,
+        "valMarket": 0.9811913593642831,
+        "chamberBias": {
+          "clinic": -0.032677469135802495,
+          "vault": 0.3022022890946502,
+          "colony": -0.05188936042524006,
+          "market": 0.35230195473251025,
+          "bridge": -0.39572616598079563,
+          "studio": 0.1734750085733882
+        },
+        "kindBias": {
+          "wellness": 0,
+          "surface": 0,
+          "tool": -0.2814086076817558,
+          "mcp": 0.2891632373113855
+        }
+      }
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-7w",
+      "handle": "Bram-12×Ash-1o×Bra-7w",
+      "gen": 11,
+      "parent": "sim:Bram-12×Ash-1o~7a",
+      "matured": true,
+      "deckSize": 18,
+      "weights": {
+        "aggro": 0.8127702626671811,
+        "curve": 0.6632799997717076,
+        "hpBias": 0.5587540991512346,
+        "lanePref": 0.7266073093492799,
+        "valSealed": 1.700202278377915,
+        "valFork": 1.308116587362826,
+        "valMarket": 0.9669488517018174,
+        "chamberBias": {
+          "clinic": 0.014679783950617253,
+          "vault": 0.3022022890946502,
+          "colony": -0.05188936042524006,
+          "market": 0.38705847050754455,
+          "studio": 0.2302672753772291,
+          "bridge": -0.33945044581618655
+        },
+        "kindBias": {
+          "wellness": 0,
+          "surface": 0,
+          "tool": -0.2814086076817558,
+          "mcp": 0.39468985768175585,
+          "api": 0
+        }
+      }
+    },
+    {
+      "id": "sim:Quill-9×Bra-80~9m",
+      "handle": "Quill-9×Bra-80~9m",
+      "gen": 12,
+      "parent": "sim:Quill-9×Bra-80~8j",
+      "matured": true,
+      "deckSize": 18,
+      "weights": {
+        "aggro": 0.9037456999099794,
+        "curve": 0.4115532965886426,
+        "hpBias": 0.10065653399348423,
+        "lanePref": 0.8427349242326818,
+        "valSealed": 1.4837595914780521,
+        "valFork": 1.0916267468278464,
+        "valMarket": 1.3496724027992113,
+        "chamberBias": {
+          "market": 0.21675177524932265,
+          "clinic": 0.2891482338820302,
+          "bridge": -0.2152070473251029,
+          "estate": 0.3834126371742112,
+          "studio": 0,
+          "vault": -0.07177211934156379,
+          "colony": 0
+        },
+        "kindBias": {
+          "surface": 0,
+          "wellness": 0,
+          "api": 0.2767168209876543,
+          "tool": 0.16746827846364887,
+          "mcp": 0
+        }
+      }
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o~a9",
+      "handle": "Bram-12×Ash-1o~a9",
+      "gen": 11,
+      "parent": "sim:Bram-12×Ash-1o~7a",
+      "matured": true,
+      "deckSize": 18,
+      "weights": {
+        "aggro": 0.7952610596707819,
+        "curve": 0.6746318185746347,
+        "hpBias": 0.6400805898491084,
+        "lanePref": 0.7778870884773663,
+        "valSealed": 1.8074631344307268,
+        "valFork": 1.2628579389574761,
+        "valMarket": 0.9219071502057613,
+        "chamberBias": {
+          "clinic": 0.014679783950617253,
+          "colony": -0.05188936042524006,
+          "market": 0.38705847050754455,
+          "vault": 0.3022022890946502,
+          "studio": 0.12779921124828536,
+          "bridge": -0.33945044581618655
+        },
+        "kindBias": {
+          "wellness": 0,
+          "tool": -0.299968921467764,
+          "surface": 0,
+          "mcp": 0.39468985768175585
+        }
+      }
+    },
+    {
+      "id": "sim:Fen-9w",
+      "handle": "Fen-9w",
+      "gen": 19,
+      "parent": null,
+      "matured": false,
+      "deckSize": 20,
+      "weights": {
+        "aggro": 0.9935185185185185,
+        "curve": 0.9270618998628258,
+        "hpBias": 0.8140517832647463,
+        "lanePref": 0.706957304526749,
+        "valSealed": 1.2424211248285322,
+        "valFork": 0.18152434842249657,
+        "valMarket": 0.7806069958847737,
+        "chamberBias": {
+          "vault": 0.2525634430727023,
+          "clinic": 0.30390517832647457,
+          "market": -0.07584447873799727,
+          "bridge": -0.07354681069958846,
+          "colony": -0.2181755829903978,
+          "estate": -0.03977623456790125
+        },
+        "kindBias": {
+          "surface": 0,
+          "wellness": 0,
+          "sdk": 0.1524348422496571
+        }
+      }
+    },
+    {
+      "id": "sim:Quill-a5",
+      "handle": "Quill-a5",
+      "gen": 19,
+      "parent": null,
+      "matured": false,
+      "deckSize": 17,
+      "weights": {
+        "aggro": 0.33838305898491083,
+        "curve": 0.5121527777777778,
+        "hpBias": 0.7443072702331962,
+        "lanePref": 0.013241598079561042,
+        "valSealed": 0.7428497942386831,
+        "valFork": 1.6685785322359397,
+        "valMarket": 1.871570644718793,
+        "chamberBias": {
+          "colony": 0.28306755829903973,
+          "market": 0.4506044238683128,
+          "vault": 0.16635802469135808,
+          "forge": 0.43535236625514406
+        },
+        "kindBias": {
+          "surface": 0,
+          "tool": 0.299729938271605,
+          "api": 0.4488468792866941
         }
       }
     }
@@ -650,598 +1065,2128 @@
       "handle": "Sable-h"
     },
     {
-      "id": "sim:Nyx-g~i",
-      "parent": "sim:Nyx-g",
-      "gen": 1,
-      "handle": "Nyx-g~i"
+      "id": "sim:Fen-i",
+      "parent": null,
+      "gen": 0,
+      "handle": "Fen-i"
     },
     {
-      "id": "sim:Fen-4×Qui-j",
+      "id": "sim:Nyx-j",
+      "parent": null,
+      "gen": 0,
+      "handle": "Nyx-j"
+    },
+    {
+      "id": "sim:Mire-k",
+      "parent": null,
+      "gen": 0,
+      "handle": "Mire-k"
+    },
+    {
+      "id": "sim:Onyx-l",
+      "parent": null,
+      "gen": 0,
+      "handle": "Onyx-l"
+    },
+    {
+      "id": "sim:Cinder-m",
+      "parent": null,
+      "gen": 0,
+      "handle": "Cinder-m"
+    },
+    {
+      "id": "sim:Quill-n",
+      "parent": null,
+      "gen": 0,
+      "handle": "Quill-n"
+    },
+    {
+      "id": "sim:Nyx-o",
+      "parent": null,
+      "gen": 0,
+      "handle": "Nyx-o"
+    },
+    {
+      "id": "sim:Kade-p",
+      "parent": null,
+      "gen": 0,
+      "handle": "Kade-p"
+    },
+    {
+      "id": "sim:Swarm-q",
+      "parent": null,
+      "gen": 0,
+      "handle": "Swarm-q"
+    },
+    {
+      "id": "sim:Ash-r",
+      "parent": null,
+      "gen": 0,
+      "handle": "Ash-r"
+    },
+    {
+      "id": "sim:Quill-s",
+      "parent": null,
+      "gen": 0,
+      "handle": "Quill-s"
+    },
+    {
+      "id": "sim:Onyx-t",
+      "parent": null,
+      "gen": 0,
+      "handle": "Onyx-t"
+    },
+    {
+      "id": "sim:Fen-4~u",
       "parent": "sim:Fen-4",
       "gen": 1,
-      "handle": "Fen-4×Qui-j"
+      "handle": "Fen-4~u"
     },
     {
-      "id": "sim:Sable-h~k",
-      "parent": "sim:Sable-h",
+      "id": "sim:Mire-k×Tha-v",
+      "parent": "sim:Mire-k",
       "gen": 1,
-      "handle": "Sable-h~k"
+      "handle": "Mire-k×Tha-v"
     },
     {
-      "id": "sim:Fen-4~l",
-      "parent": "sim:Fen-4",
+      "id": "sim:Ash-r×Tha-w",
+      "parent": "sim:Ash-r",
       "gen": 1,
-      "handle": "Fen-4~l"
+      "handle": "Ash-r×Tha-w"
     },
     {
-      "id": "sim:Sable-h×Nyx-m",
-      "parent": "sim:Sable-h",
-      "gen": 1,
-      "handle": "Sable-h×Nyx-m"
-    },
-    {
-      "id": "sim:Quill-9~n",
-      "parent": "sim:Quill-9",
-      "gen": 1,
-      "handle": "Quill-9~n"
-    },
-    {
-      "id": "sim:Fen-2×Cin-o",
+      "id": "sim:Fen-2~x",
       "parent": "sim:Fen-2",
       "gen": 1,
-      "handle": "Fen-2×Cin-o"
+      "handle": "Fen-2~x"
     },
     {
-      "id": "sim:Fen-p",
-      "parent": null,
-      "gen": 1,
-      "handle": "Fen-p"
-    },
-    {
-      "id": "sim:Quill-9×Fen-q",
-      "parent": "sim:Quill-9",
-      "gen": 1,
-      "handle": "Quill-9×Fen-q"
-    },
-    {
-      "id": "sim:Cinder-f~r",
+      "id": "sim:Cinder-f~y",
       "parent": "sim:Cinder-f",
       "gen": 1,
-      "handle": "Cinder-f~r"
+      "handle": "Cinder-f~y"
     },
     {
-      "id": "sim:Cinder-f~s",
-      "parent": "sim:Cinder-f",
+      "id": "sim:Cinder-m~z",
+      "parent": "sim:Cinder-m",
       "gen": 1,
-      "handle": "Cinder-f~s"
+      "handle": "Cinder-m~z"
     },
     {
-      "id": "sim:Wren-t",
+      "id": "sim:Nyx-o~10",
+      "parent": "sim:Nyx-o",
+      "gen": 1,
+      "handle": "Nyx-o~10"
+    },
+    {
+      "id": "sim:Quill-9~11",
+      "parent": "sim:Quill-9",
+      "gen": 1,
+      "handle": "Quill-9~11"
+    },
+    {
+      "id": "sim:Bram-12",
+      "parent": null,
+      "gen": 1,
+      "handle": "Bram-12"
+    },
+    {
+      "id": "sim:Mire-k~13",
+      "parent": "sim:Mire-k",
+      "gen": 1,
+      "handle": "Mire-k~13"
+    },
+    {
+      "id": "sim:Kade-p~14",
+      "parent": "sim:Kade-p",
+      "gen": 1,
+      "handle": "Kade-p~14"
+    },
+    {
+      "id": "sim:Ash-r~15",
+      "parent": "sim:Ash-r",
+      "gen": 1,
+      "handle": "Ash-r~15"
+    },
+    {
+      "id": "sim:Fen-2~16",
+      "parent": "sim:Fen-2",
+      "gen": 1,
+      "handle": "Fen-2~16"
+    },
+    {
+      "id": "sim:Quill-9×Cin-17",
+      "parent": "sim:Quill-9",
+      "gen": 1,
+      "handle": "Quill-9×Cin-17"
+    },
+    {
+      "id": "sim:Thane-0×Mir-18",
+      "parent": "sim:Thane-0",
+      "gen": 1,
+      "handle": "Thane-0×Mir-18"
+    },
+    {
+      "id": "sim:Nyx-g×Ash-19",
+      "parent": "sim:Nyx-g",
+      "gen": 1,
+      "handle": "Nyx-g×Ash-19"
+    },
+    {
+      "id": "sim:Nyx-o~1a",
+      "parent": "sim:Nyx-o",
+      "gen": 1,
+      "handle": "Nyx-o~1a"
+    },
+    {
+      "id": "sim:Kade-p×Nyx-1b",
+      "parent": "sim:Kade-p",
+      "gen": 1,
+      "handle": "Kade-p×Nyx-1b"
+    },
+    {
+      "id": "sim:Bram-12×Nyx-1c",
+      "parent": "sim:Bram-12",
+      "gen": 2,
+      "handle": "Bram-12×Nyx-1c"
+    },
+    {
+      "id": "sim:Nyx-o~1d",
+      "parent": "sim:Nyx-o~10",
+      "gen": 2,
+      "handle": "Nyx-o~1d"
+    },
+    {
+      "id": "sim:Vell-1e",
       "parent": null,
       "gen": 2,
-      "handle": "Wren-t"
+      "handle": "Vell-1e"
     },
     {
-      "id": "sim:Quill-9~u",
+      "id": "sim:Quill-9~1f",
       "parent": "sim:Quill-9",
       "gen": 2,
-      "handle": "Quill-9~u"
-    },
-    {
-      "id": "sim:Sable-h~v",
-      "parent": "sim:Sable-h",
-      "gen": 2,
-      "handle": "Sable-h~v"
-    },
-    {
-      "id": "sim:Quill-9~w",
-      "parent": "sim:Quill-9~n",
-      "gen": 2,
-      "handle": "Quill-9~w"
-    },
-    {
-      "id": "sim:Quill-9~x",
-      "parent": "sim:Quill-9~n",
-      "gen": 2,
-      "handle": "Quill-9~x"
-    },
-    {
-      "id": "sim:Sable-h~y",
-      "parent": "sim:Sable-h~k",
-      "gen": 2,
-      "handle": "Sable-h~y"
-    },
-    {
-      "id": "sim:Sable-h~z",
-      "parent": "sim:Sable-h~k",
-      "gen": 2,
-      "handle": "Sable-h~z"
-    },
-    {
-      "id": "sim:Nyx-g~10",
-      "parent": "sim:Nyx-g~i",
-      "gen": 2,
-      "handle": "Nyx-g~10"
-    },
-    {
-      "id": "sim:Nyx-g~11",
-      "parent": "sim:Nyx-g~i",
-      "gen": 2,
-      "handle": "Nyx-g~11"
-    },
-    {
-      "id": "sim:Quill-9~12",
-      "parent": "sim:Quill-9~n",
-      "gen": 2,
-      "handle": "Quill-9~12"
-    },
-    {
-      "id": "sim:Quill-9×Qui-13",
-      "parent": "sim:Quill-9",
-      "gen": 2,
-      "handle": "Quill-9×Qui-13"
-    },
-    {
-      "id": "sim:Sable-h~14",
-      "parent": "sim:Sable-h~y",
-      "gen": 3,
-      "handle": "Sable-h~14"
-    },
-    {
-      "id": "sim:Quill-9×Qui-13~15",
-      "parent": "sim:Quill-9×Qui-13",
-      "gen": 3,
-      "handle": "Quill-9×Qui-13~15"
-    },
-    {
-      "id": "sim:Sable-h×Qui-16",
-      "parent": "sim:Sable-h~y",
-      "gen": 3,
-      "handle": "Sable-h×Qui-16"
-    },
-    {
-      "id": "sim:Sable-h~17",
-      "parent": "sim:Sable-h~y",
-      "gen": 3,
-      "handle": "Sable-h~17"
-    },
-    {
-      "id": "sim:Kade-18",
-      "parent": null,
-      "gen": 3,
-      "handle": "Kade-18"
-    },
-    {
-      "id": "sim:Quill-9~19",
-      "parent": "sim:Quill-9~x",
-      "gen": 3,
-      "handle": "Quill-9~19"
-    },
-    {
-      "id": "sim:Sable-h~1a",
-      "parent": "sim:Sable-h~y",
-      "gen": 3,
-      "handle": "Sable-h~1a"
-    },
-    {
-      "id": "sim:Quill-9×Qui-13~1b",
-      "parent": "sim:Quill-9×Qui-13",
-      "gen": 3,
-      "handle": "Quill-9×Qui-13~1b"
-    },
-    {
-      "id": "sim:Sable-h×Nyx-m~1c",
-      "parent": "sim:Sable-h×Nyx-m",
-      "gen": 3,
-      "handle": "Sable-h×Nyx-m~1c"
-    },
-    {
-      "id": "sim:Quill-9~1d",
-      "parent": "sim:Quill-9~x",
-      "gen": 3,
-      "handle": "Quill-9~1d"
-    },
-    {
-      "id": "sim:Fen-1e",
-      "parent": null,
-      "gen": 3,
-      "handle": "Fen-1e"
-    },
-    {
-      "id": "sim:Sable-h×Nyx-m×Qui-1f",
-      "parent": "sim:Sable-h×Nyx-m~1c",
-      "gen": 4,
-      "handle": "Sable-h×Nyx-m×Qui-1f"
+      "handle": "Quill-9~1f"
     },
     {
       "id": "sim:Quill-9~1g",
-      "parent": "sim:Quill-9~1d",
-      "gen": 4,
+      "parent": "sim:Quill-9",
+      "gen": 2,
       "handle": "Quill-9~1g"
     },
     {
-      "id": "sim:Sable-h×Nyx-m×Qui-1h",
-      "parent": "sim:Sable-h×Nyx-m~1c",
-      "gen": 4,
-      "handle": "Sable-h×Nyx-m×Qui-1h"
+      "id": "sim:Quill-9×Nyx-1h",
+      "parent": "sim:Quill-9",
+      "gen": 2,
+      "handle": "Quill-9×Nyx-1h"
     },
     {
-      "id": "sim:Quill-9×Sab-1i",
-      "parent": "sim:Quill-9~w",
-      "gen": 4,
-      "handle": "Quill-9×Sab-1i"
+      "id": "sim:Cinder-f~1i",
+      "parent": "sim:Cinder-f~y",
+      "gen": 2,
+      "handle": "Cinder-f~1i"
     },
     {
-      "id": "sim:Quill-9~1j",
-      "parent": "sim:Quill-9~19",
-      "gen": 4,
-      "handle": "Quill-9~1j"
+      "id": "sim:Rook-1j",
+      "parent": null,
+      "gen": 2,
+      "handle": "Rook-1j"
     },
     {
-      "id": "sim:Sable-h×Nyx-m~1k",
-      "parent": "sim:Sable-h×Nyx-m~1c",
-      "gen": 4,
-      "handle": "Sable-h×Nyx-m~1k"
+      "id": "sim:Ash-r×Bra-1k",
+      "parent": "sim:Ash-r",
+      "gen": 2,
+      "handle": "Ash-r×Bra-1k"
     },
     {
-      "id": "sim:Loom-1l",
+      "id": "sim:Nyx-o~1l",
+      "parent": "sim:Nyx-o~1a",
+      "gen": 2,
+      "handle": "Nyx-o~1l"
+    },
+    {
+      "id": "sim:Nyx-o~1m",
+      "parent": "sim:Nyx-o~1a",
+      "gen": 2,
+      "handle": "Nyx-o~1m"
+    },
+    {
+      "id": "sim:Onyx-1n",
+      "parent": null,
+      "gen": 2,
+      "handle": "Onyx-1n"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o",
+      "parent": "sim:Bram-12",
+      "gen": 2,
+      "handle": "Bram-12×Ash-1o"
+    },
+    {
+      "id": "sim:Nyx-o×Nyx-1p",
+      "parent": "sim:Nyx-o",
+      "gen": 2,
+      "handle": "Nyx-o×Nyx-1p"
+    },
+    {
+      "id": "sim:Nyx-o×Ash-1q",
+      "parent": "sim:Nyx-o~1a",
+      "gen": 2,
+      "handle": "Nyx-o×Ash-1q"
+    },
+    {
+      "id": "sim:Bram-12~1r",
+      "parent": "sim:Bram-12",
+      "gen": 2,
+      "handle": "Bram-12~1r"
+    },
+    {
+      "id": "sim:Bram-12~1s",
+      "parent": "sim:Bram-12",
+      "gen": 2,
+      "handle": "Bram-12~1s"
+    },
+    {
+      "id": "sim:Nyx-g×Ash-19×Bra-1t",
+      "parent": "sim:Nyx-g×Ash-19",
+      "gen": 2,
+      "handle": "Nyx-g×Ash-19×Bra-1t"
+    },
+    {
+      "id": "sim:Nyx-o~1u",
+      "parent": "sim:Nyx-o~1d",
+      "gen": 3,
+      "handle": "Nyx-o~1u"
+    },
+    {
+      "id": "sim:Kade-p×Nyx-1b×Nyx-1v",
+      "parent": "sim:Kade-p×Nyx-1b",
+      "gen": 3,
+      "handle": "Kade-p×Nyx-1b×Nyx-1v"
+    },
+    {
+      "id": "sim:Nyx-o~1w",
+      "parent": "sim:Nyx-o~1l",
+      "gen": 3,
+      "handle": "Nyx-o~1w"
+    },
+    {
+      "id": "sim:Nyx-o~1x",
+      "parent": "sim:Nyx-o~1a",
+      "gen": 3,
+      "handle": "Nyx-o~1x"
+    },
+    {
+      "id": "sim:Nyx-o~1y",
+      "parent": "sim:Nyx-o~1m",
+      "gen": 3,
+      "handle": "Nyx-o~1y"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-1z",
+      "parent": "sim:Bram-12×Ash-1o",
+      "gen": 3,
+      "handle": "Bram-12×Ash-1o×Bra-1z"
+    },
+    {
+      "id": "sim:Nyx-o~20",
+      "parent": "sim:Nyx-o~10",
+      "gen": 3,
+      "handle": "Nyx-o~20"
+    },
+    {
+      "id": "sim:Nyx-o~21",
+      "parent": "sim:Nyx-o~1d",
+      "gen": 3,
+      "handle": "Nyx-o~21"
+    },
+    {
+      "id": "sim:Quill-9×Nyx-1h~22",
+      "parent": "sim:Quill-9×Nyx-1h",
+      "gen": 3,
+      "handle": "Quill-9×Nyx-1h~22"
+    },
+    {
+      "id": "sim:Nyx-o×Nyx-1p~23",
+      "parent": "sim:Nyx-o×Nyx-1p",
+      "gen": 3,
+      "handle": "Nyx-o×Nyx-1p~23"
+    },
+    {
+      "id": "sim:Kade-p×Nyx-1b~24",
+      "parent": "sim:Kade-p×Nyx-1b",
+      "gen": 3,
+      "handle": "Kade-p×Nyx-1b~24"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o~25",
+      "parent": "sim:Bram-12×Ash-1o",
+      "gen": 3,
+      "handle": "Bram-12×Ash-1o~25"
+    },
+    {
+      "id": "sim:Loom-26",
+      "parent": null,
+      "gen": 3,
+      "handle": "Loom-26"
+    },
+    {
+      "id": "sim:Nyx-o~27",
+      "parent": "sim:Nyx-o~1l",
+      "gen": 3,
+      "handle": "Nyx-o~27"
+    },
+    {
+      "id": "sim:Quill-9~28",
+      "parent": "sim:Quill-9~1g",
+      "gen": 3,
+      "handle": "Quill-9~28"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o~29",
+      "parent": "sim:Bram-12×Ash-1o",
+      "gen": 3,
+      "handle": "Bram-12×Ash-1o~29"
+    },
+    {
+      "id": "sim:Mire-2a",
+      "parent": null,
+      "gen": 3,
+      "handle": "Mire-2a"
+    },
+    {
+      "id": "sim:Nyx-o~2b",
+      "parent": "sim:Nyx-o",
+      "gen": 3,
+      "handle": "Nyx-o~2b"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o~2c",
+      "parent": "sim:Bram-12×Ash-1o~29",
+      "gen": 4,
+      "handle": "Bram-12×Ash-1o~2c"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o~2d",
+      "parent": "sim:Bram-12×Ash-1o~25",
+      "gen": 4,
+      "handle": "Bram-12×Ash-1o~2d"
+    },
+    {
+      "id": "sim:Quill-9×Bra-2e",
+      "parent": "sim:Quill-9~28",
+      "gen": 4,
+      "handle": "Quill-9×Bra-2e"
+    },
+    {
+      "id": "sim:Nyx-o×Qui-2f",
+      "parent": "sim:Nyx-o~1m",
+      "gen": 4,
+      "handle": "Nyx-o×Qui-2f"
+    },
+    {
+      "id": "sim:Cinder-2g",
       "parent": null,
       "gen": 4,
-      "handle": "Loom-1l"
+      "handle": "Cinder-2g"
     },
     {
-      "id": "sim:Sable-h~1m",
-      "parent": "sim:Sable-h~1a",
+      "id": "sim:Quill-9~2h",
+      "parent": "sim:Quill-9~1f",
       "gen": 4,
-      "handle": "Sable-h~1m"
+      "handle": "Quill-9~2h"
     },
     {
-      "id": "sim:Sable-h×Nyx-m~1n",
-      "parent": "sim:Sable-h×Nyx-m~1c",
+      "id": "sim:Quill-9×Nyx-2i",
+      "parent": "sim:Quill-9~28",
       "gen": 4,
-      "handle": "Sable-h×Nyx-m~1n"
+      "handle": "Quill-9×Nyx-2i"
     },
     {
-      "id": "sim:Quill-9×Qui-1o",
-      "parent": "sim:Quill-9~19",
+      "id": "sim:Nyx-o~2j",
+      "parent": "sim:Nyx-o",
       "gen": 4,
-      "handle": "Quill-9×Qui-1o"
+      "handle": "Nyx-o~2j"
     },
     {
-      "id": "sim:Sable-h~1p",
-      "parent": "sim:Sable-h~1a",
+      "id": "sim:Nyx-o×Qui-2k",
+      "parent": "sim:Nyx-o~27",
       "gen": 4,
-      "handle": "Sable-h~1p"
+      "handle": "Nyx-o×Qui-2k"
     },
     {
-      "id": "sim:Loom-1l~1q",
-      "parent": "sim:Loom-1l",
+      "id": "sim:Vell-2l",
+      "parent": null,
+      "gen": 4,
+      "handle": "Vell-2l"
+    },
+    {
+      "id": "sim:Nyx-o~2m",
+      "parent": "sim:Nyx-o~1l",
+      "gen": 4,
+      "handle": "Nyx-o~2m"
+    },
+    {
+      "id": "sim:Quill-9~2n",
+      "parent": "sim:Quill-9~1f",
+      "gen": 4,
+      "handle": "Quill-9~2n"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o~2o",
+      "parent": "sim:Bram-12×Ash-1o~29",
+      "gen": 4,
+      "handle": "Bram-12×Ash-1o~2o"
+    },
+    {
+      "id": "sim:Bloom-2p",
+      "parent": null,
+      "gen": 4,
+      "handle": "Bloom-2p"
+    },
+    {
+      "id": "sim:Nyx-o~2q",
+      "parent": "sim:Nyx-o~27",
+      "gen": 4,
+      "handle": "Nyx-o~2q"
+    },
+    {
+      "id": "sim:Quill-9×Nyx-2r",
+      "parent": "sim:Quill-9~1f",
+      "gen": 4,
+      "handle": "Quill-9×Nyx-2r"
+    },
+    {
+      "id": "sim:Nyx-o×Bra-2s",
+      "parent": "sim:Nyx-o~1l",
+      "gen": 4,
+      "handle": "Nyx-o×Bra-2s"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o~2t",
+      "parent": "sim:Bram-12×Ash-1o~25",
+      "gen": 4,
+      "handle": "Bram-12×Ash-1o~2t"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o~2u",
+      "parent": "sim:Bram-12×Ash-1o~2t",
       "gen": 5,
-      "handle": "Loom-1l~1q"
+      "handle": "Bram-12×Ash-1o~2u"
     },
     {
-      "id": "sim:Loom-1l~1r",
-      "parent": "sim:Loom-1l",
+      "id": "sim:Quill-9×Bra-2v",
+      "parent": "sim:Quill-9~2n",
       "gen": 5,
-      "handle": "Loom-1l~1r"
+      "handle": "Quill-9×Bra-2v"
     },
     {
-      "id": "sim:Loom-1l~1s",
-      "parent": "sim:Loom-1l",
+      "id": "sim:Nyx-o~2w",
+      "parent": "sim:Nyx-o~27",
       "gen": 5,
-      "handle": "Loom-1l~1s"
+      "handle": "Nyx-o~2w"
     },
     {
-      "id": "sim:Quill-9×Qui-1o~1t",
-      "parent": "sim:Quill-9×Qui-1o",
+      "id": "sim:Quill-9×Nyx-1h~2x",
+      "parent": "sim:Quill-9×Nyx-1h",
       "gen": 5,
-      "handle": "Quill-9×Qui-1o~1t"
+      "handle": "Quill-9×Nyx-1h~2x"
     },
     {
-      "id": "sim:Sable-h×Nyx-m~1u",
-      "parent": "sim:Sable-h×Nyx-m~1n",
+      "id": "sim:Bram-12×Ash-1o~2y",
+      "parent": "sim:Bram-12×Ash-1o~2t",
       "gen": 5,
-      "handle": "Sable-h×Nyx-m~1u"
+      "handle": "Bram-12×Ash-1o~2y"
     },
     {
-      "id": "sim:Quill-9×Qui-13~1v",
-      "parent": "sim:Quill-9×Qui-13",
+      "id": "sim:Quill-9~2z",
+      "parent": "sim:Quill-9~2n",
       "gen": 5,
-      "handle": "Quill-9×Qui-13~1v"
+      "handle": "Quill-9~2z"
     },
     {
-      "id": "sim:Quill-9×Qui-13~1w",
-      "parent": "sim:Quill-9×Qui-13",
+      "id": "sim:Bram-12×Ash-1o×Bra-30",
+      "parent": "sim:Bram-12×Ash-1o~29",
       "gen": 5,
-      "handle": "Quill-9×Qui-13~1w"
+      "handle": "Bram-12×Ash-1o×Bra-30"
     },
     {
-      "id": "sim:Quill-9×Sab-1i~1x",
-      "parent": "sim:Quill-9×Sab-1i",
+      "id": "sim:Nyx-o~31",
+      "parent": "sim:Nyx-o~2m",
       "gen": 5,
-      "handle": "Quill-9×Sab-1i~1x"
+      "handle": "Nyx-o~31"
     },
     {
-      "id": "sim:Sable-h×Nyx-m~1y",
-      "parent": "sim:Sable-h×Nyx-m~1n",
+      "id": "sim:Bram-12×Ash-1o×Nyx-32",
+      "parent": "sim:Bram-12×Ash-1o~2t",
       "gen": 5,
-      "handle": "Sable-h×Nyx-m~1y"
+      "handle": "Bram-12×Ash-1o×Nyx-32"
     },
     {
-      "id": "sim:Loom-1l×Sab-1z",
-      "parent": "sim:Loom-1l",
+      "id": "sim:Bram-12×Ash-1o×Nyx-33",
+      "parent": "sim:Bram-12×Ash-1o~25",
       "gen": 5,
-      "handle": "Loom-1l×Sab-1z"
+      "handle": "Bram-12×Ash-1o×Nyx-33"
     },
     {
-      "id": "sim:Quill-9×Qui-13~20",
-      "parent": "sim:Quill-9×Qui-13",
+      "id": "sim:Bram-12×Ash-1o~34",
+      "parent": "sim:Bram-12×Ash-1o~2d",
       "gen": 5,
-      "handle": "Quill-9×Qui-13~20"
+      "handle": "Bram-12×Ash-1o~34"
     },
     {
-      "id": "sim:Quill-9×Qui-1o~21",
-      "parent": "sim:Quill-9×Qui-1o",
+      "id": "sim:Bram-12×Ash-1o~35",
+      "parent": "sim:Bram-12×Ash-1o~29",
+      "gen": 5,
+      "handle": "Bram-12×Ash-1o~35"
+    },
+    {
+      "id": "sim:Nyx-o~36",
+      "parent": "sim:Nyx-o~27",
+      "gen": 5,
+      "handle": "Nyx-o~36"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Nyx-37",
+      "parent": "sim:Bram-12×Ash-1o~25",
+      "gen": 5,
+      "handle": "Bram-12×Ash-1o×Nyx-37"
+    },
+    {
+      "id": "sim:Nyx-o~38",
+      "parent": "sim:Nyx-o",
+      "gen": 5,
+      "handle": "Nyx-o~38"
+    },
+    {
+      "id": "sim:Quill-9~39",
+      "parent": "sim:Quill-9~1g",
+      "gen": 5,
+      "handle": "Quill-9~39"
+    },
+    {
+      "id": "sim:Quill-9×Nyx-2i~3a",
+      "parent": "sim:Quill-9×Nyx-2i",
+      "gen": 5,
+      "handle": "Quill-9×Nyx-2i~3a"
+    },
+    {
+      "id": "sim:Nyx-o~3b",
+      "parent": "sim:Nyx-o~2m",
+      "gen": 5,
+      "handle": "Nyx-o~3b"
+    },
+    {
+      "id": "sim:Nyx-o~3c",
+      "parent": "sim:Nyx-o~3b",
       "gen": 6,
-      "handle": "Quill-9×Qui-1o~21"
+      "handle": "Nyx-o~3c"
     },
     {
-      "id": "sim:Sable-h×Nyx-m~22",
-      "parent": "sim:Sable-h×Nyx-m~1y",
+      "id": "sim:Bram-12×Ash-1o×Bra-3d",
+      "parent": "sim:Bram-12×Ash-1o~2u",
       "gen": 6,
-      "handle": "Sable-h×Nyx-m~22"
+      "handle": "Bram-12×Ash-1o×Bra-3d"
     },
     {
-      "id": "sim:Quill-9×Qui-1o~23",
-      "parent": "sim:Quill-9×Qui-1o",
+      "id": "sim:Quill-9~3e",
+      "parent": "sim:Quill-9~1g",
       "gen": 6,
-      "handle": "Quill-9×Qui-1o~23"
+      "handle": "Quill-9~3e"
     },
     {
-      "id": "sim:Loom-1l×Loo-24",
-      "parent": "sim:Loom-1l~1r",
+      "id": "sim:Quill-9×Nyx-2i×Nyx-3f",
+      "parent": "sim:Quill-9×Nyx-2i~3a",
       "gen": 6,
-      "handle": "Loom-1l×Loo-24"
+      "handle": "Quill-9×Nyx-2i×Nyx-3f"
     },
     {
-      "id": "sim:Sable-h×Nyx-m~25",
-      "parent": "sim:Sable-h×Nyx-m~1n",
+      "id": "sim:Quill-9~3g",
+      "parent": "sim:Quill-9~39",
       "gen": 6,
-      "handle": "Sable-h×Nyx-m~25"
+      "handle": "Quill-9~3g"
     },
     {
-      "id": "sim:Quill-9×Qui-1o~26",
-      "parent": "sim:Quill-9×Qui-1o",
+      "id": "sim:Bram-12×Ash-1o~3h",
+      "parent": "sim:Bram-12×Ash-1o~2u",
       "gen": 6,
-      "handle": "Quill-9×Qui-1o~26"
+      "handle": "Bram-12×Ash-1o~3h"
     },
     {
-      "id": "sim:Sable-h×Nyx-m~27",
-      "parent": "sim:Sable-h×Nyx-m~1n",
+      "id": "sim:Bram-3i",
+      "parent": null,
       "gen": 6,
-      "handle": "Sable-h×Nyx-m~27"
+      "handle": "Bram-3i"
     },
     {
-      "id": "sim:Sable-h×Nyx-m×Sab-28",
-      "parent": "sim:Sable-h×Nyx-m~1u",
+      "id": "sim:Quill-9~3j",
+      "parent": "sim:Quill-9~39",
       "gen": 6,
-      "handle": "Sable-h×Nyx-m×Sab-28"
+      "handle": "Quill-9~3j"
     },
     {
-      "id": "sim:Loom-1l×Qui-29",
-      "parent": "sim:Loom-1l~1r",
+      "id": "sim:Nyx-o~3k",
+      "parent": "sim:Nyx-o~38",
       "gen": 6,
-      "handle": "Loom-1l×Qui-29"
+      "handle": "Nyx-o~3k"
     },
     {
-      "id": "sim:Sable-h×Nyx-m~2a",
-      "parent": "sim:Sable-h×Nyx-m~1u",
+      "id": "sim:Nyx-o~3l",
+      "parent": "sim:Nyx-o~3b",
       "gen": 6,
-      "handle": "Sable-h×Nyx-m~2a"
+      "handle": "Nyx-o~3l"
     },
     {
-      "id": "sim:Sable-h~2b",
-      "parent": "sim:Sable-h~1m",
+      "id": "sim:Quill-9×Nyx-2i~3m",
+      "parent": "sim:Quill-9×Nyx-2i~3a",
       "gen": 6,
-      "handle": "Sable-h~2b"
+      "handle": "Quill-9×Nyx-2i~3m"
     },
     {
-      "id": "sim:Sable-h×Nyx-m~2c",
-      "parent": "sim:Sable-h×Nyx-m~25",
+      "id": "sim:Quill-9×Bra-3n",
+      "parent": "sim:Quill-9~1g",
+      "gen": 6,
+      "handle": "Quill-9×Bra-3n"
+    },
+    {
+      "id": "sim:Nyx-o×Bra-3o",
+      "parent": "sim:Nyx-o~3b",
+      "gen": 6,
+      "handle": "Nyx-o×Bra-3o"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o~3p",
+      "parent": "sim:Bram-12×Ash-1o~2u",
+      "gen": 6,
+      "handle": "Bram-12×Ash-1o~3p"
+    },
+    {
+      "id": "sim:Nyx-o~3q",
+      "parent": "sim:Nyx-o~2w",
+      "gen": 6,
+      "handle": "Nyx-o~3q"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Nyx-33~3r",
+      "parent": "sim:Bram-12×Ash-1o×Nyx-33",
+      "gen": 6,
+      "handle": "Bram-12×Ash-1o×Nyx-33~3r"
+    },
+    {
+      "id": "sim:Nyx-o~3s",
+      "parent": "sim:Nyx-o~36",
+      "gen": 6,
+      "handle": "Nyx-o~3s"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Nyx-33~3t",
+      "parent": "sim:Bram-12×Ash-1o×Nyx-33",
+      "gen": 6,
+      "handle": "Bram-12×Ash-1o×Nyx-33~3t"
+    },
+    {
+      "id": "sim:Rook-3u",
+      "parent": null,
       "gen": 7,
-      "handle": "Sable-h×Nyx-m~2c"
+      "handle": "Rook-3u"
     },
     {
-      "id": "sim:Quill-9×Qui-1o~2d",
-      "parent": "sim:Quill-9×Qui-1o~26",
+      "id": "sim:Bram-12×Ash-1o×Nyx-33×Bra-3v",
+      "parent": "sim:Bram-12×Ash-1o×Nyx-33",
       "gen": 7,
-      "handle": "Quill-9×Qui-1o~2d"
+      "handle": "Bram-12×Ash-1o×Nyx-33×Bra-3v"
     },
     {
-      "id": "sim:Quill-9×Qui-1o~2e",
-      "parent": "sim:Quill-9×Qui-1o~21",
+      "id": "sim:Bram-12×Ash-1o×Nyx-3w",
+      "parent": "sim:Bram-12×Ash-1o~29",
       "gen": 7,
-      "handle": "Quill-9×Qui-1o~2e"
+      "handle": "Bram-12×Ash-1o×Nyx-3w"
     },
     {
-      "id": "sim:Quill-9×Qui-1o×Qui-2f",
-      "parent": "sim:Quill-9×Qui-1o",
+      "id": "sim:Bram-12×Ash-1o×Nyx-33×Bra-3x",
+      "parent": "sim:Bram-12×Ash-1o×Nyx-33",
       "gen": 7,
-      "handle": "Quill-9×Qui-1o×Qui-2f"
+      "handle": "Bram-12×Ash-1o×Nyx-33×Bra-3x"
     },
     {
-      "id": "sim:Quill-9×Qui-1o×Qui-2g",
-      "parent": "sim:Quill-9×Qui-1o",
+      "id": "sim:Bram-12×Ash-1o×Qui-3y",
+      "parent": "sim:Bram-12×Ash-1o~29",
       "gen": 7,
-      "handle": "Quill-9×Qui-1o×Qui-2g"
+      "handle": "Bram-12×Ash-1o×Qui-3y"
     },
     {
-      "id": "sim:Quill-9×Qui-1o~2h",
-      "parent": "sim:Quill-9×Qui-1o~26",
+      "id": "sim:Nyx-o~3z",
+      "parent": "sim:Nyx-o~3q",
       "gen": 7,
-      "handle": "Quill-9×Qui-1o~2h"
+      "handle": "Nyx-o~3z"
     },
     {
-      "id": "sim:Sable-h×Nyx-m~2i",
-      "parent": "sim:Sable-h×Nyx-m~1u",
+      "id": "sim:Bram-12×Ash-1o×Nyx-33~40",
+      "parent": "sim:Bram-12×Ash-1o×Nyx-33",
       "gen": 7,
-      "handle": "Sable-h×Nyx-m~2i"
+      "handle": "Bram-12×Ash-1o×Nyx-33~40"
     },
     {
-      "id": "sim:Sable-h~2j",
-      "parent": "sim:Sable-h~2b",
+      "id": "sim:Bram-12×Ash-1o~41",
+      "parent": "sim:Bram-12×Ash-1o~3p",
       "gen": 7,
-      "handle": "Sable-h~2j"
+      "handle": "Bram-12×Ash-1o~41"
     },
     {
-      "id": "sim:Quill-9×Qui-1o×Sab-2k",
-      "parent": "sim:Quill-9×Qui-1o~26",
+      "id": "sim:Bram-12×Ash-1o~42",
+      "parent": "sim:Bram-12×Ash-1o~29",
       "gen": 7,
-      "handle": "Quill-9×Qui-1o×Sab-2k"
+      "handle": "Bram-12×Ash-1o~42"
     },
     {
-      "id": "sim:Sable-h×Nyx-m~2l",
-      "parent": "sim:Sable-h×Nyx-m~25",
+      "id": "sim:Bram-12×Ash-1o×Nyx-33~43",
+      "parent": "sim:Bram-12×Ash-1o×Nyx-33",
       "gen": 7,
-      "handle": "Sable-h×Nyx-m~2l"
+      "handle": "Bram-12×Ash-1o×Nyx-33~43"
     },
     {
-      "id": "sim:Quill-9×Qui-1o~2m",
-      "parent": "sim:Quill-9×Qui-1o",
+      "id": "sim:Bram-12×Ash-1o×Bra-44",
+      "parent": "sim:Bram-12×Ash-1o~29",
       "gen": 7,
-      "handle": "Quill-9×Qui-1o~2m"
+      "handle": "Bram-12×Ash-1o×Bra-44"
     },
     {
-      "id": "sim:Quill-9×Qui-1o~2n",
-      "parent": "sim:Quill-9×Qui-1o~26",
+      "id": "sim:Bram-12×Ash-1o~45",
+      "parent": "sim:Bram-12×Ash-1o~3p",
+      "gen": 7,
+      "handle": "Bram-12×Ash-1o~45"
+    },
+    {
+      "id": "sim:Quill-9~46",
+      "parent": "sim:Quill-9~3e",
+      "gen": 7,
+      "handle": "Quill-9~46"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o~47",
+      "parent": "sim:Bram-12×Ash-1o~2y",
+      "gen": 7,
+      "handle": "Bram-12×Ash-1o~47"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o~48",
+      "parent": "sim:Bram-12×Ash-1o~3p",
+      "gen": 7,
+      "handle": "Bram-12×Ash-1o~48"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o~49",
+      "parent": "sim:Bram-12×Ash-1o~2y",
+      "gen": 7,
+      "handle": "Bram-12×Ash-1o~49"
+    },
+    {
+      "id": "sim:Quill-9~4a",
+      "parent": "sim:Quill-9~3e",
+      "gen": 7,
+      "handle": "Quill-9~4a"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o~4b",
+      "parent": "sim:Bram-12×Ash-1o~3p",
+      "gen": 7,
+      "handle": "Bram-12×Ash-1o~4b"
+    },
+    {
+      "id": "sim:Nyx-o~4c",
+      "parent": "sim:Nyx-o~3q",
       "gen": 8,
-      "handle": "Quill-9×Qui-1o~2n"
+      "handle": "Nyx-o~4c"
     },
     {
-      "id": "sim:Quill-9×Qui-1o×Qui-2o",
-      "parent": "sim:Quill-9×Qui-1o~26",
+      "id": "sim:Quill-9×Bra-4d",
+      "parent": "sim:Quill-9~46",
       "gen": 8,
-      "handle": "Quill-9×Qui-1o×Qui-2o"
+      "handle": "Quill-9×Bra-4d"
     },
     {
-      "id": "sim:Quill-9×Qui-1o×Qui-2g~2p",
-      "parent": "sim:Quill-9×Qui-1o×Qui-2g",
+      "id": "sim:Quill-9~4e",
+      "parent": "sim:Quill-9~4a",
       "gen": 8,
-      "handle": "Quill-9×Qui-1o×Qui-2g~2p"
+      "handle": "Quill-9~4e"
     },
     {
-      "id": "sim:Quill-9×Qui-1o×Qui-2g×Qui-2q",
-      "parent": "sim:Quill-9×Qui-1o×Qui-2g",
+      "id": "sim:Bram-12×Ash-1o~4f",
+      "parent": "sim:Bram-12×Ash-1o~3p",
       "gen": 8,
-      "handle": "Quill-9×Qui-1o×Qui-2g×Qui-2q"
+      "handle": "Bram-12×Ash-1o~4f"
     },
     {
-      "id": "sim:Quill-9×Qui-1o~2r",
-      "parent": "sim:Quill-9×Qui-1o~26",
+      "id": "sim:Onyx-4g",
+      "parent": null,
       "gen": 8,
-      "handle": "Quill-9×Qui-1o~2r"
+      "handle": "Onyx-4g"
     },
     {
-      "id": "sim:Quill-9×Qui-1o×Sab-2k×Sab-2s",
-      "parent": "sim:Quill-9×Qui-1o×Sab-2k",
+      "id": "sim:Bram-12×Ash-1o×Bra-44~4h",
+      "parent": "sim:Bram-12×Ash-1o×Bra-44",
       "gen": 8,
-      "handle": "Quill-9×Qui-1o×Sab-2k×Sab-2s"
+      "handle": "Bram-12×Ash-1o×Bra-44~4h"
     },
     {
-      "id": "sim:Quill-9×Qui-1o~2t",
-      "parent": "sim:Quill-9×Qui-1o~2h",
+      "id": "sim:Bram-12×Ash-1o~4i",
+      "parent": "sim:Bram-12×Ash-1o~3p",
       "gen": 8,
-      "handle": "Quill-9×Qui-1o~2t"
+      "handle": "Bram-12×Ash-1o~4i"
     },
     {
-      "id": "sim:Sable-h×Nyx-m~2u",
-      "parent": "sim:Sable-h×Nyx-m~2l",
+      "id": "sim:Quill-9~4j",
+      "parent": "sim:Quill-9~46",
       "gen": 8,
-      "handle": "Sable-h×Nyx-m~2u"
+      "handle": "Quill-9~4j"
     },
     {
-      "id": "sim:Quill-9×Qui-1o~2v",
-      "parent": "sim:Quill-9×Qui-1o~26",
+      "id": "sim:Bram-12×Ash-1o×Bra-4k",
+      "parent": "sim:Bram-12×Ash-1o~49",
       "gen": 8,
-      "handle": "Quill-9×Qui-1o~2v"
+      "handle": "Bram-12×Ash-1o×Bra-4k"
     },
     {
-      "id": "sim:Sable-h×Nyx-m~2w",
-      "parent": "sim:Sable-h×Nyx-m~25",
+      "id": "sim:Bram-12×Ash-1o~4l",
+      "parent": "sim:Bram-12×Ash-1o~4b",
       "gen": 8,
-      "handle": "Sable-h×Nyx-m~2w"
+      "handle": "Bram-12×Ash-1o~4l"
     },
     {
-      "id": "sim:Quill-9×Qui-1o×Sab-2k~2x",
-      "parent": "sim:Quill-9×Qui-1o×Sab-2k",
+      "id": "sim:Bram-12×Ash-1o×Qui-4m",
+      "parent": "sim:Bram-12×Ash-1o~3p",
       "gen": 8,
-      "handle": "Quill-9×Qui-1o×Sab-2k~2x"
+      "handle": "Bram-12×Ash-1o×Qui-4m"
     },
     {
-      "id": "sim:Quill-9×Qui-1o×Sab-2k~2y",
-      "parent": "sim:Quill-9×Qui-1o×Sab-2k~2x",
+      "id": "sim:Bram-12×Ash-1o~4n",
+      "parent": "sim:Bram-12×Ash-1o~49",
+      "gen": 8,
+      "handle": "Bram-12×Ash-1o~4n"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Nyx-33×Qui-4o",
+      "parent": "sim:Bram-12×Ash-1o×Nyx-33~43",
+      "gen": 8,
+      "handle": "Bram-12×Ash-1o×Nyx-33×Qui-4o"
+    },
+    {
+      "id": "sim:Nyx-o×Qui-4p",
+      "parent": "sim:Nyx-o~3q",
+      "gen": 8,
+      "handle": "Nyx-o×Qui-4p"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Nyx-33~4q",
+      "parent": "sim:Bram-12×Ash-1o×Nyx-33~40",
+      "gen": 8,
+      "handle": "Bram-12×Ash-1o×Nyx-33~4q"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o~4r",
+      "parent": "sim:Bram-12×Ash-1o~49",
+      "gen": 8,
+      "handle": "Bram-12×Ash-1o~4r"
+    },
+    {
+      "id": "sim:Quill-9~4s",
+      "parent": "sim:Quill-9~3j",
+      "gen": 8,
+      "handle": "Quill-9~4s"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Nyx-33~4t",
+      "parent": "sim:Bram-12×Ash-1o×Nyx-33~40",
+      "gen": 8,
+      "handle": "Bram-12×Ash-1o×Nyx-33~4t"
+    },
+    {
+      "id": "sim:Quill-9×Qui-4u",
+      "parent": "sim:Quill-9~1g",
       "gen": 9,
-      "handle": "Quill-9×Qui-1o×Sab-2k~2y"
+      "handle": "Quill-9×Qui-4u"
     },
     {
-      "id": "sim:Quill-9×Qui-1o~2z",
-      "parent": "sim:Quill-9×Qui-1o~2h",
+      "id": "sim:Nyx-o×Nyx-4v",
+      "parent": "sim:Nyx-o~4c",
       "gen": 9,
-      "handle": "Quill-9×Qui-1o~2z"
+      "handle": "Nyx-o×Nyx-4v"
     },
     {
-      "id": "sim:Loom-30",
+      "id": "sim:Bram-12×Ash-1o×Qui-4m~4w",
+      "parent": "sim:Bram-12×Ash-1o×Qui-4m",
+      "gen": 9,
+      "handle": "Bram-12×Ash-1o×Qui-4m~4w"
+    },
+    {
+      "id": "sim:Bloom-4x",
       "parent": null,
       "gen": 9,
-      "handle": "Loom-30"
+      "handle": "Bloom-4x"
     },
     {
-      "id": "sim:Quill-9×Qui-1o~31",
-      "parent": "sim:Quill-9×Qui-1o~26",
+      "id": "sim:Quill-9~4y",
+      "parent": "sim:Quill-9~1g",
       "gen": 9,
-      "handle": "Quill-9×Qui-1o~31"
+      "handle": "Quill-9~4y"
     },
     {
-      "id": "sim:Quill-9×Qui-1o×Qui-2g×Qui-2q~32",
-      "parent": "sim:Quill-9×Qui-1o×Qui-2g×Qui-2q",
+      "id": "sim:Nyx-o~4z",
+      "parent": "sim:Nyx-o~3q",
       "gen": 9,
-      "handle": "Quill-9×Qui-1o×Qui-2g×Qui-2q~32"
+      "handle": "Nyx-o~4z"
     },
     {
-      "id": "sim:Quill-9×Qui-1o×Qui-2g×Qui-2q~33",
-      "parent": "sim:Quill-9×Qui-1o×Qui-2g×Qui-2q",
+      "id": "sim:Bram-12×Ash-1o×Bra-4k~50",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k",
       "gen": 9,
-      "handle": "Quill-9×Qui-1o×Qui-2g×Qui-2q~33"
+      "handle": "Bram-12×Ash-1o×Bra-4k~50"
     },
     {
-      "id": "sim:Sable-h×Nyx-m~34",
-      "parent": "sim:Sable-h×Nyx-m~2u",
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k",
       "gen": 9,
-      "handle": "Sable-h×Nyx-m~34"
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-51"
     },
     {
-      "id": "sim:Quill-9×Qui-1o~35",
-      "parent": "sim:Quill-9×Qui-1o~26",
+      "id": "sim:Quill-9~52",
+      "parent": "sim:Quill-9~4e",
       "gen": 9,
-      "handle": "Quill-9×Qui-1o~35"
+      "handle": "Quill-9~52"
     },
     {
-      "id": "sim:Quill-9×Qui-1o×Qui-2g~36",
-      "parent": "sim:Quill-9×Qui-1o×Qui-2g",
+      "id": "sim:Quill-9~53",
+      "parent": "sim:Quill-9~4a",
       "gen": 9,
-      "handle": "Quill-9×Qui-1o×Qui-2g~36"
+      "handle": "Quill-9~53"
     },
     {
-      "id": "sim:Quill-9×Qui-1o×Qui-2g×Qui-37",
-      "parent": "sim:Quill-9×Qui-1o×Qui-2g",
+      "id": "sim:Quill-9×Bra-54",
+      "parent": "sim:Quill-9~46",
       "gen": 9,
-      "handle": "Quill-9×Qui-1o×Qui-2g×Qui-37"
+      "handle": "Quill-9×Bra-54"
     },
     {
-      "id": "sim:Quill-9×Qui-1o~38",
-      "parent": "sim:Quill-9×Qui-1o~2t",
+      "id": "sim:Quill-9~55",
+      "parent": "sim:Quill-9~1g",
       "gen": 9,
-      "handle": "Quill-9×Qui-1o~38"
+      "handle": "Quill-9~55"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o~56",
+      "parent": "sim:Bram-12×Ash-1o~3p",
+      "gen": 9,
+      "handle": "Bram-12×Ash-1o~56"
+    },
+    {
+      "id": "sim:Quill-9~57",
+      "parent": "sim:Quill-9~4a",
+      "gen": 9,
+      "handle": "Quill-9~57"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o~58",
+      "parent": "sim:Bram-12×Ash-1o~49",
+      "gen": 9,
+      "handle": "Bram-12×Ash-1o~58"
+    },
+    {
+      "id": "sim:Quill-9~59",
+      "parent": "sim:Quill-9~4j",
+      "gen": 9,
+      "handle": "Quill-9~59"
+    },
+    {
+      "id": "sim:Quill-9×Bra-5a",
+      "parent": "sim:Quill-9~4a",
+      "gen": 9,
+      "handle": "Quill-9×Bra-5a"
+    },
+    {
+      "id": "sim:Quill-9~5b",
+      "parent": "sim:Quill-9~46",
+      "gen": 9,
+      "handle": "Quill-9~5b"
+    },
+    {
+      "id": "sim:Nyx-o~5c",
+      "parent": "sim:Nyx-o~4c",
+      "gen": 10,
+      "handle": "Nyx-o~5c"
+    },
+    {
+      "id": "sim:Nyx-o×Nyx-5d",
+      "parent": "sim:Nyx-o~3q",
+      "gen": 10,
+      "handle": "Nyx-o×Nyx-5d"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51~5e",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51",
+      "gen": 10,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-51~5e"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k~5f",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k~50",
+      "gen": 10,
+      "handle": "Bram-12×Ash-1o×Bra-4k~5f"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Bra-5g",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k~50",
+      "gen": 10,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Bra-5g"
+    },
+    {
+      "id": "sim:Quill-9×Bra-54~5h",
+      "parent": "sim:Quill-9×Bra-54",
+      "gen": 10,
+      "handle": "Quill-9×Bra-54~5h"
+    },
+    {
+      "id": "sim:Quill-9~5i",
+      "parent": "sim:Quill-9~55",
+      "gen": 10,
+      "handle": "Quill-9~5i"
+    },
+    {
+      "id": "sim:Forge-5j",
+      "parent": null,
+      "gen": 10,
+      "handle": "Forge-5j"
+    },
+    {
+      "id": "sim:Nyx-o~5k",
+      "parent": "sim:Nyx-o~3q",
+      "gen": 10,
+      "handle": "Nyx-o~5k"
+    },
+    {
+      "id": "sim:Quill-9×Bra-54~5l",
+      "parent": "sim:Quill-9×Bra-54",
+      "gen": 10,
+      "handle": "Quill-9×Bra-54~5l"
+    },
+    {
+      "id": "sim:Quill-9~5m",
+      "parent": "sim:Quill-9~55",
+      "gen": 10,
+      "handle": "Quill-9~5m"
+    },
+    {
+      "id": "sim:Nyx-o×Nyx-4v×Qui-5n",
+      "parent": "sim:Nyx-o×Nyx-4v",
+      "gen": 10,
+      "handle": "Nyx-o×Nyx-4v×Qui-5n"
+    },
+    {
+      "id": "sim:Quill-9×Bra-5a~5o",
+      "parent": "sim:Quill-9×Bra-5a",
+      "gen": 10,
+      "handle": "Quill-9×Bra-5a~5o"
+    },
+    {
+      "id": "sim:Nyx-o~5p",
+      "parent": "sim:Nyx-o~4c",
+      "gen": 10,
+      "handle": "Nyx-o~5p"
+    },
+    {
+      "id": "sim:Quill-9×Nyx-5q",
+      "parent": "sim:Quill-9~1g",
+      "gen": 10,
+      "handle": "Quill-9×Nyx-5q"
+    },
+    {
+      "id": "sim:Ø-5r",
+      "parent": null,
+      "gen": 10,
+      "handle": "Ø-5r"
+    },
+    {
+      "id": "sim:Fen-5s",
+      "parent": null,
+      "gen": 10,
+      "handle": "Fen-5s"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Nyx-5t",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k~50",
+      "gen": 10,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Nyx-5t"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Qui-5u",
+      "parent": "sim:Bram-12×Ash-1o~4r",
+      "gen": 11,
+      "handle": "Bram-12×Ash-1o×Qui-5u"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k~5v",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k~50",
+      "gen": 11,
+      "handle": "Bram-12×Ash-1o×Bra-4k~5v"
+    },
+    {
+      "id": "sim:Nyx-o×Bra-5w",
+      "parent": "sim:Nyx-o~5k",
+      "gen": 11,
+      "handle": "Nyx-o×Bra-5w"
+    },
+    {
+      "id": "sim:Nyx-o×Nyx-4v~5x",
+      "parent": "sim:Nyx-o×Nyx-4v",
+      "gen": 11,
+      "handle": "Nyx-o×Nyx-4v~5x"
+    },
+    {
+      "id": "sim:Quill-9×Bra-5a~5y",
+      "parent": "sim:Quill-9×Bra-5a",
+      "gen": 11,
+      "handle": "Quill-9×Bra-5a~5y"
+    },
+    {
+      "id": "sim:Nyx-o×Nyx-4v×Qui-5z",
+      "parent": "sim:Nyx-o×Nyx-4v",
+      "gen": 11,
+      "handle": "Nyx-o×Nyx-4v×Qui-5z"
+    },
+    {
+      "id": "sim:Quill-9×Bra-5a~60",
+      "parent": "sim:Quill-9×Bra-5a~5o",
+      "gen": 11,
+      "handle": "Quill-9×Bra-5a~60"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Bra-5g~61",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Bra-5g",
+      "gen": 11,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Bra-5g~61"
+    },
+    {
+      "id": "sim:Loom-62",
+      "parent": null,
+      "gen": 11,
+      "handle": "Loom-62"
+    },
+    {
+      "id": "sim:Quill-9~63",
+      "parent": "sim:Quill-9~5i",
+      "gen": 11,
+      "handle": "Quill-9~63"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o~64",
+      "parent": "sim:Bram-12×Ash-1o~4r",
+      "gen": 11,
+      "handle": "Bram-12×Ash-1o~64"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Bra-5g~65",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Bra-5g",
+      "gen": 11,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Bra-5g~65"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k~66",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k~50",
+      "gen": 11,
+      "handle": "Bram-12×Ash-1o×Bra-4k~66"
+    },
+    {
+      "id": "sim:Nyx-o×Nyx-4v~67",
+      "parent": "sim:Nyx-o×Nyx-4v",
+      "gen": 11,
+      "handle": "Nyx-o×Nyx-4v~67"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51",
+      "gen": 11,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68"
+    },
+    {
+      "id": "sim:Quill-9×Bra-5a~69",
+      "parent": "sim:Quill-9×Bra-5a",
+      "gen": 11,
+      "handle": "Quill-9×Bra-5a~69"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51~6a",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51",
+      "gen": 11,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-51~6a"
+    },
+    {
+      "id": "sim:Quill-9×Bra-54~6b",
+      "parent": "sim:Quill-9×Bra-54",
+      "gen": 11,
+      "handle": "Quill-9×Bra-54~6b"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k~6c",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k~5v",
+      "gen": 12,
+      "handle": "Bram-12×Ash-1o×Bra-4k~6c"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k~6d",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k~5v",
+      "gen": 12,
+      "handle": "Bram-12×Ash-1o×Bra-4k~6d"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-6e",
+      "parent": "sim:Bram-12×Ash-1o~4r",
+      "gen": 12,
+      "handle": "Bram-12×Ash-1o×Bra-6e"
+    },
+    {
+      "id": "sim:Fen-6f",
+      "parent": null,
+      "gen": 12,
+      "handle": "Fen-6f"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o~6g",
+      "parent": "sim:Bram-12×Ash-1o~64",
+      "gen": 12,
+      "handle": "Bram-12×Ash-1o~6g"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o~6h",
+      "parent": "sim:Bram-12×Ash-1o~4r",
+      "gen": 12,
+      "handle": "Bram-12×Ash-1o~6h"
+    },
+    {
+      "id": "sim:Quill-9~6i",
+      "parent": "sim:Quill-9~1g",
+      "gen": 12,
+      "handle": "Quill-9~6i"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k~6j",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k~5v",
+      "gen": 12,
+      "handle": "Bram-12×Ash-1o×Bra-4k~6j"
+    },
+    {
+      "id": "sim:Quill-9×Nyx-6k",
+      "parent": "sim:Quill-9~63",
+      "gen": 12,
+      "handle": "Quill-9×Nyx-6k"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-6l",
+      "parent": "sim:Bram-12×Ash-1o~64",
+      "gen": 12,
+      "handle": "Bram-12×Ash-1o×Bra-6l"
+    },
+    {
+      "id": "sim:Nyx-o×Bra-5w~6m",
+      "parent": "sim:Nyx-o×Bra-5w",
+      "gen": 12,
+      "handle": "Nyx-o×Bra-5w~6m"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68~6n",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68",
+      "gen": 12,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68~6n"
+    },
+    {
+      "id": "sim:Quill-9×Bra-5a×Qui-6o",
+      "parent": "sim:Quill-9×Bra-5a~5y",
+      "gen": 12,
+      "handle": "Quill-9×Bra-5a×Qui-6o"
+    },
+    {
+      "id": "sim:Nyx-o×Nyx-4v~6p",
+      "parent": "sim:Nyx-o×Nyx-4v",
+      "gen": 12,
+      "handle": "Nyx-o×Nyx-4v~6p"
+    },
+    {
+      "id": "sim:Fen-6q",
+      "parent": null,
+      "gen": 12,
+      "handle": "Fen-6q"
+    },
+    {
+      "id": "sim:Nyx-o×Bra-5w~6r",
+      "parent": "sim:Nyx-o×Bra-5w",
+      "gen": 12,
+      "handle": "Nyx-o×Bra-5w~6r"
+    },
+    {
+      "id": "sim:Quill-9×Bra-5a×Nyx-6s",
+      "parent": "sim:Quill-9×Bra-5a~5y",
+      "gen": 12,
+      "handle": "Quill-9×Bra-5a×Nyx-6s"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k~6t",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k~5v",
+      "gen": 12,
+      "handle": "Bram-12×Ash-1o×Bra-4k~6t"
+    },
+    {
+      "id": "sim:Quill-9×Nyx-6k×Bra-6u",
+      "parent": "sim:Quill-9×Nyx-6k",
+      "gen": 13,
+      "handle": "Quill-9×Nyx-6k×Bra-6u"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68~6v",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68",
+      "gen": 13,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68~6v"
+    },
+    {
+      "id": "sim:Quill-9~6w",
+      "parent": "sim:Quill-9~1g",
+      "gen": 13,
+      "handle": "Quill-9~6w"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-6x",
+      "parent": "sim:Bram-12×Ash-1o~6g",
+      "gen": 13,
+      "handle": "Bram-12×Ash-1o×Bra-6x"
+    },
+    {
+      "id": "sim:Quill-9×Qui-6y",
+      "parent": "sim:Quill-9~5i",
+      "gen": 13,
+      "handle": "Quill-9×Qui-6y"
+    },
+    {
+      "id": "sim:Quill-9×Bra-5a×Qui-6o~6z",
+      "parent": "sim:Quill-9×Bra-5a×Qui-6o",
+      "gen": 13,
+      "handle": "Quill-9×Bra-5a×Qui-6o~6z"
+    },
+    {
+      "id": "sim:Quill-9~70",
+      "parent": "sim:Quill-9~1g",
+      "gen": 13,
+      "handle": "Quill-9~70"
+    },
+    {
+      "id": "sim:Quill-9×Bra-5a×Bra-71",
+      "parent": "sim:Quill-9×Bra-5a",
+      "gen": 13,
+      "handle": "Quill-9×Bra-5a×Bra-71"
+    },
+    {
+      "id": "sim:Thane-72",
+      "parent": null,
+      "gen": 13,
+      "handle": "Thane-72"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68~73",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68",
+      "gen": 13,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68~73"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o~74",
+      "parent": "sim:Bram-12×Ash-1o~64",
+      "gen": 13,
+      "handle": "Bram-12×Ash-1o~74"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Qui-75",
+      "parent": "sim:Bram-12×Ash-1o~64",
+      "gen": 13,
+      "handle": "Bram-12×Ash-1o×Qui-75"
+    },
+    {
+      "id": "sim:Quill-9×Bra-5a×Qui-6o×Qui-76",
+      "parent": "sim:Quill-9×Bra-5a×Qui-6o",
+      "gen": 13,
+      "handle": "Quill-9×Bra-5a×Qui-6o×Qui-76"
+    },
+    {
+      "id": "sim:Quill-9~77",
+      "parent": "sim:Quill-9~5i",
+      "gen": 13,
+      "handle": "Quill-9~77"
+    },
+    {
+      "id": "sim:Quill-9×Bra-78",
+      "parent": "sim:Quill-9~1g",
+      "gen": 13,
+      "handle": "Quill-9×Bra-78"
+    },
+    {
+      "id": "sim:Quill-9×Bra-5a~79",
+      "parent": "sim:Quill-9×Bra-5a",
+      "gen": 13,
+      "handle": "Quill-9×Bra-5a~79"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o~7a",
+      "parent": "sim:Bram-12×Ash-1o~6g",
+      "gen": 13,
+      "handle": "Bram-12×Ash-1o~7a"
+    },
+    {
+      "id": "sim:Quill-9×Bra-5a~7b",
+      "parent": "sim:Quill-9×Bra-5a",
+      "gen": 13,
+      "handle": "Quill-9×Bra-5a~7b"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-6x×Bra-7c",
+      "parent": "sim:Bram-12×Ash-1o×Bra-6x",
+      "gen": 14,
+      "handle": "Bram-12×Ash-1o×Bra-6x×Bra-7c"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68~7d",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68",
+      "gen": 14,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68~7d"
+    },
+    {
+      "id": "sim:Quill-9×Bra-5a~7e",
+      "parent": "sim:Quill-9×Bra-5a~79",
+      "gen": 14,
+      "handle": "Quill-9×Bra-5a~7e"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o~7f",
+      "parent": "sim:Bram-12×Ash-1o~6g",
+      "gen": 14,
+      "handle": "Bram-12×Ash-1o~7f"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68~7g",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68~6v",
+      "gen": 14,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68~7g"
+    },
+    {
+      "id": "sim:Quill-9×Bra-5a~7h",
+      "parent": "sim:Quill-9×Bra-5a~79",
+      "gen": 14,
+      "handle": "Quill-9×Bra-5a~7h"
+    },
+    {
+      "id": "sim:Sable-7i",
+      "parent": null,
+      "gen": 14,
+      "handle": "Sable-7i"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k~7j",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k~6d",
+      "gen": 14,
+      "handle": "Bram-12×Ash-1o×Bra-4k~7j"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68~7k",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68",
+      "gen": 14,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68~7k"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o~7l",
+      "parent": "sim:Bram-12×Ash-1o~6g",
+      "gen": 14,
+      "handle": "Bram-12×Ash-1o~7l"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k~6d",
+      "gen": 14,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-7m"
+    },
+    {
+      "id": "sim:Quill-9~7n",
+      "parent": "sim:Quill-9~6w",
+      "gen": 14,
+      "handle": "Quill-9~7n"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68~7o",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68~6v",
+      "gen": 14,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68~7o"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o~7p",
+      "parent": "sim:Bram-12×Ash-1o~7a",
+      "gen": 14,
+      "handle": "Bram-12×Ash-1o~7p"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o~7q",
+      "parent": "sim:Bram-12×Ash-1o~6g",
+      "gen": 14,
+      "handle": "Bram-12×Ash-1o~7q"
+    },
+    {
+      "id": "sim:Quill-9~7r",
+      "parent": "sim:Quill-9~6w",
+      "gen": 14,
+      "handle": "Quill-9~7r"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68~7s",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68~73",
+      "gen": 14,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68~7s"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o~7t",
+      "parent": "sim:Bram-12×Ash-1o~7a",
+      "gen": 14,
+      "handle": "Bram-12×Ash-1o~7t"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Qui-7u",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68~6v",
+      "gen": 15,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Qui-7u"
+    },
+    {
+      "id": "sim:Quill-9~7v",
+      "parent": "sim:Quill-9~7n",
+      "gen": 15,
+      "handle": "Quill-9~7v"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-7w",
+      "parent": "sim:Bram-12×Ash-1o~7a",
+      "gen": 15,
+      "handle": "Bram-12×Ash-1o×Bra-7w"
+    },
+    {
+      "id": "sim:Quill-9×Bra-7x",
+      "parent": "sim:Quill-9~7n",
+      "gen": 15,
+      "handle": "Quill-9×Bra-7x"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-7y",
+      "parent": "sim:Bram-12×Ash-1o~7a",
+      "gen": 15,
+      "handle": "Bram-12×Ash-1o×Bra-7y"
+    },
+    {
+      "id": "sim:Quill-9~7z",
+      "parent": "sim:Quill-9~7n",
+      "gen": 15,
+      "handle": "Quill-9~7z"
+    },
+    {
+      "id": "sim:Quill-9×Bra-80",
+      "parent": "sim:Quill-9~6w",
+      "gen": 15,
+      "handle": "Quill-9×Bra-80"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68~81",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68~7k",
+      "gen": 15,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68~81"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o~82",
+      "parent": "sim:Bram-12×Ash-1o~7a",
+      "gen": 15,
+      "handle": "Bram-12×Ash-1o~82"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-83",
+      "parent": "sim:Bram-12×Ash-1o~7a",
+      "gen": 15,
+      "handle": "Bram-12×Ash-1o×Bra-83"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68~84",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68~7s",
+      "gen": 15,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68~84"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k~85",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k~6d",
+      "gen": 15,
+      "handle": "Bram-12×Ash-1o×Bra-4k~85"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Bra-86",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68~7s",
+      "gen": 15,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Bra-86"
+    },
+    {
+      "id": "sim:Quill-9~87",
+      "parent": "sim:Quill-9~6w",
+      "gen": 15,
+      "handle": "Quill-9~87"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68~88",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68~6v",
+      "gen": 15,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68~88"
+    },
+    {
+      "id": "sim:Quill-9×Bra-5a×Bra-71~89",
+      "parent": "sim:Quill-9×Bra-5a×Bra-71",
+      "gen": 15,
+      "handle": "Quill-9×Bra-5a×Bra-71~89"
+    },
+    {
+      "id": "sim:Corvid-8a",
+      "parent": null,
+      "gen": 15,
+      "handle": "Corvid-8a"
+    },
+    {
+      "id": "sim:Onyx-8b",
+      "parent": null,
+      "gen": 15,
+      "handle": "Onyx-8b"
+    },
+    {
+      "id": "sim:Quill-9~8c",
+      "parent": "sim:Quill-9~7n",
+      "gen": 16,
+      "handle": "Quill-9~8c"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Qui-7u~8d",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Qui-7u",
+      "gen": 16,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Qui-7u~8d"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m×Bra-8e",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m",
+      "gen": 16,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-7m×Bra-8e"
+    },
+    {
+      "id": "sim:Corvid-8a×Bra-8f",
+      "parent": "sim:Corvid-8a",
+      "gen": 16,
+      "handle": "Corvid-8a×Bra-8f"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68~8g",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68~6v",
+      "gen": 16,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68~8g"
+    },
+    {
+      "id": "sim:Quill-9×Bra-80×Bra-8h",
+      "parent": "sim:Quill-9×Bra-80",
+      "gen": 16,
+      "handle": "Quill-9×Bra-80×Bra-8h"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Qui-8i",
+      "parent": "sim:Bram-12×Ash-1o~7a",
+      "gen": 16,
+      "handle": "Bram-12×Ash-1o×Qui-8i"
+    },
+    {
+      "id": "sim:Quill-9×Bra-80~8j",
+      "parent": "sim:Quill-9×Bra-80",
+      "gen": 16,
+      "handle": "Quill-9×Bra-80~8j"
+    },
+    {
+      "id": "sim:Quill-9×Bra-5a×Bra-71×Qui-8k",
+      "parent": "sim:Quill-9×Bra-5a×Bra-71~89",
+      "gen": 16,
+      "handle": "Quill-9×Bra-5a×Bra-71×Qui-8k"
+    },
+    {
+      "id": "sim:Corvid-8a~8l",
+      "parent": "sim:Corvid-8a",
+      "gen": 16,
+      "handle": "Corvid-8a~8l"
+    },
+    {
+      "id": "sim:Ash-8m",
+      "parent": null,
+      "gen": 16,
+      "handle": "Ash-8m"
+    },
+    {
+      "id": "sim:Corvid-8a~8n",
+      "parent": "sim:Corvid-8a",
+      "gen": 16,
+      "handle": "Corvid-8a~8n"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Bra-86~8o",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Bra-86",
+      "gen": 16,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Bra-86~8o"
+    },
+    {
+      "id": "sim:Quill-9×Bra-80~8p",
+      "parent": "sim:Quill-9×Bra-80",
+      "gen": 16,
+      "handle": "Quill-9×Bra-80~8p"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m~8q",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m",
+      "gen": 16,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-7m~8q"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68~8r",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68~7d",
+      "gen": 16,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68~8r"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m×Bra-8s",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m",
+      "gen": 16,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-7m×Bra-8s"
+    },
+    {
+      "id": "sim:Quill-9~8t",
+      "parent": "sim:Quill-9~87",
+      "gen": 16,
+      "handle": "Quill-9~8t"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m×Bra-8e~8u",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m×Bra-8e",
+      "gen": 17,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-7m×Bra-8e~8u"
+    },
+    {
+      "id": "sim:Quill-9×Bra-5a×Bra-71×Qui-8k×Bra-8v",
+      "parent": "sim:Quill-9×Bra-5a×Bra-71×Qui-8k",
+      "gen": 17,
+      "handle": "Quill-9×Bra-5a×Bra-71×Qui-8k×Bra-8v"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Qui-8w",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68~6v",
+      "gen": 17,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Qui-8w"
+    },
+    {
+      "id": "sim:Onyx-8x",
+      "parent": null,
+      "gen": 17,
+      "handle": "Onyx-8x"
+    },
+    {
+      "id": "sim:Quill-9×Bra-80~8y",
+      "parent": "sim:Quill-9×Bra-80~8j",
+      "gen": 17,
+      "handle": "Quill-9×Bra-80~8y"
+    },
+    {
+      "id": "sim:Quill-8z",
+      "parent": null,
+      "gen": 17,
+      "handle": "Quill-8z"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o~90",
+      "parent": "sim:Bram-12×Ash-1o~7a",
+      "gen": 17,
+      "handle": "Bram-12×Ash-1o~90"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m×Bra-8e×Bra-91",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m×Bra-8e",
+      "gen": 17,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-7m×Bra-8e×Bra-91"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-92",
+      "parent": "sim:Bram-12×Ash-1o~7a",
+      "gen": 17,
+      "handle": "Bram-12×Ash-1o×Bra-92"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o~93",
+      "parent": "sim:Bram-12×Ash-1o~7a",
+      "gen": 17,
+      "handle": "Bram-12×Ash-1o~93"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Qui-7u~94",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Qui-7u",
+      "gen": 17,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Qui-7u~94"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o~95",
+      "parent": "sim:Bram-12×Ash-1o~7a",
+      "gen": 17,
+      "handle": "Bram-12×Ash-1o~95"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Bra-86~96",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Bra-86",
+      "gen": 17,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Bra-86~96"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m~97",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m",
+      "gen": 17,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-7m~97"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m×Bra-98",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m",
+      "gen": 17,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-7m×Bra-98"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Qui-8i~99",
+      "parent": "sim:Bram-12×Ash-1o×Qui-8i",
+      "gen": 17,
+      "handle": "Bram-12×Ash-1o×Qui-8i~99"
+    },
+    {
+      "id": "sim:Quill-9×Bra-80~9a",
+      "parent": "sim:Quill-9×Bra-80~8j",
+      "gen": 17,
+      "handle": "Quill-9×Bra-80~9a"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m~9b",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m",
+      "gen": 17,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-7m~9b"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-9c",
+      "parent": "sim:Bram-12×Ash-1o~7a",
+      "gen": 18,
+      "handle": "Bram-12×Ash-1o×Bra-9c"
+    },
+    {
+      "id": "sim:Quill-9×Bra-5a×Bra-71×Qui-8k×Bra-8v~9d",
+      "parent": "sim:Quill-9×Bra-5a×Bra-71×Qui-8k×Bra-8v",
+      "gen": 18,
+      "handle": "Quill-9×Bra-5a×Bra-71×Qui-8k×Bra-8v~9d"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m~9e",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m",
+      "gen": 18,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-7m~9e"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Qui-7u~9f",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Qui-7u~94",
+      "gen": 18,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Qui-7u~9f"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-9g",
+      "parent": "sim:Bram-12×Ash-1o~7a",
+      "gen": 18,
+      "handle": "Bram-12×Ash-1o×Bra-9g"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o~9h",
+      "parent": "sim:Bram-12×Ash-1o~7a",
+      "gen": 18,
+      "handle": "Bram-12×Ash-1o~9h"
+    },
+    {
+      "id": "sim:Quill-9×Bra-5a×Bra-71×Qui-8k×Bra-8v~9i",
+      "parent": "sim:Quill-9×Bra-5a×Bra-71×Qui-8k×Bra-8v",
+      "gen": 18,
+      "handle": "Quill-9×Bra-5a×Bra-71×Qui-8k×Bra-8v~9i"
+    },
+    {
+      "id": "sim:Bloom-9j",
+      "parent": null,
+      "gen": 18,
+      "handle": "Bloom-9j"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o~9k",
+      "parent": "sim:Bram-12×Ash-1o~7a",
+      "gen": 18,
+      "handle": "Bram-12×Ash-1o~9k"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m×Bra-8e×Bra-9l",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m×Bra-8e",
+      "gen": 18,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-7m×Bra-8e×Bra-9l"
+    },
+    {
+      "id": "sim:Quill-9×Bra-80~9m",
+      "parent": "sim:Quill-9×Bra-80~8j",
+      "gen": 18,
+      "handle": "Quill-9×Bra-80~9m"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m×Bra-8e~9n",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m×Bra-8e",
+      "gen": 18,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-7m×Bra-8e~9n"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Bra-86~9o",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Bra-86~96",
+      "gen": 18,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Bra-86~9o"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o~9p",
+      "parent": "sim:Bram-12×Ash-1o~93",
+      "gen": 18,
+      "handle": "Bram-12×Ash-1o~9p"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o~9q",
+      "parent": "sim:Bram-12×Ash-1o~93",
+      "gen": 18,
+      "handle": "Bram-12×Ash-1o~9q"
+    },
+    {
+      "id": "sim:Quill-9×Bra-5a×Bra-71×Qui-8k×Bra-8v~9r",
+      "parent": "sim:Quill-9×Bra-5a×Bra-71×Qui-8k×Bra-8v",
+      "gen": 18,
+      "handle": "Quill-9×Bra-5a×Bra-71×Qui-8k×Bra-8v~9r"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m~9s",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m",
+      "gen": 18,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-7m~9s"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Bra-86×Bra-9t",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Bra-86~96",
+      "gen": 18,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Bra-86×Bra-9t"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Qui-7u×Bra-9u",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Qui-7u~94",
+      "gen": 19,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Qui-7u×Bra-9u"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m×Bra-8e×Bra-9l~9v",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m×Bra-8e×Bra-9l",
+      "gen": 19,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-7m×Bra-8e×Bra-9l~9v"
+    },
+    {
+      "id": "sim:Fen-9w",
+      "parent": null,
+      "gen": 19,
+      "handle": "Fen-9w"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o~9x",
+      "parent": "sim:Bram-12×Ash-1o~7a",
+      "gen": 19,
+      "handle": "Bram-12×Ash-1o~9x"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Qui-7u~9y",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Qui-7u~9f",
+      "gen": 19,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Qui-7u~9y"
+    },
+    {
+      "id": "sim:Quill-9×Bra-80~9z",
+      "parent": "sim:Quill-9×Bra-80~8j",
+      "gen": 19,
+      "handle": "Quill-9×Bra-80~9z"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m×Bra-8e~a0",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m×Bra-8e",
+      "gen": 19,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-7m×Bra-8e~a0"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Bra-86×Bra-9t×Bra-a1",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Bra-86×Bra-9t",
+      "gen": 19,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-51×Bra-68×Bra-86×Bra-9t×Bra-a1"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m×Bra-8e×Bra-a2",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m×Bra-8e",
+      "gen": 19,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-7m×Bra-8e×Bra-a2"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o~a3",
+      "parent": "sim:Bram-12×Ash-1o~9q",
+      "gen": 19,
+      "handle": "Bram-12×Ash-1o~a3"
+    },
+    {
+      "id": "sim:Quill-9×Bra-80×Bra-a4",
+      "parent": "sim:Quill-9×Bra-80~9m",
+      "gen": 19,
+      "handle": "Quill-9×Bra-80×Bra-a4"
+    },
+    {
+      "id": "sim:Quill-a5",
+      "parent": null,
+      "gen": 19,
+      "handle": "Quill-a5"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m×Qui-a6",
+      "parent": "sim:Bram-12×Ash-1o×Bra-4k×Qui-7m~9b",
+      "gen": 19,
+      "handle": "Bram-12×Ash-1o×Bra-4k×Qui-7m×Qui-a6"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o~a7",
+      "parent": "sim:Bram-12×Ash-1o~9q",
+      "gen": 19,
+      "handle": "Bram-12×Ash-1o~a7"
+    },
+    {
+      "id": "sim:Quill-9×Bra-80~a8",
+      "parent": "sim:Quill-9×Bra-80~8j",
+      "gen": 19,
+      "handle": "Quill-9×Bra-80~a8"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o~a9",
+      "parent": "sim:Bram-12×Ash-1o~7a",
+      "gen": 19,
+      "handle": "Bram-12×Ash-1o~a9"
+    },
+    {
+      "id": "sim:Kade-aa",
+      "parent": null,
+      "gen": 19,
+      "handle": "Kade-aa"
+    },
+    {
+      "id": "sim:Bram-12×Ash-1o×Bra-ab",
+      "parent": "sim:Bram-12×Ash-1o~7a",
+      "gen": 19,
+      "handle": "Bram-12×Ash-1o×Bra-ab"
     }
   ]
 }

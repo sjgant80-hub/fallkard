@@ -26,5 +26,42 @@
     "wellness": 3,
     "surface": 13
   },
-  "skipped": []
+  "skipped": [
+    {
+      "id": "acg-assessor",
+      "reason": "private-slug"
+    },
+    {
+      "id": "konomigami-lib",
+      "reason": "private-slug"
+    },
+    {
+      "id": "acg-mapper",
+      "reason": "private-slug"
+    },
+    {
+      "id": "konomi-signer",
+      "reason": "private-slug"
+    },
+    {
+      "id": "si-didy-cascade",
+      "reason": "private-slug"
+    },
+    {
+      "id": "si-didy-stance",
+      "reason": "private-slug"
+    },
+    {
+      "id": "si-didy-memory",
+      "reason": "private-slug"
+    },
+    {
+      "id": "si-didy-signer",
+      "reason": "private-slug"
+    },
+    {
+      "id": "si-didy-close",
+      "reason": "private-slug"
+    }
+  ]
 }

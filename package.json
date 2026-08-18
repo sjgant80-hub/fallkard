@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "description": "Deterministic card-database generator and headless battle-simulation engine for the FallKard browser game.",
   "type": "module",
-  "main": "build.mjs",
+  "main": "./kernel.mjs",
   "scripts": {
-    "test": "node test.mjs"
+    "test": "node --test",
+    "build": "node scripts/build.mjs"
   },
   "author": "AI-Native Solutions",
   "license": "MIT"
