@@ -125,6 +125,7 @@ a { color: var(--brass); text-decoration: none; }
 .log-line.enemy b { color: var(--rose); }
 .log-line.system { color: var(--brass); font-style: italic; }
 .log-line.reward { color: var(--sage); font-weight: 700; }
+.log-line.help { color: var(--gold); border-left: 2px solid var(--gold); padding-left: 6px; }
 .end-turn-btn { padding: 14px; font-family: 'DM Mono', monospace; font-size: 14px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--void); background: var(--gold); border-radius: 5px; font-weight: 700; cursor: pointer; transition: all 0.15s; }
 .end-turn-btn:hover { background: var(--amber); }
 .end-turn-btn:disabled { background: var(--dim); color: var(--muted); cursor: not-allowed; }
@@ -326,6 +327,8 @@ const STATE = {
   match: null,
   selectedHandUuid: null,
   attackerUuid: null,
+  hintedPlace: false,
+  hintedAttack: false,
   db: null,
   inventory: null,
   currentBoss: null
@@ -386,6 +389,7 @@ async function load() {
   // Resolve boss from URL or default to Slack Fiend
   const bossId = new URLSearchParams(location.search).get('boss') || 'slack-fiend';
   STATE.currentBoss = (window.BOSSES || []).find(b => b.id === bossId) || (window.BOSSES || []).find(b => b.id === 'slack-fiend');
+  if (STATE.currentBoss) document.title = 'FallKard · the Duel · vs ' + STATE.currentBoss.name;
   applyBossToPreMatch();
   await populateDeckPicker();
 }
@@ -570,6 +574,10 @@ function newMatch(playerDeckMap) {
   logLine('system', `The Duel begins. ${bossName} rises to meet you.`);
   logLine('system', 'Turn 1 · your move.');
   startTurn(player);
+  logLine('help', `<b>HOW TO PLAY</b> — ① Click a bright card in your hand. ② Click a gold empty slot: <b>FRONT fights, BACK is protected</b> (back cannot attack). ③ Minions are ready the turn AFTER they arrive — a ready front minion glows: click it, then click an enemy front minion, or the boss when its front row is empty. Your mana crystals refill and grow by 1 each turn. Bring the boss to 0.`);
+  if (player.hand.every(c => c.currentCost > player.mana)) {
+    logLine('help', `Turn 1: you have 1 mana and nothing in hand costs 1 — press <b>End Turn</b> and your mana grows. This is normal.`);
+  }
   render();
 }
 
@@ -644,6 +652,10 @@ function startTurn(p) {
   drawCard(p);
   // At the start of your turn, all your minions can attack (they've been on board through at least one enemy turn)
   p.board.forEach(m => { if (m) { m.canAttack = true; m.justPlayed = false; } });
+  if (!p.isEnemy && !STATE.hintedAttack && [3,4,5].some(i => p.board[i])) {
+    STATE.hintedAttack = true;
+    logLine('help', `Your front minion is <b>ready</b> — click it, then click an enemy front minion, or the boss if its front row is empty.`);
+  }
   // Marketplace: every 3rd card drawn draws 1 (fires on hand refresh) — simple version below in playCard
   // Boss ability: Notification Cascade from turn 5 draws +1
   if (p.isEnemy && STATE.match.turn >= 5) {
@@ -741,7 +753,7 @@ function playCard(p, cardUuid, slot) {
     drawCard(p);
     logLine(p.isEnemy?'enemy':'', `<b>${card.name}</b> · Marketplace · draw 1`);
   }
-  logLine(p.isEnemy?'enemy':'', `<b>${p.name}</b> plays <b>${card.name}</b>${card.runeword ? ' <span style="color:var(--gold)">◊ '+card.runeword+'</span>' : ''} ${slot >= 3 ? 'front' : 'back'} lane`);
+  logLine(p.isEnemy?'enemy':'', `<b>${p.name}</b> ${p.isEnemy ? 'plays' : 'play'} <b>${card.name}</b>${card.runeword ? ' <span style="color:var(--gold)">◊ '+card.runeword+'</span>' : ''} ${slot >= 3 ? 'front' : 'back'} lane`);
   // Rune on-play effects
   if ((card.keywords||[]).includes('ManaOnPlay')) {
     p.mana = Math.min(p.manaMax + 1, p.mana + 1);
@@ -809,9 +821,16 @@ function selectHandCard(uuid) {
   if (!card) return;
   let cost = card.currentCost;
   if ((card.keywords||[]).includes('Trade') && m.playedLastTurn.player) cost = Math.max(0, cost - 1);
-  if (cost > m.player.mana) return;
+  if (cost > m.player.mana) {
+    logLine('help', `Not enough mana — <b>${esc(card.name)}</b> costs ${cost}, you have ${m.player.mana}. End the turn and your mana grows.`);
+    return;
+  }
   STATE.selectedHandUuid = uuid;
   STATE.attackerUuid = null;
+  if (!STATE.hintedPlace) {
+    STATE.hintedPlace = true;
+    logLine('help', `Now click a gold empty slot — <b>FRONT</b> to fight, <b>BACK</b> to shelter.`);
+  }
   render();
 }
 
@@ -844,7 +863,7 @@ function attackTarget(kind, targetSlot) {
   if (!attacker) return;
   const enemyFrontHas = [3,4,5].some(i => m.enemy.board[i]);
   if (kind === 'hero') {
-    if (enemyFrontHas) return; // must attack front minion first
+    if (enemyFrontHas) { logLine('help', `The boss is <b>guarded</b> — clear its FRONT row first.`); return; }
     damageHero(m.enemy, attacker.currentAtk, attacker, m.player);
     attacker.canAttack = false;
     STATE.attackerUuid = null;
@@ -946,14 +965,17 @@ function renderLanes(id, arr, isEnemy, row) {
     let minionHtml = '';
     if (minion) {
       let mClass = 'minion rar-' + minion.rarity;
-      if (!isEnemy && minion.canAttack) mClass += ' can-attack';
+      if (!isEnemy && minion.canAttack && row === 'front') mClass += ' can-attack';
       if (!isEnemy && STATE.attackerUuid === minion.uuid) mClass += ' attacking';
       if ((minion.keywords||[]).includes('Sealed') && !minion.sealedUsed) mClass += ' sealed';
       let minionClick = '';
       if (!isEnemy && row === 'front' && minion.canAttack && STATE.match.activeSide === 'player') {
         minionClick = `onclick="event.stopPropagation();selectAttacker('${minion.uuid}')"`;
       }
-      minionHtml = `<div class="${mClass}" ${minionClick} title="${esc(minion.name)}">${svgFor(minion)}</div>`;
+      const minionTitle = (!isEnemy && row === 'back')
+        ? `${minion.name} · back row: protected, cannot attack`
+        : minion.name;
+      minionHtml = `<div class="${mClass}" ${minionClick} title="${esc(minionTitle)}">${svgFor(minion)}</div>`;
     }
     html += `<div class="${laneClass}" ${clickHandler}><div class="lane-label">${row}·${i}</div>${minionHtml}</div>`;
   });

@@ -127,7 +127,7 @@ window.matchRuneword = function(runes) {
 // ────────── Inventory helper · single source
 window.openInventoryDB = function() {
   return new Promise((res, rej) => {
-    const req = indexedDB.open('fallkard', 1);
+    const req = indexedDB.open('fallkard', 2);  // must match every page: a helper one version behind kills whole pages with VersionError
     req.onerror = () => rej(req.error);
     req.onupgradeneeded = () => {
       const db = req.result;
